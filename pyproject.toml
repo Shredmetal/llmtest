@@ -7,11 +7,16 @@ dependencies = [
     "langchain>=0.3.0",
     "langchain-openai>=0.0.2",
     "openai>=1.0.0",
-    "python-dotenv>=1.0.0"
+    "python-dotenv>=1.0.0",
+    "pytest>=7.0.0"
 ]
 
 [project.optional-dependencies]
-test = ["pytest"]
+dev = [
+    "pytest-cov",
+    "black",
+    "flake8"
+]
 
 [build-system]
 requires = ["setuptools"]
