@@ -111,7 +111,7 @@ asserter = SemanticAssertion(model="gpt-4", # default
 
 ## Contributing
 
-This is an early-stage project and contributions are welcome! Some areas that need work:
+This is an early-stage project and contributions are welcome (more like I kinda maybe sorta need help)! Some areas that need work:
 - Additional test cases
 - Support for more whatever you can think of, we really need something like this to test our LLM apps so they don't bite us in the bum with some business person calling us at 3am.
 - Performance optimisations
