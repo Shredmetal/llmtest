@@ -26,7 +26,7 @@ Reliably in the test package of your LLM App. This is what llmtest is for.
 ## Installation
 
 ```
-UNDER-CONSTRUCTION. You'll need to figure out how to use the source code to play with it for now. I'll set up a method to install from github very soon.
+pip install git+https://github.com/Shredmetal/llmtest.git
 ```
 
 
@@ -40,8 +40,6 @@ OPENAI_API_KEY=your-api-key-here
 
 2. Use in your tests:
 
-
-
 ```
 from llmtest.core.semantic_assert import SemanticAssertion
 
@@ -53,6 +51,29 @@ asserter = SemanticAssertion()
 
 asserter.assert_semantic_match(actual="The sky is blue", 
                                expected_behavior="A statement about the color of the sky" )
+```
+
+Full example:
+
+```
+def test_greeting_semantic():
+
+    semantic_assert = SemanticAssertion()
+
+    bot = SimpleGreetingBot() # Initialise LLM (check ./tests/test_content_generators/test_greeting_bot.py
+
+    actual_output = bot.generate_greeting("Alice") 
+
+    expected_behavior = """ # Use natural language to describe what you expect to get out of the bot
+    A polite greeting that:
+    1. Addresses the person by name (Alice)
+    2. Asks about their wellbeing
+    """
+
+    semantic_assert.assert_semantic_match( # call the assert_semantic_match method
+        actual=actual_output,
+        expected_behavior=expected_behavior
+    )
 ```
 
 ## Usage with pytest
