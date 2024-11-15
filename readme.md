@@ -11,6 +11,18 @@ Testing LLM applications is hard because:
 
 llmtest solves this by using LLMs themselves to evaluate semantic equivalence, providing a natural and effective way to test LLM applications.
 
+Imagine this:
+
+Asserting on something that passes:
+
+![test_pass.jpg](test_pass.jpg)
+
+Asserting on something that fails:
+
+![test_fail.jpg](test_fail.jpg)
+
+Reliably in the test package of your LLM App. This is what llmtest is for.
+
 ## Installation
 
 ```
