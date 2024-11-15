@@ -26,7 +26,7 @@ Reliably in the test package of your LLM App. This is what llmtest is for.
 ## Installation
 
 ```
-pip install llmtest
+UNDER-CONSTRUCTION. You'll need to figure out how to use the source code to play with it for now. I'll set up a method to install from github very soon.
 ```
 
 
