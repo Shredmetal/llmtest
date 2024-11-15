@@ -1,0 +1,21 @@
+[project]
+name = "llmtest"
+version = "0.1.0"
+description = "Semantic testing framework for LLM applications"
+requires-python = ">=3.8"
+dependencies = [
+    "langchain>=0.3.0",
+    "langchain-openai>=0.0.2",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.entry-points.pytest11]
+llmtest = "llmtest.pytest_plugin.plugin"
