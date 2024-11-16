@@ -6,7 +6,7 @@ from llmtest.exceptions.test_exceptions import (
 )
 
 
-class TestComplexSemanticAssertion:
+class TestRidiculousSemanticAssertion:
     @pytest.fixture
     def asserter(self):
         return SemanticAssertion(api_key=os.getenv("OPENAI_API_KEY"))
