@@ -1,0 +1,18 @@
+site_name: llmtest Documentation
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+  - Guides:
+    - Best Practices: guides/best-practices.md
+    - CI/CD Integration: guides/ci-cd.md
+  - API Reference:
+    - SemanticAssertion: api/semantic-assertion.md
+    - Configuration: api/configuration.md

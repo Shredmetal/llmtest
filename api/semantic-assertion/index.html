@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Semantic assertion - My Docs</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">llmtest</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Api</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../configuration/" class="dropdown-item">Configuration</a>
+</li>
+                                    
+<li>
+    <a href="../error-handling/" class="dropdown-item">Error handling</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Semantic assertion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Getting started</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../getting-started/installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../../getting-started/quickstart/" class="dropdown-item">Quickstart</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Guides</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../guides/best-practices/" class="dropdown-item">Best practices</a>
+</li>
+                                    
+<li>
+    <a href="../../guides/ci-cd/" class="dropdown-item">Ci cd</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../error-handling/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../getting-started/installation/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#semanticassertion" class="nav-link">SemanticAssertion</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#constructor" class="nav-link">Constructor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#methods" class="nav-link">Methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#examples" class="nav-link">Examples</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#navigation" class="nav-link">Navigation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><a href="../../">← Back to Home</a></p>
+<h1 id="semanticassertion">SemanticAssertion</h1>
+<p>Core class for semantic testing of LLM applications.</p>
+<h2 id="constructor">Constructor</h2>
+<pre><code>SemanticAssertion(api_key: Optional[str] = None, 
+                  llm: Optional[BaseLanguageModel] = None, 
+                  provider: Optional[Union[str, LLMProvider]] = None, 
+                  model: Optional[str] = None, 
+                  temperature: Optional[float] = None, 
+                  max_tokens: Optional[int] = None, 
+                  max_retries: Optional[int] = None )
+</code></pre>
+<h3 id="parameters">Parameters</h3>
+<p>All parameters are optional (except for API key) and will use environment variables or defaults if not specified:</p>
+<ul>
+<li><strong>api_key</strong>: API key for the LLM provider</li>
+<li>Environment: <code>OPENAI_API_KEY</code> or <code>ANTHROPIC_API_KEY</code></li>
+<li>Default: None (must be provided via environment or parameter)</li>
+<li>
+<p>If using default provider: use <code>OPENAI_API_KEY</code> since default provider is <code>openai</code></p>
+</li>
+<li>
+<p><strong>llm</strong>: Pre-configured LLM instance (must be of type <code>langchain_core.language_models import BaseLanguageModel</code>)</p>
+</li>
+<li>
+<p>Default: None (if provided, bypasses all other configuration)</p>
+</li>
+<li>
+<p><strong>provider</strong>: LLM provider ('openai' or 'anthropic')</p>
+</li>
+<li>Environment: <code>LLM_PROVIDER</code></li>
+<li>
+<p>Default: 'openai'</p>
+</li>
+<li>
+<p><strong>model</strong>: Model name to use</p>
+</li>
+<li>Environment: <code>LLM_MODEL</code></li>
+<li>
+<p>Default: 'gpt-4o' for OpenAI, 'claude-3-5-sonnet-latest' for Anthropic</p>
+</li>
+<li>
+<p><strong>temperature</strong>: Temperature setting for LLM responses</p>
+</li>
+<li>Environment: <code>LLM_TEMPERATURE</code></li>
+<li>Default: 0.0</li>
+<li>
+<p>Range: 0.0 to 1.0</p>
+</li>
+<li>
+<p><strong>max_tokens</strong>: Maximum tokens for response</p>
+</li>
+<li>Environment: <code>LLM_MAX_TOKENS</code></li>
+<li>
+<p>Default: 4096</p>
+</li>
+<li>
+<p><strong>max_retries</strong>: Maximum number of API call retries</p>
+</li>
+<li>Environment: <code>LLM_MAX_RETRIES</code></li>
+<li>Default: 2</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<h3 id="assert_semantic_match">assert_semantic_match</h3>
+<pre><code>def assert_semantic_match(actual: str, expected_behavior: str ) -&gt; None
+</code></pre>
+<p>Asserts that actual output semantically matches expected behavior.</p>
+<h4 id="parameters_1">Parameters</h4>
+<ul>
+<li><strong>actual</strong>: The actual output to test</li>
+<li><strong>expected_behavior</strong>: Natural language description of expected behavior</li>
+</ul>
+<h4 id="raises">Raises</h4>
+<ul>
+<li><strong>SemanticAssertionError</strong>: If outputs don't match semantically</li>
+<li><strong>LLMConnectionError</strong>: If LLM service fails</li>
+<li><strong>LLMConfigurationError</strong>: If configuration is invalid</li>
+<li><strong>TypeError</strong>: If inputs are None</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<pre><code>asserter = SemanticAssertion() # Uses environment variables 
+asserter.assert_semantic_match(actual=&quot;Hello Alice, how are you?&quot;, # In practice, use the output from your LLM application
+                               expected_behavior=&quot;A greeting addressing Alice&quot; 
+                               )
+</code></pre>
+<h3 id="custom-configuration">Custom Configuration</h3>
+<pre><code>asserter = SemanticAssertion(provider=&quot;anthropic&quot;, 
+                             model=&quot;claude-3-5-sonnet-latest&quot;, # Look I can't stop you from burning a hole in your wallet but please don't use Claude 3 Opus. 
+                             temperature=0.1 )
+</code></pre>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="../../">Back to Home</a></li>
+<li><a href="../../getting-started/installation/">Installation Guide</a></li>
+<li><a href="../../getting-started/quickstart/">Quick Start Guide</a></li>
+<li><a href="../configuration/">Configuration Reference</a></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
