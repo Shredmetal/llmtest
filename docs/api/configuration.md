@@ -66,6 +66,7 @@ Model supported is restricted due to poorer semantic matching performance of les
 ## Configuration Priority
 
 Configuration values are resolved in this order:
+
 1. Directly passed parameters
 2. Environment variables
 3. Default values

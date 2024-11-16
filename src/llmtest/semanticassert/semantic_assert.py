@@ -129,7 +129,13 @@ class SemanticAssertion:
             raise TypeError("Inputs cannot be None")
 
         system_prompt = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
-        Respond with EXACTLY 'PASS' if it matches, or 'FAIL: <reason>' if it doesn't match.
+        
+        Important: You can only respond with EXACTLY: 
+        1. 'PASS' if it matches, or 
+        2. 'FAIL: <reason>' if it doesn't match.
+        
+        Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+        
         Be strict but consider semantic meaning rather than exact wording."""
 
         human_prompt = f"""
@@ -137,7 +143,8 @@ class SemanticAssertion:
 
         Actual Output: {actual}
 
-        Does the actual output match the expected behavior? Remember to respond with EXACTLY 'PASS' or 'FAIL: <reason>'."""
+        Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
+        with 'PASS' or 'FAIL: <reason>'."""
 
         messages = [
             SystemMessage(content=system_prompt),
