@@ -1,15 +1,20 @@
 # llmtest
 
-A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs.
+A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. Built with clean architecture principles and designed for CI/CD integration.
 
 ## Why llmtest?
 
-Testing LLM applications is hard because:
+Testing LLM applications is challenging because:
 - Outputs are non-deterministic
 - Semantic meaning matters more than exact matches
 - Traditional testing approaches don't work well
+- Integration into CI/CD pipelines is complex
 
-llmtest solves this by using LLMs themselves to evaluate semantic equivalence, providing a natural and effective way to test LLM applications.
+llmtest solves these challenges by:
+- Using LLMs to evaluate semantic equivalence
+- Providing a clean, maintainable testing framework
+- Offering simple CI/CD integration
+- Supporting multiple LLM providers
 
 Imagine this (well you don't have to imagine, this is the test package actually doing its job):
 
@@ -35,10 +40,14 @@ pip install git+https://github.com/Shredmetal/llmtest.git
 1. Create a `.env` file in your project root:
 
 ```
-OPENAI_API_KEY=your-api-key-here
+OPENAI_API_KEY=your-openai-api-key-here
+
+OR
+
+ANTHROPIC_API_KEY=your-anthropic-key-here
 ```
 
-2. Use in your tests:
+2. Write your tests:
 
 ```
 from llmtest.core.semantic_assert import SemanticAssertion
@@ -49,8 +58,15 @@ asserter = SemanticAssertion()
 
 # Test semantic equivalence
 
-asserter.assert_semantic_match(actual="The sky is blue", 
-                               expected_behavior="A statement about the color of the sky" )
+my_llm_output = my_llm_function(prompt="tell me that the sky is blue").content # this is pseudocode, use your LLM app instead
+
+actual_output = my_llm_output
+expected_behavior = "A statement about the color of the sky"
+
+asserter.assert_semantic_match(
+    actual=actual_output,
+    expected_behavior=expected_behavior
+)
 ```
 
 Full example:
@@ -99,45 +115,89 @@ class TestMyLLMApp:
 
 ## Features
 
-- Semantic equivalence testing
-- Integration with pytest
-- Proper error handling
-- Support for different LLM models (to a point... This still needs work)
-- Clear error messages with reasons (ish?)
-
-## Error Handling
-
-The library provides specific exceptions for different scenarios:
-- `SemanticAssertionError`: When semantic matching fails
-- `LLMConnectionError`: When LLM service fails
-- `LLMConfigurationError`: When configuration is invalid
+- **Two Frontier LLM Providers**: Support for OpenAI and Anthropic
+- **Clean Architecture**: 
+  - Separation of concerns
+  - Easy to extend
+  - Maintainable codebase
+- **Flexible Configuration**:
+  - Environment variables
+  - Direct configuration
+  - Multiple model support
+- **Robust Error Handling**:
+  - Semantic assertion errors
+  - Configuration validation
+  - Connection handling
+- **CI/CD Ready**:
+  - Fast execution
+  - Clear pass/fail results
+  - Environment variable support
 
 ## Configuration
 
 Configuration via environment variables (in `.env`):
 
+Provider Selection:
 ```
-OPENAI_API_KEY=your-api-key-here 
-OPENAI_MODEL=gpt-4o # optional, defaults to gpt-4o 
-OPENAI_TEMPERATURE=0.0 # optional, defaults to 0.0
+LLM_PROVIDER=openai # or 'anthropic'
+```
+API Keys:
+```
+OPENAI_API_KEY=your-openai-key 
+ANTHROPIC_API_KEY=your-anthropic-key
+```
+Optional Configuration:
+```
+LLM_MODEL=gpt-4o # or other supported models 
+LLM_TEMPERATURE=0.0 
+LLM_MAX_TOKENS=4096 
+LLM_MAX_RETRIES=2
 ```
 
 Or programmatically (not recommended for API keys):
 
 ```
-asserter = SemanticAssertion(model="gpt-4", # default 
-                             temperature=0.0 # default, recommended for testing 
+asserter = SemanticAssertion(api_key="your-api-key", # Optional: Use env vars instead 
+                             provider="openai", # Optional: 'openai' or 'anthropic' 
+                             model="gpt-4o", # Optional: See supported models 
+                             temperature=0.0, # Optional: 0.0-1.0 
+                             max_tokens=4096, # Optional: Default 4096 
+                             max_retries=2 # Optional: Default 2 
                              )
+```
+
+## Supported Models
+
+Note: I only support frontier models because of their semantic matching capabilities - you can disable the model type validation in the source code if you wish.
+
+### OpenAI
+- gpt-4o
+- gpt-4-turbo
+
+### Anthropic
+- claude-3-5-sonnet-latest
+- claude-3-opus-latest
+
+## Error Handling
+
+The library provides specific exceptions:
+
+```
+from llmtest.exceptions.test_exceptions import (SemanticAssertionError, # When semantic matching fails 
+                                                LLMConnectionError, # When LLM service fails 
+                                                LLMConfigurationError # When configuration is invalid )
 ```
 
 ## Contributing
 
-This is an early-stage project and contributions are welcome (more like I kinda maybe sorta need help)! Some areas that need work:
-- Additional test cases
-- Support for more whatever you can think of, we really need something like this to test our LLM apps so they don't bite us in the bum with some business person calling us at 3am.
-- Performance optimisations
-- Documentation improvements
+This project is at an early stage, but aims to be an important testing library for LLM applications. Contributions are welcome in:
+- Additional LLM provider support
+- Performance optimizations
+- Test coverage improvements
+- Documentation
+- CI/CD integration examples
 - Test result caching
+
 
 ## License
 
@@ -145,4 +205,4 @@ MIT
 
 ## Acknowledgments
 
-This project was inspired by the fact that I felt naked deploying LLM apps with no testing.
+Created to solve the critical need for reliable, practical testing of LLM applications in production environments where we have to ship these apps out and test them at a reasonable cost.

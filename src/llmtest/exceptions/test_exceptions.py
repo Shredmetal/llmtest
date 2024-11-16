@@ -1,5 +1,6 @@
 from functools import wraps
 from typing import Callable, Any, Optional, Dict
+from anthropic import APIError
 from openai import OpenAIError
 
 
@@ -12,6 +13,11 @@ def catch_llm_errors(func: Callable) -> Callable:
         except OpenAIError as e:
             raise LLMConnectionError(
                 "OpenAI API error occurred",
+                reason=str(e)
+            )
+        except APIError as e:
+            raise LLMConnectionError(
+                "Anthropic API error occurred",
                 reason=str(e)
             )
         except TypeError as e:
@@ -78,6 +84,7 @@ class LLMConnectionError(LLMTestError):
         )
 
 
+# Need to think about what constitutes an invalid prompt and use this somewhere - WIP
 class InvalidPromptError(LLMTestError):
     """Raised when prompt construction fails or is invalid."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
