@@ -66,36 +66,36 @@ jobs:
 ## Best Practices
 
 1. **API Key Management**:
-   - Never commit API keys
-   - Use CI/CD environment secrets
-   - Rotate keys regularly
+    - Never commit API keys
+    - Use CI/CD environment secrets
+    - Rotate keys regularly
 
 2. **Cost Control**:
-   - Use cheaper models in CI/CD
-   - Run semantic tests only on critical paths
-   - Consider test result caching
+    - Use cheaper models in CI/CD
+    - Run semantic tests only on critical paths
+    - Consider test result caching
 
 3. **Pipeline Optimization**:
-   - Run traditional tests first
-   - Run semantic tests in parallel
-   - Set appropriate timeouts
+    - Run traditional tests first
+    - Run semantic tests in parallel
+    - Set appropriate timeouts
 
 4. **Error Handling**:
-   - Implement retry logic for API failures
-   - Log detailed error information
-   - Set up alerts for repeated failures
+    - Implement retry logic for API failures
+    - Log detailed error information
+    - Set up alerts for repeated failures
 
 ## Common Issues
 
 1. **API Rate Limits**:
-   - Implement exponential backoff
-   - Use test result caching
-   - Consider parallel test execution
+    - Implement exponential backoff
+    - Use test result caching
+    - Consider parallel test execution
 
 2. **Cost Management**:
-   - Monitor API usage
-   - Set budget alerts
-   - Use test filtering
+    - Monitor API usage
+    - Set budget alerts
+    - Use test filtering
 
 ---
 ## Navigation
