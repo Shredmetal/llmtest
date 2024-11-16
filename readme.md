@@ -14,6 +14,18 @@ You can click [here](#documentation) to go straight to the docs.
 
 Important note: This is still being tested prior to release on PyPI, please refer to the branch: feat/find-a-way-to-break-this and look in the tests directory to see where we're at on the dumbest edge cases (e.g. 100 emojis).
 
+## What llmtest Does
+- Tests LLM applications (not the LLMs themselves)
+- Validates system message + prompt template outputs
+- Ensures semantic equivalence of responses
+- Tests the parts YOU control in your LLM application
+
+## What llmtest Doesn't Do
+- Test LLM model performance (that's the provider's responsibility)
+- Validate base model capabilities
+- Test model reliability
+- Handle model safety features
+
 ## Screenshots
 
 What if you could just use:
@@ -57,6 +69,17 @@ llmtest solves these challenges by:
 - Providing a clean, maintainable testing framework
 - Offering simple CI/CD integration
 - Supporting multiple LLM providers
+
+## When to Use llmtest
+- Testing application-level LLM integration
+- Validating prompt engineering
+- Testing system message effectiveness
+- Ensuring consistent response patterns
+
+## When Not to Use llmtest
+- Testing base LLM performance
+- Evaluating model capabilities
+- Testing model safety features
 
 ## Quick Example
 
