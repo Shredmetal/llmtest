@@ -7,7 +7,7 @@ def run_semantic_tests():
     """Run all semantic assertion tests"""
     test_dir = Path(__file__).parent / "test_semantic_assert"
     test_files = [
-        str(test_dir / "test_semantic_assert.py"),
+        str(test_dir / "test_semantic_assert_basic.py"),
         str(test_dir / "test_semantic_assert_validations.py")
     ]
 
