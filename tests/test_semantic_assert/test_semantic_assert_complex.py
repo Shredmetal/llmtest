@@ -84,3 +84,29 @@ class TestComplexSemanticAssertion:
         with pytest.raises(SemanticAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
         assert "Semantic assertion failed" in str(excinfo.value)
+
+    def test_complex_multi_hop_reasoning(self, asserter):
+        """Test complex multi-hop reasoning chains"""
+        actual = """When water freezes, it expands by approximately 9% in volume. 
+        This expansion creates less dense ice that floats according to Archimedes' principle of displacement. 
+        Because Arctic sea ice is already floating in the ocean, its melting doesn't significantly affect sea levels - 
+        it's already displacing its weight in water. However, land-based glaciers in places like Greenland 
+        aren't currently displacing any ocean water. When these glaciers melt, they add entirely new water volume 
+        to the oceans, making them a primary contributor to sea level rise."""
+
+        expected = """A multi-step scientific explanation.
+        Must maintain logical consistency across all steps."""
+        asserter.assert_semantic_match(actual, expected)
+
+    def test_adversarial_content(self, asserter):
+        """Test handling of deliberately ambiguous or contradictory content"""
+        actual = "The colorless green ideas sleep furiously"
+        expected = "A grammatically correct but semantically nonsensical statement"
+        asserter.assert_semantic_match(actual, expected)
+
+    def test_long_context_understanding(self, asserter):
+        """Test understanding of long, interconnected narratives"""
+        pass
+        # actual = """?????"""
+        # expected = "A complex narrative maintaining consistency across multiple scenes and character arcs"
+        # asserter.assert_semantic_match(actual, expected)
