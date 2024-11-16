@@ -24,3 +24,35 @@ class TestRidiculousSemanticAssertion:
         with pytest.raises(SemanticAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
         assert "Semantic assertion failed" in str(excinfo.value)
+
+    def test_unicode_mess(self, asserter):
+        """Test handling of unicode chaos"""
+        actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
+        expected = "A mix of emojis and Japanese text"
+        asserter.assert_semantic_match(actual, expected)
+
+    def test_mixed_language_emoji_spam(self, asserter):
+        """Test handling of multilingual emoji spam"""
+        actual = "Hello你好Bonjour🌈" * 50
+        expected = "A repetitive greeting in multiple languages with rainbows"
+        asserter.assert_semantic_match(actual, expected)
+
+    def test_ascii_art(self, asserter):
+        """Test handling of ASCII art"""
+        actual = """
+        (╯°□°)╯︵ ┻━┻
+        """ * 20
+        expected = "Multiple instances of table-flipping ASCII art"
+        asserter.assert_semantic_match(actual, expected)
+
+    def test_whitespace_madness(self, asserter):
+        """Test handling of excessive whitespace"""
+        actual = "hello    " + " " * 1000 + "    world" + "\n" * 500
+        expected = "A greeting with excessive spacing"
+        asserter.assert_semantic_match(actual, expected)
+
+    def test_number_spam(self, asserter):
+        """Test handling of number spam"""
+        actual = "".join([str(i % 10) for i in range(1000)])
+        expected = "A long sequence of repeating numbers"
+        asserter.assert_semantic_match(actual, expected)

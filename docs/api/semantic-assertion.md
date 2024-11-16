@@ -22,33 +22,33 @@ SemanticAssertion(api_key: Optional[str] = None,
 All parameters are optional (except for API key) and will use environment variables or defaults if not specified:
 
 - **api_key**: API key for the LLM provider
-  - Environment: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
-  - Default: None (must be provided via environment or parameter)
-  - If using default provider: use `OPENAI_API_KEY` since default provider is `openai`
+    - Environment: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
+    - Default: None (must be provided via environment or parameter)
+    - If using default provider: use `OPENAI_API_KEY` since default provider is `openai`
 
 - **llm**: Pre-configured LLM instance (must be of type `langchain_core.language_models import BaseLanguageModel`)
-  - Default: None (if provided, bypasses all other configuration)
+    - Default: None (if provided, bypasses all other configuration)
 
 - **provider**: LLM provider ('openai' or 'anthropic')
-  - Environment: `LLM_PROVIDER`
-  - Default: 'openai'
+    - Environment: `LLM_PROVIDER`
+    - Default: 'openai'
 
 - **model**: Model name to use
   - Environment: `LLM_MODEL`
-  - Default: 'gpt-4o' for OpenAI, 'claude-3-5-sonnet-latest' for Anthropic
+    - Default: 'gpt-4o' for OpenAI, 'claude-3-5-sonnet-latest' for Anthropic
 
 - **temperature**: Temperature setting for LLM responses
   - Environment: `LLM_TEMPERATURE`
-  - Default: 0.0
-  - Range: 0.0 to 1.0
+    - Default: 0.0
+    - Range: 0.0 to 1.0
 
 - **max_tokens**: Maximum tokens for response
   - Environment: `LLM_MAX_TOKENS`
-  - Default: 4096
+    - Default: 4096
 
 - **max_retries**: Maximum number of API call retries
   - Environment: `LLM_MAX_RETRIES`
-  - Default: 2
+    - Default: 2
 
 ## Methods
 
