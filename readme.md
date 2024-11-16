@@ -12,6 +12,8 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 You can click [here](#documentation) to go straight to the docs.
 
+Important note: This is still being tested prior to release on PyPI, please refer to the branch: feat/find-a-way-to-break-this and look in the tests directory to see where we're at on the dumbest edge cases (e.g. 100 emojis).
+
 ## Screenshots
 
 What if you could just use:
