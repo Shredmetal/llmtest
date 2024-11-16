@@ -14,7 +14,6 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 - [Installation](getting-started/installation.md)
 - [Quick Start](getting-started/quickstart.md)
-- [Basic Usage](guides/basic-usage.md)
 - [CI/CD Integration](guides/ci-cd.md)
 - [Best Practices](guides/best-practices.md)
 - [API Reference](api/semantic-assertion.md)

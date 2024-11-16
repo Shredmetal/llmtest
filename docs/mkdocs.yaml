@@ -11,7 +11,7 @@ nav:
     - Installation: getting-started/installation.md
     - Quick Start: getting-started/quickstart.md
   - Guides:
-    - Basic Usage: guides/basic-usage.md
+    - Best Practices: guides/best-practices.md
     - CI/CD Integration: guides/ci-cd.md
   - API Reference:
     - SemanticAssertion: api/semantic-assertion.md
