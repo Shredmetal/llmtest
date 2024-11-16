@@ -8,7 +8,9 @@ def run_semantic_tests():
     test_dir = Path(__file__).parent / "test_semantic_assert"
     test_files = [
         str(test_dir / "test_semantic_assert_basic.py"),
-        str(test_dir / "test_semantic_assert_validations.py")
+        str(test_dir / "test_semantic_assert_validations.py"),
+        str(test_dir / "test_semantic_assert_complex.py"),
+        str(test_dir / "test_semantic_assert_ridiculous.py")
     ]
 
     args = [
