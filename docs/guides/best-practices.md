@@ -137,4 +137,4 @@ You might need to use your brain a little bit to figure out to instruct your ass
 - [Back to Home](../index.md)
 - [Installation Guide](../getting-started/installation.md)
 - [Quick Start Guide](../getting-started/quickstart.md)
-- [API Reference](semantic-assertion.md)
+- [API Reference](../api/semantic-assertion.md)
