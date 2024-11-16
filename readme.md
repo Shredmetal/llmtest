@@ -1,6 +1,24 @@
 # llmtest
 
-A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. Built with clean architecture principles and designed for CI/CD integration.
+A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. 
+
+✨ Test your LLM apps in minutes, not hours
+
+🚀 CI/CD ready out of the box
+
+💰 Cost-effective testing solution
+
+🔧 No infrastructure needed
+
+## Table of Contents
+- [Why llmtest?](#why-llmtest)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Usage with pytest](#usage-with-pytest)
+- [Features](#features)
+- [Configuration](#configuration)
+- [Supported Models](#supported-models)
+- [Error Handling](#error-handling)
 
 ## Why llmtest?
 
