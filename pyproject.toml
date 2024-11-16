@@ -16,7 +16,9 @@ dependencies = [
 dev = [
     "pytest-cov",
     "black",
-    "flake8"
+    "flake8",
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0"
 ]
 
 [build-system]
