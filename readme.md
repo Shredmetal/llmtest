@@ -80,4 +80,4 @@ Please:
 
 For major changes, please open an issue first to discuss what you would like to change, or YOLO in a PR, bonus points if you can insult me in a way that makes me laugh.
 
-Please adhere to clean code principles and include appropriate tests.
+Please adhere to clean code principles and include appropriate tests... or else. 🗡️
