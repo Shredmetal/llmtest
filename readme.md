@@ -12,6 +12,36 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 You can click [here](#documentation) to go straight to the docs.
 
+## Screenshots
+
+What if you could just use:
+
+```
+semantic_assert.assert_semantic_match(
+        actual=actual_output,
+        expected_behavior=expected_behavior
+    )
+```
+and get a pass/fail to test your LLM apps? Well, that's what I'm trying to do. Anyway, seeing is believing so:
+
+Here's llmtest passing a test case:
+
+![test_pass.jpg](test_pass.jpg)
+
+Here's llmtest failing a test case (and providing the reason why it failed):
+
+![test_fail.jpg](test_fail.jpg)
+
+Finally, here's llmtest passing a test case with a complex reasoning chain with the simple, natural language 
+instruction of:
+
+```
+A complex, multi-step, scientific explanation.
+Must maintain logical consistency across all steps.
+```
+
+![complex_reasoning_chain_pass.jpg](complex_reasoning_chain_pass.jpg)
+
 ## Why llmtest?
 
 Testing LLM applications is challenging because:
