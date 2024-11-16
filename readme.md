@@ -192,11 +192,12 @@ from llmtest.exceptions.test_exceptions import (SemanticAssertionError, # When s
 
 This project is at an early stage, but aims to be an important testing library for LLM applications. Contributions are welcome in:
 - Additional LLM provider support
-- Performance optimizations
+- Performance optimisations
 - Test coverage improvements
 - Documentation
 - CI/CD integration examples
 - Test result caching
+- And literally anything else if you see a possible improvement opportunity (Please adhere to clean code principles though)
 
 
 ## License
