@@ -938,49 +938,57 @@
 </code></pre></div>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
-<li><strong>API Key Management</strong>:</li>
+<li>
+<p><strong>API Key Management</strong>:</p>
+<ul>
 <li>Never commit API keys</li>
 <li>Use CI/CD environment secrets</li>
-<li>
-<p>Rotate keys regularly</p>
+<li>Rotate keys regularly</li>
+</ul>
 </li>
 <li>
 <p><strong>Cost Control</strong>:</p>
-</li>
+<ul>
 <li>Use cheaper models in CI/CD</li>
 <li>Run semantic tests only on critical paths</li>
-<li>
-<p>Consider test result caching</p>
+<li>Consider test result caching</li>
+</ul>
 </li>
 <li>
 <p><strong>Pipeline Optimization</strong>:</p>
-</li>
+<ul>
 <li>Run traditional tests first</li>
 <li>Run semantic tests in parallel</li>
-<li>
-<p>Set appropriate timeouts</p>
+<li>Set appropriate timeouts</li>
+</ul>
 </li>
 <li>
 <p><strong>Error Handling</strong>:</p>
-</li>
+<ul>
 <li>Implement retry logic for API failures</li>
 <li>Log detailed error information</li>
 <li>Set up alerts for repeated failures</li>
+</ul>
+</li>
 </ol>
 <h2 id="common-issues">Common Issues</h2>
 <ol>
-<li><strong>API Rate Limits</strong>:</li>
+<li>
+<p><strong>API Rate Limits</strong>:</p>
+<ul>
 <li>Implement exponential backoff</li>
 <li>Use test result caching</li>
-<li>
-<p>Consider parallel test execution</p>
+<li>Consider parallel test execution</li>
+</ul>
 </li>
 <li>
 <p><strong>Cost Management</strong>:</p>
-</li>
+<ul>
 <li>Monitor API usage</li>
 <li>Set budget alerts</li>
 <li>Use test filtering</li>
+</ul>
+</li>
 </ol>
 <hr />
 <h2 id="navigation">Navigation</h2>

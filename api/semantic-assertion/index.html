@@ -962,52 +962,62 @@
 <h3 id="parameters">Parameters</h3>
 <p>All parameters are optional (except for API key) and will use environment variables or defaults if not specified:</p>
 <ul>
-<li><strong>api_key</strong>: API key for the LLM provider</li>
+<li>
+<p><strong>api_key</strong>: API key for the LLM provider</p>
+<ul>
 <li>Environment: <code>OPENAI_API_KEY</code> or <code>ANTHROPIC_API_KEY</code></li>
 <li>Default: None (must be provided via environment or parameter)</li>
-<li>
-<p>If using default provider: use <code>OPENAI_API_KEY</code> since default provider is <code>openai</code></p>
+<li>If using default provider: use <code>OPENAI_API_KEY</code> since default provider is <code>openai</code></li>
+</ul>
 </li>
 <li>
 <p><strong>llm</strong>: Pre-configured LLM instance (must be of type <code>langchain_core.language_models import BaseLanguageModel</code>)</p>
-</li>
-<li>
-<p>Default: None (if provided, bypasses all other configuration)</p>
+<ul>
+<li>Default: None (if provided, bypasses all other configuration)</li>
+</ul>
 </li>
 <li>
 <p><strong>provider</strong>: LLM provider ('openai' or 'anthropic')</p>
-</li>
+<ul>
 <li>Environment: <code>LLM_PROVIDER</code></li>
-<li>
-<p>Default: 'openai'</p>
+<li>Default: 'openai'</li>
+</ul>
 </li>
 <li>
 <p><strong>model</strong>: Model name to use</p>
 </li>
-<li>Environment: <code>LLM_MODEL</code></li>
 <li>
-<p>Default: 'gpt-4o' for OpenAI, 'claude-3-5-sonnet-latest' for Anthropic</p>
+<p>Environment: <code>LLM_MODEL</code></p>
+<ul>
+<li>Default: 'gpt-4o' for OpenAI, 'claude-3-5-sonnet-latest' for Anthropic</li>
+</ul>
 </li>
 <li>
 <p><strong>temperature</strong>: Temperature setting for LLM responses</p>
 </li>
-<li>Environment: <code>LLM_TEMPERATURE</code></li>
-<li>Default: 0.0</li>
 <li>
-<p>Range: 0.0 to 1.0</p>
+<p>Environment: <code>LLM_TEMPERATURE</code></p>
+<ul>
+<li>Default: 0.0</li>
+<li>Range: 0.0 to 1.0</li>
+</ul>
 </li>
 <li>
 <p><strong>max_tokens</strong>: Maximum tokens for response</p>
 </li>
-<li>Environment: <code>LLM_MAX_TOKENS</code></li>
 <li>
-<p>Default: 4096</p>
+<p>Environment: <code>LLM_MAX_TOKENS</code></p>
+<ul>
+<li>Default: 4096</li>
+</ul>
 </li>
 <li>
 <p><strong>max_retries</strong>: Maximum number of API call retries</p>
 </li>
-<li>Environment: <code>LLM_MAX_RETRIES</code></li>
+<li>Environment: <code>LLM_MAX_RETRIES</code><ul>
 <li>Default: 2</li>
+</ul>
+</li>
 </ul>
 <h2 id="methods">Methods</h2>
 <h3 id="assert_semantic_match">assert_semantic_match</h3>
