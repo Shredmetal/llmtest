@@ -1,4 +1,4 @@
-from llmtest.core.semantic_assert import SemanticAssertion
+from llmtest.semanticassert.semantic_assert import SemanticAssertion
 from tests.test_content_generators.test_greeting_bot import SimpleGreetingBot
 
 

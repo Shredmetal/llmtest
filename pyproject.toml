@@ -5,7 +5,8 @@ description = "Semantic testing framework for LLM applications"
 requires-python = ">=3.8"
 dependencies = [
     "langchain>=0.3.0",
-    "langchain-openai>=0.0.2",
+    "langchain-openai>=0.2.0",
+    "langchain-anthropic>=0.2.0",
     "openai>=1.0.0",
     "python-dotenv>=1.0.0",
     "pytest>=7.0.0"
