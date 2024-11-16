@@ -1,3 +1,5 @@
+[← Back to Home](../index.md)
+
 # Installation
 
 ## Requirements

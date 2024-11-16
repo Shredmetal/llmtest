@@ -14,12 +14,12 @@ def catch_llm_errors(func: Callable) -> Callable:
             raise LLMConnectionError(
                 "OpenAI API error occurred",
                 reason=str(e)
-            )
+            ) from e
         except APIError as e:
             raise LLMConnectionError(
                 "Anthropic API error occurred",
                 reason=str(e)
-            )
+            ) from e
         except TypeError as e:
             raise
         except Exception as e:
@@ -28,7 +28,7 @@ def catch_llm_errors(func: Callable) -> Callable:
             raise LLMConnectionError(
                 f"LLM operation failed in {func.__name__}",
                 reason=str(e)
-            )
+            ) from e
     return wrapper
 
 

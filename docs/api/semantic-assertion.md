@@ -19,11 +19,12 @@ SemanticAssertion(api_key: Optional[str] = None,
 
 ### Parameters
 
-All parameters are optional and will use environment variables or defaults if not specified:
+All parameters are optional (except for API key) and will use environment variables or defaults if not specified:
 
 - **api_key**: API key for the LLM provider
   - Environment: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
   - Default: None (must be provided via environment or parameter)
+  - If using default provider: use `OPENAI_API_KEY` since default provider is `openai`
 
 - **llm**: Pre-configured LLM instance (must be of type `langchain_core.language_models import BaseLanguageModel`)
   - Default: None (if provided, bypasses all other configuration)
