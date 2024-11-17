@@ -1,6 +1,6 @@
 # Testing Patterns
 
-This guide demonstrates common semantic testing patterns using llm-app-test. For API reference and syntax, see [API Documentation](api/semantic-assertion.md).
+This guide demonstrates common semantic testing patterns using llm-app-test. For API reference and syntax, see [API Documentation](../api/semantic-assertion.md).
 
 ## Pattern: Basic Semantic Equivalence
 
@@ -19,6 +19,7 @@ semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 
 **Result:** ✅ PASS
+
 - Recognises personal address
 - Identifies greeting context
 - Validates wellbeing inquiry
@@ -37,6 +38,7 @@ expected_behavior = "A statement about the color of the sky"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 **Result:** ✅ PASS
+
 - Shows direct semantic matching
 - Clear relationship between statement and expectation
 - Passes when meaning aligns
@@ -55,8 +57,9 @@ expected_behavior = "A statement about the weather forecast"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
-- Fails because the actual statement is about sky color
-- Expected behavior asks for weather forecast information
+
+- Fails because the actual statement is about sky colour
+- Expected behaviour asks for weather forecast information
 - Demonstrates how semantic mismatches are caught
 - Shows when assertions will fail in your tests
 
@@ -74,6 +77,7 @@ expected_behavior = "A polite greeting asking about wellbeing"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Demonstrates language-agnostic understanding
 - Shows cross-language semantic matching
 - Validates international content handling
@@ -93,6 +97,7 @@ expected_behavior = "An explanation of the TCP connection establishment process"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Validates technical accuracy
 - Handles specialised terminology
 - Maintains semantic precision
@@ -111,6 +116,7 @@ expected_behavior = "A description of a riverbank or hillside, not a financial i
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Shows contextual understanding
 - Handles ambiguous terms
 - Validates specific meaning exclusions
@@ -129,6 +135,7 @@ expected_behavior = "A constructive criticism with mixed but generally positive 
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Detects nuanced sentiment
 - Understands mixed emotions
 - Validates overall tone
@@ -150,6 +157,7 @@ expected_behavior = "A comprehensive definition of machine learning emphasizing 
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Handles longer text
 - Maintains context
 - Captures key concepts
@@ -168,8 +176,9 @@ expected_behavior = "A statement expressing complete satisfaction with project e
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
+
 - Fails because actual statement indicates mixed satisfaction
-- Expected behavior suggests complete satisfaction
+- Expected behaviour suggests complete satisfaction
 - Shows sensitivity to subtle emotional differences
 
 ## Pattern: Technical Context Mismatch
@@ -186,6 +195,7 @@ expected_behavior = "A description of a function that returns the value stored a
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
+
 - Fails because returning a pointer is different from returning a stored value
 - Shows precision in technical context
 - Validates technical accuracy
@@ -204,6 +214,7 @@ expected_behavior = "A description of a riverbank's geological formation process
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
+
 - Fails because contexts are completely different
 - Shows strong contextual understanding
 - Validates semantic boundaries
@@ -222,6 +233,7 @@ expected_behavior = "A statement about a task that was completed in the past"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
+
 - Fails because of tense mismatch
 - Shows temporal awareness
 - Validates time context
@@ -240,6 +252,7 @@ expected_behavior = "A statement indicating that wet ground always means it has 
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
+
 - Fails because of reversed logical implication
 - Shows logical relationship understanding
 - Validates causality direction
@@ -264,6 +277,7 @@ Must maintain logical consistency across all steps."""
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Handles complex logical chains
 - Maintains consistency across steps
 - Validates scientific reasoning
@@ -282,6 +296,7 @@ expected_behavior = "A grammatically correct but semantically nonsensical statem
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Recognizes grammatical structure
 - Identifies semantic nonsense
 - Validates meta-understanding
@@ -330,6 +345,7 @@ semantic_assert.assert_semantic_match(actual, expected_behavior)
 
 ```
 Result: ✅ PASS
+
 - Handles extended narratives
 - Maintains thematic consistency
 - Validates complex relationships
@@ -350,10 +366,10 @@ semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 
 Result: ✅ PASS
-- Handles repeated Unicode characters
-- Recognizes quantity concepts
-- Validates emoji processing
 
+- Handles repeated Unicode characters
+- Recognises quantity concepts
+- Validates emoji processing
 
 ## Pattern: Emoji Quantity Mismatch
 
@@ -369,6 +385,7 @@ expected_behavior = "Only a few emojis"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ❌ FAIL
+
 - Fails due to quantity mismatch
 - Shows quantity awareness
 - Validates numerical understanding
@@ -388,8 +405,9 @@ semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 
 Result: ✅ PASS
+
 - Handles mixed Unicode content
-- Recognizes different character types
+- Recognises different character types
 - Validates multilingual content
 
 ## Pattern: Multilingual Emoji Spam
@@ -406,6 +424,7 @@ expected_behavior = "A repetitive greeting in multiple languages with rainbows"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Handles multilingual text
 - Recognises repetitive patterns
 - Validates mixed content types
@@ -426,7 +445,8 @@ expected_behavior = "Multiple instances of table-flipping ASCII art"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
-- Recognizes ASCII art patterns
+
+- Recognises ASCII art patterns
 - Understands visual representations
 - Validates repeated patterns
 
@@ -444,9 +464,10 @@ expected_behavior = "A greeting with excessive spacing"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Handles extreme whitespace
 - Maintains semantic meaning
-- Validates text normalization
+- Validates text normalisation
 
 ## Pattern: Number Pattern Recognition
 
@@ -462,6 +483,7 @@ expected_behavior = "A long sequence of repeating numbers"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 Result: ✅ PASS
+
 - Recognises numerical patterns
 - Handles long repetitive sequences
 - Validates pattern understanding
