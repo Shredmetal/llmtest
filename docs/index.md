@@ -1,4 +1,4 @@
-# llm_test
+# llm_app_test
 
 A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. 
 
@@ -28,7 +28,7 @@ We are working on implementing rate limiting handlers in future releases. For no
 - Reduce parallel test execution
 - Switch to OpenAI for large test suites
 
-## Current Version: 0.1.0b3post1
+## Current Version: 0.1.0b3post3
 
 ## Need testing ideas? Check out the tests we used to test llm-app-test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
