@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install git+https://github.com/Shredmetal/llm_app_test.git
+          pip install llm-app-test
           
       - name: Run tests
         env:

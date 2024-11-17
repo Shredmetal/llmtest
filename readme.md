@@ -10,6 +10,8 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 🔧 No infrastructure needed
 
+> ⚠️ **Note**: When using Anthropic as the provider, you may encounter rate limiting (401 errors) with large test suites. Consider adding delays between tests or using OpenAI for extensive testing. See documentation for details.
+
 You can click [here](https://Shredmetal.github.io/llmtest/) to go straight to the docs.
 
 Important note: This is still being tested prior to release on PyPI, please refer to the branch: feat/find-a-way-to-break-this and look in the tests directory to see where we're at on the dumbest edge cases (e.g. 100 emojis).
@@ -96,7 +98,7 @@ semantic_assert.assert_semantic_match(actual="Hello Alice, how are you?",
 ## Installation
 
 ```
-pip install git+https://github.com/Shredmetal/llmtest.git
+pip install llm-app-test
 ```
 
 

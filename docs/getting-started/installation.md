@@ -3,7 +3,7 @@
 # Installation
 
 ## Requirements
-- Python 3.8 or higher
+- Python 3.10 or higher
 - pip (package installer for Python)
 
 ## Installing llm_app_test
@@ -11,7 +11,7 @@
 Install directly from GitHub:
 
 ```
-pip install git+https://github.com/Shredmetal/llmtest.git
+pip install llm-app-test
 ```
 
 ## Development Installation
