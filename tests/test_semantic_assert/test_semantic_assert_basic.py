@@ -13,7 +13,7 @@ class TestSemanticAssertion:
     @pytest.fixture
     def asserter(self):
         """Fixture providing a SemanticAssertion instance"""
-        return SemanticAssertion(api_key=os.getenv("OPENAI_API_KEY"))
+        return SemanticAssertion()
 
     def test_basic_semantic_match(self, asserter):
         """Test basic semantic matching"""
@@ -34,7 +34,7 @@ class TestSemanticAssertion:
         with pytest.raises(LLMConnectionError) as excinfo:
             asserter = SemanticAssertion(api_key="invalid_key")
             asserter.assert_semantic_match("test", "test")
-        assert "OpenAI API error occurred" in str(excinfo.value)
+        assert "Error code: 401" in str(excinfo.value)
 
     def test_empty_inputs(self, asserter):
         """Test empty inputs"""

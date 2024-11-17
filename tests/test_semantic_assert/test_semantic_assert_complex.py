@@ -9,7 +9,7 @@ from llm_app_test.exceptions.test_exceptions import (
 class TestComplexSemanticAssertion:
     @pytest.fixture
     def asserter(self):
-        return SemanticAssertion(api_key=os.getenv("OPENAI_API_KEY"))
+        return SemanticAssertion()
 
     def test_multilingual_equivalence(self, asserter):
         """Test semantic matching across different languages"""

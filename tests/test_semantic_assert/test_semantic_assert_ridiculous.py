@@ -9,7 +9,7 @@ from llm_app_test.exceptions.test_exceptions import (
 class TestRidiculousSemanticAssertion:
     @pytest.fixture
     def asserter(self):
-        return SemanticAssertion(api_key=os.getenv("OPENAI_API_KEY"))
+        return SemanticAssertion()
 
     def test_100_emojis(self, asserter):
         """Test recognition of a pile of meaningless emojis"""
