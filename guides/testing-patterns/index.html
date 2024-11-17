@@ -1155,7 +1155,7 @@
 
 
 <h1 id="testing-patterns">Testing Patterns</h1>
-<p>This guide demonstrates common semantic testing patterns using llm-app-test. For API reference and syntax, see <a href="api/semantic-assertion.md">API Documentation</a>.</p>
+<p>This guide demonstrates common semantic testing patterns using llm-app-test. For API reference and syntax, see <a href="../../api/semantic-assertion/">API Documentation</a>.</p>
 <h2 id="pattern-basic-semantic-equivalence">Pattern: Basic Semantic Equivalence</h2>
 <p><strong>Scenario:</strong> Testing simple greeting behaviour</p>
 <p><strong>Implementation:</strong></p>
@@ -1167,10 +1167,12 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-<p><strong>Result:</strong> ✅ PASS
-- Recognises personal address
-- Identifies greeting context
-- Validates wellbeing inquiry</p>
+<p><strong>Result:</strong> ✅ PASS</p>
+<ul>
+<li>Recognises personal address</li>
+<li>Identifies greeting context</li>
+<li>Validates wellbeing inquiry</li>
+</ul>
 <h2 id="pattern-basic-semantic-matching">Pattern: Basic Semantic Matching</h2>
 <p><strong>Scenario</strong>: Testing simple factual statements</p>
 <p>Implementation:</p>
@@ -1180,10 +1182,12 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-<strong>Result:</strong> ✅ PASS
-- Shows direct semantic matching
-- Clear relationship between statement and expectation
-- Passes when meaning aligns</p>
+<strong>Result:</strong> ✅ PASS</p>
+<ul>
+<li>Shows direct semantic matching</li>
+<li>Clear relationship between statement and expectation</li>
+<li>Passes when meaning aligns</li>
+</ul>
 <h2 id="pattern-expected-semantic-mismatch">Pattern: Expected Semantic Mismatch</h2>
 <p><strong>Scenario</strong>: Validating semantic mismatch detection</p>
 <p>Implementation:</p>
@@ -1193,11 +1197,13 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails because the actual statement is about sky color
-- Expected behavior asks for weather forecast information
-- Demonstrates how semantic mismatches are caught
-- Shows when assertions will fail in your tests</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails because the actual statement is about sky colour</li>
+<li>Expected behaviour asks for weather forecast information</li>
+<li>Demonstrates how semantic mismatches are caught</li>
+<li>Shows when assertions will fail in your tests</li>
+</ul>
 <h2 id="pattern-multilingual-semantic-testing">Pattern: Multilingual Semantic Testing</h2>
 <p><strong>Scenario</strong>: Testing semantic understanding across languages</p>
 <p>Implementation:</p>
@@ -1207,10 +1213,12 @@ Result: ❌ FAIL
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Demonstrates language-agnostic understanding
-- Shows cross-language semantic matching
-- Validates international content handling</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Demonstrates language-agnostic understanding</li>
+<li>Shows cross-language semantic matching</li>
+<li>Validates international content handling</li>
+</ul>
 <h2 id="pattern-technical-documentation-testing">Pattern: Technical Documentation Testing</h2>
 <p><strong>Scenario</strong>: Testing technical concept explanations</p>
 <p>Implementation:</p>
@@ -1221,10 +1229,12 @@ Result: ✅ PASS
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Validates technical accuracy
-- Handles specialised terminology
-- Maintains semantic precision</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Validates technical accuracy</li>
+<li>Handles specialised terminology</li>
+<li>Maintains semantic precision</li>
+</ul>
 <h2 id="pattern-contextual-disambiguation">Pattern: Contextual Disambiguation</h2>
 <p><strong>Scenario</strong>: Testing understanding of ambiguous terms</p>
 <p>Implementation:</p>
@@ -1234,10 +1244,12 @@ Result: ✅ PASS
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Shows contextual understanding
-- Handles ambiguous terms
-- Validates specific meaning exclusions</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Shows contextual understanding</li>
+<li>Handles ambiguous terms</li>
+<li>Validates specific meaning exclusions</li>
+</ul>
 <h2 id="pattern-sentiment-analysis">Pattern: Sentiment Analysis</h2>
 <p><strong>Scenario</strong>: Testing subtle emotional content</p>
 <p>Implementation:</p>
@@ -1247,10 +1259,12 @@ Result: ✅ PASS
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Detects nuanced sentiment
-- Understands mixed emotions
-- Validates overall tone</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Detects nuanced sentiment</li>
+<li>Understands mixed emotions</li>
+<li>Validates overall tone</li>
+</ul>
 <h2 id="pattern-long-form-content">Pattern: Long-Form Content</h2>
 <p><strong>Scenario</strong>: Testing comprehension of detailed explanations</p>
 <p>Implementation:</p>
@@ -1263,10 +1277,12 @@ Result: ✅ PASS
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Handles longer text
-- Maintains context
-- Captures key concepts</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Handles longer text</li>
+<li>Maintains context</li>
+<li>Captures key concepts</li>
+</ul>
 <h2 id="pattern-subtle-sentiment-mismatch">Pattern: Subtle Sentiment Mismatch</h2>
 <p><strong>Scenario</strong>: Testing detection of subtle sentiment differences</p>
 <p>Implementation:</p>
@@ -1276,10 +1292,12 @@ Result: ✅ PASS
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails because actual statement indicates mixed satisfaction
-- Expected behavior suggests complete satisfaction
-- Shows sensitivity to subtle emotional differences</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails because actual statement indicates mixed satisfaction</li>
+<li>Expected behaviour suggests complete satisfaction</li>
+<li>Shows sensitivity to subtle emotional differences</li>
+</ul>
 <h2 id="pattern-technical-context-mismatch">Pattern: Technical Context Mismatch</h2>
 <p><strong>Scenario</strong>: Testing technical meaning precision</p>
 <p>Implementation:</p>
@@ -1289,10 +1307,12 @@ Result: ❌ FAIL
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails because returning a pointer is different from returning a stored value
-- Shows precision in technical context
-- Validates technical accuracy</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails because returning a pointer is different from returning a stored value</li>
+<li>Shows precision in technical context</li>
+<li>Validates technical accuracy</li>
+</ul>
 <h2 id="pattern-ambiguous-reference-testing">Pattern: Ambiguous Reference Testing</h2>
 <p><strong>Scenario</strong>: Testing handling of context-dependent terms</p>
 <p>Implementation:</p>
@@ -1302,10 +1322,12 @@ Result: ❌ FAIL
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails because contexts are completely different
-- Shows strong contextual understanding
-- Validates semantic boundaries</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails because contexts are completely different</li>
+<li>Shows strong contextual understanding</li>
+<li>Validates semantic boundaries</li>
+</ul>
 <h2 id="pattern-temporal-context">Pattern: Temporal Context</h2>
 <p><strong>Scenario</strong>: Testing time-based semantic understanding</p>
 <p>Implementation:</p>
@@ -1315,10 +1337,12 @@ Result: ❌ FAIL
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails because of tense mismatch
-- Shows temporal awareness
-- Validates time context</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails because of tense mismatch</li>
+<li>Shows temporal awareness</li>
+<li>Validates time context</li>
+</ul>
 <h2 id="pattern-logical-implication">Pattern: Logical Implication</h2>
 <p><strong>Scenario</strong>: Testing logical relationship understanding</p>
 <p>Implementation:</p>
@@ -1328,10 +1352,12 @@ Result: ❌ FAIL
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails because of reversed logical implication
-- Shows logical relationship understanding
-- Validates causality direction</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails because of reversed logical implication</li>
+<li>Shows logical relationship understanding</li>
+<li>Validates causality direction</li>
+</ul>
 <h2 id="pattern-multi-step-reasoning">Pattern: Multi-Step Reasoning</h2>
 <p><strong>Scenario</strong>: Testing complex logical chains</p>
 <p>Implementation:</p>
@@ -1347,10 +1373,12 @@ Result: ❌ FAIL
 <a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
 <a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Handles complex logical chains
-- Maintains consistency across steps
-- Validates scientific reasoning</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Handles complex logical chains</li>
+<li>Maintains consistency across steps</li>
+<li>Validates scientific reasoning</li>
+</ul>
 <h2 id="pattern-nonsensical-content">Pattern: Nonsensical Content</h2>
 <p><strong>Scenario</strong>: Testing handling of grammatically correct but meaningless content</p>
 <p>Implementation:</p>
@@ -1360,10 +1388,12 @@ Result: ✅ PASS
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Recognizes grammatical structure
-- Identifies semantic nonsense
-- Validates meta-understanding</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Recognizes grammatical structure</li>
+<li>Identifies semantic nonsense</li>
+<li>Validates meta-understanding</li>
+</ul>
 <h2 id="pattern-extended-narrative">Pattern: Extended Narrative</h2>
 <p><strong>Scenario</strong>: Testing long-form narrative understanding</p>
 <p>Implementation:</p>
@@ -1402,11 +1432,13 @@ Result: ✅ PASS
 <a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>
 <a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Handles extended narratives
-- Maintains thematic consistency
-- Validates complex relationships
-- Shows chronological understanding</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Handles extended narratives</li>
+<li>Maintains thematic consistency</li>
+<li>Validates complex relationships</li>
+<li>Shows chronological understanding</li>
+</ul>
 <h2 id="pattern-emoji-quantity-testing">Pattern: Emoji Quantity Testing</h2>
 <p><strong>Scenario</strong>: Testing recognition of repeated emojis</p>
 <p>Implementation:</p>
@@ -1416,10 +1448,12 @@ Result: ✅ PASS
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-<p>Result: ✅ PASS
-- Handles repeated Unicode characters
-- Recognizes quantity concepts
-- Validates emoji processing</p>
+<p>Result: ✅ PASS</p>
+<ul>
+<li>Handles repeated Unicode characters</li>
+<li>Recognises quantity concepts</li>
+<li>Validates emoji processing</li>
+</ul>
 <h2 id="pattern-emoji-quantity-mismatch">Pattern: Emoji Quantity Mismatch</h2>
 <p><strong>Scenario</strong>: Testing quantity recognition accuracy</p>
 <p>Implementation:</p>
@@ -1429,10 +1463,12 @@ Result: ✅ PASS
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
 <a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ❌ FAIL
-- Fails due to quantity mismatch
-- Shows quantity awareness
-- Validates numerical understanding</p>
+Result: ❌ FAIL</p>
+<ul>
+<li>Fails due to quantity mismatch</li>
+<li>Shows quantity awareness</li>
+<li>Validates numerical understanding</li>
+</ul>
 <h2 id="pattern-mixed-unicode-content">Pattern: Mixed Unicode Content</h2>
 <p><strong>Scenario</strong>: Testing complex Unicode combinations</p>
 <p>Implementation:</p>
@@ -1442,10 +1478,12 @@ Result: ❌ FAIL
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-<p>Result: ✅ PASS
-- Handles mixed Unicode content
-- Recognizes different character types
-- Validates multilingual content</p>
+<p>Result: ✅ PASS</p>
+<ul>
+<li>Handles mixed Unicode content</li>
+<li>Recognises different character types</li>
+<li>Validates multilingual content</li>
+</ul>
 <h2 id="pattern-multilingual-emoji-spam">Pattern: Multilingual Emoji Spam</h2>
 <p><strong>Scenario</strong>: Testing repeated multilingual content</p>
 <p>Implementation:</p>
@@ -1455,10 +1493,12 @@ Result: ❌ FAIL
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Handles multilingual text
-- Recognises repetitive patterns
-- Validates mixed content types</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Handles multilingual text</li>
+<li>Recognises repetitive patterns</li>
+<li>Validates mixed content types</li>
+</ul>
 <h2 id="pattern-ascii-art-recognition">Pattern: ASCII Art Recognition</h2>
 <p><strong>Scenario</strong>: Testing complex ASCII art patterns</p>
 <p>Implementation:</p>
@@ -1470,10 +1510,12 @@ Result: ✅ PASS
 <a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
 <a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Recognizes ASCII art patterns
-- Understands visual representations
-- Validates repeated patterns</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Recognises ASCII art patterns</li>
+<li>Understands visual representations</li>
+<li>Validates repeated patterns</li>
+</ul>
 <h2 id="pattern-extreme-whitespace">Pattern: Extreme Whitespace</h2>
 <p><strong>Scenario</strong>: Testing handling of excessive spacing</p>
 <p>Implementation:</p>
@@ -1483,10 +1525,12 @@ Result: ✅ PASS
 <a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
 <a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Handles extreme whitespace
-- Maintains semantic meaning
-- Validates text normalization</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Handles extreme whitespace</li>
+<li>Maintains semantic meaning</li>
+<li>Validates text normalisation</li>
+</ul>
 <h2 id="pattern-number-pattern-recognition">Pattern: Number Pattern Recognition</h2>
 <p><strong>Scenario</strong>: Testing numerical pattern understanding</p>
 <p>Implementation:</p>
@@ -1496,10 +1540,12 @@ Result: ✅ PASS
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-Result: ✅ PASS
-- Recognises numerical patterns
-- Handles long repetitive sequences
-- Validates pattern understanding</p>
+Result: ✅ PASS</p>
+<ul>
+<li>Recognises numerical patterns</li>
+<li>Handles long repetitive sequences</li>
+<li>Validates pattern understanding</li>
+</ul>
 
 
 
