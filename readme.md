@@ -1,6 +1,6 @@
 # llm_app_test
 
-[![Discord](https://img.shields.io/discord/1307634517766443058)](https://discord.gg/awy83bZsKf)
+[![Discord](https://img.shields.io/discord/1307634517766443058?logo=discord&logoColor=white)](https://discord.gg/awy83bZsKf)
 ![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
