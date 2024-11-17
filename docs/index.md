@@ -20,7 +20,7 @@ When running multiple tests in parallel with the Anthropic provider, you may enc
 
 ### Recommendations
 1. Add delays between tests when using Anthropic
-2. Consider using OpenAI for large test suites
+2. Consider using OpenAI for test suites with more than a single test (Anthropic's API rate limits are extremely aggressive)
 3. Split test suites into smaller batches
 
 We are working on implementing rate limiting handlers in future releases. For now, if you encounter 401 errors with Anthropic:
