@@ -1,4 +1,4 @@
-# llm_test
+# llm_app_test
 
 A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. 
 
@@ -20,7 +20,7 @@ When running multiple tests in parallel with the Anthropic provider, you may enc
 
 ### Recommendations
 1. Add delays between tests when using Anthropic
-2. Consider using OpenAI for large test suites
+2. Consider using OpenAI for test suites with more than a single test (Anthropic's API rate limits are extremely aggressive)
 3. Split test suites into smaller batches
 
 We are working on implementing rate limiting handlers in future releases. For now, if you encounter 401 errors with Anthropic:
@@ -28,29 +28,29 @@ We are working on implementing rate limiting handlers in future releases. For no
 - Reduce parallel test execution
 - Switch to OpenAI for large test suites
 
-## Current Version: 0.1.0b3post1
+## Current Version: 0.1.0b3post3
 
 ## Need testing ideas? Check out the tests we used to test llm-app-test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
-## What llm_test Does
+## What llm_app_test Does
 - Tests LLM applications (not the LLMs themselves)
 - Validates system message + prompt template outputs
 - Ensures semantic equivalence of responses
 - Tests the parts YOU control in your LLM application
 
-## What llm_test Doesn't Do
+## What llm_app_test Doesn't Do
 - Test LLM model performance (that's the provider's responsibility)
 - Validate base model capabilities
 - Test model reliability
 - Handle model safety features
 
-## When to Use llm_test
+## When to Use llm_app_test
 - Testing application-level LLM integration
 - Validating prompt engineering
 - Testing system message effectiveness
 - Ensuring consistent response patterns
 
-## When Not to Use llm_test
+## When Not to Use llm_app_test
 - Testing base LLM performance
 - Evaluating model capabilities
 - Testing model safety features
