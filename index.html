@@ -961,7 +961,7 @@
 <h3 id="recommendations">Recommendations</h3>
 <ol>
 <li>Add delays between tests when using Anthropic</li>
-<li>Consider using OpenAI for large test suites</li>
+<li>Consider using OpenAI for test suites with more than a single test (Anthropic's API rate limits are extremely aggressive)</li>
 <li>Split test suites into smaller batches</li>
 </ol>
 <p>We are working on implementing rate limiting handlers in future releases. For now, if you encounter 401 errors with Anthropic:
