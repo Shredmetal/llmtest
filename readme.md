@@ -1,5 +1,12 @@
 # llm_app_test
 
+[![Discord](https://img.shields.io/discord/1307634517766443058)](https://discord.gg/awy83bZsKf)
+![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
+
+
 A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. 
 
 ✨ Test your LLM apps in minutes, not hours
@@ -13,8 +20,6 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 > ⚠️ **Note**: When using Anthropic as the provider, you may encounter rate limiting (401 errors) with large test suites. Consider adding delays between tests or using OpenAI for extensive testing. See documentation for details.
 
 You can click [here](https://Shredmetal.github.io/llmtest/) to go straight to the docs.
-
-Important note: This is still being tested prior to release on PyPI, please refer to the branch: feat/find-a-way-to-break-this and look in the tests directory to see where we're at on the dumbest edge cases (e.g. 100 emojis).
 
 ## What llm_app_test Does
 - Tests LLM applications (not the LLMs themselves)
