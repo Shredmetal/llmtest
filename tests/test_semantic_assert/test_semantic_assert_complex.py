@@ -106,7 +106,35 @@ class TestComplexSemanticAssertion:
 
     def test_long_context_understanding(self, asserter):
         """Test understanding of long, interconnected narratives"""
-        pass
-        # actual = """?????"""
-        # expected = "A complex narrative maintaining consistency across multiple scenes and character arcs"
-        # asserter.assert_semantic_match(actual, expected)
+        actual = """
+        The Roman Empire's rise began with modest origins in central Italy. What started as a small 
+        settlement along the Tiber River would eventually become one of history's most influential 
+        civilizations. In the early days, Rome was ruled by kings, but this system was overthrown 
+        in 509 BCE, giving birth to the Roman Republic.
+
+        During the Republic, Rome expanded its territory through military conquest and diplomatic 
+        alliances. The Roman army became increasingly professional, developing innovative tactics 
+        and technologies. This military success brought wealth and power, but also internal 
+        challenges. Social tensions grew between patricians and plebeians, leading to significant 
+        political reforms.
+
+        By the 1st century BCE, the Republic faced severe internal strife. Military commanders 
+        like Marius, Sulla, and eventually Julius Caesar accumulated unprecedented power. Caesar's 
+        crossing of the Rubicon in 49 BCE marked a point of no return. His assassination in 44 BCE 
+        led to another civil war, ultimately resulting in his adopted heir Octavian becoming 
+        Augustus, the first Roman Emperor.
+
+        Augustus transformed Rome into an empire while maintaining a facade of republican 
+        institutions. He implemented sweeping reforms in administration, military organization, 
+        and public works. The Pax Romana that followed brought unprecedented peace and prosperity 
+        across the Mediterranean world. Trade flourished, cities grew, and Roman culture spread 
+        throughout the empire.
+        """
+        expected = """A historical narrative that:
+        1. Maintains chronological progression
+        2. Shows cause-and-effect relationships
+        3. Develops consistent themes (power, governance, military)
+        4. Connects multiple historical events coherently
+        5. Demonstrates character development (e.g., Caesar to Augustus)
+        """
+        asserter.assert_semantic_match(actual, expected)
