@@ -4,16 +4,16 @@ from dotenv import load_dotenv
 from langchain_core.language_models import BaseLanguageModel
 from langchain.schema import HumanMessage, SystemMessage
 
-from llmtest.semanticassert.llmconfig.llm_config import LLMConfig
-from llmtest.semanticassert.llmconfig.llm_factory import LLMFactory
-from llmtest.semanticassert.llmconfig.llm_provider_enum import LLMProvider
-from llmtest.exceptions.test_exceptions import (
+from llm_app_test.semantic_assert.llm_config.llm_config import LLMConfig
+from llm_app_test.semantic_assert.llm_config.llm_factory import LLMFactory
+from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
+from llm_app_test.exceptions.test_exceptions import (
     SemanticAssertionError,
     catch_llm_errors,
 )
-from llmtest.semanticassert.semanticassertconfig.semantic_assert_constants import ModelConstants, LLMConstants
-from llmtest.semanticassert.validation.config_validator import ConfigValidator
-from llmtest.semanticassert.validation.validator_config import ValidationConfig
+from llm_app_test.semantic_assert.semantic_assert_config.semantic_assert_constants import ModelConstants, LLMConstants
+from llm_app_test.semantic_assert.validation.config_validator import ConfigValidator
+from llm_app_test.semantic_assert.validation.validator_config import ValidationConfig
 
 
 class SemanticAssertion:

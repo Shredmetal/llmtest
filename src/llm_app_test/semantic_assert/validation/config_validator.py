@@ -1,7 +1,7 @@
 from typing import Optional, Set
-from llmtest.exceptions.test_exceptions import LLMConfigurationError
-from llmtest.semanticassert.llmconfig.llm_provider_enum import LLMProvider
-from llmtest.semanticassert.validation.validator_config import ValidationConfig
+from llm_app_test.exceptions.test_exceptions import LLMConfigurationError
+from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
+from llm_app_test.semantic_assert.validation.validator_config import ValidationConfig
 
 
 class ConfigValidator:

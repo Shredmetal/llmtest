@@ -6,7 +6,7 @@
 - Python 3.8 or higher
 - pip (package installer for Python)
 
-## Installing llmtest
+## Installing llm_app_test
 
 Install directly from GitHub:
 
@@ -16,7 +16,7 @@ pip install git+https://github.com/Shredmetal/llmtest.git
 
 ## Development Installation
 
-If you want to contribute to llmtest, install with development dependencies:
+If you want to contribute to llm_app_test, install with development dependencies:
 
 ```
 # Clone the repository
@@ -25,15 +25,15 @@ git clone https://github.com/Shredmetal/llmtest.git
 
 # Change to project directory
 
-cd llmtest
+cd llm_app_test
 
 # Install with development dependencies
 
-pip install -e ".[dev]"]
+pip install -e ".[dev]"
 ```
 
 
 ## Next Steps
 
-- [Quick Start Guide](quickstart.md) - Learn how to use llmtest
+- [Quick Start Guide](quickstart.md) - Learn how to use llm_app_test
 

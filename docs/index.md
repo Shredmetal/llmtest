@@ -1,4 +1,4 @@
-# llmtest
+# llm_test
 
 A semantic testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs. 
 
@@ -10,25 +10,27 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 🔧 No infrastructure needed
 
-## What llmtest Does
+## Current Version: 0.1.0b3
+
+## What llm_test Does
 - Tests LLM applications (not the LLMs themselves)
 - Validates system message + prompt template outputs
 - Ensures semantic equivalence of responses
 - Tests the parts YOU control in your LLM application
 
-## What llmtest Doesn't Do
+## What llm_test Doesn't Do
 - Test LLM model performance (that's the provider's responsibility)
 - Validate base model capabilities
 - Test model reliability
 - Handle model safety features
 
-## When to Use llmtest
+## When to Use llm_test
 - Testing application-level LLM integration
 - Validating prompt engineering
 - Testing system message effectiveness
 - Ensuring consistent response patterns
 
-## When Not to Use llmtest
+## When Not to Use llm_test
 - Testing base LLM performance
 - Evaluating model capabilities
 - Testing model safety features

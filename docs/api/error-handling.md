@@ -2,12 +2,12 @@
 
 # Error Handling
 
-llmtest provides specific exceptions for different error scenarios to help you handle errors gracefully in your tests.
+llm_app_test provides specific exceptions for different error scenarios to help you handle errors gracefully in your tests.
 
 ## Exception Hierarchy
 
 ```
-LLMTestError # Base exception for all llmtest errors 
+LLMTestError # Base exception for all llm_app_test errors 
 ├── SemanticAssertionError # When semantic matching fails 
 ├── LLMConfigurationError # When configuration is invalid 
 ├── LLMConnectionError # When LLM service fails 

@@ -1,5 +1,5 @@
 import pytest
-from ..semanticassert.semantic_assert import SemanticAssertion
+from ..semantic_assert.semantic_assert import SemanticAssertion
 
 
 def pytest_configure(config):

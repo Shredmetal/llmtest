@@ -2,7 +2,7 @@
 
 # Best Practices
 
-Guidelines for effective semantic testing with llmtest.
+Guidelines for effective semantic testing with llm_app_test.
 
 ## Understanding Semantic Testing
 
@@ -42,7 +42,7 @@ expected_behavior = """ An error message that:
                     Explains the API key is invalid
                     Provides steps to fix the issue """
 
-# Bad - testing exact wording - DO NOT USE LLMTEST FOR THIS, JUST USE REGULAR PYTEST
+# Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, JUST USE REGULAR PYTEST
 
 expected_behavior = "Should say 'Invalid API key'"
 ```

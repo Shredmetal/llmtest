@@ -2,7 +2,7 @@
 
 # Configuration
 
-llmtest provides flexible configuration through environment variables and direct parameters.
+llm_app_test provides flexible configuration through environment variables and direct parameters.
 
 ## Environment Variables
 
@@ -36,10 +36,10 @@ LLM_MAX_RETRIES=2 # API retry attempts
 
 ## Direct Configuration
 
-You can also configure llmtest programmatically:
+You can also configure llm_app_test programmatically:
 
 ```
-from llmtest.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
 
 asserter = SemanticAssertion(api_key="your-api-key", # Strongly advised against, use env vars 
                              provider="openai", # or 'anthropic' 
@@ -80,7 +80,7 @@ Configuration values are resolved in this order:
 
 ---
 
-Note: llmtest validates all configuration values at startup to prevent runtime errors.
+Note: llm_app_test validates all configuration values at startup to prevent runtime errors.
 
 ## Navigation
 
