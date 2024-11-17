@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import patch, Mock
-from llmtest.semanticassert.semantic_assert import SemanticAssertion
-from llmtest.semanticassert.llmconfig.llm_provider_enum import LLMProvider
-from llmtest.exceptions.test_exceptions import (
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
+from llm_app_test.exceptions.test_exceptions import (
     LLMConfigurationError
 )
 

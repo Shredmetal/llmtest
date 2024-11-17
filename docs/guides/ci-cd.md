@@ -2,7 +2,7 @@
 
 # CI/CD Integration
 
-llmtest is designed for seamless integration with CI/CD pipelines.
+llm_app_test is designed for seamless integration with CI/CD pipelines.
 
 ## Setting Up CI/CD
 
@@ -24,7 +24,7 @@ env: ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 # tests/test_llm_app.py
 
-from llmtest.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
 
 def test_llm_output(): 
     semantic_assert = SemanticAssertion() # Your tests here
@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install git+https://github.com/Shredmetal/llmtest.git
+          pip install llm-app-test
           
       - name: Run tests
         env:

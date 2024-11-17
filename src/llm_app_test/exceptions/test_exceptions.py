@@ -33,7 +33,7 @@ def catch_llm_errors(func: Callable) -> Callable:
 
 
 class LLMTestError(Exception):
-    """Base exception class for all llmtest errors."""
+    """Base exception class for all llm_app_test errors."""
     def __init__(
         self,
         message: str,

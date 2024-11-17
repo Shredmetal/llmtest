@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from llmtest.semanticassert.llmconfig.llm_provider_enum import LLMProvider
+from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
 
 
 @dataclass

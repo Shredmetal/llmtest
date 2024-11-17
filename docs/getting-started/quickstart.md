@@ -2,7 +2,7 @@
 
 # Quick Start
 
-Get up and running with llmtest in under 5 minutes.
+Get up and running with llm_app_test in under 5 minutes.
 
 ## 1. Set Up Environment
 
@@ -22,7 +22,7 @@ ANTHROPIC_API_KEY=your-anthropic-key-here
 
 ```
 
-from llmtest.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
 
 def my_first_semantic_test(): 
 
@@ -52,17 +52,17 @@ pytest my_first_semantic_test.py
 ## Next Steps
 
 - [CI/CD Integration](../guides/ci-cd.md) - Set up automated testing
-- [Configuration](../api/configuration.md) - Configure llmtest for your needs
+- [Configuration](../api/configuration.md) - Configure llm_app_test for your needs
 
 ## Additional notes:
 
 ## Real World Example
-> Want to see llmtest in action? Here's a real test from our test suite:
+> Want to see llm_app_test in action? Here's a real test from our test suite:
 
 ```
 
-from llmtest.semanticassert.semantic_assert import SemanticAssertion 
-from llmtest.tests.test_content_generators.test_greeting_bot import SimpleGreetingBot
+from llm_app_test.semanticassert.semantic_assert import SemanticAssertion 
+from llm_app_test.tests.test_content_generators.test_greeting_bot import SimpleGreetingBot
 
 def test_greeting_semantic(): 
 
