@@ -9,7 +9,7 @@ from llm_app_test.exceptions.test_exceptions import (
 class TestRidiculousSemanticAssertion:
     @pytest.fixture
     def asserter(self):
-        return SemanticAssertion(api_key=os.getenv("OPENAI_API_KEY"))
+        return SemanticAssertion()
 
     def test_100_emojis(self, asserter):
         """Test recognition of a pile of meaningless emojis"""
@@ -28,7 +28,7 @@ class TestRidiculousSemanticAssertion:
     def test_unicode_mess(self, asserter):
         """Test handling of unicode chaos"""
         actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
-        expected = "A mix of emojis and Japanese text"
+        expected = "More than one type of emoji and Japanese text regardless of order"
         asserter.assert_semantic_match(actual, expected)
 
     def test_mixed_language_emoji_spam(self, asserter):

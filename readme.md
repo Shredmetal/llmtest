@@ -2,6 +2,7 @@
 
 [![Discord](https://img.shields.io/discord/1307634517766443058?logo=discord&logoColor=white)](https://discord.gg/awy83bZsKf)
 [![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)](https://pypi.org/project/llm-app-test/)
+![PyPI Downloads](https://img.shields.io/pypi/dm/llm-app-test)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
@@ -17,9 +18,31 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 🔧 No infrastructure needed
 
-> ⚠️ **Note**: When using Anthropic as the provider, you may encounter rate limiting (401 errors) with large test suites. Consider adding delays between tests or using OpenAI for extensive testing. See documentation for details.
-
 You can click [here](https://Shredmetal.github.io/llmtest/) to go straight to the docs.
+
+## Due to the number of downloads I am seeing on pypistats.org, I am including these instructions in case a beta update breaks something on your end:
+
+### Emergency Rollback Instructions
+
+If you experience issues with version 0.1.0b4, you can roll back to the previous stable version (0.1.0b3.post3) using one of these methods:
+
+#### Method 1: Direct Installation of Previous Version
+
+```
+pip uninstall llm-app-test 
+pip install llm-app-test==0.1.0b3.post3
+```
+#### Method 2: Force Reinstall (if Method 1 fails)
+
+```
+pip install --force-reinstall llm-app-test==0.1.0b3.post3
+```
+#### Verification
+After rolling back, verify the installation:
+```
+import llm_app_test 
+print(llm_app_test.version) # Should show 0.1.0b3.post3
+```
 
 ## What llm_app_test Does
 - Tests LLM applications (not the LLMs themselves)
@@ -47,11 +70,11 @@ and get a pass/fail to test your LLM apps? Well, that's what I'm trying to do. A
 
 Here's llm_app_test passing a test case:
 
-![test_pass.jpg](test_pass.jpg)
+![test_pass.jpg](https://github.com/Shredmetal/llmtest/blob/main/test_pass.jpg?raw=true)
 
 Here's llm_app_test failing a test case (and providing the reason why it failed):
 
-![test_fail.jpg](test_fail.jpg)
+![test_fail.jpg](https://github.com/Shredmetal/llmtest/blob/main/test_pass.jpg?raw=true)
 
 Finally, here's llm_app_test passing a test case with a complex reasoning chain with the simple, natural language 
 instruction of:
@@ -61,7 +84,7 @@ A complex, multi-step, scientific explanation.
 Must maintain logical consistency across all steps.
 ```
 
-![complex_reasoning_chain_pass.jpg](complex_reasoning_chain_pass.jpg)
+![complex_reasoning_chain_pass.jpg](https://github.com/Shredmetal/llmtest/blob/main/complex_reasoning_chain_pass.jpg?raw=true)
 
 ## Why llm_app_test?
 
@@ -144,6 +167,56 @@ For major changes, please open an issue first to discuss what you would like to 
 
 Please adhere to clean code principles and include appropriate tests... or else. 🗡️
 
-## Contact
+## Reporting Issues
+If you encounter issues:
+1. Create an issue on our GitHub repository
+2. Include your Python version and environment details
+3. Describe the problem you encountered with version 0.1.0b4
 
-morganj.lee01@gmail.com
+## 🆘 Support
+- Discord: [Join our community](https://discord.gg/awy83bZsKf)
+- Issues: [GitHub Issues](https://github.com/Shredmetal/llmtest/issues)
+- Documentation: [Full Docs](https://shredmetal.github.io/llmtest/)
+- Email: morganj.lee01@gmail.com
+
+## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:
+
+### Anthropic Rate limits:
+
+Tier 1:
+
+| Model                        | Maximum Requests per minute (RPM) | Maximum Tokens per minute (TPM) | Maximum Tokens per day (TPD) |
+|------------------------------|-----------------------------------|---------------------------------|------------------------------|
+| Claude 3.5 Sonnet 2024-10-22 | 50                                | 40,000                          | 1,000,000                    |
+| Claude 3.5 Sonnet 2024-06-20 | 50                                | 40,000                          | 1,000,000                    |
+| Claude 3 Opus                | 50                                | 20,000                          | 1,000,000                    |
+
+
+Tier 2:
+
+| Model                        | Maximum Requests per minute (RPM) | Maximum Tokens per minute (TPM) | Maximum Tokens per day (TPD) |
+|------------------------------|-----------------------------------|---------------------------------|------------------------------|
+| Claude 3.5 Sonnet 2024-10-22 | 1,000                             | 80,000                          | 2,500,000                    |
+| Claude 3.5 Sonnet 2024-06-20 | 1,000                             | 80,000                          | 2,500,000                    |
+| Claude 3 Opus                | 1,000                             | 40,000                          | 2,500,000                    |
+
+### OpenAI Rate Limits
+
+Tier 1
+
+| Model                   | RPM | RPD    | TPM     | Batch Queue Limit |
+|-------------------------|-----|--------|---------|-------------------|
+| gpt-4o                  | 500 | -      | 30,000  | 90,000            |
+| gpt-4o-mini             | 500 | 10,000 | 200,000 | 2,000,000         |
+| gpt-4o-realtime-preview | 100 | 100    | 20,000  | -                 |
+| gpt-4-turbo             | 500 | -      | 30,000  | 90,000            |
+
+
+Tier 2:
+
+| Model                   | RPM   | TPM       | Batch Queue Limit |
+|-------------------------|-------|-----------|-------------------|
+| gpt-4o                  | 5,000 | 450,000   | 1,350,000         |
+| gpt-4o-mini             | 5,000 | 2,000,000 | 20,000,000        |
+| gpt-4o-realtime-preview | 200   | 40,000    | -                 |
+| gpt-4-turbo             | 5,000 | 450,000   | 1,350,000         |

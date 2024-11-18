@@ -2,6 +2,7 @@
 
 [![Discord](https://img.shields.io/discord/1307634517766443058?logo=discord&logoColor=white)](https://discord.gg/awy83bZsKf)
 [![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)](https://pypi.org/project/llm-app-test/)
+![PyPI Downloads](https://img.shields.io/pypi/dm/llm-app-test)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
@@ -16,25 +17,29 @@ A semantic testing framework for LLM applications that uses LLMs to validate sem
 
 🔧 No infrastructure needed
 
-## ⚠️ Important Note About Anthropic API
+## Due to the number of downloads I am seeing on pypistats.org, I am including these instructions in case a beta update breaks something on your end:
 
-When running multiple tests in parallel with the Anthropic provider, you may encounter rate limiting issues (401 errors). This is due to Anthropic's rate limits:
+### Emergency Rollback Instructions
 
-- 50 requests per minute (RPM)
-- 40,000 tokens per minute (TPM) for Claude 3.5 Sonnet
-- 1,000,000 tokens per day (TPD)
+If you experience issues with version 0.1.0b4, you can roll back to the previous stable version (0.1.0b3.post3) using one of these methods:
 
-### Recommendations
-1. Add delays between tests when using Anthropic
-2. Consider using OpenAI for test suites with more than a single test (Anthropic's API rate limits are extremely aggressive)
-3. Split test suites into smaller batches
+#### Method 1: Direct Installation of Previous Version
 
-We are working on implementing rate limiting handlers in future releases. For now, if you encounter 401 errors with Anthropic:
-- Add delays between tests
-- Reduce parallel test execution
-- Switch to OpenAI for large test suites
+```
+pip uninstall llm-app-test 
+pip install llm-app-test==0.1.0b3.post3
+```
+#### Method 2: Force Reinstall (if Method 1 fails)
 
-## Current Version: 0.1.0b3post3
+```
+pip install --force-reinstall llm-app-test==0.1.0b3.post3
+```
+#### Verification
+After rolling back, verify the installation:
+```
+import llm_app_test 
+print(llm_app_test.version) # Should show 0.1.0b3.post3
+```
 
 ## Need testing ideas? Check out the tests we used to test llm-app-test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
@@ -79,3 +84,57 @@ We are working on implementing rate limiting handlers in future releases. For no
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Shredmetal/llmtest/blob/main/LICENSE) file for details.
+
+## Reporting Issues
+If you encounter issues:
+1. Create an issue on our GitHub repository
+2. Include your Python version and environment details
+3. Describe the problem you encountered with version 0.1.0b4
+
+## 🆘 Support
+- Discord: [Join our community](https://discord.gg/awy83bZsKf)
+- Issues: [GitHub Issues](https://github.com/Shredmetal/llmtest/issues)
+- Documentation: [Full Docs](https://shredmetal.github.io/llmtest/)
+- Email: morganj.lee01@gmail.com
+
+## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:
+
+### Anthropic Rate limits:
+
+Tier 1:
+
+| Model                        | Maximum Requests per minute (RPM) | Maximum Tokens per minute (TPM) | Maximum Tokens per day (TPD) |
+|------------------------------|-----------------------------------|---------------------------------|------------------------------|
+| Claude 3.5 Sonnet 2024-10-22 | 50                                | 40,000                          | 1,000,000                    |
+| Claude 3.5 Sonnet 2024-06-20 | 50                                | 40,000                          | 1,000,000                    |
+| Claude 3 Opus                | 50                                | 20,000                          | 1,000,000                    |
+
+
+Tier 2:
+
+| Model                        | Maximum Requests per minute (RPM) | Maximum Tokens per minute (TPM) | Maximum Tokens per day (TPD) |
+|------------------------------|-----------------------------------|---------------------------------|------------------------------|
+| Claude 3.5 Sonnet 2024-10-22 | 1,000                             | 80,000                          | 2,500,000                    |
+| Claude 3.5 Sonnet 2024-06-20 | 1,000                             | 80,000                          | 2,500,000                    |
+| Claude 3 Opus                | 1,000                             | 40,000                          | 2,500,000                    |
+
+### OpenAI Rate Limits
+
+Tier 1
+
+| Model                   | RPM | RPD    | TPM     | Batch Queue Limit |
+|-------------------------|-----|--------|---------|-------------------|
+| gpt-4o                  | 500 | -      | 30,000  | 90,000            |
+| gpt-4o-mini             | 500 | 10,000 | 200,000 | 2,000,000         |
+| gpt-4o-realtime-preview | 100 | 100    | 20,000  | -                 |
+| gpt-4-turbo             | 500 | -      | 30,000  | 90,000            |
+
+
+Tier 2:
+
+| Model                   | RPM   | TPM       | Batch Queue Limit |
+|-------------------------|-------|-----------|-------------------|
+| gpt-4o                  | 5,000 | 450,000   | 1,350,000         |
+| gpt-4o-mini             | 5,000 | 2,000,000 | 20,000,000        |
+| gpt-4o-realtime-preview | 200   | 40,000    | -                 |
+| gpt-4-turbo             | 5,000 | 450,000   | 1,350,000         |
