@@ -1,6 +1,5 @@
 import pytest
 import sys
-import coverage
 from pathlib import Path
 
 
@@ -20,26 +19,18 @@ def run_semantic_tests():
         str(test_dir / "pytest_plugin_tests" / "test_pytest_configuration.py")
     ]
 
-    cov = coverage.Coverage(source=['src.llm_app_test'])
-    cov.start()
-
     args = [
         *test_files,
         "-v",
     ]
-    result = pytest.main(args)
 
-    cov.stop()
-    cov.save()
-    cov.report()
-    cov.html_report()
-
-    return result
+    return pytest.main(args)
 
 
 if __name__ == "__main__":
     from dotenv import load_dotenv
 
     load_dotenv()
+
     exit_code = run_semantic_tests()
     sys.exit(exit_code)
