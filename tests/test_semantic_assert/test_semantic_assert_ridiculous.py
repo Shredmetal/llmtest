@@ -28,7 +28,7 @@ class TestRidiculousSemanticAssertion:
     def test_unicode_mess(self, asserter):
         """Test handling of unicode chaos"""
         actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
-        expected = "A bunch of emojis and Japanese text"
+        expected = "More than one type of emoji and Japanese text regardless of order"
         asserter.assert_semantic_match(actual, expected)
 
     def test_mixed_language_emoji_spam(self, asserter):
