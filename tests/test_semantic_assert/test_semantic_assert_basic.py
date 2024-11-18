@@ -1,5 +1,7 @@
 import os
 import pytest
+
+from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from llm_app_test.exceptions.test_exceptions import (
     SemanticAssertionError,
@@ -29,12 +31,22 @@ class TestSemanticAssertion:
             asserter.assert_semantic_match(actual, expected)
         assert "Semantic assertion failed" in str(excinfo.value)
 
-    def test_invalid_api_key(self):
-        """Test invalid API key raises correct exception"""
-        with pytest.raises(LLMConnectionError) as excinfo:
+    def test_openai_api_error(self):
+        """Test OpenAI API error handling"""
+        with pytest.raises(LLMConnectionError) as exc_info:
             asserter = SemanticAssertion(api_key="invalid_key")
             asserter.assert_semantic_match("test", "test")
-        assert "Error code: 401" in str(excinfo.value)
+        assert "OpenAI API error occurred" in str(exc_info.value)
+
+    def test_anthropic_api_error(self):
+        """Test Anthropic API error handling"""
+        with pytest.raises(LLMConnectionError) as exc_info:
+            asserter = SemanticAssertion(
+                provider=LLMProvider.ANTHROPIC,
+                api_key="invalid_key"
+            )
+            asserter.assert_semantic_match("test", "test")
+        assert "Anthropic API error occurred" in str(exc_info.value)
 
     def test_empty_inputs(self, asserter):
         """Test empty inputs"""
