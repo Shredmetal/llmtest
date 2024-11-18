@@ -1,5 +1,5 @@
 import pytest
-from src.llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 
 
 class TestPytestConfiguration:
