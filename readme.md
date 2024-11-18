@@ -70,11 +70,11 @@ and get a pass/fail to test your LLM apps? Well, that's what I'm trying to do. A
 
 Here's llm_app_test passing a test case:
 
-![test_pass.jpg](test_pass.jpg)
+![test_pass.jpg](https://github.com/Shredmetal/llmtest/blob/main/test_pass.jpg?raw=true)
 
 Here's llm_app_test failing a test case (and providing the reason why it failed):
 
-![test_fail.jpg](test_fail.jpg)
+![test_fail.jpg](https://github.com/Shredmetal/llmtest/blob/main/test_pass.jpg?raw=true)
 
 Finally, here's llm_app_test passing a test case with a complex reasoning chain with the simple, natural language 
 instruction of:
@@ -84,7 +84,7 @@ A complex, multi-step, scientific explanation.
 Must maintain logical consistency across all steps.
 ```
 
-![complex_reasoning_chain_pass.jpg](complex_reasoning_chain_pass.jpg)
+![complex_reasoning_chain_pass.jpg](https://github.com/Shredmetal/llmtest/blob/main/complex_reasoning_chain_pass.jpg?raw=true)
 
 ## Why llm_app_test?
 
