@@ -4,6 +4,9 @@ version = "0.1.0b4"
 description = "Semantic testing framework for LLM applications"
 requires-python = ">=3.10"
 readme = "README.md"
+authors = [
+    {name = "Morgan Lee", email = "morganj.lee01@gmail.com"},
+]
 dependencies = [
     "langchain>=0.3.0",
     "langchain-openai>=0.2.0",
@@ -11,10 +14,22 @@ dependencies = [
     "python-dotenv>=1.0.0",
     "pytest>=7.0.0"
 ]
+license = {text = "MIT"}
+keywords = ["testing", "llm", "semantic", "pytest"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing"
+]
 
 [project.urls]
 Homepage = "https://github.com/Shredmetal/llmtest"
 Documentation = "https://shredmetal.github.io/llmtest/"
+Repository = "https://github.com/Shredmetal/llmtest.git"
 
 [project.optional-dependencies]
 dev = [
