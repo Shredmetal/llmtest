@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://Shredmetal.github.io/llmtest/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/configuration/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/error-handling/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/semantic-assertion/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/getting-started/installation/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/getting-started/quickstart/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/best-practices/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/ci-cd/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/testing-patterns/</loc>
-         <lastmod>2024-11-18</lastmod>
+         <lastmod>2024-11-19</lastmod>
     </url>
 </urlset>

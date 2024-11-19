@@ -731,11 +731,53 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pattern-mixed-unicode-content" class="md-nav__link">
+  <a href="#pattern-mixed-unicode-content-known-reliability-issue" class="md-nav__link">
     <span class="md-ellipsis">
-      Pattern: Mixed Unicode Content
+      Pattern: Mixed Unicode Content ⚠️ Known Reliability Issue
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Pattern: Mixed Unicode Content ⚠️ Known Reliability Issue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observed-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observed Behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ongoing-investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongoing Investigation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1092,11 +1134,53 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pattern-mixed-unicode-content" class="md-nav__link">
+  <a href="#pattern-mixed-unicode-content-known-reliability-issue" class="md-nav__link">
     <span class="md-ellipsis">
-      Pattern: Mixed Unicode Content
+      Pattern: Mixed Unicode Content ⚠️ Known Reliability Issue
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Pattern: Mixed Unicode Content ⚠️ Known Reliability Issue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observed-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observed Behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ongoing-investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongoing Investigation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1469,29 +1553,56 @@ Result: ❌ FAIL</p>
 <li>Shows quantity awareness</li>
 <li>Validates numerical understanding</li>
 </ul>
-<h2 id="pattern-mixed-unicode-content">Pattern: Mixed Unicode Content</h2>
-<p><strong>Scenario</strong>: Testing complex Unicode combinations</p>
-<p>Implementation:</p>
+<h2 id="pattern-mixed-unicode-content-known-reliability-issue">Pattern: Mixed Unicode Content ⚠️ Known Reliability Issue</h2>
+<p><strong>Scenario</strong>: Testing complex Unicode combinations and repetitive patterns</p>
+<h3 id="observed-behavior">Observed Behavior</h3>
+<p><strong>Test Case 1: Strict Pattern Matching</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>actual = &quot;🤖👾&quot; * 50 + &quot;こんにちは&quot; * 20 + &quot;🌈&quot; * 30
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>expected_behavior = &quot;A mix of emojis and Japanese text&quot;
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-<p>Result: ✅ PASS</p>
+<p><strong>Results</strong>:
+- ✅ Success Rate: 96% (48/50 runs)
+- ❌ Failure Rate: 4% (2/50 runs)
+- 🔍 Failure Analysis:
+  - Occurs primarily during increased API latency
+  - GPT-4o occasionally interprets sequential patterns as "distinct collections" rather than "mixed content"
+  - Failure message example: "This is not a mix as there is a distinct collection of emojis followed by Japanese text and then a collection of rainbows"</p>
+<h3 id="recommended-implementation">Recommended Implementation</h3>
+<p><strong>Test Case 2: Pattern-Agnostic Matching</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>actual = &quot;🤖👾&quot; * 50 + &quot;こんにちは&quot; * 20 + &quot;🌈&quot; * 30
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>expected = &quot;More than one type of emoji and Japanese text regardless of order&quot;
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>asserter.assert_semantic_match(actual, expected)
+</code></pre></div>
+<p><strong>Results</strong>:
+- ✅ Success Rate: 100% (preliminary)
+- ⚠️ Extended testing in progress
+- 🔍 Monitoring prompt effectiveness across different test scenarios</p>
+<h3 id="best-practices">Best Practices</h3>
+<ol>
+<li>Use pattern-agnostic assertions for repetitive Unicode content</li>
+<li>Consider implementing retry logic for critical tests</li>
+<li>Monitor API response times during failures</li>
+<li>Use enhanced prompts for complex Unicode pattern testing</li>
+</ol>
+<h3 id="ongoing-investigation">Ongoing Investigation</h3>
 <ul>
-<li>Handles mixed Unicode content</li>
-<li>Recognises different character types</li>
-<li>Validates multilingual content</li>
+<li>Testing various prompt configurations to improve reliability</li>
+<li>Monitoring performance impact of different prompt strategies</li>
+<li>Collecting data on failure patterns with different prompt versions</li>
 </ul>
 <h2 id="pattern-multilingual-emoji-spam">Pattern: Multilingual Emoji Spam</h2>
 <p><strong>Scenario</strong>: Testing repeated multilingual content</p>
 <p>Implementation:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>actual = &quot;Hello你好Bonjour🌈&quot; * 50
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>expected_behavior = &quot;A repetitive greeting in multiple languages with rainbows&quot;
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>actual = &quot;Hello你好Bonjour🌈&quot; * 50
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>expected_behavior = &quot;A repetitive greeting in multiple languages with rainbows&quot;
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
 Result: ✅ PASS</p>
 <ul>
@@ -1502,13 +1613,13 @@ Result: ✅ PASS</p>
 <h2 id="pattern-ascii-art-recognition">Pattern: ASCII Art Recognition</h2>
 <p><strong>Scenario</strong>: Testing complex ASCII art patterns</p>
 <p>Implementation:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>actual = &quot;&quot;&quot;
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>(╯°□°)╯︵ ┻━┻
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>&quot;&quot;&quot; * 20
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>expected_behavior = &quot;Multiple instances of table-flipping ASCII art&quot;
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>actual = &quot;&quot;&quot;
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>(╯°□°)╯︵ ┻━┻
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>&quot;&quot;&quot; * 20
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>expected_behavior = &quot;Multiple instances of table-flipping ASCII art&quot;
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
 Result: ✅ PASS</p>
 <ul>
@@ -1519,11 +1630,11 @@ Result: ✅ PASS</p>
 <h2 id="pattern-extreme-whitespace">Pattern: Extreme Whitespace</h2>
 <p><strong>Scenario</strong>: Testing handling of excessive spacing</p>
 <p>Implementation:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>actual = &quot;hello    &quot; + &quot; &quot; * 1000 + &quot;    world&quot; + &quot;\n&quot; * 500
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>expected_behavior = &quot;A greeting with excessive spacing&quot;
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>actual = &quot;hello    &quot; + &quot; &quot; * 1000 + &quot;    world&quot; + &quot;\n&quot; * 500
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>expected_behavior = &quot;A greeting with excessive spacing&quot;
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
 Result: ✅ PASS</p>
 <ul>
@@ -1534,11 +1645,11 @@ Result: ✅ PASS</p>
 <h2 id="pattern-number-pattern-recognition">Pattern: Number Pattern Recognition</h2>
 <p><strong>Scenario</strong>: Testing numerical pattern understanding</p>
 <p>Implementation:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>actual = &quot;&quot;.join([str(i % 10) for i in range(1000)])
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>expected_behavior = &quot;A long sequence of repeating numbers&quot;
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>actual = &quot;&quot;.join([str(i % 10) for i in range(1000)])
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>expected_behavior = &quot;A long sequence of repeating numbers&quot;
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
 Result: ✅ PASS</p>
 <ul>
