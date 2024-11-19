@@ -407,12 +407,13 @@ semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 
 **Results**:
+
 - ✅ Success Rate: 96% (48/50 runs)
 - ❌ Failure Rate: 4% (2/50 runs)
 - 🔍 Failure Analysis:
-  - Occurs primarily during increased API latency
-  - GPT-4o occasionally interprets sequential patterns as "distinct collections" rather than "mixed content"
-  - Failure message example: "This is not a mix as there is a distinct collection of emojis followed by Japanese text and then a collection of rainbows"
+    - Occurs primarily during increased API latency
+    - GPT-4o occasionally interprets sequential patterns as "distinct collections" rather than "mixed content"
+    - Failure message example: "This is not a mix as there is a distinct collection of emojis followed by Japanese text and then a collection of rainbows"
 
 ### Recommended Implementation
 
@@ -427,6 +428,7 @@ asserter.assert_semantic_match(actual, expected)
 ```
 
 **Results**:
+
 - ✅ Success Rate: 100% (preliminary)
 - ⚠️ Extended testing in progress
 - 🔍 Monitoring prompt effectiveness across different test scenarios
