@@ -1563,13 +1563,17 @@ Result: ❌ FAIL</p>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>semantic_assert.assert_semantic_match(actual, expected_behavior)
 </code></pre></div>
-<p><strong>Results</strong>:
-- ✅ Success Rate: 96% (48/50 runs)
-- ❌ Failure Rate: 4% (2/50 runs)
-- 🔍 Failure Analysis:
-  - Occurs primarily during increased API latency
-  - GPT-4o occasionally interprets sequential patterns as "distinct collections" rather than "mixed content"
-  - Failure message example: "This is not a mix as there is a distinct collection of emojis followed by Japanese text and then a collection of rainbows"</p>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>✅ Success Rate: 96% (48/50 runs)</li>
+<li>❌ Failure Rate: 4% (2/50 runs)</li>
+<li>🔍 Failure Analysis:<ul>
+<li>Occurs primarily during increased API latency</li>
+<li>GPT-4o occasionally interprets sequential patterns as "distinct collections" rather than "mixed content"</li>
+<li>Failure message example: "This is not a mix as there is a distinct collection of emojis followed by Japanese text and then a collection of rainbows"</li>
+</ul>
+</li>
+</ul>
 <h3 id="recommended-implementation">Recommended Implementation</h3>
 <p><strong>Test Case 2: Pattern-Agnostic Matching</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>actual = &quot;🤖👾&quot; * 50 + &quot;こんにちは&quot; * 20 + &quot;🌈&quot; * 30
@@ -1578,10 +1582,12 @@ Result: ❌ FAIL</p>
 <a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
 <a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>asserter.assert_semantic_match(actual, expected)
 </code></pre></div>
-<p><strong>Results</strong>:
-- ✅ Success Rate: 100% (preliminary)
-- ⚠️ Extended testing in progress
-- 🔍 Monitoring prompt effectiveness across different test scenarios</p>
+<p><strong>Results</strong>:</p>
+<ul>
+<li>✅ Success Rate: 100% (preliminary)</li>
+<li>⚠️ Extended testing in progress</li>
+<li>🔍 Monitoring prompt effectiveness across different test scenarios</li>
+</ul>
 <h3 id="best-practices">Best Practices</h3>
 <ol>
 <li>Use pattern-agnostic assertions for repetitive Unicode content</li>
