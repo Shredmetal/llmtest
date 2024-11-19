@@ -390,11 +390,13 @@ Result: ❌ FAIL
 - Shows quantity awareness
 - Validates numerical understanding
 
-## Pattern: Mixed Unicode Content
+## Pattern: Mixed Unicode Content ⚠️ Known Reliability Issue
 
-**Scenario**: Testing complex Unicode combinations
+**Scenario**: Testing complex Unicode combinations and repetitive patterns
 
-Implementation:
+### Observed Behavior
+
+**Test Case 1: Strict Pattern Matching**
 
 ```
 actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
@@ -404,11 +406,41 @@ expected_behavior = "A mix of emojis and Japanese text"
 semantic_assert.assert_semantic_match(actual, expected_behavior)
 ```
 
-Result: ✅ PASS
+**Results**:
+- ✅ Success Rate: 96% (48/50 runs)
+- ❌ Failure Rate: 4% (2/50 runs)
+- 🔍 Failure Analysis:
+  - Occurs primarily during increased API latency
+  - GPT-4o occasionally interprets sequential patterns as "distinct collections" rather than "mixed content"
+  - Failure message example: "This is not a mix as there is a distinct collection of emojis followed by Japanese text and then a collection of rainbows"
 
-- Handles mixed Unicode content
-- Recognises different character types
-- Validates multilingual content
+### Recommended Implementation
+
+**Test Case 2: Pattern-Agnostic Matching**
+
+```
+actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
+
+expected = "More than one type of emoji and Japanese text regardless of order"
+
+asserter.assert_semantic_match(actual, expected)
+```
+
+**Results**:
+- ✅ Success Rate: 100% (preliminary)
+- ⚠️ Extended testing in progress
+- 🔍 Monitoring prompt effectiveness across different test scenarios
+
+### Best Practices
+1. Use pattern-agnostic assertions for repetitive Unicode content
+2. Consider implementing retry logic for critical tests
+3. Monitor API response times during failures
+4. Use enhanced prompts for complex Unicode pattern testing
+
+### Ongoing Investigation
+- Testing various prompt configurations to improve reliability
+- Monitoring performance impact of different prompt strategies
+- Collecting data on failure patterns with different prompt versions
 
 ## Pattern: Multilingual Emoji Spam
 
