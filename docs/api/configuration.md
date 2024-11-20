@@ -51,9 +51,9 @@ asserter = SemanticAssertion(api_key="your-api-key", # Strongly advised against,
 ```
 
 
-## Supported Models
+## Supported (and recommended) Models
 
-Model supported is restricted due to poorer semantic matching performance of less advanced models.
+Model support is restricted due to the complex semantic reasoning required for accurate testing. We've found that only the most advanced models can reliably handle semantic comparison tasks.
 
 ### OpenAI
 - gpt-4o
@@ -63,13 +63,31 @@ Model supported is restricted due to poorer semantic matching performance of les
 - claude-3-5-sonnet-latest
 - claude-3-opus-latest (EXPENSIVE!!!)
 
+## Custom LLM Configuration (Advanced Users Only)
+
+While it's possible to inject a custom LLM using Langchain's `BaseLanguageModel`, this is strongly discouraged unless you have extensively tested your model's semantic reasoning capabilities. Smaller or less capable models will likely fail at the semantic testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.
+
+```
+# Advanced usage - Only for thoroughly tested models
+from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from langchain_core.language_models import BaseLanguageModel
+
+custom_llm: BaseLanguageModel = your_custom_llm
+asserter = SemanticAssertion(llm=custom_llm)
+```
+
+If you pass in a custom llm, it will disable **ALL** other LLM configuration options, and you have to configure that LLM yourself.
+
 ## Configuration Priority
 
 Configuration values are resolved in this order:
 
-1. Directly passed parameters
-2. Environment variables
-3. Default values
+1. Custom LLM (if provided, disables **ALL** other LLM settings and uses the settings of the Langchain `BaseLanguageModel` object that you have passed)
+2. Directly passed parameters
+3. Environment variables
+4. Default values
+
+Note: llm_app_test validates all configuration values at startup to prevent runtime errors.
 
 ## Best Practices
 
@@ -77,10 +95,9 @@ Configuration values are resolved in this order:
 2. Keep temperature at 0.0 for consistent testing
 3. Use default max_tokens unless you have specific needs
 4. Start with default max_retries (2)
+5. Stick with frontier models for the best results. This library is completely untested with anything other than frontier models.
 
 ---
-
-Note: llm_app_test validates all configuration values at startup to prevent runtime errors.
 
 ## Navigation
 
