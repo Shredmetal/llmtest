@@ -711,13 +711,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-models" class="md-nav__link">
+  <a href="#supported-and-recommended-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Models
+      Supported (and recommended) Models
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Supported Models">
+    <nav class="md-nav" aria-label="Supported (and recommended) Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -740,6 +740,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-llm-configuration-advanced-users-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom LLM Configuration (Advanced Users Only)
+    </span>
+  </a>
   
 </li>
       
@@ -885,13 +894,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-models" class="md-nav__link">
+  <a href="#supported-and-recommended-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Models
+      Supported (and recommended) Models
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Supported Models">
+    <nav class="md-nav" aria-label="Supported (and recommended) Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -914,6 +923,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-llm-configuration-advanced-users-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom LLM Configuration (Advanced Users Only)
+    </span>
+  </a>
   
 </li>
       
@@ -996,8 +1014,8 @@
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                             max_retries=2 # Default: 2 
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                             )
 </code></pre></div>
-<h2 id="supported-models">Supported Models</h2>
-<p>Model supported is restricted due to poorer semantic matching performance of less advanced models.</p>
+<h2 id="supported-and-recommended-models">Supported (and recommended) Models</h2>
+<p>Model support is restricted due to the complex semantic reasoning required for accurate testing. We've found that only the most advanced models can reliably handle semantic comparison tasks.</p>
 <h3 id="openai">OpenAI</h3>
 <ul>
 <li>gpt-4o</li>
@@ -1008,22 +1026,34 @@
 <li>claude-3-5-sonnet-latest</li>
 <li>claude-3-opus-latest (EXPENSIVE!!!)</li>
 </ul>
+<h2 id="custom-llm-configuration-advanced-users-only">Custom LLM Configuration (Advanced Users Only)</h2>
+<p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's semantic reasoning capabilities. Smaller or less capable models will likely fail at the semantic testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Advanced usage - Only for thoroughly tested models
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>from langchain_core.language_models import BaseLanguageModel
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>custom_llm: BaseLanguageModel = your_custom_llm
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>asserter = SemanticAssertion(llm=custom_llm)
+</code></pre></div>
+<p>If you pass in a custom llm, it will disable <strong>ALL</strong> other LLM configuration options, and you have to configure that LLM yourself.</p>
 <h2 id="configuration-priority">Configuration Priority</h2>
 <p>Configuration values are resolved in this order:</p>
 <ol>
+<li>Custom LLM (if provided, disables <strong>ALL</strong> other LLM settings and uses the settings of the Langchain <code>BaseLanguageModel</code> object that you have passed)</li>
 <li>Directly passed parameters</li>
 <li>Environment variables</li>
 <li>Default values</li>
 </ol>
+<p>Note: if a custom LLM is not passed, llm_app_test validates all configuration values at startup to prevent runtime errors.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
 <li>Use environment variables for API keys</li>
 <li>Keep temperature at 0.0 for consistent testing</li>
 <li>Use default max_tokens unless you have specific needs</li>
 <li>Start with default max_retries (2)</li>
+<li>Stick with frontier models for the best results. This library is completely untested with anything other than frontier models.</li>
 </ol>
 <hr />
-<p>Note: llm_app_test validates all configuration values at startup to prevent runtime errors.</p>
 <h2 id="navigation">Navigation</h2>
 <ul>
 <li><a href="../../">Back to Home</a></li>
