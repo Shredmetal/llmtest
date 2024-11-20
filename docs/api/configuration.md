@@ -87,7 +87,7 @@ Configuration values are resolved in this order:
 3. Environment variables
 4. Default values
 
-Note: llm_app_test validates all configuration values at startup to prevent runtime errors.
+Note: if a custom LLM is not passed, llm_app_test validates all configuration values at startup to prevent runtime errors.
 
 ## Best Practices
 
