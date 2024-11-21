@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from langchain_core.language_models import BaseLanguageModel
 from langchain.schema import HumanMessage, SystemMessage
 
+from llm_app_test.semantic_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
 from llm_app_test.semantic_assert.llm_config.llm_config import LLMConfig
 from llm_app_test.semantic_assert.llm_config.llm_factory import LLMFactory
 from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
@@ -27,7 +28,8 @@ class SemanticAssertion:
             model: Optional[str] = None,
             temperature: Optional[float] = None,
             max_tokens: Optional[int] = None,
-            max_retries: Optional[int] = None
+            max_retries: Optional[int] = None,
+            prompt_injector: Optional[AsserterPromptInjector] = None
     ):
         """
            Initialise the semantic assertion tester.
@@ -59,6 +61,8 @@ class SemanticAssertion:
                LLMConfigurationError: If configuration is invalid or required values are missing
            """
         load_dotenv()
+
+        self.prompt_injector = prompt_injector or AsserterPromptInjector()
 
         if llm:
             self.llm = llm
@@ -128,27 +132,14 @@ class SemanticAssertion:
         if actual is None or expected_behavior is None:
             raise TypeError("Inputs cannot be None")
 
-        system_prompt = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
-        
-        Important: You can only respond with EXACTLY: 
-        1. 'PASS' if it matches, or 
-        2. 'FAIL: <reason>' if it doesn't match.
-        
-        Any other type of response will mean disaster which as a testing system, you are meant to prevent.
-        
-        Be strict but consider semantic meaning rather than exact wording."""
-
-        human_prompt = f"""
-        Expected Behavior: {expected_behavior}
-
-        Actual Output: {actual}
-
-        Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
-        with 'PASS' or 'FAIL: <reason>'."""
+        prompts = self.prompt_injector.prompts
 
         messages = [
-            SystemMessage(content=system_prompt),
-            HumanMessage(content=human_prompt)
+            SystemMessage(content=prompts.system_prompt),
+            HumanMessage(content=prompts.human_prompt.format(
+                expected_behavior=expected_behavior,
+                actual=actual
+            ))
         ]
 
         result = self.llm.invoke(messages).content
@@ -158,3 +149,23 @@ class SemanticAssertion:
                 "Semantic assertion failed",
                 reason=result.split("FAIL: ")[1]
             )
+
+# I guess use it like this?
+# # Normal usage (default prompts)
+# asserter = SemanticAssertion(provider="openai")
+#
+# # Advanced usage with custom prompts
+# custom_prompts = AsserterPromptInjector(
+#     system_prompt="You are a testing system that only responds with PASS or FAIL: reason...",
+#     human_prompt="Compare:\nExpected: {expected_behavior}\nActual: {actual}"
+# )
+# asserter = SemanticAssertion(
+#     provider="openai",
+#     prompt_injector=custom_prompts
+# )
+#
+# # The assertion itself works the same way
+# asserter.assert_semantic_match(
+#     actual="Hello, world!",
+#     expected_behavior="Should greet the world"
+# )
