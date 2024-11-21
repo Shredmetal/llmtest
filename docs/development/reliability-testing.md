@@ -4,6 +4,8 @@
 
 This page documents the ongoing efforts to validate the reliability of this llm-app-test.
 
+It also contains information on how much running thousands of tests cost us.
+
 ## Test Suite
 
 We used the test suite within our test package which we felt most reflected what assert_semantic_match would have to deal with in the real world:
@@ -161,6 +163,8 @@ We experienced a pass rate of 100%.
 The test logs for the 6,500 tests can be found in the reliability_testing directory of the repository, currently in the [release/0.1.0b5](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing) branch, which will move to main upon release of 0.1.0b5 on PyPI.
 
 While we remain unable to guarantee 100% reliability due to the nature of LLMs, our testing indicates that there is clear evidence indicating that assert_semantic_match is working as intended, and it can be mostly be relied upon.
+
+The total cost of running these 6,500 tests was $3.95 using GPT-4o.
 
 ## Quick Links
 - [Installation](../getting-started/installation.md)
