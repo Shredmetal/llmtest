@@ -163,6 +163,6 @@ The test logs for the 6,500 tests can be found in the reliability_testing direct
 While we remain unable to guarantee 100% reliability due to the nature of LLMs, our testing indicates that there is clear evidence indicating that assert_semantic_match is working as intended, and it can be mostly be relied upon.
 
 ## Quick Links
-- [Installation](getting-started/installation.md)
-- [Quick Start](getting-started/quickstart.md)
-- [API Reference](api/semantic-assertion.md)
+- [Installation](../getting-started/installation.md)
+- [Quick Start](../getting-started/quickstart.md)
+- [API Reference](../api/semantic-assertion.md)
