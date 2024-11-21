@@ -865,6 +865,7 @@
 <p><a href="../../">← Back to Home</a></p>
 <h1 id="reliability-testing">Reliability Testing</h1>
 <p>This page documents the ongoing efforts to validate the reliability of this llm-app-test.</p>
+<p>It also contains information on how much running thousands of tests cost us.</p>
 <h2 id="test-suite">Test Suite</h2>
 <p>We used the test suite within our test package which we felt most reflected what assert_semantic_match would have to deal with in the real world:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import os
@@ -1013,6 +1014,7 @@
 <p>We experienced a pass rate of 100%.</p>
 <p>The test logs for the 6,500 tests can be found in the reliability_testing directory of the repository, currently in the <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">release/0.1.0b5</a> branch, which will move to main upon release of 0.1.0b5 on PyPI.</p>
 <p>While we remain unable to guarantee 100% reliability due to the nature of LLMs, our testing indicates that there is clear evidence indicating that assert_semantic_match is working as intended, and it can be mostly be relied upon.</p>
+<p>The total cost of running these 6,500 tests was $3.95 using GPT-4o.</p>
 <h2 id="quick-links">Quick Links</h2>
 <ul>
 <li><a href="../../getting-started/installation/">Installation</a></li>
