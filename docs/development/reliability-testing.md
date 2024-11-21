@@ -2,7 +2,7 @@
 
 # Reliability Testing
 
-This page documents the ongoing efforts to validate the reliability of this library.
+This page documents the ongoing efforts to validate the reliability of this llm-app-test.
 
 ## Test Suite
 
@@ -158,4 +158,11 @@ At 13 tests (8 positive, 5 negative) per run, this worked out to 6,500 tests.
 
 We experienced a pass rate of 100%.
 
-The logs can be found in the reliability_testing directory of the repository, currently in the [release/0.1.0b5]() branch, which will move to main upon release of 0.1.0b5 on PyPI.
+The test logs for the 6,500 tests can be found in the reliability_testing directory of the repository, currently in the [release/0.1.0b5](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing) branch, which will move to main upon release of 0.1.0b5 on PyPI.
+
+While we remain unable to guarantee 100% reliability due to the nature of LLMs, our testing indicates that there is clear evidence indicating that assert_semantic_match is working as intended, and it can be mostly be relied upon.
+
+## Quick Links
+- [Installation](getting-started/installation.md)
+- [Quick Start](getting-started/quickstart.md)
+- [API Reference](api/semantic-assertion.md)

@@ -70,6 +70,7 @@ print(llm_app_test.version) # Should show 0.1.0b3.post3
 - [Installation](getting-started/installation.md)
 - [Quick Start](getting-started/quickstart.md)
 - [API Reference](api/semantic-assertion.md)
+- [Reliability Testing](development/reliability-testing.md)
 
 ## Documentation
 
