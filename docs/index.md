@@ -7,9 +7,9 @@
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
 
-A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs.
+A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers.
 
-⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), our test suite has been run 1,000 times per test with zero failures. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We are still in the process of validating reliability through brute force testing. Please refer to [this page](development/reliability-testing.md).
+⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we took the test suite we had which most reflected real-world use and ran it 1,000 times with zero failures. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We are still in the process of validating reliability through brute force testing. Please refer to [this page](development/reliability-testing.md).
 
 ✨ Test your LLM apps in minutes, not hours
 
@@ -56,6 +56,25 @@ Escalate to your Data Science team when:
 2. Model responses are consistently inappropriate
 3. Performance degradation is observed
 4. Pattern of failures indicates model-level issues
+
+### 🔍 What Makes This Different?
+
+This is an ENGINEERING tool, not a data science tool. The difference is crucial:
+
+Data Science Tools:
+- Test model performance
+- Evaluate model accuracy
+- Measure model metrics
+
+llm_app_test (Engineering Tool):
+- Tests your APPLICATION code
+- Validates integration points
+- Ensures system behaviour
+- Maintains production reliability
+
+Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
+Similarly, llm_app_test helps you test your application's use of LLMs.
+
 
 ## In summary:
 
