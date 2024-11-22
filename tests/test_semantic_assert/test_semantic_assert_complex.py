@@ -1,4 +1,3 @@
-import os
 import pytest
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from llm_app_test.exceptions.test_exceptions import (
