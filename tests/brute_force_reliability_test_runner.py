@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='../reliability_testing/2024-11-21_test_runs_5.log'
+    filename='../reliability_testing/2024-11-22_test_runs_10.log'
 )
 
 
