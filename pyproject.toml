@@ -1,7 +1,7 @@
 [project]
 name = "llm_app_test"
 version = "0.1.0b4"
-description = "Semantic testing framework for LLM applications"
+description = "A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers."
 requires-python = ">=3.10"
 readme = "README.md"
 authors = [
