@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reliability-testing" class="md-skip">
+        <a href="#reliability-testing-yes-we-are-brute-forcing-it-with-thousands-upon-thousands-of-tests" class="md-skip">
           Skip to content
         </a>
       
@@ -767,9 +767,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#test-suite" class="md-nav__link">
+  <a href="#the-actual-tests" class="md-nav__link">
     <span class="md-ellipsis">
-      Test Suite
+      The actual tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Configuration:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
     </span>
   </a>
   
@@ -827,9 +845,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#test-suite" class="md-nav__link">
+  <a href="#the-actual-tests" class="md-nav__link">
     <span class="md-ellipsis">
-      Test Suite
+      The actual tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Configuration:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
     </span>
   </a>
   
@@ -863,11 +899,23 @@
 
 
 <p><a href="../../">← Back to Home</a></p>
-<h1 id="reliability-testing">Reliability Testing</h1>
-<p>This page documents the ongoing efforts to validate the reliability of this llm-app-test.</p>
-<p>It also contains information on how much running thousands of tests cost us.</p>
-<h2 id="test-suite">Test Suite</h2>
-<p>We used the test suite within our test package which we felt most reflected what assert_semantic_match would have to deal with in the real world:</p>
+<h1 id="reliability-testing-yes-we-are-brute-forcing-it-with-thousands-upon-thousands-of-tests">Reliability Testing - yes we are brute forcing it with thousands upon thousands of tests</h1>
+<p>This page documents the ongoing efforts to validate the reliability of llm-app-test.</p>
+<p>There are two parts to ensure:</p>
+<ul>
+<li>ensure that there are no format violations; and</li>
+<li>ensure that llm-app-test maintains consistency in passing / failing the tests appropriately.</li>
+</ul>
+<p>It also contains information on how much running thousands of tests cost us. Short answer: Very little, actually.</p>
+<p>This is likely due to how we constrained the model: The temperature is set to 0.0, and it has strict instructions to only respond with "PASS" or "FAIL <reason>". This constrains the much more expensive output token usage.</p>
+<p>Running the test suite of 13 tests below 100 times (so 1,300 tests), cost us a total of US$0.79, using OpenAI's GPT-4o.</p>
+<p>Upon observing the cost of throwing thousands of API calls at OpenAI, we decided to just sod it and throw 13,000 API calls at them for the grand sum of... US$7.90. </p>
+<p>The purpose of these 13,000 runs was primarily to test the reliability of this library insofar as <strong>format violations</strong> were concerned, and get some insight as to the reliability of the semantic comparison.</p>
+<p>Based on the testing documented in this page however, we are quite confident that llm-app-test will adhere to the format requirements in most situations and not throw stupid errors by failing to adhere to the requirements. Based on these results, we are also reasonably confident that it is adequate for semantic comparisons in most real world use cases.</p>
+<p>However, in the interests of ensuring that all of us can trust this library (ourselves included), we are currently in the process of cooking up a new test suite of industry-specific inputs and expected behaviours to put through the wringer with another 1,000 runs of that suite.</p>
+<p>Be that as it may, we are still relying on an LLM for behavioural testing of an app, so we would still recommend running the test suite that you write for your app using llm-app-test at least twice. It's not going to break the bank as long as you take advantage of the economy of scale of OpenAI's/Anthropic's datacenters.</p>
+<h2 id="the-actual-tests">The actual tests</h2>
+<p>We used the test suite within our existing test package (as of 21 November 2024) which we felt most reflected what assert_semantic_match would have to deal with in the real world:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import os
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import pytest
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
@@ -1009,12 +1057,59 @@
 <a id="__codelineno-0-139" name="__codelineno-0-139" href="#__codelineno-0-139"></a>        &quot;&quot;&quot;
 <a id="__codelineno-0-140" name="__codelineno-0-140" href="#__codelineno-0-140"></a>        asserter.assert_semantic_match(actual, expected)
 </code></pre></div>
-<p>We took this suite and ran it 500 times. </p>
-<p>At 13 tests (8 positive, 5 negative) per run, this worked out to 6,500 tests. </p>
+<p>We ran this suite 1,000 times. </p>
+<p>At 13 tests (8 positive, 5 negative) per run, this worked out to 13,000 tests. </p>
 <p>We experienced a pass rate of 100%.</p>
-<p>The test logs for the 6,500 tests can be found in the reliability_testing directory of the repository, currently in the <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">release/0.1.0b5</a> branch, which will move to main upon release of 0.1.0b5 on PyPI.</p>
-<p>While we remain unable to guarantee 100% reliability due to the nature of LLMs, our testing indicates that there is clear evidence indicating that assert_semantic_match is working as intended, and it can be mostly be relied upon.</p>
-<p>The total cost of running these 6,500 tests was $3.95 using GPT-4o.</p>
+<p>The test logs for the 13,000 tests can be found in the reliability_testing directory of the repository, currently in the <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">release/0.1.0b5</a> branch, which will move to main upon release of 0.1.0b5 on PyPI.</p>
+<p>As mentioned previously, we remain unable to guarantee 100% reliability due to the nature of LLMs. </p>
+<p>However, our testing indicates that there is clear evidence indicating that assert_semantic_match is working as intended, we feel that it can be relied on for most real-world use cases by Software Engineers who need to validate their app behaviour (Data Scientists validating model performance, please do not use this library, you need to validate model performance not application behaviour, which requires skills software engineers like us may not have).</p>
+<p>As stated previously, the total cost of running these 13,000 tests was US$7.90 using GPT-4o. This is an absolute pittance for the confidence value this provided to us in terms of trusting our own library, as well as the thought of OpenAI going "WHO THE HELL TURNED OUR LLM INTO A BINARY CLASSIFIER?!" 🤣.</p>
+<h2 id="model-configuration">Model Configuration:</h2>
+<p>We used our library defaults:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DEFAULT_TEMPERATURE=0.0
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>DEFAULT_MAX_TOKENS=4096
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>DEFAULT_MAX_RETRIES=2
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>LLM_PROVIDER=opnenai
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>LLM_MODEL=gpt-4o
+</code></pre></div>
+<p>The asserter prompts were as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Important: You can only respond with EXACTLY: 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1. &#39;PASS&#39; if it matches, or 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Be strict but consider semantic meaning rather than exact wording.&quot;&quot;&quot;
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>DEFAULT_HUMAN_PROMPT = &quot;&quot;&quot;
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Expected Behavior: {expected_behavior}
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Actual Output: {actual}
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;
+</code></pre></div>
+<p>For the purposes of this test, we added an additional error case in the asserter in order to catch any format violations:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>result = self.llm.invoke(messages).content
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        if result.startswith(&quot;FAIL&quot;):
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>            raise SemanticAssertionError(
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                &quot;Semantic assertion failed&quot;,
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                reason=result.split(&quot;FAIL: &quot;)[1]
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            )
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        elif result.startswith(&quot;PASS&quot;):
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            pass
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        else:
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>            raise SemanticAssertionError(
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                &quot;Format Violation Detected&quot;,
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                reason=result
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            )
+</code></pre></div>
+<h2 id="next-steps">Next steps</h2>
+<p>We will move forward and develop 10 more test cases with the sort of long form content that is likely to be produced by LLM-based apps in real-world use by industry.</p>
+<p>As always, if you experience any issues, especially with library reliability - please let us know, thanks!</p>
 <h2 id="quick-links">Quick Links</h2>
 <ul>
 <li><a href="../../getting-started/installation/">Installation</a></li>
