@@ -15,7 +15,8 @@ def openai_config():
         model="gpt-4o",
         temperature=0.0,
         max_tokens=4096,
-        max_retries=2
+        max_retries=2,
+        timeout=10.0
     )
 
 
@@ -54,7 +55,8 @@ class TestLLMFactory:
             model="gpt-4o",
             api_key="test-key",
             max_retries=2,
-            max_tokens=4096
+            max_tokens=4096,
+            request_timeout=10.0
         )
         assert llm == mock_instance
 
@@ -88,6 +90,7 @@ class TestLLMFactory:
             model=None,
             api_key=None,
             max_retries=None,
-            max_tokens=None
+            max_tokens=None,
+            request_timeout=None
         )
         assert llm == mock_instance
