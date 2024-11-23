@@ -7,7 +7,7 @@ from _pytest.reports import TestReport
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='../reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_v2_8.log'
+    filename='../reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_v2_10.log'
 )
 
 
