@@ -10,7 +10,6 @@ jobs:
   test:
     name: Run basic tests and ensure all pass only for branch names containing testcionly
     runs-on: ubuntu-latest
-    if: contains(github.head_ref, 'testcionly')
 
     steps:
       - name: Checkout code
@@ -23,13 +22,6 @@ jobs:
 
       - name: Install GPG
         run: sudo apt-get install -y gpg
-#      - name: Cache dependencies
-#        uses: actions/cache@v3
-#        with:
-#          path: ~/.cache/pip  # Path to pip cache directory
-#          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}  # Unique key for caching based on OS and requirements.txt
-#          restore-keys: |
-#            ${{ runner.os }}-pip-  # Fallback key if the exact key isn't found
 
       - name: Decrypt API key
         env:
