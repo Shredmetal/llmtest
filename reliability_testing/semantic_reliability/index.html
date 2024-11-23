@@ -1141,17 +1141,19 @@
 <p>The remaining 9 test cases maintained 100% consistency across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved 100% pass rate.</p>
 <p>The relevant logs for the testing covered by this page can be found <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">here</a>.</p>
 <h2 id="test-suite-design">Test Suite Design</h2>
-<p>The test suite covers 10 key industries where LLMs are likely already seeing active use:
-1. Healthcare (Patient Education)
-2. Financial Services (Portfolio Reporting)
-3. Media/Entertainment (Content Recommendations)
-4. Legal (Document Summarization)
-5. Manufacturing (Maintenance Prediction)
-6. E-commerce (Product Descriptions)
-7. Education (Assignment Feedback)
-8. Real Estate (Property Listings)
-9. Human Resources (Interview Feedback)
-10. Customer Service (Ticket Response)</p>
+<p>The test suite covers 10 key industries where LLMs are likely already seeing active use:</p>
+<ol>
+<li>Healthcare (Patient Education)</li>
+<li>Financial Services (Portfolio Reporting)</li>
+<li>Media/Entertainment (Content Recommendations)</li>
+<li>Legal (Document Summarization)</li>
+<li>Manufacturing (Maintenance Prediction)</li>
+<li>E-commerce (Product Descriptions)</li>
+<li>Education (Assignment Feedback)</li>
+<li>Real Estate (Property Listings)</li>
+<li>Human Resources (Interview Feedback)</li>
+<li>Customer Service (Ticket Response)</li>
+</ol>
 <p>The Test Suite consisted of 5 positive cases and 5 negative cases.</p>
 <h2 id="testing-scale">Testing Scale</h2>
 <ul>
@@ -1160,18 +1162,22 @@
 <li>Total Test Executions: 12,000</li>
 <li>Pass Rate: 100%</li>
 </ul>
-<p>Cross-references:
-- See <a href="#test-configuration">Test Configuration</a> for setup details
-- See <a href="#test-results">Test Results</a> for detailed analysis
-- Full test logs available in <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">reliability_testing</a></p>
+<p>Cross-references:</p>
+<ul>
+<li>See <a href="#test-configuration">Test Configuration</a> for setup details</li>
+<li>See <a href="#test-results">Test Results</a> for detailed analysis</li>
+<li>Full test logs available in <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">reliability_testing</a></li>
+</ul>
 <h2 id="test-characteristics">Test Characteristics</h2>
-<p>Each test was designed to reflect:
-- Realistic content length
-- Industry-specific terminology
-- Common formatting patterns
-- Typical validation requirements
-- Real-world edge cases
-- Claude 3.5 Sonnet was used to generate the test cases to make it more realistic</p>
+<p>Each test was designed to reflect:</p>
+<ul>
+<li>Realistic content length</li>
+<li>Industry-specific terminology</li>
+<li>Common formatting patterns</li>
+<li>Typical validation requirements</li>
+<li>Real-world edge cases</li>
+<li>Claude 3.5 Sonnet was used to generate the test cases to make it more realistic, but testing was done with GPT-4o</li>
+</ul>
 <h2 id="test-results">Test Results</h2>
 <h3 id="format-compliance">Format Compliance</h3>
 <ul>
@@ -1190,19 +1196,25 @@
 <li>Consistent behaviour with specialised terminology</li>
 </ul>
 <h2 id="cost-analysis">Cost Analysis</h2>
-<p>Running the test suite demonstrated the following costs:
-- Single Run (10 tests): US$0.014
-- 100 Runs (1,000 tests): US$1.40
-- Repeated runs for reliability testing (12,000 tests): US$16.80</p>
-<p>Cost Breakdown:
-- Per Test Cost: ~US$0.0014
-- Per Run (10 tests): US$0.014
-- Per 100 Runs: US$1.40</p>
+<p>Running the test suite demonstrated the following costs:</p>
+<ul>
+<li>Single Run (10 tests): US$0.014</li>
+<li>100 Runs (1,000 tests): US$1.40</li>
+<li>Repeated runs for reliability testing (12,000 tests): US$16.80</li>
+</ul>
+<p>Cost Breakdown:</p>
+<ul>
+<li>Per Test Cost: ~US$0.0014</li>
+<li>Per Run (10 tests): US$0.014</li>
+<li>Per 100 Runs: US$1.40</li>
+</ul>
 <p>This demonstrates that comprehensive semantic testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.</p>
-<p>Key Cost Insights:
-- Linear cost scaling with test volume
-- Predictable pricing for planning purposes
-- Reasonable expense for production validation</p>
+<p>Key Cost Insights:</p>
+<ul>
+<li>Linear cost scaling with test volume</li>
+<li>Predictable pricing for planning purposes</li>
+<li>Reasonable expense for production validation</li>
+</ul>
 <h2 id="test-configuration">Test Configuration</h2>
 <p>All tests used library defaults:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLM_PROVIDER=openai
