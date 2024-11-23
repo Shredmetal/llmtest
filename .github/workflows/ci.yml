@@ -1,0 +1,43 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run basic tests and ensure all pass only for branch names containing testcionly
+    runs-on: ubuntu-latest
+    if: contains(github.head_ref, 'testcionly')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+#      # Step 3: Cache dependencies
+#      - name: Cache dependencies
+#        uses: actions/cache@v3
+#        with:
+#          path: ~/.cache/pip  # Path to pip cache directory
+#          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}  # Unique key for caching based on OS and requirements.txt
+#          restore-keys: |
+#            ${{ runner.os }}-pip-  # Fallback key if the exact key isn't found
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install llm-app-test
+
+      # Step 4: Run basic tests
+      - name: Run tests with coverage
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: pytest tests/test_semantic_assert/test_semantic_assert_basic.py
