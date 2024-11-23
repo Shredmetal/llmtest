@@ -21,7 +21,8 @@ jobs:
         with:
           python-version: '3.10'
 
-#      # Step 3: Cache dependencies
+      - name: Install GPG
+        run: sudo apt-get install -y gpg
 #      - name: Cache dependencies
 #        uses: actions/cache@v3
 #        with:
@@ -30,13 +31,17 @@ jobs:
 #          restore-keys: |
 #            ${{ runner.os }}-pip-  # Fallback key if the exact key isn't found
 
-      # Step 3: Decrypt the API key
       - name: Decrypt API key
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           gpg --batch --yes --passphrase "$GPG_PASSPHRASE" \
               -o openai-api-key.txt -d openai-api-key.txt.gpg
+
+      - name: Set API Key Environment Variable
+        run: |
+            export OPENAI_API_KEY=$(cat openai-api-key.txt)
+            echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> $GITHUB_ENV
 
       # Step 4: Install dependencies
       - name: Install dependencies
@@ -46,5 +51,5 @@ jobs:
       # Step 4: Run basic tests
       - name: Run tests with coverage
         env:
-          OPENAI_API_KEY: $(cat openai-api-key.txt)
+          OPENAI_API_KEY: ${{ env.OPENAI_API_KEY }}
         run: pytest tests/test_semantic_assert/test_semantic_assert_basic.py
