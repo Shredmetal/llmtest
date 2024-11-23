@@ -30,7 +30,7 @@ When integrating LLMs into your application, treat them as you would any closed-
 
 ### ⚠️ Important Information on Understanding Responsibilities
 
-This library is built by software engineers give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
+This library is built by software engineers to give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
 
 #### Software Engineer's Role
 
