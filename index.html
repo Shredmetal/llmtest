@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
@@ -278,10 +278,10 @@
     
     
       <li class="md-tabs__item">
-        <a href="development/reliability-testing/" class="md-tabs__link">
+        <a href="reliability_testing/format_compliance/" class="md-tabs__link">
           
   
-  Development
+  Reliability Testing
 
         </a>
       </li>
@@ -385,6 +385,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#library-reliability-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library Reliability Testing
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#testing-philosophy" class="md-nav__link">
@@ -989,7 +998,7 @@
             
   
   <span class="md-ellipsis">
-    Development
+    Reliability Testing
   </span>
   
 
@@ -999,7 +1008,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Development
+            Reliability Testing
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1010,11 +1019,53 @@
   
   
     <li class="md-nav__item">
-      <a href="development/reliability-testing/" class="md-nav__link">
+      <a href="reliability_testing/format_compliance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Reliability Testing
+    Format Compliance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reliability_testing/semantic_reliability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semantic Reliability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semantic Boundary Analysis
   </span>
   
 
@@ -1056,6 +1107,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#library-reliability-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library Reliability Testing
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#testing-philosophy" class="md-nav__link">
@@ -1335,11 +1395,15 @@
 <img alt="Python" src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue" />
 <a href="https://Shredmetal.github.io/llmtest/"><img alt="Documentation" src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" /></a></p>
 <p>A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers.</p>
-<p>⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we took the test suite we had which most reflected real-world use and ran it 1,000 times with zero failures. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We are still in the process of validating reliability through brute force testing. Please refer to <a href="development/reliability-testing/">this page</a>.</p>
+<p>⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we ran tens of thousands of tests to establish reliability. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. </p>
 <p>✨ Test your LLM apps in minutes, not hours</p>
 <p>🚀 CI/CD ready out of the box (Still in beta so, while we're pretty sure it just works™, we're still trying our damnedest to break it in GitHub Actions, GitLab CI, Jenkins, and other CI/CD environments. We'll document any failures we find and their fixes)</p>
 <p>💰 Cost-effective testing solution</p>
 <p>🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page for details)</p>
+<h2 id="library-reliability-testing">Library Reliability Testing</h2>
+<p><a href="reliability_testing/format_compliance/">Format Compliance Reliability Testing</a></p>
+<p><a href="reliability_testing/semantic_reliability/">Semantic Reliability Testing</a></p>
+<p><a href="reliability_testing/semantic_boundary_analysis/">Semantic Boundary Discovery and Analysis</a></p>
 <h2 id="testing-philosophy">Testing Philosophy</h2>
 <p>When integrating LLMs into your application, treat them as you would any closed-source third-party library:</p>
 <ol>
@@ -1349,7 +1413,7 @@
 <li>Maintain clear separation of concerns</li>
 </ol>
 <h3 id="important-information-on-understanding-responsibilities">⚠️ Important Information on Understanding Responsibilities</h3>
-<p>This library is built by software engineers give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is <strong>NOT</strong> a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.</p>
+<p>This library is built by software engineers to give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is <strong>NOT</strong> a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.</p>
 <h4 id="software-engineers-role">Software Engineer's Role</h4>
 <ul>
 <li>Write tests for expected application behaviour</li>

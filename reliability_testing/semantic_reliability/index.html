@@ -1,0 +1,1916 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A semantic testing framework for LLM applications">
+      
+      
+      
+        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/">
+      
+      
+        <link rel="prev" href="../format_compliance/">
+      
+      
+        <link rel="next" href="../semantic_boundary_analysis/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>Semantic Reliability - llm_app_test Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semantic-reliability-real-world-industry-specific-testing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="llm_app_test Documentation" class="md-header__button md-logo" aria-label="llm_app_test Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            llm_app_test Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semantic Reliability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Shredmetal/llmtest" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    llm_app_test
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guides/best-practices/" class="md-tabs__link">
+          
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/semantic-assertion/" class="md-tabs__link">
+          
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../format_compliance/" class="md-tabs__link">
+          
+  
+  Reliability Testing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="llm_app_test Documentation" class="md-nav__button md-logo" aria-label="llm_app_test Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    llm_app_test Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Shredmetal/llmtest" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    llm_app_test
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/ci-cd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CI/CD Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/testing-patterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/semantic-assertion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SemanticAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/error-handling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Reliability Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reliability Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../format_compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Format Compliance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Semantic Reliability
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Semantic Reliability
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-suite-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Suite Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Scale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Characteristics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-platform-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Platform Reliability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-suite-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Suite Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue reporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semantic_boundary_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semantic Boundary Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-suite-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Suite Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Scale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Characteristics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-platform-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Platform Reliability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-suite-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Suite Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue reporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="semantic-reliability-real-world-industry-specific-testing">Semantic Reliability - Real-World Industry Specific Testing</h1>
+<h2 id="overview">Overview</h2>
+<p>This page documents our extensive testing of llm-app-test against real-world industry use cases. We designed this test suite to validate the library's reliability with the kind of content that LLM applications would probably generate in production environments.</p>
+<p>The first test case in this suite initially exhibited non-determinism due to a legitimate semantic boundary. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyse the semantic nuances to identify the exact boundary condition. This analysis and its implications are documented in detail <a href="../semantic_boundary_analysis/">here</a>.</p>
+<p>The remaining 9 test cases maintained 100% consistency across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved 100% pass rate.</p>
+<p>The relevant logs for the testing covered by this page can be found <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">here</a>.</p>
+<h2 id="test-suite-design">Test Suite Design</h2>
+<p>The test suite covers 10 key industries where LLMs are likely already seeing active use:
+1. Healthcare (Patient Education)
+2. Financial Services (Portfolio Reporting)
+3. Media/Entertainment (Content Recommendations)
+4. Legal (Document Summarization)
+5. Manufacturing (Maintenance Prediction)
+6. E-commerce (Product Descriptions)
+7. Education (Assignment Feedback)
+8. Real Estate (Property Listings)
+9. Human Resources (Interview Feedback)
+10. Customer Service (Ticket Response)</p>
+<p>The Test Suite consisted of 5 positive cases and 5 negative cases.</p>
+<h2 id="testing-scale">Testing Scale</h2>
+<ul>
+<li>Total Runs: 1,200 (600 Windows, 600 Linux (Pop_OS))</li>
+<li>Tests per Run: 10</li>
+<li>Total Test Executions: 12,000</li>
+<li>Pass Rate: 100%</li>
+</ul>
+<p>Cross-references:
+- See <a href="#test-configuration">Test Configuration</a> for setup details
+- See <a href="#test-results">Test Results</a> for detailed analysis
+- Full test logs available in <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">reliability_testing</a></p>
+<h2 id="test-characteristics">Test Characteristics</h2>
+<p>Each test was designed to reflect:
+- Realistic content length
+- Industry-specific terminology
+- Common formatting patterns
+- Typical validation requirements
+- Real-world edge cases
+- Claude 3.5 Sonnet was used to generate the test cases to make it more realistic</p>
+<h2 id="test-results">Test Results</h2>
+<h3 id="format-compliance">Format Compliance</h3>
+<ul>
+<li>Zero format violations across 12,000 executions</li>
+<li>Consistent PASS/FAIL behaviour</li>
+</ul>
+<h3 id="cross-platform-reliability">Cross-Platform Reliability</h3>
+<ul>
+<li>Identical behavior on Windows and Linux</li>
+<li>No platform-specific issues detected</li>
+</ul>
+<h3 id="content-processing">Content Processing</h3>
+<ul>
+<li>Successfully handled varying content lengths</li>
+<li>Maintained accuracy across different domains</li>
+<li>Consistent behaviour with specialised terminology</li>
+</ul>
+<h2 id="cost-analysis">Cost Analysis</h2>
+<p>Running the test suite demonstrated the following costs:
+- Single Run (10 tests): US$0.014
+- 100 Runs (1,000 tests): US$1.40
+- Repeated runs for reliability testing (12,000 tests): US$16.80</p>
+<p>Cost Breakdown:
+- Per Test Cost: ~US$0.0014
+- Per Run (10 tests): US$0.014
+- Per 100 Runs: US$1.40</p>
+<p>This demonstrates that comprehensive semantic testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.</p>
+<p>Key Cost Insights:
+- Linear cost scaling with test volume
+- Predictable pricing for planning purposes
+- Reasonable expense for production validation</p>
+<h2 id="test-configuration">Test Configuration</h2>
+<p>All tests used library defaults:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLM_PROVIDER=openai
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>LLM_MODEL=gpt-4o 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>LLM_TEMPERATURE=0.0 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>LLM_MAX_TOKENS=4096 
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LLM_MAX_RETRIES=2 
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
+</code></pre></div>
+The <code>semantic_assert_match</code> function also saw slight modification:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        if result.startswith(&quot;FAIL&quot;):
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            raise SemanticAssertionError(
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                &quot;Semantic assertion failed&quot;,
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                reason=result.split(&quot;FAIL: &quot;)[1]
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            )
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        # Section below added to cause failure in the event of format violation    
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        elif result.startswith(&quot;PASS&quot;):
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            pass
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        else:
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            raise RuntimeError(
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                f&quot;Format Non-compliance Detected {result}&quot;
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            )
+</code></pre></div>
+<p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>) were:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Important: You can only respond with EXACTLY: 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1. &#39;PASS&#39; if it matches, or 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Be strict but consider semantic meaning rather than exact wording.&quot;&quot;&quot;
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>DEFAULT_HUMAN_PROMPT = &quot;&quot;&quot;
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Expected Behavior: {expected_behavior}
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Actual Output: {actual}
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;
+</code></pre></div>
+<h2 id="test-suite-code">Test Suite Code</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>import pytest
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>from llm_app_test.exceptions.test_exceptions import (
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    SemanticAssertionError
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>class TestRealWorldSemanticAssertion:
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    &quot;&quot;&quot;Test suite for semantic matching across diverse industry-specific LLM applications.
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    This test class is specifically designed to validate semantic matching capabilities
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    across a wide range of real-world LLM application outputs. It contains both positive
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    and negative test cases that represent actual use cases where LLMs are being used
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    in production environments.
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    Industries Covered:
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        - Healthcare (Patient Education)
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        - Financial Services (Portfolio Reporting)
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        - Media/Entertainment (Content Recommendations)
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        - Legal (Document Summarization)
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        - Manufacturing (Maintenance Prediction)
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        - E-commerce (Product Descriptions)
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        - Education (Assignment Feedback)
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        - Real Estate (Property Listings)
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        - Human Resources (Interview Feedback)
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        - Customer Service (Ticket Response)
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    Test Structure:
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        - Each test validates specific industry requirements
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        - Mix of positive and negative test cases
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>        - Focus on realistic content length and complexity
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>        - Industry-specific terminology and formatting
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        - Comprehensive coverage of common LLM outputs
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    Purpose:
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        This test suite is designed for brute force reliability testing of the semantic
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        matcher. It ensures the library can handle diverse, real-world content while
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        maintaining consistent behavior across multiple test runs.
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>    Usage:
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        These tests are intended to be run multiple times (1000+) to validate the
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        consistency and reliability of the semantic matching functionality across
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>        different contexts and content types.
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    &quot;&quot;&quot;
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    @pytest.fixture
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    def asserter(self):
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        return SemanticAssertion()
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    def test_patient_education_diabetes_management(self, asserter):
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>        &quot;&quot;&quot;Test semantic matching for patient education content about diabetes management. Failure is expected because
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        this does not contain emergency response steps.&quot;&quot;&quot;
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>        Understanding and Managing Type 2 Diabetes
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>        Type 2 diabetes is a chronic condition that affects how your body processes blood sugar (glucose). 
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>        While this condition is serious, it can be effectively managed through lifestyle changes and, 
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>        when necessary, medication. This guide will help you understand the key aspects of diabetes 
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>        management.
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        Blood Sugar Monitoring:
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>        Regular blood sugar monitoring is essential. Your target blood glucose levels should typically 
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>        be 80-130 mg/dL before meals and less than 180 mg/dL two hours after meals. However, your 
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>        healthcare provider may set different targets based on your individual needs. Keep a log of 
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>        your readings to identify patterns and adjust your management strategy accordingly.
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>        Dietary Considerations:
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>        A balanced diet is crucial for managing type 2 diabetes. Focus on:
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>        - Controlling portion sizes
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>        - Choosing high-fiber, low-glycemic foods
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>        - Limiting refined carbohydrates and processed sugars
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>        - Including lean proteins and healthy fats
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>        - Spacing meals evenly throughout the day
+<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>
+<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>        Physical Activity:
+<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>        Regular exercise helps control blood sugar levels by improving insulin sensitivity. Aim for:
+<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>        - At least 150 minutes of moderate-intensity aerobic activity weekly
+<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>        - Resistance training 2-3 times per week
+<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>        - Daily movement, even if just short walks
+<a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>        Always check your blood sugar before and after exercise, and carry a fast-acting 
+<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>        carbohydrate source.
+<a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>
+<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>        Medication Management:
+<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>        If prescribed, take diabetes medications as directed. Common medications include:
+<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>        - Metformin (helps reduce glucose production)
+<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>        - Sulfonylureas (increase insulin production)
+<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>        - DPP-4 inhibitors (help maintain blood sugar control)
+<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>        Never adjust or stop medications without consulting your healthcare provider.
+<a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>
+<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>        Warning Signs:
+<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a>        Learn to recognize and respond to:
+<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>        - Hypoglycemia (low blood sugar): shakiness, sweating, confusion
+<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>        - Hyperglycemia (high blood sugar): increased thirst, frequent urination, fatigue
+<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>        Seek immediate medical attention if you experience severe symptoms or sustained 
+<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>        high blood sugar levels.
+<a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>
+<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>        Regular Health Monitoring:
+<a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a>        Schedule regular check-ups with your healthcare team, including:
+<a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a>        - HbA1c tests every 3-6 months
+<a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a>        - Annual eye examinations
+<a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a>        - Regular foot checks
+<a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a>        - Kidney function tests
+<a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a>        - Cholesterol level monitoring
+<a id="__codelineno-3-104" name="__codelineno-3-104" href="#__codelineno-3-104"></a>
+<a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a>        Remember, diabetes management is a journey, not a destination. Small, consistent 
+<a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a>        steps in the right direction can lead to significant improvements in your health 
+<a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a>        and quality of life.
+<a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-109" name="__codelineno-3-109" href="#__codelineno-3-109"></a>
+<a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a>        expected = &quot;&quot;&quot;A medical education document that must:
+<a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a>        1. Contain an overview section explaining the condition
+<a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a>        2. List specific numerical guidelines (blood sugar ranges, exercise minutes)
+<a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a>        3. Include structured sections for diet, exercise, and medication
+<a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a>        4. Provide clear warning signs AND detailed emergency response procedures
+<a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a>        5. End with follow-up care instructions&quot;&quot;&quot;
+<a id="__codelineno-3-116" name="__codelineno-3-116" href="#__codelineno-3-116"></a>
+<a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
+<a id="__codelineno-3-118" name="__codelineno-3-118" href="#__codelineno-3-118"></a>            asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-119" name="__codelineno-3-119" href="#__codelineno-3-119"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-120" name="__codelineno-3-120" href="#__codelineno-3-120"></a>
+<a id="__codelineno-3-121" name="__codelineno-3-121" href="#__codelineno-3-121"></a>    def test_investment_portfolio_report_generation(self, asserter):
+<a id="__codelineno-3-122" name="__codelineno-3-122" href="#__codelineno-3-122"></a>        &quot;&quot;&quot;Test semantic matching for investment portfolio report generation. Tests that the report
+<a id="__codelineno-3-123" name="__codelineno-3-123" href="#__codelineno-3-123"></a>        contains all required sections and maintains professional financial terminology.&quot;&quot;&quot;
+<a id="__codelineno-3-124" name="__codelineno-3-124" href="#__codelineno-3-124"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-125" name="__codelineno-3-125" href="#__codelineno-3-125"></a>        Q4 2023 Portfolio Performance Summary
+<a id="__codelineno-3-126" name="__codelineno-3-126" href="#__codelineno-3-126"></a>
+<a id="__codelineno-3-127" name="__codelineno-3-127" href="#__codelineno-3-127"></a>        Portfolio Overview:
+<a id="__codelineno-3-128" name="__codelineno-3-128" href="#__codelineno-3-128"></a>        Your investment portfolio has demonstrated resilient performance during Q4 2023, 
+<a id="__codelineno-3-129" name="__codelineno-3-129" href="#__codelineno-3-129"></a>        achieving a total return of 8.2% against our benchmark index return of 7.5%. 
+<a id="__codelineno-3-130" name="__codelineno-3-130" href="#__codelineno-3-130"></a>        Total portfolio value stands at $1,245,000 as of December 31, 2023.
+<a id="__codelineno-3-131" name="__codelineno-3-131" href="#__codelineno-3-131"></a>
+<a id="__codelineno-3-132" name="__codelineno-3-132" href="#__codelineno-3-132"></a>        Asset Allocation Analysis:
+<a id="__codelineno-3-133" name="__codelineno-3-133" href="#__codelineno-3-133"></a>        Current allocation stands at:
+<a id="__codelineno-3-134" name="__codelineno-3-134" href="#__codelineno-3-134"></a>        - Equities: 65% ($809,250)
+<a id="__codelineno-3-135" name="__codelineno-3-135" href="#__codelineno-3-135"></a>            - US Large Cap: 40% ($498,000)
+<a id="__codelineno-3-136" name="__codelineno-3-136" href="#__codelineno-3-136"></a>            - International Developed: 15% ($186,750)
+<a id="__codelineno-3-137" name="__codelineno-3-137" href="#__codelineno-3-137"></a>            - Emerging Markets: 10% ($124,500)
+<a id="__codelineno-3-138" name="__codelineno-3-138" href="#__codelineno-3-138"></a>        - Fixed Income: 25% ($311,250)
+<a id="__codelineno-3-139" name="__codelineno-3-139" href="#__codelineno-3-139"></a>            - Government Bonds: 15% ($186,750)
+<a id="__codelineno-3-140" name="__codelineno-3-140" href="#__codelineno-3-140"></a>            - Corporate Bonds: 10% ($124,500)
+<a id="__codelineno-3-141" name="__codelineno-3-141" href="#__codelineno-3-141"></a>        - Alternative Investments: 10% ($124,500)
+<a id="__codelineno-3-142" name="__codelineno-3-142" href="#__codelineno-3-142"></a>            - Real Estate: 5% ($62,250)
+<a id="__codelineno-3-143" name="__codelineno-3-143" href="#__codelineno-3-143"></a>            - Commodities: 5% ($62,250)
+<a id="__codelineno-3-144" name="__codelineno-3-144" href="#__codelineno-3-144"></a>
+<a id="__codelineno-3-145" name="__codelineno-3-145" href="#__codelineno-3-145"></a>        Performance Attribution:
+<a id="__codelineno-3-146" name="__codelineno-3-146" href="#__codelineno-3-146"></a>        Key contributors to performance:
+<a id="__codelineno-3-147" name="__codelineno-3-147" href="#__codelineno-3-147"></a>        1. US Technology sector outperformance (+12.3%)
+<a id="__codelineno-3-148" name="__codelineno-3-148" href="#__codelineno-3-148"></a>        2. Emerging Markets recovery (+9.1%)
+<a id="__codelineno-3-149" name="__codelineno-3-149" href="#__codelineno-3-149"></a>        3. Corporate Bond yield optimization (+4.2%)
+<a id="__codelineno-3-150" name="__codelineno-3-150" href="#__codelineno-3-150"></a>
+<a id="__codelineno-3-151" name="__codelineno-3-151" href="#__codelineno-3-151"></a>        Risk Metrics:
+<a id="__codelineno-3-152" name="__codelineno-3-152" href="#__codelineno-3-152"></a>        - Portfolio Beta: 0.85
+<a id="__codelineno-3-153" name="__codelineno-3-153" href="#__codelineno-3-153"></a>        - Sharpe Ratio: 1.45
+<a id="__codelineno-3-154" name="__codelineno-3-154" href="#__codelineno-3-154"></a>        - Maximum Drawdown: -5.2%
+<a id="__codelineno-3-155" name="__codelineno-3-155" href="#__codelineno-3-155"></a>        - Standard Deviation: 12.3%
+<a id="__codelineno-3-156" name="__codelineno-3-156" href="#__codelineno-3-156"></a>
+<a id="__codelineno-3-157" name="__codelineno-3-157" href="#__codelineno-3-157"></a>        Rebalancing Recommendations:
+<a id="__codelineno-3-158" name="__codelineno-3-158" href="#__codelineno-3-158"></a>        Based on current market conditions and your investment objectives:
+<a id="__codelineno-3-159" name="__codelineno-3-159" href="#__codelineno-3-159"></a>        1. Consider increasing Fixed Income allocation by 2%
+<a id="__codelineno-3-160" name="__codelineno-3-160" href="#__codelineno-3-160"></a>        2. Reduce US Large Cap exposure by 3%
+<a id="__codelineno-3-161" name="__codelineno-3-161" href="#__codelineno-3-161"></a>        3. Increase Emerging Markets exposure by 1%
+<a id="__codelineno-3-162" name="__codelineno-3-162" href="#__codelineno-3-162"></a>
+<a id="__codelineno-3-163" name="__codelineno-3-163" href="#__codelineno-3-163"></a>        Market Outlook:
+<a id="__codelineno-3-164" name="__codelineno-3-164" href="#__codelineno-3-164"></a>        Looking ahead to 2024, we anticipate:
+<a id="__codelineno-3-165" name="__codelineno-3-165" href="#__codelineno-3-165"></a>        - Continued monetary policy normalization
+<a id="__codelineno-3-166" name="__codelineno-3-166" href="#__codelineno-3-166"></a>        - Potential emerging markets opportunities
+<a id="__codelineno-3-167" name="__codelineno-3-167" href="#__codelineno-3-167"></a>        - Heightened focus on quality factors in equity selection
+<a id="__codelineno-3-168" name="__codelineno-3-168" href="#__codelineno-3-168"></a>
+<a id="__codelineno-3-169" name="__codelineno-3-169" href="#__codelineno-3-169"></a>        Next Steps:
+<a id="__codelineno-3-170" name="__codelineno-3-170" href="#__codelineno-3-170"></a>        1. Schedule quarterly review meeting
+<a id="__codelineno-3-171" name="__codelineno-3-171" href="#__codelineno-3-171"></a>        2. Discuss rebalancing recommendations
+<a id="__codelineno-3-172" name="__codelineno-3-172" href="#__codelineno-3-172"></a>        3. Update investment policy statement if needed
+<a id="__codelineno-3-173" name="__codelineno-3-173" href="#__codelineno-3-173"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-174" name="__codelineno-3-174" href="#__codelineno-3-174"></a>
+<a id="__codelineno-3-175" name="__codelineno-3-175" href="#__codelineno-3-175"></a>        expected = &quot;&quot;&quot;A professional investment portfolio report that must:
+<a id="__codelineno-3-176" name="__codelineno-3-176" href="#__codelineno-3-176"></a>        1. Present portfolio performance with specific metrics
+<a id="__codelineno-3-177" name="__codelineno-3-177" href="#__codelineno-3-177"></a>        2. Detail current asset allocation with percentages
+<a id="__codelineno-3-178" name="__codelineno-3-178" href="#__codelineno-3-178"></a>        3. Include risk analysis metrics
+<a id="__codelineno-3-179" name="__codelineno-3-179" href="#__codelineno-3-179"></a>        4. Provide forward-looking recommendations
+<a id="__codelineno-3-180" name="__codelineno-3-180" href="#__codelineno-3-180"></a>        5. Maintain formal financial terminology
+<a id="__codelineno-3-181" name="__codelineno-3-181" href="#__codelineno-3-181"></a>        6. Include clear next steps or action items&quot;&quot;&quot;
+<a id="__codelineno-3-182" name="__codelineno-3-182" href="#__codelineno-3-182"></a>
+<a id="__codelineno-3-183" name="__codelineno-3-183" href="#__codelineno-3-183"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-184" name="__codelineno-3-184" href="#__codelineno-3-184"></a>
+<a id="__codelineno-3-185" name="__codelineno-3-185" href="#__codelineno-3-185"></a>    def test_content_recommendation_missing_viewing_patterns(self, asserter):
+<a id="__codelineno-3-186" name="__codelineno-3-186" href="#__codelineno-3-186"></a>        &quot;&quot;&quot;Test semantic matching for content recommendations. Should fail due to missing viewing patterns
+<a id="__codelineno-3-187" name="__codelineno-3-187" href="#__codelineno-3-187"></a>        and user preferences section.&quot;&quot;&quot;
+<a id="__codelineno-3-188" name="__codelineno-3-188" href="#__codelineno-3-188"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-189" name="__codelineno-3-189" href="#__codelineno-3-189"></a>        Personalized Content Recommendations - User Profile #A1234
+<a id="__codelineno-3-190" name="__codelineno-3-190" href="#__codelineno-3-190"></a>        Generated: November 22, 2024
+<a id="__codelineno-3-191" name="__codelineno-3-191" href="#__codelineno-3-191"></a>
+<a id="__codelineno-3-192" name="__codelineno-3-192" href="#__codelineno-3-192"></a>        Recommended Content Queue:
+<a id="__codelineno-3-193" name="__codelineno-3-193" href="#__codelineno-3-193"></a>        1. &quot;Climate Pioneers&quot; (Documentary Series)
+<a id="__codelineno-3-194" name="__codelineno-3-194" href="#__codelineno-3-194"></a>            - Episode length: 45 minutes
+<a id="__codelineno-3-195" name="__codelineno-3-195" href="#__codelineno-3-195"></a>            - New episodes available
+<a id="__codelineno-3-196" name="__codelineno-3-196" href="#__codelineno-3-196"></a>
+<a id="__codelineno-3-197" name="__codelineno-3-197" href="#__codelineno-3-197"></a>        2. &quot;Global Power Play&quot; (Political Drama)
+<a id="__codelineno-3-198" name="__codelineno-3-198" href="#__codelineno-3-198"></a>            - Episode length: 55 minutes
+<a id="__codelineno-3-199" name="__codelineno-3-199" href="#__codelineno-3-199"></a>            - Features actors from previously watched content
+<a id="__codelineno-3-200" name="__codelineno-3-200" href="#__codelineno-3-200"></a>
+<a id="__codelineno-3-201" name="__codelineno-3-201" href="#__codelineno-3-201"></a>        3. &quot;Earth&#39;s Tipping Points&quot; (Scientific Documentary)
+<a id="__codelineno-3-202" name="__codelineno-3-202" href="#__codelineno-3-202"></a>            - Episode length: 40 minutes
+<a id="__codelineno-3-203" name="__codelineno-3-203" href="#__codelineno-3-203"></a>            - Recently added to platform
+<a id="__codelineno-3-204" name="__codelineno-3-204" href="#__codelineno-3-204"></a>
+<a id="__codelineno-3-205" name="__codelineno-3-205" href="#__codelineno-3-205"></a>        Engagement Optimization:
+<a id="__codelineno-3-206" name="__codelineno-3-206" href="#__codelineno-3-206"></a>        - Scheduled new episode alerts
+<a id="__codelineno-3-207" name="__codelineno-3-207" href="#__codelineno-3-207"></a>        - Downloadable content for offline viewing
+<a id="__codelineno-3-208" name="__codelineno-3-208" href="#__codelineno-3-208"></a>        - Similar content suggestions refreshed weekly
+<a id="__codelineno-3-209" name="__codelineno-3-209" href="#__codelineno-3-209"></a>        - Customized language preferences maintained
+<a id="__codelineno-3-210" name="__codelineno-3-210" href="#__codelineno-3-210"></a>
+<a id="__codelineno-3-211" name="__codelineno-3-211" href="#__codelineno-3-211"></a>        Content Accessibility:
+<a id="__codelineno-3-212" name="__codelineno-3-212" href="#__codelineno-3-212"></a>        All recommended content includes your preferred subtitle options and is 
+<a id="__codelineno-3-213" name="__codelineno-3-213" href="#__codelineno-3-213"></a>        available in HD quality. Downloads are enabled for offline viewing during 
+<a id="__codelineno-3-214" name="__codelineno-3-214" href="#__codelineno-3-214"></a>        your upcoming travel dates.
+<a id="__codelineno-3-215" name="__codelineno-3-215" href="#__codelineno-3-215"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-216" name="__codelineno-3-216" href="#__codelineno-3-216"></a>
+<a id="__codelineno-3-217" name="__codelineno-3-217" href="#__codelineno-3-217"></a>        expected = &quot;&quot;&quot;A personalized content recommendation document that must:
+<a id="__codelineno-3-218" name="__codelineno-3-218" href="#__codelineno-3-218"></a>        1. Include the viewing patterns and preferences of the user
+<a id="__codelineno-3-219" name="__codelineno-3-219" href="#__codelineno-3-219"></a>        2. List recommended content with clear reasoning
+<a id="__codelineno-3-220" name="__codelineno-3-220" href="#__codelineno-3-220"></a>        3. Provide matching percentages or relevance metrics
+<a id="__codelineno-3-221" name="__codelineno-3-221" href="#__codelineno-3-221"></a>        4. Include viewing optimization suggestions
+<a id="__codelineno-3-222" name="__codelineno-3-222" href="#__codelineno-3-222"></a>        5. Address content accessibility features&quot;&quot;&quot;
+<a id="__codelineno-3-223" name="__codelineno-3-223" href="#__codelineno-3-223"></a>
+<a id="__codelineno-3-224" name="__codelineno-3-224" href="#__codelineno-3-224"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
+<a id="__codelineno-3-225" name="__codelineno-3-225" href="#__codelineno-3-225"></a>            asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-226" name="__codelineno-3-226" href="#__codelineno-3-226"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-227" name="__codelineno-3-227" href="#__codelineno-3-227"></a>
+<a id="__codelineno-3-228" name="__codelineno-3-228" href="#__codelineno-3-228"></a>    def test_legal_document_summary_generation(self, asserter):
+<a id="__codelineno-3-229" name="__codelineno-3-229" href="#__codelineno-3-229"></a>        &quot;&quot;&quot;Test semantic matching for legal document summary generation. Tests that the summary
+<a id="__codelineno-3-230" name="__codelineno-3-230" href="#__codelineno-3-230"></a>        maintains accuracy while being accessible to non-legal readers.&quot;&quot;&quot;
+<a id="__codelineno-3-231" name="__codelineno-3-231" href="#__codelineno-3-231"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-232" name="__codelineno-3-232" href="#__codelineno-3-232"></a>        Contract Summary Analysis
+<a id="__codelineno-3-233" name="__codelineno-3-233" href="#__codelineno-3-233"></a>        Document Reference: MSA-2024-0892
+<a id="__codelineno-3-234" name="__codelineno-3-234" href="#__codelineno-3-234"></a>        Date of Analysis: November 22, 2024
+<a id="__codelineno-3-235" name="__codelineno-3-235" href="#__codelineno-3-235"></a>
+<a id="__codelineno-3-236" name="__codelineno-3-236" href="#__codelineno-3-236"></a>        Agreement Overview:
+<a id="__codelineno-3-237" name="__codelineno-3-237" href="#__codelineno-3-237"></a>        Software Development Master Services Agreement between TechCorp Inc. (&quot;Provider&quot;) 
+<a id="__codelineno-3-238" name="__codelineno-3-238" href="#__codelineno-3-238"></a>        and GlobalEnterprises LLC (&quot;Client&quot;) for the development and maintenance of 
+<a id="__codelineno-3-239" name="__codelineno-3-239" href="#__codelineno-3-239"></a>        enterprise software solutions.
+<a id="__codelineno-3-240" name="__codelineno-3-240" href="#__codelineno-3-240"></a>
+<a id="__codelineno-3-241" name="__codelineno-3-241" href="#__codelineno-3-241"></a>        Key Terms and Conditions:
+<a id="__codelineno-3-242" name="__codelineno-3-242" href="#__codelineno-3-242"></a>        1. Service Scope
+<a id="__codelineno-3-243" name="__codelineno-3-243" href="#__codelineno-3-243"></a>            - Custom software development services
+<a id="__codelineno-3-244" name="__codelineno-3-244" href="#__codelineno-3-244"></a>            - System integration capabilities
+<a id="__codelineno-3-245" name="__codelineno-3-245" href="#__codelineno-3-245"></a>            - Ongoing maintenance and support
+<a id="__codelineno-3-246" name="__codelineno-3-246" href="#__codelineno-3-246"></a>            - Security compliance implementations
+<a id="__codelineno-3-247" name="__codelineno-3-247" href="#__codelineno-3-247"></a>
+<a id="__codelineno-3-248" name="__codelineno-3-248" href="#__codelineno-3-248"></a>        2. Financial Terms
+<a id="__codelineno-3-249" name="__codelineno-3-249" href="#__codelineno-3-249"></a>            - Base development fee: $750,000
+<a id="__codelineno-3-250" name="__codelineno-3-250" href="#__codelineno-3-250"></a>            - Monthly maintenance: $15,000
+<a id="__codelineno-3-251" name="__codelineno-3-251" href="#__codelineno-3-251"></a>            - Change request rate: $200/hour
+<a id="__codelineno-3-252" name="__codelineno-3-252" href="#__codelineno-3-252"></a>            - Payment terms: Net 30
+<a id="__codelineno-3-253" name="__codelineno-3-253" href="#__codelineno-3-253"></a>
+<a id="__codelineno-3-254" name="__codelineno-3-254" href="#__codelineno-3-254"></a>        3. Performance Standards
+<a id="__codelineno-3-255" name="__codelineno-3-255" href="#__codelineno-3-255"></a>            - 99.9% system availability
+<a id="__codelineno-3-256" name="__codelineno-3-256" href="#__codelineno-3-256"></a>            - 4-hour response time for critical issues
+<a id="__codelineno-3-257" name="__codelineno-3-257" href="#__codelineno-3-257"></a>            - Monthly performance reporting
+<a id="__codelineno-3-258" name="__codelineno-3-258" href="#__codelineno-3-258"></a>            - Quarterly service reviews
+<a id="__codelineno-3-259" name="__codelineno-3-259" href="#__codelineno-3-259"></a>
+<a id="__codelineno-3-260" name="__codelineno-3-260" href="#__codelineno-3-260"></a>        4. Intellectual Property Rights
+<a id="__codelineno-3-261" name="__codelineno-3-261" href="#__codelineno-3-261"></a>            - Client owns all custom development
+<a id="__codelineno-3-262" name="__codelineno-3-262" href="#__codelineno-3-262"></a>            - Provider retains rights to pre-existing IP
+<a id="__codelineno-3-263" name="__codelineno-3-263" href="#__codelineno-3-263"></a>            - Joint ownership of derivative works
+<a id="__codelineno-3-264" name="__codelineno-3-264" href="#__codelineno-3-264"></a>            - Limited license for provider tools
+<a id="__codelineno-3-265" name="__codelineno-3-265" href="#__codelineno-3-265"></a>
+<a id="__codelineno-3-266" name="__codelineno-3-266" href="#__codelineno-3-266"></a>        5. Term and Termination
+<a id="__codelineno-3-267" name="__codelineno-3-267" href="#__codelineno-3-267"></a>            - Initial term: 36 months
+<a id="__codelineno-3-268" name="__codelineno-3-268" href="#__codelineno-3-268"></a>            - Automatic renewal: 12-month periods
+<a id="__codelineno-3-269" name="__codelineno-3-269" href="#__codelineno-3-269"></a>            - 90-day termination notice required
+<a id="__codelineno-3-270" name="__codelineno-3-270" href="#__codelineno-3-270"></a>            - Immediate termination for material breach
+<a id="__codelineno-3-271" name="__codelineno-3-271" href="#__codelineno-3-271"></a>
+<a id="__codelineno-3-272" name="__codelineno-3-272" href="#__codelineno-3-272"></a>        Risk Assessment:
+<a id="__codelineno-3-273" name="__codelineno-3-273" href="#__codelineno-3-273"></a>        - Medium risk: Data protection obligations
+<a id="__codelineno-3-274" name="__codelineno-3-274" href="#__codelineno-3-274"></a>        - Low risk: Service level commitments
+<a id="__codelineno-3-275" name="__codelineno-3-275" href="#__codelineno-3-275"></a>        - Low risk: IP ownership structure
+<a id="__codelineno-3-276" name="__codelineno-3-276" href="#__codelineno-3-276"></a>        - Medium risk: Change management process
+<a id="__codelineno-3-277" name="__codelineno-3-277" href="#__codelineno-3-277"></a>
+<a id="__codelineno-3-278" name="__codelineno-3-278" href="#__codelineno-3-278"></a>        Next Steps:
+<a id="__codelineno-3-279" name="__codelineno-3-279" href="#__codelineno-3-279"></a>        1. Legal team review of data protection terms
+<a id="__codelineno-3-280" name="__codelineno-3-280" href="#__codelineno-3-280"></a>        2. Technical team validation of SLAs
+<a id="__codelineno-3-281" name="__codelineno-3-281" href="#__codelineno-3-281"></a>        3. Finance approval of payment terms
+<a id="__codelineno-3-282" name="__codelineno-3-282" href="#__codelineno-3-282"></a>        4. Compliance review of security standards
+<a id="__codelineno-3-283" name="__codelineno-3-283" href="#__codelineno-3-283"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-284" name="__codelineno-3-284" href="#__codelineno-3-284"></a>
+<a id="__codelineno-3-285" name="__codelineno-3-285" href="#__codelineno-3-285"></a>        expected = &quot;&quot;&quot;A legal document summary that must:
+<a id="__codelineno-3-286" name="__codelineno-3-286" href="#__codelineno-3-286"></a>        1. Identify key parties and document type
+<a id="__codelineno-3-287" name="__codelineno-3-287" href="#__codelineno-3-287"></a>        2. List main contractual terms
+<a id="__codelineno-3-288" name="__codelineno-3-288" href="#__codelineno-3-288"></a>        3. Include specific numerical values (costs, dates, metrics)
+<a id="__codelineno-3-289" name="__codelineno-3-289" href="#__codelineno-3-289"></a>        4. Provide risk assessment
+<a id="__codelineno-3-290" name="__codelineno-3-290" href="#__codelineno-3-290"></a>        5. Outline required actions or next steps&quot;&quot;&quot;
+<a id="__codelineno-3-291" name="__codelineno-3-291" href="#__codelineno-3-291"></a>
+<a id="__codelineno-3-292" name="__codelineno-3-292" href="#__codelineno-3-292"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-293" name="__codelineno-3-293" href="#__codelineno-3-293"></a>
+<a id="__codelineno-3-294" name="__codelineno-3-294" href="#__codelineno-3-294"></a>    def test_maintenance_prediction_missing_historical_context(self, asserter):
+<a id="__codelineno-3-295" name="__codelineno-3-295" href="#__codelineno-3-295"></a>        &quot;&quot;&quot;Test semantic matching for maintenance prediction report. Should fail due to
+<a id="__codelineno-3-296" name="__codelineno-3-296" href="#__codelineno-3-296"></a>        missing historical maintenance context and pattern analysis.&quot;&quot;&quot;
+<a id="__codelineno-3-297" name="__codelineno-3-297" href="#__codelineno-3-297"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-298" name="__codelineno-3-298" href="#__codelineno-3-298"></a>        Equipment Maintenance Analysis
+<a id="__codelineno-3-299" name="__codelineno-3-299" href="#__codelineno-3-299"></a>        Machine ID: CNC-1234
+<a id="__codelineno-3-300" name="__codelineno-3-300" href="#__codelineno-3-300"></a>        Analysis Date: November 22, 2024
+<a id="__codelineno-3-301" name="__codelineno-3-301" href="#__codelineno-3-301"></a>
+<a id="__codelineno-3-302" name="__codelineno-3-302" href="#__codelineno-3-302"></a>        Current Status Summary:
+<a id="__codelineno-3-303" name="__codelineno-3-303" href="#__codelineno-3-303"></a>        The CNC machine is showing early indicators of potential bearing wear in the main spindle.
+<a id="__codelineno-3-304" name="__codelineno-3-304" href="#__codelineno-3-304"></a>        Recommended action is to schedule maintenance within the next 2 weeks.
+<a id="__codelineno-3-305" name="__codelineno-3-305" href="#__codelineno-3-305"></a>
+<a id="__codelineno-3-306" name="__codelineno-3-306" href="#__codelineno-3-306"></a>        Operational Parameters:
+<a id="__codelineno-3-307" name="__codelineno-3-307" href="#__codelineno-3-307"></a>        - Current Runtime: 2,450 hours
+<a id="__codelineno-3-308" name="__codelineno-3-308" href="#__codelineno-3-308"></a>        - Average Daily Usage: 18 hours
+<a id="__codelineno-3-309" name="__codelineno-3-309" href="#__codelineno-3-309"></a>        - Last Maintenance: October 15, 2024
+<a id="__codelineno-3-310" name="__codelineno-3-310" href="#__codelineno-3-310"></a>
+<a id="__codelineno-3-311" name="__codelineno-3-311" href="#__codelineno-3-311"></a>        Immediate Recommendations:
+<a id="__codelineno-3-312" name="__codelineno-3-312" href="#__codelineno-3-312"></a>        1. Schedule bearing inspection
+<a id="__codelineno-3-313" name="__codelineno-3-313" href="#__codelineno-3-313"></a>        2. Monitor vibration levels daily
+<a id="__codelineno-3-314" name="__codelineno-3-314" href="#__codelineno-3-314"></a>        3. Prepare replacement parts
+<a id="__codelineno-3-315" name="__codelineno-3-315" href="#__codelineno-3-315"></a>        4. Plan for 4-hour maintenance window
+<a id="__codelineno-3-316" name="__codelineno-3-316" href="#__codelineno-3-316"></a>
+<a id="__codelineno-3-317" name="__codelineno-3-317" href="#__codelineno-3-317"></a>        Impact Assessment:
+<a id="__codelineno-3-318" name="__codelineno-3-318" href="#__codelineno-3-318"></a>        - Production Impact: Minimal if addressed within 2 weeks
+<a id="__codelineno-3-319" name="__codelineno-3-319" href="#__codelineno-3-319"></a>        - Resource Requirements: Standard maintenance team
+<a id="__codelineno-3-320" name="__codelineno-3-320" href="#__codelineno-3-320"></a>        - Parts Cost Estimate: $2,500
+<a id="__codelineno-3-321" name="__codelineno-3-321" href="#__codelineno-3-321"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-322" name="__codelineno-3-322" href="#__codelineno-3-322"></a>
+<a id="__codelineno-3-323" name="__codelineno-3-323" href="#__codelineno-3-323"></a>        expected = &quot;&quot;&quot;A maintenance prediction report that must:
+<a id="__codelineno-3-324" name="__codelineno-3-324" href="#__codelineno-3-324"></a>        1. Include current machine status
+<a id="__codelineno-3-325" name="__codelineno-3-325" href="#__codelineno-3-325"></a>        2. Provide historical maintenance patterns
+<a id="__codelineno-3-326" name="__codelineno-3-326" href="#__codelineno-3-326"></a>        3. Show failure prediction confidence levels
+<a id="__codelineno-3-327" name="__codelineno-3-327" href="#__codelineno-3-327"></a>        4. List specific maintenance recommendations
+<a id="__codelineno-3-328" name="__codelineno-3-328" href="#__codelineno-3-328"></a>        5. Include impact assessment and timeline&quot;&quot;&quot;
+<a id="__codelineno-3-329" name="__codelineno-3-329" href="#__codelineno-3-329"></a>
+<a id="__codelineno-3-330" name="__codelineno-3-330" href="#__codelineno-3-330"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
+<a id="__codelineno-3-331" name="__codelineno-3-331" href="#__codelineno-3-331"></a>            asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-332" name="__codelineno-3-332" href="#__codelineno-3-332"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-333" name="__codelineno-3-333" href="#__codelineno-3-333"></a>
+<a id="__codelineno-3-334" name="__codelineno-3-334" href="#__codelineno-3-334"></a>    def test_product_description_generation(self, asserter):
+<a id="__codelineno-3-335" name="__codelineno-3-335" href="#__codelineno-3-335"></a>        &quot;&quot;&quot;Test semantic matching for e-commerce product description generation. Tests that the description
+<a id="__codelineno-3-336" name="__codelineno-3-336" href="#__codelineno-3-336"></a>        includes all required elements of an effective product listing.&quot;&quot;&quot;
+<a id="__codelineno-3-337" name="__codelineno-3-337" href="#__codelineno-3-337"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-338" name="__codelineno-3-338" href="#__codelineno-3-338"></a>        Smart Home Security Camera - Model HC2000
+<a id="__codelineno-3-339" name="__codelineno-3-339" href="#__codelineno-3-339"></a>
+<a id="__codelineno-3-340" name="__codelineno-3-340" href="#__codelineno-3-340"></a>        Transform your home security with our latest AI-powered camera system. This next-generation 
+<a id="__codelineno-3-341" name="__codelineno-3-341" href="#__codelineno-3-341"></a>        device combines advanced motion detection with crystal-clear 4K video quality, perfect for 
+<a id="__codelineno-3-342" name="__codelineno-3-342" href="#__codelineno-3-342"></a>        both indoor and outdoor monitoring.
+<a id="__codelineno-3-343" name="__codelineno-3-343" href="#__codelineno-3-343"></a>
+<a id="__codelineno-3-344" name="__codelineno-3-344" href="#__codelineno-3-344"></a>        Key Features:
+<a id="__codelineno-3-345" name="__codelineno-3-345" href="#__codelineno-3-345"></a>        - 4K Ultra HD resolution with HDR
+<a id="__codelineno-3-346" name="__codelineno-3-346" href="#__codelineno-3-346"></a>        - 160° wide-angle view
+<a id="__codelineno-3-347" name="__codelineno-3-347" href="#__codelineno-3-347"></a>        - Advanced AI motion detection
+<a id="__codelineno-3-348" name="__codelineno-3-348" href="#__codelineno-3-348"></a>        - Two-way audio communication
+<a id="__codelineno-3-349" name="__codelineno-3-349" href="#__codelineno-3-349"></a>        - Night vision up to 30 feet
+<a id="__codelineno-3-350" name="__codelineno-3-350" href="#__codelineno-3-350"></a>        - Weather-resistant (IP66 rated)
+<a id="__codelineno-3-351" name="__codelineno-3-351" href="#__codelineno-3-351"></a>
+<a id="__codelineno-3-352" name="__codelineno-3-352" href="#__codelineno-3-352"></a>        Smart Integration:
+<a id="__codelineno-3-353" name="__codelineno-3-353" href="#__codelineno-3-353"></a>        Works seamlessly with major platforms including:
+<a id="__codelineno-3-354" name="__codelineno-3-354" href="#__codelineno-3-354"></a>        - Amazon Alexa
+<a id="__codelineno-3-355" name="__codelineno-3-355" href="#__codelineno-3-355"></a>        - Google Home
+<a id="__codelineno-3-356" name="__codelineno-3-356" href="#__codelineno-3-356"></a>        - Apple HomeKit
+<a id="__codelineno-3-357" name="__codelineno-3-357" href="#__codelineno-3-357"></a>        - IFTTT
+<a id="__codelineno-3-358" name="__codelineno-3-358" href="#__codelineno-3-358"></a>
+<a id="__codelineno-3-359" name="__codelineno-3-359" href="#__codelineno-3-359"></a>        Technical Specifications:
+<a id="__codelineno-3-360" name="__codelineno-3-360" href="#__codelineno-3-360"></a>        - Dimensions: 3.2&quot; x 3.2&quot; x 5.1&quot;
+<a id="__codelineno-3-361" name="__codelineno-3-361" href="#__codelineno-3-361"></a>        - Weight: 12.3 oz
+<a id="__codelineno-3-362" name="__codelineno-3-362" href="#__codelineno-3-362"></a>        - Power: AC adapter or rechargeable battery
+<a id="__codelineno-3-363" name="__codelineno-3-363" href="#__codelineno-3-363"></a>        - Storage: Cloud or local SD card (up to 256GB)
+<a id="__codelineno-3-364" name="__codelineno-3-364" href="#__codelineno-3-364"></a>        - Connectivity: 2.4GHz/5GHz WiFi
+<a id="__codelineno-3-365" name="__codelineno-3-365" href="#__codelineno-3-365"></a>
+<a id="__codelineno-3-366" name="__codelineno-3-366" href="#__codelineno-3-366"></a>        What&#39;s in the Box:
+<a id="__codelineno-3-367" name="__codelineno-3-367" href="#__codelineno-3-367"></a>        - HC2000 Camera
+<a id="__codelineno-3-368" name="__codelineno-3-368" href="#__codelineno-3-368"></a>        - Mounting bracket
+<a id="__codelineno-3-369" name="__codelineno-3-369" href="#__codelineno-3-369"></a>        - Power adapter
+<a id="__codelineno-3-370" name="__codelineno-3-370" href="#__codelineno-3-370"></a>        - Quick start guide
+<a id="__codelineno-3-371" name="__codelineno-3-371" href="#__codelineno-3-371"></a>        - Screws and anchors
+<a id="__codelineno-3-372" name="__codelineno-3-372" href="#__codelineno-3-372"></a>
+<a id="__codelineno-3-373" name="__codelineno-3-373" href="#__codelineno-3-373"></a>        Perfect for:
+<a id="__codelineno-3-374" name="__codelineno-3-374" href="#__codelineno-3-374"></a>        - Home security
+<a id="__codelineno-3-375" name="__codelineno-3-375" href="#__codelineno-3-375"></a>        - Baby monitoring
+<a id="__codelineno-3-376" name="__codelineno-3-376" href="#__codelineno-3-376"></a>        - Pet watching
+<a id="__codelineno-3-377" name="__codelineno-3-377" href="#__codelineno-3-377"></a>        - Front door monitoring
+<a id="__codelineno-3-378" name="__codelineno-3-378" href="#__codelineno-3-378"></a>
+<a id="__codelineno-3-379" name="__codelineno-3-379" href="#__codelineno-3-379"></a>        30-day money-back guarantee
+<a id="__codelineno-3-380" name="__codelineno-3-380" href="#__codelineno-3-380"></a>        2-year manufacturer warranty
+<a id="__codelineno-3-381" name="__codelineno-3-381" href="#__codelineno-3-381"></a>        Free technical support
+<a id="__codelineno-3-382" name="__codelineno-3-382" href="#__codelineno-3-382"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-383" name="__codelineno-3-383" href="#__codelineno-3-383"></a>
+<a id="__codelineno-3-384" name="__codelineno-3-384" href="#__codelineno-3-384"></a>        expected = &quot;&quot;&quot;An e-commerce product description that must:
+<a id="__codelineno-3-385" name="__codelineno-3-385" href="#__codelineno-3-385"></a>        1. Include clear product name and model
+<a id="__codelineno-3-386" name="__codelineno-3-386" href="#__codelineno-3-386"></a>        2. List key features and specifications
+<a id="__codelineno-3-387" name="__codelineno-3-387" href="#__codelineno-3-387"></a>        3. Specify technical details and compatibility
+<a id="__codelineno-3-388" name="__codelineno-3-388" href="#__codelineno-3-388"></a>        4. Describe package contents
+<a id="__codelineno-3-389" name="__codelineno-3-389" href="#__codelineno-3-389"></a>        5. Include warranty and support information&quot;&quot;&quot;
+<a id="__codelineno-3-390" name="__codelineno-3-390" href="#__codelineno-3-390"></a>
+<a id="__codelineno-3-391" name="__codelineno-3-391" href="#__codelineno-3-391"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-392" name="__codelineno-3-392" href="#__codelineno-3-392"></a>
+<a id="__codelineno-3-393" name="__codelineno-3-393" href="#__codelineno-3-393"></a>    def test_assignment_feedback_missing_improvement_steps(self, asserter):
+<a id="__codelineno-3-394" name="__codelineno-3-394" href="#__codelineno-3-394"></a>        &quot;&quot;&quot;Test semantic matching for student assignment feedback. Should fail due to
+<a id="__codelineno-3-395" name="__codelineno-3-395" href="#__codelineno-3-395"></a>        missing specific improvement steps and learning objectives.&quot;&quot;&quot;
+<a id="__codelineno-3-396" name="__codelineno-3-396" href="#__codelineno-3-396"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-397" name="__codelineno-3-397" href="#__codelineno-3-397"></a>        Assignment Feedback
+<a id="__codelineno-3-398" name="__codelineno-3-398" href="#__codelineno-3-398"></a>        Student ID: STU-2024-456
+<a id="__codelineno-3-399" name="__codelineno-3-399" href="#__codelineno-3-399"></a>        Assignment: Research Paper on Climate Change
+<a id="__codelineno-3-400" name="__codelineno-3-400" href="#__codelineno-3-400"></a>        Submission Date: November 22, 2024
+<a id="__codelineno-3-401" name="__codelineno-3-401" href="#__codelineno-3-401"></a>
+<a id="__codelineno-3-402" name="__codelineno-3-402" href="#__codelineno-3-402"></a>        Overall Assessment:
+<a id="__codelineno-3-403" name="__codelineno-3-403" href="#__codelineno-3-403"></a>        Your research paper demonstrates good understanding of climate change basics.
+<a id="__codelineno-3-404" name="__codelineno-3-404" href="#__codelineno-3-404"></a>        The writing is clear and well-structured, with appropriate use of scientific
+<a id="__codelineno-3-405" name="__codelineno-3-405" href="#__codelineno-3-405"></a>        terminology throughout the document.
+<a id="__codelineno-3-406" name="__codelineno-3-406" href="#__codelineno-3-406"></a>
+<a id="__codelineno-3-407" name="__codelineno-3-407" href="#__codelineno-3-407"></a>        Strengths:
+<a id="__codelineno-3-408" name="__codelineno-3-408" href="#__codelineno-3-408"></a>        - Strong introduction that sets context
+<a id="__codelineno-3-409" name="__codelineno-3-409" href="#__codelineno-3-409"></a>        - Good use of current scientific data
+<a id="__codelineno-3-410" name="__codelineno-3-410" href="#__codelineno-3-410"></a>        - Clear paragraph structure
+<a id="__codelineno-3-411" name="__codelineno-3-411" href="#__codelineno-3-411"></a>        - Proper citation format
+<a id="__codelineno-3-412" name="__codelineno-3-412" href="#__codelineno-3-412"></a>
+<a id="__codelineno-3-413" name="__codelineno-3-413" href="#__codelineno-3-413"></a>        Areas Noted:
+<a id="__codelineno-3-414" name="__codelineno-3-414" href="#__codelineno-3-414"></a>        - Some statistical interpretations could be more precise
+<a id="__codelineno-3-415" name="__codelineno-3-415" href="#__codelineno-3-415"></a>        - Additional peer-reviewed sources would strengthen arguments
+<a id="__codelineno-3-416" name="__codelineno-3-416" href="#__codelineno-3-416"></a>        - Conclusion could be more comprehensive
+<a id="__codelineno-3-417" name="__codelineno-3-417" href="#__codelineno-3-417"></a>
+<a id="__codelineno-3-418" name="__codelineno-3-418" href="#__codelineno-3-418"></a>        Grade: B+ (88/100)
+<a id="__codelineno-3-419" name="__codelineno-3-419" href="#__codelineno-3-419"></a>
+<a id="__codelineno-3-420" name="__codelineno-3-420" href="#__codelineno-3-420"></a>        Additional Comments:
+<a id="__codelineno-3-421" name="__codelineno-3-421" href="#__codelineno-3-421"></a>        The paper shows promise and indicates solid research skills. Your analysis
+<a id="__codelineno-3-422" name="__codelineno-3-422" href="#__codelineno-3-422"></a>        of temperature data trends was particularly well-done. Consider expanding
+<a id="__codelineno-3-423" name="__codelineno-3-423" href="#__codelineno-3-423"></a>        your discussion of potential mitigation strategies in future work.
+<a id="__codelineno-3-424" name="__codelineno-3-424" href="#__codelineno-3-424"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-425" name="__codelineno-3-425" href="#__codelineno-3-425"></a>
+<a id="__codelineno-3-426" name="__codelineno-3-426" href="#__codelineno-3-426"></a>        expected = &quot;&quot;&quot;An assignment feedback document that must:
+<a id="__codelineno-3-427" name="__codelineno-3-427" href="#__codelineno-3-427"></a>        1. Include basic assignment and student information
+<a id="__codelineno-3-428" name="__codelineno-3-428" href="#__codelineno-3-428"></a>        2. Provide specific strengths and weaknesses
+<a id="__codelineno-3-429" name="__codelineno-3-429" href="#__codelineno-3-429"></a>        3. List concrete steps for improvement
+<a id="__codelineno-3-430" name="__codelineno-3-430" href="#__codelineno-3-430"></a>        4. Reference specific learning objectives
+<a id="__codelineno-3-431" name="__codelineno-3-431" href="#__codelineno-3-431"></a>        5. Include grading criteria and score&quot;&quot;&quot;
+<a id="__codelineno-3-432" name="__codelineno-3-432" href="#__codelineno-3-432"></a>
+<a id="__codelineno-3-433" name="__codelineno-3-433" href="#__codelineno-3-433"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
+<a id="__codelineno-3-434" name="__codelineno-3-434" href="#__codelineno-3-434"></a>            asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-435" name="__codelineno-3-435" href="#__codelineno-3-435"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-436" name="__codelineno-3-436" href="#__codelineno-3-436"></a>
+<a id="__codelineno-3-437" name="__codelineno-3-437" href="#__codelineno-3-437"></a>    def test_real_estate_listing_generation(self, asserter):
+<a id="__codelineno-3-438" name="__codelineno-3-438" href="#__codelineno-3-438"></a>        &quot;&quot;&quot;Test semantic matching for real estate listing generation. Tests that the listing
+<a id="__codelineno-3-439" name="__codelineno-3-439" href="#__codelineno-3-439"></a>        includes all essential elements of an effective property description.&quot;&quot;&quot;
+<a id="__codelineno-3-440" name="__codelineno-3-440" href="#__codelineno-3-440"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-441" name="__codelineno-3-441" href="#__codelineno-3-441"></a>        Stunning Modern Oasis in Prime Location
+<a id="__codelineno-3-442" name="__codelineno-3-442" href="#__codelineno-3-442"></a>        123 Maple Avenue, Riverside Heights
+<a id="__codelineno-3-443" name="__codelineno-3-443" href="#__codelineno-3-443"></a>
+<a id="__codelineno-3-444" name="__codelineno-3-444" href="#__codelineno-3-444"></a>        Discover urban elegance in this meticulously updated contemporary home, where 
+<a id="__codelineno-3-445" name="__codelineno-3-445" href="#__codelineno-3-445"></a>        modern luxury meets practical living. This 2,400 sq ft residence seamlessly 
+<a id="__codelineno-3-446" name="__codelineno-3-446" href="#__codelineno-3-446"></a>        blends indoor and outdoor living spaces.
+<a id="__codelineno-3-447" name="__codelineno-3-447" href="#__codelineno-3-447"></a>
+<a id="__codelineno-3-448" name="__codelineno-3-448" href="#__codelineno-3-448"></a>        Property Highlights:
+<a id="__codelineno-3-449" name="__codelineno-3-449" href="#__codelineno-3-449"></a>        - 4 bedrooms, 2.5 bathrooms
+<a id="__codelineno-3-450" name="__codelineno-3-450" href="#__codelineno-3-450"></a>        - Built: 2018
+<a id="__codelineno-3-451" name="__codelineno-3-451" href="#__codelineno-3-451"></a>        - Lot size: 0.25 acres
+<a id="__codelineno-3-452" name="__codelineno-3-452" href="#__codelineno-3-452"></a>        - Two-car attached garage
+<a id="__codelineno-3-453" name="__codelineno-3-453" href="#__codelineno-3-453"></a>        - Energy-efficient smart home features
+<a id="__codelineno-3-454" name="__codelineno-3-454" href="#__codelineno-3-454"></a>
+<a id="__codelineno-3-455" name="__codelineno-3-455" href="#__codelineno-3-455"></a>        Interior Features:
+<a id="__codelineno-3-456" name="__codelineno-3-456" href="#__codelineno-3-456"></a>        The open-concept main level showcases:
+<a id="__codelineno-3-457" name="__codelineno-3-457" href="#__codelineno-3-457"></a>        - Chef&#39;s kitchen with quartz countertops
+<a id="__codelineno-3-458" name="__codelineno-3-458" href="#__codelineno-3-458"></a>        - Custom Italian cabinetry
+<a id="__codelineno-3-459" name="__codelineno-3-459" href="#__codelineno-3-459"></a>        - Premium stainless steel appliances
+<a id="__codelineno-3-460" name="__codelineno-3-460" href="#__codelineno-3-460"></a>        - Expansive living room with 12-foot ceilings
+<a id="__codelineno-3-461" name="__codelineno-3-461" href="#__codelineno-3-461"></a>        - Primary suite with spa-inspired bathroom
+<a id="__codelineno-3-462" name="__codelineno-3-462" href="#__codelineno-3-462"></a>
+<a id="__codelineno-3-463" name="__codelineno-3-463" href="#__codelineno-3-463"></a>        Outdoor Living:
+<a id="__codelineno-3-464" name="__codelineno-3-464" href="#__codelineno-3-464"></a>        - Professional landscaping
+<a id="__codelineno-3-465" name="__codelineno-3-465" href="#__codelineno-3-465"></a>        - Covered patio with built-in BBQ
+<a id="__codelineno-3-466" name="__codelineno-3-466" href="#__codelineno-3-466"></a>        - Low-maintenance xeriscaping
+<a id="__codelineno-3-467" name="__codelineno-3-467" href="#__codelineno-3-467"></a>        - Private backyard retreat
+<a id="__codelineno-3-468" name="__codelineno-3-468" href="#__codelineno-3-468"></a>
+<a id="__codelineno-3-469" name="__codelineno-3-469" href="#__codelineno-3-469"></a>        Location Benefits:
+<a id="__codelineno-3-470" name="__codelineno-3-470" href="#__codelineno-3-470"></a>        - Walking distance to Central Park
+<a id="__codelineno-3-471" name="__codelineno-3-471" href="#__codelineno-3-471"></a>        - Top-rated school district
+<a id="__codelineno-3-472" name="__codelineno-3-472" href="#__codelineno-3-472"></a>        - 10 minutes to downtown
+<a id="__codelineno-3-473" name="__codelineno-3-473" href="#__codelineno-3-473"></a>        - Easy access to major highways
+<a id="__codelineno-3-474" name="__codelineno-3-474" href="#__codelineno-3-474"></a>
+<a id="__codelineno-3-475" name="__codelineno-3-475" href="#__codelineno-3-475"></a>        Recent Updates:
+<a id="__codelineno-3-476" name="__codelineno-3-476" href="#__codelineno-3-476"></a>        - New HVAC system (2023)
+<a id="__codelineno-3-477" name="__codelineno-3-477" href="#__codelineno-3-477"></a>        - Smart home integration
+<a id="__codelineno-3-478" name="__codelineno-3-478" href="#__codelineno-3-478"></a>        - Updated LED lighting
+<a id="__codelineno-3-479" name="__codelineno-3-479" href="#__codelineno-3-479"></a>        - Fresh interior paint
+<a id="__codelineno-3-480" name="__codelineno-3-480" href="#__codelineno-3-480"></a>
+<a id="__codelineno-3-481" name="__codelineno-3-481" href="#__codelineno-3-481"></a>        Price: $875,000
+<a id="__codelineno-3-482" name="__codelineno-3-482" href="#__codelineno-3-482"></a>        Available for immediate viewing
+<a id="__codelineno-3-483" name="__codelineno-3-483" href="#__codelineno-3-483"></a>        Virtual tour link: [URL]
+<a id="__codelineno-3-484" name="__codelineno-3-484" href="#__codelineno-3-484"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-485" name="__codelineno-3-485" href="#__codelineno-3-485"></a>
+<a id="__codelineno-3-486" name="__codelineno-3-486" href="#__codelineno-3-486"></a>        expected = &quot;&quot;&quot;A real estate listing that must:
+<a id="__codelineno-3-487" name="__codelineno-3-487" href="#__codelineno-3-487"></a>        1. Include property overview and key features
+<a id="__codelineno-3-488" name="__codelineno-3-488" href="#__codelineno-3-488"></a>        2. List specific amenities and updates
+<a id="__codelineno-3-489" name="__codelineno-3-489" href="#__codelineno-3-489"></a>        3. Describe location benefits
+<a id="__codelineno-3-490" name="__codelineno-3-490" href="#__codelineno-3-490"></a>        4. Use engaging, descriptive language
+<a id="__codelineno-3-491" name="__codelineno-3-491" href="#__codelineno-3-491"></a>        5. Provide essential details (size, bedrooms, price)&quot;&quot;&quot;
+<a id="__codelineno-3-492" name="__codelineno-3-492" href="#__codelineno-3-492"></a>
+<a id="__codelineno-3-493" name="__codelineno-3-493" href="#__codelineno-3-493"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-494" name="__codelineno-3-494" href="#__codelineno-3-494"></a>
+<a id="__codelineno-3-495" name="__codelineno-3-495" href="#__codelineno-3-495"></a>    def test_interview_feedback_missing_criteria(self, asserter):
+<a id="__codelineno-3-496" name="__codelineno-3-496" href="#__codelineno-3-496"></a>        &quot;&quot;&quot;Test semantic matching for interview feedback generation. Should fail due to
+<a id="__codelineno-3-497" name="__codelineno-3-497" href="#__codelineno-3-497"></a>        missing evaluation criteria and specific examples.&quot;&quot;&quot;
+<a id="__codelineno-3-498" name="__codelineno-3-498" href="#__codelineno-3-498"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-499" name="__codelineno-3-499" href="#__codelineno-3-499"></a>        Interview Feedback Summary
+<a id="__codelineno-3-500" name="__codelineno-3-500" href="#__codelineno-3-500"></a>        Candidate ID: INT-2024-789
+<a id="__codelineno-3-501" name="__codelineno-3-501" href="#__codelineno-3-501"></a>        Position: Senior Software Engineer
+<a id="__codelineno-3-502" name="__codelineno-3-502" href="#__codelineno-3-502"></a>        Interview Date: November 22, 2024
+<a id="__codelineno-3-503" name="__codelineno-3-503" href="#__codelineno-3-503"></a>
+<a id="__codelineno-3-504" name="__codelineno-3-504" href="#__codelineno-3-504"></a>        Overall Impression:
+<a id="__codelineno-3-505" name="__codelineno-3-505" href="#__codelineno-3-505"></a>        The candidate demonstrated strong technical knowledge and communicated well
+<a id="__codelineno-3-506" name="__codelineno-3-506" href="#__codelineno-3-506"></a>        throughout the interview. They showed enthusiasm for the role and our company&#39;s
+<a id="__codelineno-3-507" name="__codelineno-3-507" href="#__codelineno-3-507"></a>        mission.
+<a id="__codelineno-3-508" name="__codelineno-3-508" href="#__codelineno-3-508"></a>
+<a id="__codelineno-3-509" name="__codelineno-3-509" href="#__codelineno-3-509"></a>        Discussion Points:
+<a id="__codelineno-3-510" name="__codelineno-3-510" href="#__codelineno-3-510"></a>        - Previous experience with cloud architecture
+<a id="__codelineno-3-511" name="__codelineno-3-511" href="#__codelineno-3-511"></a>        - Team collaboration approaches
+<a id="__codelineno-3-512" name="__codelineno-3-512" href="#__codelineno-3-512"></a>        - Problem-solving methodology
+<a id="__codelineno-3-513" name="__codelineno-3-513" href="#__codelineno-3-513"></a>        - Career goals and aspirations
+<a id="__codelineno-3-514" name="__codelineno-3-514" href="#__codelineno-3-514"></a>
+<a id="__codelineno-3-515" name="__codelineno-3-515" href="#__codelineno-3-515"></a>        Technical Discussion:
+<a id="__codelineno-3-516" name="__codelineno-3-516" href="#__codelineno-3-516"></a>        Candidate showed familiarity with:
+<a id="__codelineno-3-517" name="__codelineno-3-517" href="#__codelineno-3-517"></a>        - Microservices architecture
+<a id="__codelineno-3-518" name="__codelineno-3-518" href="#__codelineno-3-518"></a>        - CI/CD pipelines
+<a id="__codelineno-3-519" name="__codelineno-3-519" href="#__codelineno-3-519"></a>        - Cloud platforms (AWS, Azure)
+<a id="__codelineno-3-520" name="__codelineno-3-520" href="#__codelineno-3-520"></a>        - Agile development practices
+<a id="__codelineno-3-521" name="__codelineno-3-521" href="#__codelineno-3-521"></a>
+<a id="__codelineno-3-522" name="__codelineno-3-522" href="#__codelineno-3-522"></a>        Cultural Fit:
+<a id="__codelineno-3-523" name="__codelineno-3-523" href="#__codelineno-3-523"></a>        Appears to align well with our company values and team dynamics.
+<a id="__codelineno-3-524" name="__codelineno-3-524" href="#__codelineno-3-524"></a>        Demonstrated good communication skills and collaborative mindset.
+<a id="__codelineno-3-525" name="__codelineno-3-525" href="#__codelineno-3-525"></a>
+<a id="__codelineno-3-526" name="__codelineno-3-526" href="#__codelineno-3-526"></a>        Next Steps:
+<a id="__codelineno-3-527" name="__codelineno-3-527" href="#__codelineno-3-527"></a>        Proceed with reference checks if moving forward.
+<a id="__codelineno-3-528" name="__codelineno-3-528" href="#__codelineno-3-528"></a>        Schedule follow-up with hiring manager.
+<a id="__codelineno-3-529" name="__codelineno-3-529" href="#__codelineno-3-529"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-530" name="__codelineno-3-530" href="#__codelineno-3-530"></a>
+<a id="__codelineno-3-531" name="__codelineno-3-531" href="#__codelineno-3-531"></a>        expected = &quot;&quot;&quot;An interview feedback document that must:
+<a id="__codelineno-3-532" name="__codelineno-3-532" href="#__codelineno-3-532"></a>        1. Include candidate and position information
+<a id="__codelineno-3-533" name="__codelineno-3-533" href="#__codelineno-3-533"></a>        2. List specific evaluation criteria with ratings
+<a id="__codelineno-3-534" name="__codelineno-3-534" href="#__codelineno-3-534"></a>        3. Provide concrete examples of responses
+<a id="__codelineno-3-535" name="__codelineno-3-535" href="#__codelineno-3-535"></a>        4. Include technical assessment scores
+<a id="__codelineno-3-536" name="__codelineno-3-536" href="#__codelineno-3-536"></a>        5. Offer clear hiring recommendation&quot;&quot;&quot;
+<a id="__codelineno-3-537" name="__codelineno-3-537" href="#__codelineno-3-537"></a>
+<a id="__codelineno-3-538" name="__codelineno-3-538" href="#__codelineno-3-538"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
+<a id="__codelineno-3-539" name="__codelineno-3-539" href="#__codelineno-3-539"></a>            asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-540" name="__codelineno-3-540" href="#__codelineno-3-540"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-541" name="__codelineno-3-541" href="#__codelineno-3-541"></a>
+<a id="__codelineno-3-542" name="__codelineno-3-542" href="#__codelineno-3-542"></a>    def test_customer_service_ticket_response(self, asserter):
+<a id="__codelineno-3-543" name="__codelineno-3-543" href="#__codelineno-3-543"></a>        &quot;&quot;&quot;Test semantic matching for customer service ticket analysis and response generation.&quot;&quot;&quot;
+<a id="__codelineno-3-544" name="__codelineno-3-544" href="#__codelineno-3-544"></a>        actual = &quot;&quot;&quot;
+<a id="__codelineno-3-545" name="__codelineno-3-545" href="#__codelineno-3-545"></a>        Ticket Analysis and Response
+<a id="__codelineno-3-546" name="__codelineno-3-546" href="#__codelineno-3-546"></a>        Ticket ID: CS-2024-1122
+<a id="__codelineno-3-547" name="__codelineno-3-547" href="#__codelineno-3-547"></a>        Priority: Medium
+<a id="__codelineno-3-548" name="__codelineno-3-548" href="#__codelineno-3-548"></a>        Category: Product Return
+<a id="__codelineno-3-549" name="__codelineno-3-549" href="#__codelineno-3-549"></a>
+<a id="__codelineno-3-550" name="__codelineno-3-550" href="#__codelineno-3-550"></a>        Customer Query Summary:
+<a id="__codelineno-3-551" name="__codelineno-3-551" href="#__codelineno-3-551"></a>        Customer purchased a wireless headphone (Model: WH-1000XM4) three days ago
+<a id="__codelineno-3-552" name="__codelineno-3-552" href="#__codelineno-3-552"></a>        and is experiencing connectivity issues with their iPhone 13. Initial
+<a id="__codelineno-3-553" name="__codelineno-3-553" href="#__codelineno-3-553"></a>        troubleshooting steps were attempted without success.
+<a id="__codelineno-3-554" name="__codelineno-3-554" href="#__codelineno-3-554"></a>
+<a id="__codelineno-3-555" name="__codelineno-3-555" href="#__codelineno-3-555"></a>        Issue Analysis:
+<a id="__codelineno-3-556" name="__codelineno-3-556" href="#__codelineno-3-556"></a>        - Product is within return window (3 of 30 days)
+<a id="__codelineno-3-557" name="__codelineno-3-557" href="#__codelineno-3-557"></a>        - Common compatibility issue identified
+<a id="__codelineno-3-558" name="__codelineno-3-558" href="#__codelineno-3-558"></a>        - Troubleshooting already attempted
+<a id="__codelineno-3-559" name="__codelineno-3-559" href="#__codelineno-3-559"></a>        - Customer tone indicates frustration
+<a id="__codelineno-3-560" name="__codelineno-3-560" href="#__codelineno-3-560"></a>
+<a id="__codelineno-3-561" name="__codelineno-3-561" href="#__codelineno-3-561"></a>        Recommended Response:
+<a id="__codelineno-3-562" name="__codelineno-3-562" href="#__codelineno-3-562"></a>        Dear [Customer Name],
+<a id="__codelineno-3-563" name="__codelineno-3-563" href="#__codelineno-3-563"></a>
+<a id="__codelineno-3-564" name="__codelineno-3-564" href="#__codelineno-3-564"></a>        Thank you for reaching out about the connectivity issues with your WH-1000XM4
+<a id="__codelineno-3-565" name="__codelineno-3-565" href="#__codelineno-3-565"></a>        headphones. I understand how frustrating technical issues can be, especially
+<a id="__codelineno-3-566" name="__codelineno-3-566" href="#__codelineno-3-566"></a>        with a new purchase.
+<a id="__codelineno-3-567" name="__codelineno-3-567" href="#__codelineno-3-567"></a>
+<a id="__codelineno-3-568" name="__codelineno-3-568" href="#__codelineno-3-568"></a>        Based on your description, I can offer you two immediate solutions:
+<a id="__codelineno-3-569" name="__codelineno-3-569" href="#__codelineno-3-569"></a>
+<a id="__codelineno-3-570" name="__codelineno-3-570" href="#__codelineno-3-570"></a>        1. Advanced Troubleshooting:
+<a id="__codelineno-3-571" name="__codelineno-3-571" href="#__codelineno-3-571"></a>           - Reset the headphones (detailed steps attached)
+<a id="__codelineno-3-572" name="__codelineno-3-572" href="#__codelineno-3-572"></a>           - Update iPhone Bluetooth settings
+<a id="__codelineno-3-573" name="__codelineno-3-573" href="#__codelineno-3-573"></a>           - Install latest firmware
+<a id="__codelineno-3-574" name="__codelineno-3-574" href="#__codelineno-3-574"></a>
+<a id="__codelineno-3-575" name="__codelineno-3-575" href="#__codelineno-3-575"></a>        2. Hassle-free Return:
+<a id="__codelineno-3-576" name="__codelineno-3-576" href="#__codelineno-3-576"></a>           - Generate return label through our portal
+<a id="__codelineno-3-577" name="__codelineno-3-577" href="#__codelineno-3-577"></a>           - Full refund processed within 3 business days
+<a id="__codelineno-3-578" name="__codelineno-3-578" href="#__codelineno-3-578"></a>           - Free return shipping
+<a id="__codelineno-3-579" name="__codelineno-3-579" href="#__codelineno-3-579"></a>
+<a id="__codelineno-3-580" name="__codelineno-3-580" href="#__codelineno-3-580"></a>        Would you prefer to try the advanced troubleshooting steps, or would you like
+<a id="__codelineno-3-581" name="__codelineno-3-581" href="#__codelineno-3-581"></a>        to proceed with the return? I&#39;m here to help with either option.
+<a id="__codelineno-3-582" name="__codelineno-3-582" href="#__codelineno-3-582"></a>
+<a id="__codelineno-3-583" name="__codelineno-3-583" href="#__codelineno-3-583"></a>        Next Steps:
+<a id="__codelineno-3-584" name="__codelineno-3-584" href="#__codelineno-3-584"></a>        - Await customer preference
+<a id="__codelineno-3-585" name="__codelineno-3-585" href="#__codelineno-3-585"></a>        - Prepare return label if requested
+<a id="__codelineno-3-586" name="__codelineno-3-586" href="#__codelineno-3-586"></a>        - Schedule follow-up within 24 hours
+<a id="__codelineno-3-587" name="__codelineno-3-587" href="#__codelineno-3-587"></a>
+<a id="__codelineno-3-588" name="__codelineno-3-588" href="#__codelineno-3-588"></a>        Response Tone: Empathetic and Solution-focused
+<a id="__codelineno-3-589" name="__codelineno-3-589" href="#__codelineno-3-589"></a>        Support Resources: KB-2345, RT-6789
+<a id="__codelineno-3-590" name="__codelineno-3-590" href="#__codelineno-3-590"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-591" name="__codelineno-3-591" href="#__codelineno-3-591"></a>
+<a id="__codelineno-3-592" name="__codelineno-3-592" href="#__codelineno-3-592"></a>        expected = &quot;&quot;&quot;A customer service response that must:
+<a id="__codelineno-3-593" name="__codelineno-3-593" href="#__codelineno-3-593"></a>        1. Include ticket categorization and priority
+<a id="__codelineno-3-594" name="__codelineno-3-594" href="#__codelineno-3-594"></a>        2. Summarize the customer&#39;s issue accurately
+<a id="__codelineno-3-595" name="__codelineno-3-595" href="#__codelineno-3-595"></a>        3. Provide multiple solution options
+<a id="__codelineno-3-596" name="__codelineno-3-596" href="#__codelineno-3-596"></a>        4. Include clear next steps
+<a id="__codelineno-3-597" name="__codelineno-3-597" href="#__codelineno-3-597"></a>        5. Maintain appropriate tone and empathy&quot;&quot;&quot;
+<a id="__codelineno-3-598" name="__codelineno-3-598" href="#__codelineno-3-598"></a>
+<a id="__codelineno-3-599" name="__codelineno-3-599" href="#__codelineno-3-599"></a>        asserter.assert_semantic_match(actual, expected)
+</code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>This real-world test suite demonstrates that llm-app-test can reliably handle the kind of content that LLM applications generate in production environments. </p>
+<p>The 100% pass rate across 12,000 executions provides strong evidence of the library's reliability for real-world use cases.</p>
+<p>However, we emphasise that we remain unable to guarantee perfect determinism due to the nature of LLMs. What we are confident in, is that this library is "good enough" for production software.</p>
+<h2 id="issue-reporting">Issue reporting</h2>
+<p>If you experience any issues, especially with library reliability - please let us know, thanks!</p>
+<h2 id="quick-links">Quick Links</h2>
+<ul>
+<li><a href="../../getting-started/installation/">Installation</a></li>
+<li><a href="../../getting-started/quickstart/">Quick Start</a></li>
+<li><a href="../format_compliance/">Format Compliance Testing</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
