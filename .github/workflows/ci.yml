@@ -1,0 +1,47 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run basic tests and ensure all pass only for branch names containing testcionly
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install GPG
+        run: sudo apt-get install -y gpg
+
+      - name: Decrypt API key
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          gpg --batch --yes --passphrase "$GPG_PASSPHRASE" \
+              -o openai-api-key.txt -d openai-api-key.txt.gpg
+
+      - name: Set API Key Environment Variable
+        run: |
+            export OPENAI_API_KEY=$(cat openai-api-key.txt)
+            echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> $GITHUB_ENV
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install llm-app-test
+
+      # Step 4: Run basic tests
+      - name: Run tests with coverage
+        env:
+          OPENAI_API_KEY: ${{ env.OPENAI_API_KEY }}
+        run: pytest tests/test_semantic_assert/test_semantic_assert_basic.py

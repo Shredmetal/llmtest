@@ -1,0 +1,15 @@
+# IntelliJ related files
+.idea
+
+# Ignore all __pycache__ directories recursively
+**/__pycache__/
+
+# Ignore .egg-info directory
+src/llm_app_test.egg-info/
+
+# Ignore .env file
+.env
+
+# Exclude the tests directory itself and all non-__pycache__ content
+!tests/
+!tests/**/
