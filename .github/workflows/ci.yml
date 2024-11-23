@@ -41,7 +41,6 @@ jobs:
       # Step 4: Install dependencies
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
           pip install llm-app-test
 
       # Step 4: Run basic tests
