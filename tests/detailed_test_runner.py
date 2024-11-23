@@ -7,9 +7,8 @@ from _pytest.reports import TestReport
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='../reliability_testing_real_world/2024-11-23_semantic_reliability_test_5.log'
+    filename='../reliability_testing_real_world/2024-11-23_semantic_reliability_test_medical_only_1.log'
 )
-
 
 class DetailedTestRunner:
     def __init__(self, iterations=100):
@@ -19,7 +18,6 @@ class DetailedTestRunner:
         self.test_results = defaultdict(lambda: {'passed': 0, 'failed': 0})
 
     def pytest_runtest_logreport(self, report: TestReport):
-        """Hook implementation that receives test reports."""
         if report.when == 'call':
             test_name = report.nodeid.split("::")[-1]
             if report.passed:
@@ -31,7 +29,7 @@ class DetailedTestRunner:
                     logging.error(f"Failure reason: {str(report.longrepr)}")
 
     def run_tests(self):
-        logging.info(f"Starting test suite execution for {self.iterations} iterations")
+        logging.info(f"Starting medical test suite execution for {self.iterations} iterations")
         start_time = time.time()
 
         for iteration in range(self.iterations):
@@ -39,13 +37,11 @@ class DetailedTestRunner:
 
             try:
                 pytest_args = [
-                    "test_semantic_assert/test_semantic_assert_real_world.py",
+                    "test_semantic_assert/test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management",
                     "-v",
                     "--no-header",
                     "--tb=short"
                 ]
-
-                # Register the plugin to capture test results
                 plugin = self
                 pytest.main(pytest_args, plugins=[plugin])
 
@@ -69,7 +65,6 @@ class DetailedTestRunner:
 
         logging.info(f"\nTotal Duration: {self.total_duration:.2f} seconds")
         logging.info("=====================")
-
 
 if __name__ == "__main__":
     runner = DetailedTestRunner(iterations=100)
