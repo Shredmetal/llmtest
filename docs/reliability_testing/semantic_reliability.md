@@ -13,6 +13,7 @@ The relevant logs for the testing covered by this page can be found [here](https
 ## Test Suite Design
 
 The test suite covers 10 key industries where LLMs are likely already seeing active use:
+
 1. Healthcare (Patient Education)
 2. Financial Services (Portfolio Reporting)
 3. Media/Entertainment (Content Recommendations)
@@ -34,6 +35,7 @@ The Test Suite consisted of 5 positive cases and 5 negative cases.
 - Pass Rate: 100%
 
 Cross-references:
+
 - See [Test Configuration](#test-configuration) for setup details
 - See [Test Results](#test-results) for detailed analysis
 - Full test logs available in [reliability_testing](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing)
@@ -41,24 +43,28 @@ Cross-references:
 ## Test Characteristics
 
 Each test was designed to reflect:
+
 - Realistic content length
 - Industry-specific terminology
 - Common formatting patterns
 - Typical validation requirements
 - Real-world edge cases
-- Claude 3.5 Sonnet was used to generate the test cases to make it more realistic
+- Claude 3.5 Sonnet was used to generate the test cases to make it more realistic, but testing was done with GPT-4o
 
 ## Test Results
 
 ### Format Compliance
+
 - Zero format violations across 12,000 executions
 - Consistent PASS/FAIL behaviour
 
 ### Cross-Platform Reliability
+
 - Identical behavior on Windows and Linux
 - No platform-specific issues detected
 
 ### Content Processing
+
 - Successfully handled varying content lengths
 - Maintained accuracy across different domains
 - Consistent behaviour with specialised terminology
@@ -66,11 +72,13 @@ Each test was designed to reflect:
 ## Cost Analysis
 
 Running the test suite demonstrated the following costs:
+
 - Single Run (10 tests): US$0.014
 - 100 Runs (1,000 tests): US$1.40
 - Repeated runs for reliability testing (12,000 tests): US$16.80
 
 Cost Breakdown:
+
 - Per Test Cost: ~US$0.0014
 - Per Run (10 tests): US$0.014
 - Per 100 Runs: US$1.40
@@ -78,6 +86,7 @@ Cost Breakdown:
 This demonstrates that comprehensive semantic testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.
 
 Key Cost Insights:
+
 - Linear cost scaling with test volume
 - Predictable pricing for planning purposes
 - Reasonable expense for production validation

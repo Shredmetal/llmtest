@@ -13,10 +13,12 @@ The relevant logs can be found [here](https://github.com/Shredmetal/llmtest/tree
 ## Test Suite Design
 
 The test suite covers 13 distinct test cases:
+
 - 8 positive test cases
 - 5 negative test cases
 
 Each test validates different aspects of format compliance across various content types:
+
 1. Multilingual equivalence
 2. Complex technical explanations
 3. Contextual understanding
@@ -34,6 +36,7 @@ Each test validates different aspects of format compliance across various conten
 ## Test Characteristics
 
 Each test was designed to validate:
+
 - Format compliance
 - Response structure
 - Error handling
@@ -43,11 +46,13 @@ Each test was designed to validate:
 ## Test Results
 
 ### Format Compliance
+
 - Zero format violations across 13,000 executions
 - Consistent PASS/FAIL behavior
 - Proper error handling for negative cases
 
 ### Response Reliability
+
 - Consistent format across all test types
 - Proper error message formatting
 - Stable behavior across multiple runs
