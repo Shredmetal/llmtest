@@ -7,12 +7,12 @@ from _pytest.reports import TestReport
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='2024-11-23_semantic_reliability_test_1.log'
+    filename='../reliability_testing_real_world/2024-11-23_semantic_reliability_test_4.log'
 )
 
 
 class DetailedTestRunner:
-    def __init__(self, iterations=1):
+    def __init__(self, iterations=100):
         self.iterations = iterations
         self.stats = defaultdict(int)
         self.total_duration = 0
@@ -20,7 +20,7 @@ class DetailedTestRunner:
 
     def pytest_runtest_logreport(self, report: TestReport):
         """Hook implementation that receives test reports."""
-        if report.when == 'call':  # Only count the actual test call, not setup/teardown
+        if report.when == 'call':
             test_name = report.nodeid.split("::")[-1]
             if report.passed:
                 self.test_results[test_name]['passed'] += 1
@@ -72,5 +72,5 @@ class DetailedTestRunner:
 
 
 if __name__ == "__main__":
-    runner = DetailedTestRunner(iterations=1)
+    runner = DetailedTestRunner(iterations=100)
     runner.run_tests()
