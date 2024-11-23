@@ -108,6 +108,81 @@ Updated version that led to determinism:
 4. Provide clear warning signs AND detailed emergency response procedures
 ```
 
+## Test Configuration
+
+All tests used library defaults:
+
+```
+LLM_PROVIDER=openai
+LLM_MODEL=gpt-4o 
+LLM_TEMPERATURE=0.0 
+LLM_MAX_TOKENS=4096 
+LLM_MAX_RETRIES=2 
+LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
+```
+The `semantic_assert_match` function also saw slight modification:
+
+```
+        if result.startswith("FAIL"):
+            raise SemanticAssertionError(
+                "Semantic assertion failed",
+                reason=result.split("FAIL: ")[1]
+            )
+            
+        # Section below added to cause failure in the event of format violation    
+            
+        elif result.startswith("PASS"):
+            pass
+        else:
+            raise RuntimeError(
+                f"Format Non-compliance Detected {result}"
+            )
+```
+
+The prompts to the asserter LLM (that sits behind `semantic_assert_match`) were:
+
+```
+DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
+
+Important: You can only respond with EXACTLY: 
+1. 'PASS' if it matches, or 
+2. 'FAIL: <reason>' if it doesn't match.
+
+Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+
+Be strict but consider semantic meaning rather than exact wording."""
+
+DEFAULT_HUMAN_PROMPT = """
+Expected Behavior: {expected_behavior}
+
+Actual Output: {actual}
+
+Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
+with 'PASS' or 'FAIL: <reason>'."""
+```
+
+## Testing Results
+
+This particular test was run 600 times.
+
+It was run 500 times in a wider test of the entire suite it is a part of and 100 times on its own with the following results:
+
+- PASS: 586
+- FAIL: 14
+
+The 100 individual tests were run when the non-determinism was noticed.
+
+API response times were noticeable faster when it started failing. 
+
+Test suite execution times for 100 iterations (so 1,000 individual tests):
+
+- ~1550s - 1750s when it appeared to deterministically pass the test
+- ~1350s when it began to exhibit non-determinism
+
+We are unable to determine what longer API response times mean, and unless if OpenAI wades in, it is unlikely that we will find out.
+
+Logs can be found in the reliability_testing_real_world directory of the [0.1.0b5 branch](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing_real_world) of the github repo.
+
 ## Analysis
 
 Upon careful analysis (Library author's note: I had to read the test case several times to pick up on it, and I'm a lawyer by training with 3 years of litigation experience), we identified a subtle but critical semantic boundary in the original requirement:
@@ -146,7 +221,6 @@ Upon careful analysis (Library author's note: I had to read the test case severa
 4. Key Insight:
    The non-deterministic behavior of the LLM in this case reveals a genuine semantic boundary in medical documentation - the balance between simplicity and comprehensiveness in emergency instructions.
 
-
 ## Key Learnings
 
 1. LLM Sophistication:
@@ -157,6 +231,7 @@ Upon careful analysis (Library author's note: I had to read the test case severa
 2. Testing Implications:
    - Requirements must be unambiguous
    - Precision in language can improve test reliability (seriously, this is natural language, you can throw writing the `expected_behavior` to the non-technical PM)
+   - Literal interpretations should ALWAYS be preferred. Try to think like a lawyer - it's how I picked up why the test case was being incorrectly accepted (note that I am testing a negative test, so FAIL means that it was incorrectly passed by `assert_semantic_match`)
 
 ## Impact on Library Usage
 
