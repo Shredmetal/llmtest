@@ -49,7 +49,7 @@ class TestRealWorldSemanticAssertion:
 
     def test_patient_education_diabetes_management(self, asserter):
         """Test semantic matching for patient education content about diabetes management. Failure is expected because
-        this does not contain emergency response steps."""
+        this does not contain emergency response steps and follow-up care instructions."""
         actual = """
         Understanding and Managing Type 2 Diabetes
     
