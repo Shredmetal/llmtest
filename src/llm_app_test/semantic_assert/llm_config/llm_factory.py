@@ -24,7 +24,8 @@ class LLMFactory:
             model=config.model,
             api_key=config.api_key,
             max_retries=config.max_retries,
-            max_tokens=config.max_tokens
+            max_tokens=config.max_tokens,
+            request_timeout=config.timeout
         )
 
     @staticmethod
@@ -35,5 +36,6 @@ class LLMFactory:
             model=config.model,
             anthropic_api_key=config.api_key,
             max_retries=config.max_retries,
-            max_tokens=config.max_tokens
+            max_tokens=config.max_tokens,
+            request_timeout=config.timeout
         )

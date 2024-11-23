@@ -26,6 +26,7 @@ class ConfigValidator:
         ConfigValidator._validate_model(config.model, config.valid_models)
         ConfigValidator._validate_temperature(config.temperature)
         ConfigValidator._validate_max_tokens(config.max_tokens)
+        ConfigValidator._validate_timeout(config.timeout)
         return provider
 
     @staticmethod
@@ -58,6 +59,14 @@ class ConfigValidator:
             raise LLMConfigurationError(
                 f"Invalid max_tokens value: {max_tokens}",
                 reason="max_tokens must be positive"
+            )
+
+    @staticmethod
+    def _validate_timeout(timeout: float) -> None:
+        if timeout is not None and timeout <= 0:
+            raise LLMConfigurationError(
+                f"Invalid timeout value: {timeout}",
+                reason="timeout must be positive"
             )
 
     @staticmethod

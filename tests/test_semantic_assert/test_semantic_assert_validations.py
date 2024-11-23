@@ -41,6 +41,15 @@ class TestSemanticAssertionValidation:
             )
         assert "max_tokens must be positive" in str(excinfo.value.reason)
 
+    def test_invalid_timeout(self):
+        """Test that invalid timeout values raise configuration error"""
+        with pytest.raises(LLMConfigurationError) as excinfo:
+            SemanticAssertion(
+                api_key="test_key",
+                timeout=-1.0
+            )
+        assert "timeout must be positive" in str(excinfo.value.reason)
+
     def test_invalid_provider(self):
         """Test that invalid provider raises configuration error"""
         with pytest.raises(LLMConfigurationError) as excinfo:

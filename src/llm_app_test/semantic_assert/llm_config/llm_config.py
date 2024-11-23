@@ -12,3 +12,4 @@ class LLMConfig:
     temperature: Optional[float] = None
     max_tokens: Optional[int] = None
     max_retries: Optional[int] = None
+    timeout: Optional[float] = None

@@ -11,3 +11,4 @@ class ValidationConfig:
     valid_models: Set[str]
     temperature: Optional[float]
     max_tokens: Optional[int]
+    timeout: Optional[float]

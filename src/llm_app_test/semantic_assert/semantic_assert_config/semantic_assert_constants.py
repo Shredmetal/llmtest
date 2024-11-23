@@ -3,6 +3,7 @@ class LLMConstants:
     DEFAULT_TEMPERATURE = 0.0
     DEFAULT_MAX_TOKENS = 4096
     DEFAULT_MAX_RETRIES = 2
+    DEFAULT_TIMEOUT = 10.0
 
 
 class ModelConstants:

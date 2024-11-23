@@ -17,7 +17,8 @@ class TestConfigValidator:
             model="gpt-4o",
             valid_models={"gpt-4o"},
             temperature=0.7,
-            max_tokens=100
+            max_tokens=100,
+            timeout=30.0
         )
 
     def test_valid_configuration(self, valid_config):
@@ -46,6 +47,14 @@ class TestConfigValidator:
             ConfigValidator.validate(valid_config)
         assert "Invalid model" in str(exc_info.value)
         assert "supported models for provider" in str(exc_info.value)
+
+    def test_invalid_timeout(self, valid_config):
+        """Test validation with invalid timeout"""
+        valid_config.timeout = -0.1
+        with pytest.raises(LLMConfigurationError) as exc_info:
+            ConfigValidator.validate(valid_config)
+        assert "Invalid timeout" in str(exc_info.value)
+        assert "timeout must be positive" in str(exc_info.value)
 
     @pytest.mark.parametrize("temperature", [-0.1, 1.1, 2.0])
     def test_invalid_temperature(self, valid_config, temperature):

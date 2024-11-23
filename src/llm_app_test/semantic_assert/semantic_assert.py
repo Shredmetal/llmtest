@@ -29,6 +29,7 @@ class SemanticAssertion:
             temperature: Optional[float] = None,
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
+            timeout: Optional[float] = None,
             prompt_injector: Optional[AsserterPromptInjector] = None
     ):
         """
@@ -87,6 +88,8 @@ class SemanticAssertion:
             os.getenv('LLM_MAX_TOKENS', str(LLMConstants.DEFAULT_MAX_TOKENS)))
         max_retries = max_retries if max_retries is not None else int(
             os.getenv('LLM_MAX_RETRIES', str(LLMConstants.DEFAULT_MAX_RETRIES)))
+        timeout = timeout if timeout is not None else float(
+            os.getenv('LLM_TIMEOUT', str(LLMConstants.DEFAULT_TIMEOUT)))
 
         validation_config = ValidationConfig(
             api_key=api_key,
@@ -94,7 +97,8 @@ class SemanticAssertion:
             model=model,
             valid_models=valid_models,
             temperature=temperature,
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
+            timeout=timeout
         )
 
         provider = ConfigValidator.validate(validation_config)
@@ -105,7 +109,8 @@ class SemanticAssertion:
             model=model,
             temperature=temperature,
             max_tokens=max_tokens,
-            max_retries=max_retries
+            max_retries=max_retries,
+            timeout=timeout
         )
 
         self.llm = LLMFactory.create_llm(config)
@@ -148,6 +153,12 @@ class SemanticAssertion:
             raise SemanticAssertionError(
                 "Semantic assertion failed",
                 reason=result.split("FAIL: ")[1]
+            )
+        elif result.startswith("PASS"):
+            pass
+        else:
+            raise RuntimeError(
+                f"Format Non-compliance Detected {result}"
             )
 
 # I guess use it like this?
