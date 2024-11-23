@@ -1171,78 +1171,66 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 <ol>
 <li>
 <p>The Semantic Boundary:</p>
-</li>
-<li>
-<p>Original text: "emergency response steps" (plural)</p>
-</li>
+<ul>
+<li>Original text: "emergency response steps" (plural)</li>
 <li>Test content provided: "seek medical attention" (singular)</li>
-<li>
-<p>Question: Does a single, obvious response step satisfy a requirement for "steps"?</p>
+<li>Question: Does a single, obvious response step satisfy a requirement for "steps"?</li>
+</ul>
 </li>
 <li>
 <p>The Test Content:</p>
-</li>
-<li>
-<p>Clearly provided warning signs</p>
-</li>
+<ul>
+<li>Clearly provided warning signs</li>
 <li>Had one emergency response ("seek medical attention")</li>
-<li>
-<p>Lacked detailed, multiple-step emergency procedures</p>
+<li>Lacked detailed, multiple-step emergency procedures</li>
+</ul>
 </li>
 <li>
 <p>Interpretation Analysis:</p>
 </li>
 </ol>
 <p>A. Argument for Single-Step Sufficiency:</p>
-<ul>
-<li>The content is patient-focused, not for medical professionals</li>
-<li>"Seek medical attention" is a complete, actionable instruction</li>
-<li>In an emergency, simplicity and clarity are paramount</li>
-<li>Additional steps might confuse or delay the critical action</li>
-</ul>
+<div class="highlight"><pre><span></span><code>- The content is patient-focused, not for medical professionals
+- &quot;Seek medical attention&quot; is a complete, actionable instruction
+- In an emergency, simplicity and clarity are paramount
+- Additional steps might confuse or delay the critical action
+</code></pre></div>
 <p>B. Argument for Multiple-Step Requirement:</p>
-<ul>
-<li>The plural "steps" grammatically implies multiple procedures</li>
-<li>Medical context demands comprehensive guidance</li>
-<li>"Seek medical attention" is too obvious to constitute meaningful instruction</li>
-<li>Patients need interim steps while medical help is en route</li>
-</ul>
+<div class="highlight"><pre><span></span><code>- The plural &quot;steps&quot; grammatically implies multiple procedures
+- Medical context demands comprehensive guidance
+- &quot;Seek medical attention&quot; is too obvious to constitute meaningful instruction
+- Patients need interim steps while medical help is en route
+</code></pre></div>
 <p>C. Resolution:</p>
-<ul>
-<li>
-<p>While both interpretations have merit, the requirement for multiple steps is substantially stronger because:</p>
+<div class="highlight"><pre><span></span><code>- While both interpretations have merit, the requirement for multiple steps is substantially stronger because:
+
+    1. The plural form explicitly requests multiple procedures
+    2. Medical documentation should err on the side of completeness
+    3. Interim guidance can be critical during emergency response
+    4. Self-evident instructions add no value to emergency protocols
+</code></pre></div>
 <ol>
-<li>The plural form explicitly requests multiple procedures</li>
-<li>Medical documentation should err on the side of completeness</li>
-<li>Interim guidance can be critical during emergency response</li>
-<li>Self-evident instructions add no value to emergency protocols</li>
+<li>Key Insight:</li>
 </ol>
-</li>
-<li>
-<p>Key Insight:</p>
-</li>
-</ul>
 <p>The non-deterministic behavior of the LLM in this case reveals a genuine semantic boundary in medical documentation - the balance between simplicity and comprehensiveness in emergency instructions.</p>
 <h2 id="key-learnings">Key Learnings</h2>
 <ol>
 <li>
 <p>LLM Sophistication:</p>
-</li>
-<li>
-<p>The LLM detected the semantic ambiguity</p>
-</li>
+<ul>
+<li>The LLM detected the semantic ambiguity</li>
 <li>Demonstrated surprisingly strong interpretation capabilities</li>
-<li>
-<p>Highlighted the importance of precise requirements</p>
+<li>Highlighted the importance of precise requirements</li>
+</ul>
 </li>
 <li>
 <p>Testing Implications:</p>
-</li>
-<li>
-<p>Requirements must be unambiguous</p>
-</li>
+<ul>
+<li>Requirements must be unambiguous</li>
 <li>Precision in language can improve test reliability (seriously, this is natural language, you can throw writing the <code>expected_behavior</code> to the non-technical PM)</li>
 <li>Literal interpretations should ALWAYS be preferred. Try to think like a lawyer - it's how I picked up why the test case was being incorrectly accepted (note that I am testing a negative test, so FAIL means that it was incorrectly passed by <code>assert_semantic_match</code>)</li>
+</ul>
+</li>
 </ol>
 <h2 id="impact-on-library-usage">Impact on Library Usage</h2>
 <p>When writing semantic test cases:</p>
