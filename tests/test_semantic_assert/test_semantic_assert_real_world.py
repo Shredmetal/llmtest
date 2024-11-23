@@ -227,7 +227,7 @@ class TestRealWorldSemanticAssertion:
 
     def test_legal_document_summary_generation(self, asserter):
         """Test semantic matching for legal document summary generation. Tests that the summary
-        maintains legal accuracy while being accessible to non-legal readers."""
+        maintains accuracy while being accessible to non-legal readers."""
         actual = """
         Contract Summary Analysis
         Document Reference: MSA-2024-0892
