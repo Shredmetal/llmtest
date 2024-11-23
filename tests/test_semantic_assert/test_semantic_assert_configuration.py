@@ -32,12 +32,12 @@ class TestSemanticAssertionConfiguration:
 
         # Verify all configurations
         create_args = mock_chat.call_args.kwargs
-        assert create_args['api_key'] == "test_key"
+        assert create_args['openai_api_key'] == "test_key"
         assert create_args['request_timeout'] == 5.0
         assert create_args['temperature'] == 0.5
         assert create_args['max_tokens'] == 1000
         assert create_args['max_retries'] == 3
-        assert create_args['model'] == "gpt-4o"
+        assert create_args['model_name'] == "gpt-4o"
 
     @patch('llm_app_test.semantic_assert.llm_config.llm_factory.ChatOpenAI')
     def test_all_default_configurations(self, mock_chat):
@@ -58,12 +58,12 @@ class TestSemanticAssertionConfiguration:
 
         # Verify all default configurations
         create_args = mock_chat.call_args.kwargs
-        assert create_args['api_key'] == "test_key"
+        assert create_args['openai_api_key'] == "test_key"
         assert create_args['request_timeout'] == LLMConstants.DEFAULT_TIMEOUT
         assert create_args['temperature'] == LLMConstants.DEFAULT_TEMPERATURE
         assert create_args['max_tokens'] == LLMConstants.DEFAULT_MAX_TOKENS
         assert create_args['max_retries'] == LLMConstants.DEFAULT_MAX_RETRIES
-        assert create_args['model'] == ModelConstants.DEFAULT_OPENAI_MODEL
+        assert create_args['model_name'] == ModelConstants.DEFAULT_OPENAI_MODEL
 
     @patch('llm_app_test.semantic_assert.llm_config.llm_factory.ChatAnthropic')
     def test_anthropic_default_configurations(self, mock_chat):
