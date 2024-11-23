@@ -189,40 +189,40 @@ Upon careful analysis (Library author's note: I had to read the test case severa
 
 1. The Semantic Boundary:
 
-   - Original text: "emergency response steps" (plural)
-   - Test content provided: "seek medical attention" (singular)
-   - Question: Does a single, obvious response step satisfy a requirement for "steps"?
+    - Original text: "emergency response steps" (plural)
+    - Test content provided: "seek medical attention" (singular)
+    - Question: Does a single, obvious response step satisfy a requirement for "steps"?
 
 2. The Test Content:
 
-   - Clearly provided warning signs
-   - Had one emergency response ("seek medical attention")
-   - Lacked detailed, multiple-step emergency procedures
+    - Clearly provided warning signs
+    - Had one emergency response ("seek medical attention")
+    - Lacked detailed, multiple-step emergency procedures
 
 3. Interpretation Analysis:
 
    A. Argument for Single-Step Sufficiency:
 
-   - The content is patient-focused, not for medical professionals
-   - "Seek medical attention" is a complete, actionable instruction
-   - In an emergency, simplicity and clarity are paramount
-   - Additional steps might confuse or delay the critical action
+    - The content is patient-focused, not for medical professionals
+    - "Seek medical attention" is a complete, actionable instruction
+    - In an emergency, simplicity and clarity are paramount
+    - Additional steps might confuse or delay the critical action
 
    B. Argument for Multiple-Step Requirement:
 
-   - The plural "steps" grammatically implies multiple procedures
-   - Medical context demands comprehensive guidance
-   - "Seek medical attention" is too obvious to constitute meaningful instruction
-   - Patients need interim steps while medical help is en route
+    - The plural "steps" grammatically implies multiple procedures
+    - Medical context demands comprehensive guidance
+    - "Seek medical attention" is too obvious to constitute meaningful instruction
+    - Patients need interim steps while medical help is en route
 
    C. Resolution:
 
-   - While both interpretations have merit, the requirement for multiple steps is substantially stronger because:
+    - While both interpretations have merit, the requirement for multiple steps is substantially stronger because:
    
-     1. The plural form explicitly requests multiple procedures
-     2. Medical documentation should err on the side of completeness
-     3. Interim guidance can be critical during emergency response
-     4. Self-evident instructions add no value to emergency protocols
+        1. The plural form explicitly requests multiple procedures
+        2. Medical documentation should err on the side of completeness
+        3. Interim guidance can be critical during emergency response
+        4. Self-evident instructions add no value to emergency protocols
 
 4. Key Insight:
 
@@ -232,15 +232,15 @@ Upon careful analysis (Library author's note: I had to read the test case severa
 
 1. LLM Sophistication:
 
-   - The LLM detected the semantic ambiguity
-   - Demonstrated surprisingly strong interpretation capabilities
-   - Highlighted the importance of precise requirements
+    - The LLM detected the semantic ambiguity
+    - Demonstrated surprisingly strong interpretation capabilities
+    - Highlighted the importance of precise requirements
 
 2. Testing Implications:
 
-   - Requirements must be unambiguous
-   - Precision in language can improve test reliability (seriously, this is natural language, you can throw writing the `expected_behavior` to the non-technical PM)
-   - Literal interpretations should ALWAYS be preferred. Try to think like a lawyer - it's how I picked up why the test case was being incorrectly accepted (note that I am testing a negative test, so FAIL means that it was incorrectly passed by `assert_semantic_match`)
+    - Requirements must be unambiguous
+    - Precision in language can improve test reliability (seriously, this is natural language, you can throw writing the `expected_behavior` to the non-technical PM)
+    - Literal interpretations should ALWAYS be preferred. Try to think like a lawyer - it's how I picked up why the test case was being incorrectly accepted (note that I am testing a negative test, so FAIL means that it was incorrectly passed by `assert_semantic_match`)
 
 ## Impact on Library Usage
 
