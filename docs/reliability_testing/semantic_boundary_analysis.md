@@ -4,7 +4,7 @@
 
 During our real-world style testing, we encountered an interesting semantic boundary case that highlighted both the sophistication and limitations of LLM-based testing. 
 
-This was discovered during the initial 500 runs of our real-world test suite, as only this one test demonstrated non-determinism.
+This was discovered during the initial 500 runs of our real-world test suite, where only this one test demonstrated non-determinism.
 
 This case provides valuable insights into how LLMs interpret semantic requirements.
 
