@@ -7,11 +7,11 @@ from _pytest.reports import TestReport
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='../reliability_testing_real_world/2024-11-23_semantic_reliability_test_medical_only_1.log'
+    filename='../reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_medical_only_2.log'
 )
 
 class DetailedTestRunner:
-    def __init__(self, iterations=100):
+    def __init__(self, iterations=200):
         self.iterations = iterations
         self.stats = defaultdict(int)
         self.total_duration = 0
@@ -67,5 +67,5 @@ class DetailedTestRunner:
         logging.info("=====================")
 
 if __name__ == "__main__":
-    runner = DetailedTestRunner(iterations=100)
+    runner = DetailedTestRunner(iterations=200)
     runner.run_tests()

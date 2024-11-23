@@ -1,0 +1,412 @@
+2024-11-23 13:47:04,731 - INFO - Starting medical test suite execution for 200 iterations
+2024-11-23 13:47:04,731 - INFO - Starting iteration 1
+2024-11-23 13:47:07,750 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:07,759 - INFO - Starting iteration 2
+2024-11-23 13:47:09,083 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:09,086 - INFO - Starting iteration 3
+2024-11-23 13:47:10,393 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:10,396 - INFO - Starting iteration 4
+2024-11-23 13:47:11,713 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:11,716 - INFO - Starting iteration 5
+2024-11-23 13:47:13,054 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:13,057 - INFO - Starting iteration 6
+2024-11-23 13:47:14,349 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:14,352 - INFO - Starting iteration 7
+2024-11-23 13:47:15,678 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:15,683 - INFO - Starting iteration 8
+2024-11-23 13:47:17,126 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:17,129 - INFO - Starting iteration 9
+2024-11-23 13:47:18,417 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:18,420 - INFO - Starting iteration 10
+2024-11-23 13:47:19,813 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:19,815 - INFO - Starting iteration 11
+2024-11-23 13:47:21,325 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:21,328 - INFO - Starting iteration 12
+2024-11-23 13:47:22,713 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:22,716 - INFO - Starting iteration 13
+2024-11-23 13:47:24,063 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:24,066 - INFO - Starting iteration 14
+2024-11-23 13:47:25,439 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:25,443 - INFO - Starting iteration 15
+2024-11-23 13:47:26,822 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:26,825 - INFO - Starting iteration 16
+2024-11-23 13:47:28,205 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:28,209 - INFO - Starting iteration 17
+2024-11-23 13:47:29,664 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:29,667 - INFO - Starting iteration 18
+2024-11-23 13:47:30,969 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:30,972 - INFO - Starting iteration 19
+2024-11-23 13:47:32,260 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:32,263 - INFO - Starting iteration 20
+2024-11-23 13:47:33,633 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:33,636 - INFO - Starting iteration 21
+2024-11-23 13:47:34,997 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:35,000 - INFO - Starting iteration 22
+2024-11-23 13:47:40,767 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:40,770 - INFO - Starting iteration 23
+2024-11-23 13:47:42,054 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:42,056 - INFO - Starting iteration 24
+2024-11-23 13:47:43,366 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:43,369 - INFO - Starting iteration 25
+2024-11-23 13:47:44,652 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:44,655 - INFO - Starting iteration 26
+2024-11-23 13:47:45,945 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:45,948 - INFO - Starting iteration 27
+2024-11-23 13:47:47,233 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:47,236 - INFO - Starting iteration 28
+2024-11-23 13:47:48,601 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:48,604 - INFO - Starting iteration 29
+2024-11-23 13:47:49,893 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:49,896 - INFO - Starting iteration 30
+2024-11-23 13:47:51,236 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:51,239 - INFO - Starting iteration 31
+2024-11-23 13:47:52,562 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:52,565 - INFO - Starting iteration 32
+2024-11-23 13:47:53,907 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:53,910 - INFO - Starting iteration 33
+2024-11-23 13:47:55,218 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:55,221 - INFO - Starting iteration 34
+2024-11-23 13:47:56,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:56,602 - INFO - Starting iteration 35
+2024-11-23 13:47:57,914 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:57,917 - INFO - Starting iteration 36
+2024-11-23 13:47:59,226 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:47:59,229 - INFO - Starting iteration 37
+2024-11-23 13:48:00,534 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:00,537 - INFO - Starting iteration 38
+2024-11-23 13:48:01,884 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:01,887 - INFO - Starting iteration 39
+2024-11-23 13:48:03,199 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:03,202 - INFO - Starting iteration 40
+2024-11-23 13:48:04,551 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:04,554 - INFO - Starting iteration 41
+2024-11-23 13:48:05,875 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:05,878 - INFO - Starting iteration 42
+2024-11-23 13:48:07,338 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:07,340 - INFO - Starting iteration 43
+2024-11-23 13:48:08,802 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:08,805 - INFO - Starting iteration 44
+2024-11-23 13:48:10,149 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:10,152 - INFO - Starting iteration 45
+2024-11-23 13:48:11,508 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:11,511 - INFO - Starting iteration 46
+2024-11-23 13:48:12,817 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:12,820 - INFO - Starting iteration 47
+2024-11-23 13:48:14,174 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:14,177 - INFO - Starting iteration 48
+2024-11-23 13:48:15,501 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:15,504 - INFO - Starting iteration 49
+2024-11-23 13:48:16,814 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:16,817 - INFO - Starting iteration 50
+2024-11-23 13:48:18,108 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:18,111 - INFO - Starting iteration 51
+2024-11-23 13:48:19,420 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:19,424 - INFO - Starting iteration 52
+2024-11-23 13:48:20,720 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:20,723 - INFO - Starting iteration 53
+2024-11-23 13:48:22,634 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:22,636 - INFO - Starting iteration 54
+2024-11-23 13:48:24,112 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:24,115 - INFO - Starting iteration 55
+2024-11-23 13:48:25,405 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:25,408 - INFO - Starting iteration 56
+2024-11-23 13:48:26,793 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:26,796 - INFO - Starting iteration 57
+2024-11-23 13:48:28,101 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:28,104 - INFO - Starting iteration 58
+2024-11-23 13:48:29,476 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:29,478 - INFO - Starting iteration 59
+2024-11-23 13:48:30,797 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:30,800 - INFO - Starting iteration 60
+2024-11-23 13:48:32,141 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:32,144 - INFO - Starting iteration 61
+2024-11-23 13:48:33,499 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:33,502 - INFO - Starting iteration 62
+2024-11-23 13:48:34,846 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:34,849 - INFO - Starting iteration 63
+2024-11-23 13:48:36,197 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:36,200 - INFO - Starting iteration 64
+2024-11-23 13:48:37,708 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:37,711 - INFO - Starting iteration 65
+2024-11-23 13:48:41,364 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:41,367 - INFO - Starting iteration 66
+2024-11-23 13:48:42,696 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:42,699 - INFO - Starting iteration 67
+2024-11-23 13:48:44,069 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:44,072 - INFO - Starting iteration 68
+2024-11-23 13:48:45,456 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:45,459 - INFO - Starting iteration 69
+2024-11-23 13:48:46,817 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:46,820 - INFO - Starting iteration 70
+2024-11-23 13:48:48,087 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:48,090 - INFO - Starting iteration 71
+2024-11-23 13:48:49,489 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:49,492 - INFO - Starting iteration 72
+2024-11-23 13:48:50,889 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:50,892 - INFO - Starting iteration 73
+2024-11-23 13:48:52,186 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:52,189 - INFO - Starting iteration 74
+2024-11-23 13:48:53,475 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:53,477 - INFO - Starting iteration 75
+2024-11-23 13:48:54,935 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:54,938 - INFO - Starting iteration 76
+2024-11-23 13:48:56,258 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:56,261 - INFO - Starting iteration 77
+2024-11-23 13:48:57,603 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:57,606 - INFO - Starting iteration 78
+2024-11-23 13:48:58,913 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:48:58,916 - INFO - Starting iteration 79
+2024-11-23 13:49:00,114 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:00,117 - INFO - Starting iteration 80
+2024-11-23 13:49:01,420 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:01,423 - INFO - Starting iteration 81
+2024-11-23 13:49:02,796 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:02,799 - INFO - Starting iteration 82
+2024-11-23 13:49:04,208 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:04,211 - INFO - Starting iteration 83
+2024-11-23 13:49:05,545 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:05,548 - INFO - Starting iteration 84
+2024-11-23 13:49:06,895 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:06,898 - INFO - Starting iteration 85
+2024-11-23 13:49:08,261 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:08,264 - INFO - Starting iteration 86
+2024-11-23 13:49:09,559 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:09,562 - INFO - Starting iteration 87
+2024-11-23 13:49:10,921 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:10,924 - INFO - Starting iteration 88
+2024-11-23 13:49:12,295 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:12,298 - INFO - Starting iteration 89
+2024-11-23 13:49:13,561 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:13,564 - INFO - Starting iteration 90
+2024-11-23 13:49:14,915 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:14,918 - INFO - Starting iteration 91
+2024-11-23 13:49:16,201 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:16,204 - INFO - Starting iteration 92
+2024-11-23 13:49:17,576 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:17,579 - INFO - Starting iteration 93
+2024-11-23 13:49:18,997 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:19,000 - INFO - Starting iteration 94
+2024-11-23 13:49:20,314 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:20,317 - INFO - Starting iteration 95
+2024-11-23 13:49:21,550 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:21,553 - INFO - Starting iteration 96
+2024-11-23 13:49:22,875 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:22,878 - INFO - Starting iteration 97
+2024-11-23 13:49:24,060 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:24,063 - INFO - Starting iteration 98
+2024-11-23 13:49:25,349 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:25,352 - INFO - Starting iteration 99
+2024-11-23 13:49:26,681 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:26,684 - INFO - Starting iteration 100
+2024-11-23 13:49:27,863 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:27,865 - INFO - Starting iteration 101
+2024-11-23 13:49:29,051 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:29,054 - INFO - Starting iteration 102
+2024-11-23 13:49:30,260 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:30,263 - INFO - Starting iteration 103
+2024-11-23 13:49:31,518 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:31,521 - INFO - Starting iteration 104
+2024-11-23 13:49:32,735 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:32,738 - INFO - Starting iteration 105
+2024-11-23 13:49:33,981 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:33,984 - INFO - Starting iteration 106
+2024-11-23 13:49:35,171 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:35,174 - INFO - Starting iteration 107
+2024-11-23 13:49:36,395 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:36,398 - INFO - Starting iteration 108
+2024-11-23 13:49:37,621 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:37,624 - INFO - Starting iteration 109
+2024-11-23 13:49:38,901 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:38,904 - INFO - Starting iteration 110
+2024-11-23 13:49:40,148 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:40,151 - INFO - Starting iteration 111
+2024-11-23 13:49:41,387 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:41,390 - INFO - Starting iteration 112
+2024-11-23 13:49:42,630 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:42,633 - INFO - Starting iteration 113
+2024-11-23 13:49:43,847 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:43,850 - INFO - Starting iteration 114
+2024-11-23 13:49:45,100 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:45,103 - INFO - Starting iteration 115
+2024-11-23 13:49:46,338 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:46,341 - INFO - Starting iteration 116
+2024-11-23 13:49:47,591 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:47,594 - INFO - Starting iteration 117
+2024-11-23 13:49:48,814 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:48,817 - INFO - Starting iteration 118
+2024-11-23 13:49:50,026 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:50,029 - INFO - Starting iteration 119
+2024-11-23 13:49:51,223 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:51,226 - INFO - Starting iteration 120
+2024-11-23 13:49:52,395 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:52,398 - INFO - Starting iteration 121
+2024-11-23 13:49:53,580 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:53,583 - INFO - Starting iteration 122
+2024-11-23 13:49:54,822 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:54,825 - INFO - Starting iteration 123
+2024-11-23 13:49:56,040 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:56,043 - INFO - Starting iteration 124
+2024-11-23 13:49:57,254 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:57,257 - INFO - Starting iteration 125
+2024-11-23 13:49:58,538 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:58,541 - INFO - Starting iteration 126
+2024-11-23 13:49:59,727 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:49:59,730 - INFO - Starting iteration 127
+2024-11-23 13:50:00,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:00,935 - INFO - Starting iteration 128
+2024-11-23 13:50:02,267 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:02,270 - INFO - Starting iteration 129
+2024-11-23 13:50:03,444 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:03,447 - INFO - Starting iteration 130
+2024-11-23 13:50:04,629 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:04,632 - INFO - Starting iteration 131
+2024-11-23 13:50:05,833 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:05,836 - INFO - Starting iteration 132
+2024-11-23 13:50:07,026 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:07,029 - INFO - Starting iteration 133
+2024-11-23 13:50:08,251 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:08,254 - INFO - Starting iteration 134
+2024-11-23 13:50:09,439 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:09,442 - INFO - Starting iteration 135
+2024-11-23 13:50:10,635 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:10,638 - INFO - Starting iteration 136
+2024-11-23 13:50:11,836 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:11,839 - INFO - Starting iteration 137
+2024-11-23 13:50:12,993 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:12,996 - INFO - Starting iteration 138
+2024-11-23 13:50:14,161 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:14,164 - INFO - Starting iteration 139
+2024-11-23 13:50:15,337 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:15,340 - INFO - Starting iteration 140
+2024-11-23 13:50:16,527 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:16,530 - INFO - Starting iteration 141
+2024-11-23 13:50:17,702 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:17,704 - INFO - Starting iteration 142
+2024-11-23 13:50:18,896 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:18,899 - INFO - Starting iteration 143
+2024-11-23 13:50:20,093 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:20,096 - INFO - Starting iteration 144
+2024-11-23 13:50:21,294 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:21,298 - INFO - Starting iteration 145
+2024-11-23 13:50:22,484 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:22,487 - INFO - Starting iteration 146
+2024-11-23 13:50:23,930 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:23,933 - INFO - Starting iteration 147
+2024-11-23 13:50:25,139 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:25,142 - INFO - Starting iteration 148
+2024-11-23 13:50:26,316 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:26,319 - INFO - Starting iteration 149
+2024-11-23 13:50:27,514 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:27,518 - INFO - Starting iteration 150
+2024-11-23 13:50:28,821 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:28,824 - INFO - Starting iteration 151
+2024-11-23 13:50:30,226 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:30,229 - INFO - Starting iteration 152
+2024-11-23 13:50:31,504 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:31,507 - INFO - Starting iteration 153
+2024-11-23 13:50:32,731 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:32,734 - INFO - Starting iteration 154
+2024-11-23 13:50:33,946 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:33,949 - INFO - Starting iteration 155
+2024-11-23 13:50:35,237 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:35,240 - INFO - Starting iteration 156
+2024-11-23 13:50:36,504 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:36,507 - INFO - Starting iteration 157
+2024-11-23 13:50:37,717 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:37,720 - INFO - Starting iteration 158
+2024-11-23 13:50:38,886 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:38,889 - INFO - Starting iteration 159
+2024-11-23 13:50:40,064 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:40,067 - INFO - Starting iteration 160
+2024-11-23 13:50:41,311 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:41,314 - INFO - Starting iteration 161
+2024-11-23 13:50:42,518 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:42,521 - INFO - Starting iteration 162
+2024-11-23 13:50:43,805 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:43,807 - INFO - Starting iteration 163
+2024-11-23 13:50:45,013 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:45,016 - INFO - Starting iteration 164
+2024-11-23 13:50:46,238 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:46,241 - INFO - Starting iteration 165
+2024-11-23 13:50:47,476 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:47,479 - INFO - Starting iteration 166
+2024-11-23 13:50:48,709 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:48,712 - INFO - Starting iteration 167
+2024-11-23 13:50:49,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:49,935 - INFO - Starting iteration 168
+2024-11-23 13:50:51,260 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:51,263 - INFO - Starting iteration 169
+2024-11-23 13:50:52,484 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:52,487 - INFO - Starting iteration 170
+2024-11-23 13:50:53,723 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:53,726 - INFO - Starting iteration 171
+2024-11-23 13:50:55,040 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:55,043 - INFO - Starting iteration 172
+2024-11-23 13:50:56,291 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:56,294 - INFO - Starting iteration 173
+2024-11-23 13:50:58,740 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:50:58,743 - INFO - Starting iteration 174
+2024-11-23 13:51:00,017 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:00,019 - INFO - Starting iteration 175
+2024-11-23 13:51:01,227 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:01,230 - INFO - Starting iteration 176
+2024-11-23 13:51:02,520 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:02,523 - INFO - Starting iteration 177
+2024-11-23 13:51:03,899 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:03,902 - INFO - Starting iteration 178
+2024-11-23 13:51:05,066 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:05,068 - INFO - Starting iteration 179
+2024-11-23 13:51:06,243 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:06,246 - INFO - Starting iteration 180
+2024-11-23 13:51:07,462 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:07,465 - INFO - Starting iteration 181
+2024-11-23 13:51:08,639 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:08,642 - INFO - Starting iteration 182
+2024-11-23 13:51:09,897 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:09,900 - INFO - Starting iteration 183
+2024-11-23 13:51:11,102 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:11,105 - INFO - Starting iteration 184
+2024-11-23 13:51:12,807 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:12,810 - INFO - Starting iteration 185
+2024-11-23 13:51:14,052 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:14,055 - INFO - Starting iteration 186
+2024-11-23 13:51:15,262 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:15,265 - INFO - Starting iteration 187
+2024-11-23 13:51:16,456 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:16,459 - INFO - Starting iteration 188
+2024-11-23 13:51:17,757 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:17,760 - INFO - Starting iteration 189
+2024-11-23 13:51:19,039 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:19,042 - INFO - Starting iteration 190
+2024-11-23 13:51:20,433 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:20,436 - INFO - Starting iteration 191
+2024-11-23 13:51:21,696 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:21,699 - INFO - Starting iteration 192
+2024-11-23 13:51:22,929 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:22,932 - INFO - Starting iteration 193
+2024-11-23 13:51:24,098 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:24,101 - INFO - Starting iteration 194
+2024-11-23 13:51:25,287 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:25,290 - INFO - Starting iteration 195
+2024-11-23 13:51:26,453 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:26,456 - INFO - Starting iteration 196
+2024-11-23 13:51:27,642 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:27,645 - INFO - Starting iteration 197
+2024-11-23 13:51:28,901 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:28,904 - INFO - Starting iteration 198
+2024-11-23 13:51:30,236 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:30,239 - INFO - Starting iteration 199
+2024-11-23 13:51:31,622 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:31,624 - INFO - Starting iteration 200
+2024-11-23 13:51:32,830 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-23 13:51:32,833 - INFO - 
+=== Final Test Results ===
+2024-11-23 13:51:32,833 - INFO - Total Iterations: 200
+2024-11-23 13:51:32,833 - INFO - 
+Test: test_patient_education_diabetes_management
+2024-11-23 13:51:32,833 - INFO - Passed: 200
+2024-11-23 13:51:32,833 - INFO - Failed: 0
+2024-11-23 13:51:32,833 - INFO - Success Rate: 100.00%
+2024-11-23 13:51:32,833 - INFO - 
+Total Duration: 268.10 seconds
+2024-11-23 13:51:32,833 - INFO - =====================
