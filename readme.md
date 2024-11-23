@@ -18,7 +18,7 @@ A unit testing framework for LLM applications that uses LLMs to validate semanti
 
 💰 Cost-effective testing solution
 
-🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page for details)
+🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)
 
 ## Installation - Reading the rest of the readme first is strongly recommended before use
 
@@ -98,14 +98,14 @@ Similarly, llm_app_test helps you test your application's use of LLMs.
 - Test model reliability
 - Handle model safety features
 
-## When to Use llm_app_test
+### When to Use llm_app_test
 
 - Testing application-level LLM integration
 - Validating prompt engineering
 - Testing system message effectiveness
 - Ensuring consistent response patterns (just stick the test in a loop)
 
-## When Not to Use llm_app_test
+### When Not to Use llm_app_test
 
 - Testing base LLM performance
 - Evaluating model capabilities
