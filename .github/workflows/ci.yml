@@ -46,5 +46,5 @@ jobs:
       # Step 4: Run basic tests
       - name: Run tests with coverage
         env:
-          OPENAI_API_KEY: ${cat openai-api-key.txt}
+          OPENAI_API_KEY: $(cat openai-api-key.txt)
         run: pytest tests/test_semantic_assert/test_semantic_assert_basic.py
