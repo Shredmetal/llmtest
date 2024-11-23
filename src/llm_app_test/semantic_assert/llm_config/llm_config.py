@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, Union
 
 from pydantic import SecretStr
 
@@ -9,7 +9,7 @@ from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvide
 @dataclass
 class LLMConfig:
     provider: LLMProvider
-    api_key: Optional[SecretStr] = None
+    api_key: Optional[Union[str, SecretStr]] = None
     model: Optional[str] = None
     temperature: Optional[float] = None
     max_tokens: Optional[int] = None
