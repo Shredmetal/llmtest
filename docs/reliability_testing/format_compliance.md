@@ -1,6 +1,6 @@
 [← Back to Home](../index.md)
 
-# Reliability Testing - yes we are brute forcing it with thousands upon thousands of tests
+# Format Compliance - yes we are brute forcing it with thousands upon thousands of tests
 
 This page documents the ongoing efforts to validate the reliability of llm-app-test.
 

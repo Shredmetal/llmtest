@@ -9,7 +9,7 @@
 
 A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers.
 
-⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we took the test suite we had which most reflected real-world use and ran it 1,000 times with zero failures. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We are still in the process of validating reliability through brute force testing. Please refer to [this page](development/reliability-testing.md).
+⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we ran tens of thousands of tests to establish reliability. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. 
 
 ✨ Test your LLM apps in minutes, not hours
 
@@ -18,6 +18,12 @@ A unit testing framework for LLM applications that uses LLMs to validate semanti
 💰 Cost-effective testing solution
 
 🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page for details)
+
+## Library Reliability Testing
+
+[Format Compliance Reliability Testing](reliability_testing/format_compliance.md)
+[Semantic Reliability Testing](reliability_testing/semantic_reliability.md)
+[Semantic Boundary Discovery and Analysis](reliability_testing/semantic_boundary_analysis.md)
 
 ## Testing Philosophy
 
