@@ -39,7 +39,7 @@ LLM_MAX_RETRIES=2 # API retry attempts
 You can also configure llm_app_test programmatically:
 
 ```
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 
 asserter = SemanticAssertion(api_key="your-api-key", # Strongly advised against, use env vars 
                              provider="openai", # or 'anthropic' 
@@ -69,7 +69,7 @@ While it's possible to inject a custom LLM using Langchain's `BaseLanguageModel`
 
 ```
 # Advanced usage - Only for thoroughly tested models
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from langchain_core.language_models import BaseLanguageModel
 
 custom_llm: BaseLanguageModel = your_custom_llm

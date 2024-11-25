@@ -22,7 +22,7 @@ ANTHROPIC_API_KEY=your-anthropic-key-here
 
 ```
 
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 
 def my_first_semantic_test(): 
 
@@ -61,7 +61,7 @@ pytest my_first_semantic_test.py
 
 ```
 
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion 
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion 
 from llm_app_test.tests.test_content_generators.test_greeting_bot import SimpleGreetingBot
 
 def test_greeting_semantic(): 

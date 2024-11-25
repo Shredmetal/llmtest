@@ -1,6 +1,6 @@
 [← Back to Home](../index.md)
 
-# Format Compliance - Comprehensive Industry Testing
+# Format Compliance - Brute Force Validation of Format Compliance
 
 ## Overview
 

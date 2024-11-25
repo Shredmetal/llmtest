@@ -158,7 +158,7 @@ llm_app_test solves these challenges by:
 ## Quick Example
 
 ```
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 
 semantic_assert = SemanticAssertion() 
 semantic_assert.assert_semantic_match(actual="Hello Alice, how are you?", 

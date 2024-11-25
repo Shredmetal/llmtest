@@ -24,7 +24,7 @@ env: ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 # tests/test_llm_app.py
 
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 
 def test_llm_output(): 
     semantic_assert = SemanticAssertion() # Your tests here
