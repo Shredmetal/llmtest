@@ -6,14 +6,15 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 
 
-class SimpleGreetingBot:
+class SimpleApiCallBot:
     """A greeting bot that uses ChatOpenAI to generate personalized greetings."""
 
     def __init__(
             self,
-            model: str = "gpt-3.5-turbo",
+            model: str = "gpt-4o",
             temperature: float = 0.0,
-            api_key: Optional[str] = None
+            api_key: Optional[str] = None,
+            system_message: Optional[SystemMessage] = None
     ):
         """
         Initialize the greeting bot.
@@ -27,13 +28,14 @@ class SimpleGreetingBot:
         load_dotenv()
 
         self.llm = ChatOpenAI(
-            model=model,
+            model_name=model,
             temperature=temperature,
-            api_key=api_key or os.getenv("OPENAI_API_KEY"),
+            openai_api_key=api_key or os.getenv("OPENAI_API_KEY"),
             max_retries=2
         )
 
-        self.system_prompt = SystemMessage(
+        if not system_message:
+            system_message = SystemMessage(
             content="""You are a friendly greeting bot. Your task is to generate 
             warm, personalized greetings. The greeting should:
             1. Use the person's name
@@ -42,7 +44,9 @@ class SimpleGreetingBot:
             4. Keep responses concise (max 2 sentences)"""
         )
 
-    def generate_greeting(self, name: str) -> str:
+        self.system_prompt = system_message
+
+    def generate_ai_response(self, prompt: HumanMessage) -> str:
         """
         Generate a personalized greeting for the given name.
 
@@ -51,13 +55,10 @@ class SimpleGreetingBot:
         Raises: Exception: If the LLM call fails
         """
         try:
-            human_message = HumanMessage(
-                content=f"Generate a greeting for {name}"
-            )
 
             response = self.llm.invoke([
                 self.system_prompt,
-                human_message
+                prompt
             ])
 
             return response.content
