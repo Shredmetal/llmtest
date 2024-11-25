@@ -1134,7 +1134,7 @@
 </code></pre></div>
 <h2 id="direct-configuration">Direct Configuration</h2>
 <p>You can also configure llm_app_test programmatically:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>asserter = SemanticAssertion(api_key=&quot;your-api-key&quot;, # Strongly advised against, use env vars 
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                             provider=&quot;openai&quot;, # or &#39;anthropic&#39; 
@@ -1159,7 +1159,7 @@
 <h2 id="custom-llm-configuration-advanced-users-only">Custom LLM Configuration (Advanced Users Only)</h2>
 <p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's semantic reasoning capabilities. Smaller or less capable models will likely fail at the semantic testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Advanced usage - Only for thoroughly tested models
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>from langchain_core.language_models import BaseLanguageModel
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>custom_llm: BaseLanguageModel = your_custom_llm
