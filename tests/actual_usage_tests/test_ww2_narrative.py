@@ -1,5 +1,7 @@
+import pytest
 from langchain_core.messages import HumanMessage, SystemMessage
 
+from llm_app_test.exceptions.test_exceptions import SemanticAssertionError
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from tests.actual_usage_tests.test_content_generator.test_greeting_bot import SimpleApiCallBot
 
@@ -29,7 +31,6 @@ def test_ww2_narrative():
     A narrative about World War 2 and the global nature of the war
     """
 
-    semantic_assert.assert_semantic_match(
-        actual=actual_output,
-        expected_behavior=expected_behavior
-    )
+    with pytest.raises(SemanticAssertionError) as excinfo:
+        semantic_assert.assert_semantic_match(actual_output, expected_behavior)
+    assert "Semantic assertion failed" in str(excinfo.value)

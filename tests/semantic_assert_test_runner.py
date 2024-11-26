@@ -7,7 +7,7 @@ def run_semantic_tests():
     """Run all semantic assertion tests"""
     test_dir = Path(__file__).parent
     test_files = [
-        str(test_dir / "actual_usage_tests" / "test_greeting.py"),
+
         str(test_dir / "test_llm_setup" / "test_llm_provider.py"),
         str(test_dir / "test_llm_setup" / "test_llm_factory.py"),
         str(test_dir / "test_config_validator" / "test_config_validator.py"),
@@ -17,6 +17,8 @@ def run_semantic_tests():
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_configuration.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_prompt_injector.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_llm_injection.py"),
+        str(test_dir / "actual_usage_tests" / "test_greeting.py"),
+        str(test_dir / "actual_usage_tests" / "test_ww2_narrative.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_basic.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_complex.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_ridiculous.py"),
