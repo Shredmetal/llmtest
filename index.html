@@ -387,6 +387,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-cool-stuff" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Cool Stuff:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#library-reliability-testing" class="md-nav__link">
     <span class="md-ellipsis">
       Library Reliability Testing
@@ -1109,6 +1118,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-cool-stuff" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Cool Stuff:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#library-reliability-testing" class="md-nav__link">
     <span class="md-ellipsis">
       Library Reliability Testing
@@ -1394,12 +1412,14 @@
 <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
 <img alt="Python" src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue" />
 <a href="https://Shredmetal.github.io/llmtest/"><img alt="Documentation" src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" /></a></p>
-<p>A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers.</p>
-<p>⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we ran tens of thousands of tests to establish reliability. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. </p>
+<p>A unit testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for behavioural testing of applications containing an LLM (not for testing LLMs themselves). Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.</p>
+<p>⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. </p>
+<p>We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the <a href="https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/">Format Compliance Testing page</a>, the <a href="https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/">Semantic Reliability Testing page</a>, and the <a href="https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/">Semantic Boundary Analysis page</a>.</p>
+<h2 id="the-cool-stuff">The Cool Stuff:</h2>
 <p>✨ Test your LLM apps in minutes, not hours</p>
-<p>🚀 CI/CD ready out of the box (Still in beta so, while we're pretty sure it just works™, we're still trying our damnedest to break it in GitHub Actions, GitLab CI, Jenkins, and other CI/CD environments. We'll document any failures we find and their fixes)</p>
+<p>🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)</p>
 <p>💰 Cost-effective testing solution</p>
-<p>🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page for details)</p>
+<p>🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)</p>
 <h2 id="library-reliability-testing">Library Reliability Testing</h2>
 <p><a href="reliability_testing/format_compliance/">Format Compliance Reliability Testing</a></p>
 <p><a href="reliability_testing/semantic_reliability/">Semantic Reliability Testing</a></p>
