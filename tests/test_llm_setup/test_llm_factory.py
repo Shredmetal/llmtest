@@ -35,7 +35,8 @@ def anthropic_config():
         model="claude-3-5-sonnet",
         temperature=0.0,
         max_tokens=4096,
-        max_retries=2
+        max_retries=2,
+        timeout=10.0
     )
 
 
@@ -73,7 +74,8 @@ class TestLLMFactory:
             model="claude-3-5-sonnet",
             anthropic_api_key="anthropic-key",
             max_retries=2,
-            max_tokens=4096
+            max_tokens=4096,
+            default_request_timeout=10.0
         )
         assert llm == mock_instance
 
