@@ -2,13 +2,16 @@
 
 # Format Compliance - Brute Force Validation of Format Compliance
 
+⚠️ **Important Notice About Semantic Testing**
+This documentation refers to tests originally designed for semantic testing. We have since deprecated the semantic testing approach in favor of behavioral testing, as we found it provides a more accurate and useful way to test LLM applications. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect how the testing actually works.
+
 ## Overview
 
-This page documents our extensive format compliance testing of llm-app-test. We designed these tests to validate the library's ability to maintain consistent format requirements across diverse use cases.
+This page documents our extensive format compliance testing of llm-app-test's behavioral testing capabilities. We designed these tests to validate the library's ability to maintain consistent format requirements across diverse use cases.
 
 The test suite demonstrated 100% reliability across 13,000 test executions, with zero format violations detected.
 
-The relevant logs can be found [here](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing).
+The relevant logs can be found [here](https://github.com/Shredmetal/llmtest/reliability_testing.md).
 
 ## Test Suite Design
 
@@ -74,7 +77,7 @@ LLM_MAX_TOKENS=4096
 LLM_MAX_RETRIES=2 
 LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
 ```
-The `semantic_assert_match` function also saw slight modification:
+The `assert_semantic_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`) function also saw slight modification:
 
 ```
         if result.startswith("FAIL"):
@@ -93,7 +96,7 @@ The `semantic_assert_match` function also saw slight modification:
             )
 ```
 
-The prompts to the asserter LLM (that sits behind `semantic_assert_match`) were:
+The prompts to the asserter LLM (that sits behind `semantic_assert_match` (**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
 ```
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
@@ -129,11 +132,17 @@ The purpose of these 13,000 runs was primarily to test the reliability of this l
 
 Based on the testing documented in this page however, we are quite confident that llm-app-test will adhere to the format requirements in most situations and not throw stupid errors by failing to adhere to the requirements. 
 
-Please refer to the other pages of testing reliability, specifically [Semantic Reliability Testing](semantic_reliability.md) and [Semantic Boundary Analysis](semantic_boundary_analysis.md) for more information on reliability testing of the ability of this library to test for semantic equivalence.
+Please refer to the other pages of testing reliability, specifically [Behavioral Reliability Testing](behavioral_testing_reliability.md) and [Behavior At Semantic Boundary Analysis](behavior_at_semantic_boundaries.md) for more information on reliability testing of the ability of this library to test for semantic equivalence.
 
 
 
 ## Test Suite
+
+⚠️ **Note About Test Code**: 
+The test suite shown below uses the deprecated `SemanticAssertion` class and `assert_semantic_match` method. 
+These tests remain valid as the underlying implementation is identical in the new `BehavioralAssertion` class 
+and `assert_behavioral_match` method. The only change is in terminology to better reflect the testing approach.
+
 
 We used the following test suite for the purposes of format compliance testing:
 
@@ -288,4 +297,4 @@ If you experience any issues, especially with library reliability - please let u
 ## Quick Links
 - [Installation](../getting-started/installation.md)
 - [Quick Start](../getting-started/quickstart.md)
-- [API Reference](../api/semantic-assertion.md)
+- [API Reference](../api/behavioral-assertion.md)

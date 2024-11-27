@@ -1,14 +1,18 @@
-# Semantic Reliability - Real-World Industry Specific Testing
+# Behavioral Testing Reliability - Real-World Industry Specific Testing
+
+⚠️ **Important Notice About Semantic Testing**
+This documentation refers to tests originally designed for semantic testing. We have since deprecated the semantic testing approach in favor of behavioral testing, as we found it provides a more accurate and useful way to test LLM applications. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect how the testing actually works.
+
 
 ## Overview
 
 This page documents our extensive testing of llm-app-test against real-world industry use cases. We designed this test suite to validate the library's reliability with the kind of content that LLM applications would probably generate in production environments.
 
-The first test case in this suite initially exhibited non-determinism due to a legitimate semantic boundary. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyse the semantic nuances to identify the exact boundary condition. This analysis and its implications are documented in detail [here](semantic_boundary_analysis.md).
+The first test case in this suite initially exhibited behavioral non-determinism. Upon investigation, this was caused by a legitimate semantic boundary in the test case - a situation where the expected and actual outputs sit at the edge of what could be considered equivalent behaviors. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyze these behavioral boundaries to identify the exact conditions causing the non-determinism. This analysis and its implications are documented in detail [here](behavior_at_semantic_boundaries.md).
 
 The remaining 9 test cases maintained 100% consistency across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved 100% pass rate.
 
-The relevant logs for the testing covered by this page can be found [here](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing).
+The relevant logs for the testing covered by this page can be found [here](https://github.com/Shredmetal/llmtest/main/reliability_testing).
 
 ## Test Suite Design
 
@@ -38,7 +42,7 @@ Cross-references:
 
 - See [Test Configuration](#test-configuration) for setup details
 - See [Test Results](#test-results) for detailed analysis
-- Full test logs available in [reliability_testing](https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing)
+- Full test logs available in [reliability_testing](https://github.com/Shredmetal/llmtest/reliability_testing)
 
 ## Test Characteristics
 
@@ -103,7 +107,7 @@ LLM_MAX_TOKENS=4096
 LLM_MAX_RETRIES=2 
 LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
 ```
-The `semantic_assert_match` function also saw slight modification:
+The `semantic_assert_match` function (**Update**: Deprecated and replaced with identical `assert_behavioral_match`) also saw slight modification:
 
 ```
         if result.startswith("FAIL"):
@@ -122,7 +126,7 @@ The `semantic_assert_match` function also saw slight modification:
             )
 ```
 
-The prompts to the asserter LLM (that sits behind `semantic_assert_match`) were:
+The prompts to the asserter LLM (that sits behind `semantic_assert_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
 ```
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
@@ -146,6 +150,12 @@ with 'PASS' or 'FAIL: <reason>'."""
 
 
 ## Test Suite Code
+
+⚠️ **Note About Test Code**: 
+The test suite shown uses the deprecated `SemanticAssertion` class and `assert_semantic_match` method. 
+These tests remain valid as the underlying implementation is identical in the new `BehavioralAssertion` class 
+and `assert_behavioral_match` method. The only change is in terminology to better reflect the testing approach.
+
 
 ```
 import pytest

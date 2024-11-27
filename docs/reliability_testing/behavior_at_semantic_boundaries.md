@@ -1,12 +1,15 @@
-# Semantic Boundary Analysis
+# Behavior At Semantic Boundaries
+
+⚠️ **Important Notice About Semantic Testing**
+This documentation refers to tests originally designed for semantic testing. We have since deprecated the semantic testing approach in favor of behavioral testing, as we found it provides a more accurate and useful way to test LLM applications. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect how the testing actually works.
 
 ## Overview
 
-During our real-world style testing, we encountered an interesting semantic boundary case that highlighted both the sophistication and limitations of LLM-based testing. 
+During our real-world style testing, we encountered an interesting boundary case that highlighted both the sophistication and limitations of LLM-based behavioral testing. 
 
-This was discovered during the initial 500 runs of our real-world test suite, where only this one test demonstrated non-determinism.
+This case was discovered during the initial 500 runs of our real-world test suite, where only this one test demonstrated non-determinism. The non-determinism occurred at what we identified as a semantic boundary - a point where the interpretation of expected behavior could legitimately differ.
 
-This case provides valuable insights into how LLMs interpret semantic requirements.
+This case provides valuable insights into how LLMs interpret behavioral requirements and the importance of precise specification in behavioral testing.
 
 ## The Case
 
@@ -120,7 +123,7 @@ LLM_MAX_TOKENS=4096
 LLM_MAX_RETRIES=2 
 LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
 ```
-The `semantic_assert_match` function also saw slight modification:
+The `semantic_assert_match` function (**Update**: Deprecated and replaced with identical `assert_behavioral_match`) also saw slight modification:
 
 ```
         if result.startswith("FAIL"):
@@ -139,7 +142,7 @@ The `semantic_assert_match` function also saw slight modification:
             )
 ```
 
-The prompts to the asserter LLM (that sits behind `semantic_assert_match`) were:
+The prompts to the asserter LLM (that sits behind `semantic_assert_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
 ```
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
@@ -185,13 +188,16 @@ Logs can be found in the reliability_testing_real_world directory of the [0.1.0b
 
 ## Analysis
 
-Upon careful analysis (Library author's note: I had to read the test case several times to pick up on it, and I'm a lawyer by training with 3 years of litigation experience), we identified a subtle but critical semantic boundary in the original requirement:
+Upon careful analysis, we identified a subtle but critical semantic boundary that affected the behavioral testing:
 
 1. The Semantic Boundary:
 
     - Original text: "emergency response steps" (plural)
     - Test content provided: "seek medical attention" (singular)
     - Question: Does a single, obvious response step satisfy a requirement for "steps"?
+
+This semantic boundary - the interpretation of whether a single step satisfies a plural requirement - caused non-deterministic behavior in our behavioral tests. This demonstrates how semantic ambiguities can directly impact the reliability of behavioral testing.
+
 
 2. The Test Content:
 
@@ -244,7 +250,7 @@ Upon careful analysis (Library author's note: I had to read the test case severa
 
 ## Impact on Library Usage
 
-When writing semantic test cases:
+When writing behavioral test cases:
 
 1. Be explicit about conjunctive requirements
 2. Use "AND" when both elements are required
@@ -252,7 +258,7 @@ When writing semantic test cases:
 4. Test requirements for potential boundary cases
 
 ## Quick Links
-- [Semantic Reliability Testing](semantic_reliability.md)
+- [Behavioral Reliability Testing](behavioral_testing_reliability.md)
 - [Format Compliance](./format_compliance.md)
 - [Quick Start](../getting-started/quickstart.md)
 

@@ -7,11 +7,21 @@
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
 
-A unit testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for behavioural testing of applications containing an LLM (not for testing LLMs themselves). Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.
+## Quick Start
+- [Installation](getting-started/installation.md)
+- [Quick Start Guide](getting-started/quickstart.md)
+- [CI/CD Integration](guides/ci-cd.md)
+- [API Reference](api/behavioral-assertion.md)
+
+## Introduction
+
+A behavioral testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for unit/integration testing of applications containing an LLM (not for testing LLMs themselves). 
+
+Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.
 
 ⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
 
-We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/), the [Semantic Reliability Testing page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/), and the [Semantic Boundary Analysis page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/).
+We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/), the [Behavioral Testing Reliability testing page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/), and the [Behavioral Testing Non-determinism At Semantic Boundary analysis page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/).
 
 ## The Cool Stuff:
 
@@ -27,9 +37,9 @@ We stress that  past success doesn't guarantee future determinism - this is an u
 
 [Format Compliance Reliability Testing](reliability_testing/format_compliance.md)
 
-[Semantic Reliability Testing](reliability_testing/semantic_reliability.md)
+[Behavioral Testing Reliability](reliability_testing/behavioral_testing_reliability.md)
 
-[Semantic Boundary Discovery and Analysis](reliability_testing/semantic_boundary_analysis.md)
+[Behavioral Testing Non-determinism At Semantic Boundary - Discovery and Analysis](reliability_testing/behavior_at_semantic_boundaries.md)
 
 ## Testing Philosophy
 
@@ -94,7 +104,7 @@ Similarly, llm_app_test helps you test your application's use of LLMs.
 
 - Tests LLM applications (not the LLMs themselves)
 - Validates system message + prompt template outputs
-- Ensures semantic equivalence of responses
+- Ensures expected behavioral patterns in responses
 - Tests the parts YOU control in your LLM application
 
 ### What llm_app_test Doesn't Do
@@ -124,7 +134,7 @@ Similarly, llm_app_test helps you test your application's use of LLMs.
 - [Quick Start](getting-started/quickstart.md)
 - [CI/CD Integration](guides/ci-cd.md)
 - [Best Practices](guides/best-practices.md)
-- [API Reference](api/semantic-assertion.md)
+- [API Reference](api/behavioral-assertion.md)
 
 ## License
 
@@ -151,24 +161,24 @@ If you encounter issues:
 
 ### Emergency Rollback Instructions
 
-If you experience issues with version 0.1.0b4, you can roll back to the previous stable version (0.1.0b3.post3) using one of these methods:
+If you experience issues with version 0.2.0b1, you can roll back to the previous stable version (0.1.0b4) using one of these methods:
 
 #### Method 1: Direct Installation of Previous Version
 
 ```
 pip uninstall llm-app-test 
-pip install llm-app-test==0.1.0b3.post3
+pip install llm-app-test==0.1.0b4
 ```
 #### Method 2: Force Reinstall (if Method 1 fails)
 
 ```
-pip install --force-reinstall llm-app-test==0.1.0b3.post3
+pip install --force-reinstall llm-app-test==0.1.0b4
 ```
 #### Verification
 After rolling back, verify the installation:
 ```
 import llm_app_test 
-print(llm_app_test.version) # Should show 0.1.0b3.post3
+print(llm_app_test.version) # Should show 0.1.0b4
 ```
 
 ## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:
