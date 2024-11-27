@@ -166,29 +166,3 @@ class BehavioralAssertion:
                 "Behavioral Assertion Failed: ",
                 reason=result.split("FAIL: ")[1]
             )
-        elif result.startswith("PASS"):
-            pass
-        else:
-            raise RuntimeError(
-                f"Format Non-compliance Detected {result}"
-            )
-
-# I guess use it like this?
-# # Normal usage (default prompts)
-# asserter = SemanticAssertion(provider="openai")
-#
-# # Advanced usage with custom prompts
-# custom_prompts = AsserterPromptInjector(
-#     system_prompt="You are a testing system that only responds with PASS or FAIL: reason...",
-#     human_prompt="Compare:\nExpected: {expected_behavior}\nActual: {actual}"
-# )
-# asserter = SemanticAssertion(
-#     provider="openai",
-#     prompt_injector=custom_prompts
-# )
-#
-# # The assertion itself works the same way
-# asserter.assert_semantic_match(
-#     actual="Hello, world!",
-#     expected_behavior="Should greet the world"
-# )
