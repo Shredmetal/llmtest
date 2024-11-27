@@ -1,14 +1,22 @@
+from langchain_core.messages import HumanMessage
+
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
-from tests.test_content_generators.test_greeting_bot import SimpleGreetingBot
+from tests.actual_usage_tests.test_content_generator.test_greeting_bot import SimpleApiCallBot
 
 
 def test_greeting_semantic():
 
     semantic_assert = SemanticAssertion()
 
-    bot = SimpleGreetingBot()
+    bot = SimpleApiCallBot()
 
-    actual_output = bot.generate_greeting("Alice")
+    human_message = HumanMessage(
+        content=f"Generate a greeting for Alice"
+    )
+
+    actual_output = bot.generate_ai_response(human_message)
+
+    print(actual_output)
 
     expected_behavior = """
     A polite greeting that:

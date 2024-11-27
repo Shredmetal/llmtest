@@ -3,7 +3,7 @@
 1. Release Branch Validation
 
 Ensure the release/version branch has been reviewed and approved
-All tests must pass on the release branch before proceeding, and there is at least 90% coverage. The core functionality **MUST** be covered by tests.
+All tests must pass on the release branch before proceeding - 100% coverage is required because this is a testing library. The core functionality **MUST** be covered by tests.
 
 2. Version Management
 

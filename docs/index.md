@@ -7,17 +7,29 @@
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
 
-A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers.
+A unit testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for behavioural testing of applications containing an LLM (not for testing LLMs themselves). Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.
 
-⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we took the test suite we had which most reflected real-world use and ran it 1,000 times with zero failures. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We are still in the process of validating reliability through brute force testing. Please refer to [this page](development/reliability-testing.md).
+⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
+
+We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/), the [Semantic Reliability Testing page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/), and the [Semantic Boundary Analysis page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/).
+
+## The Cool Stuff:
 
 ✨ Test your LLM apps in minutes, not hours
 
-🚀 CI/CD ready out of the box (Still in beta so, while we're pretty sure it just works™, we're still trying our damnedest to break it in GitHub Actions, GitLab CI, Jenkins, and other CI/CD environments. We'll document any failures we find and their fixes)
+🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
 
 💰 Cost-effective testing solution
 
-🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page for details)
+🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)
+
+## Library Reliability Testing
+
+[Format Compliance Reliability Testing](reliability_testing/format_compliance.md)
+
+[Semantic Reliability Testing](reliability_testing/semantic_reliability.md)
+
+[Semantic Boundary Discovery and Analysis](reliability_testing/semantic_boundary_analysis.md)
 
 ## Testing Philosophy
 
@@ -30,7 +42,7 @@ When integrating LLMs into your application, treat them as you would any closed-
 
 ### ⚠️ Important Information on Understanding Responsibilities
 
-This library is built by software engineers give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
+This library is built by software engineers to give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
 
 #### Software Engineer's Role
 

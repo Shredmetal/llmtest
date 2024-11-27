@@ -8,13 +8,17 @@
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
 
 
-A unit testing framework for LLM applications that uses LLMs to validate semantic equivalence in test outputs with a syntax familiar to software engineers.
+A unit testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for behavioural testing of applications containing an LLM (not for testing LLMs themselves). Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.
 
-⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we took the test suite we had which most reflected real-world use and ran it 1,000 times with zero failures. However, past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We are still in the process of validating reliability through brute force testing. Please refer to [this page]().
+⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
+
+We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/), the [Semantic Reliability Testing page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/), and the [Semantic Boundary Analysis page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/).
+
+## The Cool Stuff:
 
 ✨ Test your LLM apps in minutes, not hours
 
-🚀 CI/CD ready out of the box (Still in beta so, while we're pretty sure it just works™, we're still trying our damnedest to break it in GitHub Actions, GitLab CI, Jenkins, and other CI/CD environments. We'll document any failures we find and their fixes)
+🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
 
 💰 Cost-effective testing solution
 
@@ -158,7 +162,7 @@ llm_app_test solves these challenges by:
 ## Quick Example
 
 ```
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 
 semantic_assert = SemanticAssertion() 
 semantic_assert.assert_semantic_match(actual="Hello Alice, how are you?", 
