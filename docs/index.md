@@ -27,7 +27,7 @@ We made this because we were unsatisfied with existing approaches:
 
 ⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
 
-We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/), the [Behavioral Testing Reliability testing page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/), and the [Behavioral Testing Non-determinism At Semantic Boundary analysis page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/).
+We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](reliability_testing/format_compliance.md), the [Behavioral Testing Reliability testing page](reliability_testing/behavioral_testing_reliability.md), and the [Behavioral Testing Non-determinism At Semantic Boundary analysis page](reliability_testing/behavior_at_semantic_boundaries.md).
 
 ## The Cool Stuff:
 
