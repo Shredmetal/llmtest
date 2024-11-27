@@ -1,5 +1,5 @@
 site_name: llm_app_test Documentation
-site_description: A semantic testing framework for LLM applications
+site_description: A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.
 site_url: https://Shredmetal.github.io/llmtest/
 repo_url: https://github.com/Shredmetal/llmtest
 repo_name: llm_app_test
