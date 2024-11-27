@@ -8,7 +8,7 @@ from tests.actual_usage_tests.test_content_generator.test_greeting_bot import Si
 
 def test_ww2_narrative():
 
-    semantic_assert = BehavioralAssertion()
+    behavioral_assert = BehavioralAssertion()
 
     system_message = SystemMessage(
         """
@@ -32,5 +32,5 @@ def test_ww2_narrative():
     """
 
     with pytest.raises(BehavioralAssertionError) as excinfo:
-        semantic_assert.assert_behavioral_match(actual_output, expected_behavior)
+        behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
     assert "Behavioral assertion failed" in str(excinfo.value)
