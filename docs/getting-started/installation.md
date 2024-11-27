@@ -8,7 +8,7 @@
 
 ## Installing llm_app_test
 
-Install directly from GitHub:
+Install from PyPI:
 
 ```
 pip install llm-app-test
