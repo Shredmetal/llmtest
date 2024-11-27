@@ -15,7 +15,7 @@
 
 ## Introduction
 
-A behavioral testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for unit/integration testing of applications containing an LLM (not for testing LLMs themselves). 
+A behavioral testing framework for applications using large language models (LLMs). It leverages LLMs to validate the behavior of applications containing LLMs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for unit/integration testing of applications containing an LLM (not for testing LLMs themselves). 
 
 Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.
 
