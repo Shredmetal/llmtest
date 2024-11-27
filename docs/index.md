@@ -19,6 +19,12 @@ A behavioral testing framework for applications using large language models (LLM
 
 Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.
 
+We made this because we were unsatisfied with existing approaches:
+
+1. String/regex matching and embeddings are too brittle - this is obvious for the former. Embeddings allow slightly more flexibility, but you still need to roughly guess what your LLM-powered app is going to say, and set things like thresholds while having an understanding of vector spaces.
+2. Academic metrics are of little help to API consumers like us with no ability to change the model. However, we still believe this tool is useful for the software engineering side of things. Please refer to the [Testing Philosophy](#testing-philosophy) section below on when to send things back to the data scientists.
+3. We just wanted to define a behavior and assert on it.
+
 ⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
 
 We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/), the [Behavioral Testing Reliability testing page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/), and the [Behavioral Testing Non-determinism At Semantic Boundary analysis page](https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/).

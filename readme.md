@@ -7,9 +7,17 @@
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
 
+> TL;DR: A Python library that lets you test LLM applications by describing expected behavior in plain English.
+
 ## Overview
 
 A behavioral testing framework for applications using large language models (LLMs). It leverages LLMs to validate the behavior of applications containing LLMs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for unit/integration testing of applications containing an LLM (not for testing LLMs themselves). 
+
+We made this because we were unsatisfied with existing approaches to testing our apps that someone else told us to stick a non-deterministic black box into:
+
+1. String/regex matching and embeddings are too brittle - this is obvious for the former. Embeddings allow slightly more flexibility, but you still need to roughly guess what your LLM-powered app is going to say, and set things like thresholds while having an understanding of vector spaces.
+2. Academic metrics are of little help to API consumers like us with no ability to change the model. However, we still believe this tool is useful for the software engineering side of things. Please refer to the [Testing Philosophy](#testing-philosophy) section below on when to send things back to the data scientists.
+3. We just wanted to define a behavior and assert on it.
 
 ⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
 
