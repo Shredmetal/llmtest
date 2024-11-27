@@ -1,7 +1,7 @@
 import pytest
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from llm_app_test.exceptions.test_exceptions import (
-    SemanticAssertionError
+    BehavioralAssertionError
 )
 
 
@@ -114,9 +114,9 @@ class TestRealWorldSemanticAssertion:
         4. Provide clear warning signs AND detailed emergency response procedures
         5. End with follow-up care instructions"""
 
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_investment_portfolio_report_generation(self, asserter):
         """Test semantic matching for investment portfolio report generation. Tests that the report
@@ -221,9 +221,9 @@ class TestRealWorldSemanticAssertion:
         4. Include viewing optimization suggestions
         5. Address content accessibility features"""
 
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_legal_document_summary_generation(self, asserter):
         """Test semantic matching for legal document summary generation. Tests that the summary
@@ -327,9 +327,9 @@ class TestRealWorldSemanticAssertion:
         4. List specific maintenance recommendations
         5. Include impact assessment and timeline"""
 
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_product_description_generation(self, asserter):
         """Test semantic matching for e-commerce product description generation. Tests that the description
@@ -430,9 +430,9 @@ class TestRealWorldSemanticAssertion:
         4. Reference specific learning objectives
         5. Include grading criteria and score"""
 
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_real_estate_listing_generation(self, asserter):
         """Test semantic matching for real estate listing generation. Tests that the listing
@@ -535,9 +535,9 @@ class TestRealWorldSemanticAssertion:
         4. Include technical assessment scores
         5. Offer clear hiring recommendation"""
 
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_customer_service_ticket_response(self, asserter):
         """Test semantic matching for customer service ticket analysis and response generation."""

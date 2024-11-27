@@ -7,7 +7,7 @@ from _pytest.reports import TestReport
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='../reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_v2_12.log'
+    filename='../../reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_v2_12.log'
 )
 
 
@@ -39,7 +39,7 @@ class DetailedTestRunner:
 
             try:
                 pytest_args = [
-                    "test_semantic_assert/test_semantic_assert_real_world.py",
+                    "backwards_compatibility_tests/test_semantic_assert/test_semantic_assert_real_world.py",
                     "-v",
                     "--no-header",
                     "--tb=short"

@@ -2,13 +2,13 @@ import pytest
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from llm_app_test.exceptions.test_exceptions import BehavioralAssertionError
-from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
-from tests.actual_usage_tests.test_content_generator.test_greeting_bot import SimpleApiCallBot
+from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+from tests.backwards_compatibility_tests.actual_usage_tests.test_content_generator.test_greeting_bot import SimpleApiCallBot
 
 
 def test_ww2_narrative():
 
-    semantic_assert = BehavioralAssertion()
+    semantic_assert = SemanticAssertion()
 
     system_message = SystemMessage(
         """
@@ -32,5 +32,5 @@ def test_ww2_narrative():
     """
 
     with pytest.raises(BehavioralAssertionError) as excinfo:
-        semantic_assert.assert_behavioral_match(actual_output, expected_behavior)
+        semantic_assert.assert_semantic_match(actual_output, expected_behavior)
     assert "Behavioral assertion failed" in str(excinfo.value)

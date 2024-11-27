@@ -1,7 +1,7 @@
 [project]
 name = "llm_app_test"
-version = "0.1.0b5.dev0"
-description = "A unit testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for behavioural testing of applications containing an LLM (not for testing LLMs themselves)."
+version = "0.2.0b1.dev0"
+description = "A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor."
 requires-python = ">=3.10"
 readme = "README.md"
 authors = [

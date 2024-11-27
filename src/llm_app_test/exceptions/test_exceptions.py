@@ -54,11 +54,11 @@ class LLMTestError(Exception):
         return base_message
 
 
-class SemanticAssertionError(LLMTestError):
+class BehavioralAssertionError(LLMTestError):
     """Raised when semantic assertion fails."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
         super().__init__(
-            message=f"Semantic assertion failed: {message}",
+            message=f"Behavioral assertion failed: {message}",
             reason=reason,
             details=details
         )

@@ -1,12 +1,12 @@
 from unittest.mock import patch, Mock
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
-from llm_app_test.semantic_assert.semantic_assert_config.semantic_assert_constants import LLMConstants, ModelConstants
+from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import LLMConstants, ModelConstants
 
 
 class TestSemanticAssertionConfiguration:
     """Test suite for SemanticAssertion configuration"""
 
-    @patch('llm_app_test.semantic_assert.llm_config.llm_factory.ChatOpenAI')
+    @patch('llm_app_test.behavioral_assert.llm_config.llm_factory.ChatOpenAI')
     def test_all_custom_configurations(self, mock_chat):
         """Test that all custom configurations are properly propagated"""
         # Setup mock
@@ -39,7 +39,7 @@ class TestSemanticAssertionConfiguration:
         assert create_args['max_retries'] == 3
         assert create_args['model_name'] == "gpt-4o"
 
-    @patch('llm_app_test.semantic_assert.llm_config.llm_factory.ChatOpenAI')
+    @patch('llm_app_test.behavioral_assert.llm_config.llm_factory.ChatOpenAI')
     def test_all_default_configurations(self, mock_chat):
         """Test that all default configurations are properly set"""
         # Setup mock
@@ -65,7 +65,7 @@ class TestSemanticAssertionConfiguration:
         assert create_args['max_retries'] == LLMConstants.DEFAULT_MAX_RETRIES
         assert create_args['model_name'] == ModelConstants.DEFAULT_OPENAI_MODEL
 
-    @patch('llm_app_test.semantic_assert.llm_config.llm_factory.ChatAnthropic')
+    @patch('llm_app_test.behavioral_assert.llm_config.llm_factory.ChatAnthropic')
     def test_anthropic_default_configurations(self, mock_chat):
         """Test that all default configurations are properly set"""
         # Setup mock

@@ -1,6 +1,6 @@
 import pytest
-from llm_app_test.semantic_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
-from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
+from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 
 
 class TestAsserterPromptInjector:
@@ -38,7 +38,7 @@ class TestAsserterPromptInjector:
         assert "must contain {expected_behavior} and {actual} placeholders" in str(excinfo.value)
 
     def test_prompt_injection_in_semantic_assertion(self):
-        """Test that prompts are properly injected into SemanticAssertion"""
+        """Test that prompts are properly injected into BehavioralAssertion"""
         custom_system = "Custom system prompt"
         custom_human = "Custom human prompt with {expected_behavior} and {actual}"
 
@@ -47,7 +47,7 @@ class TestAsserterPromptInjector:
             human_prompt=custom_human
         )
 
-        asserter = SemanticAssertion(
+        asserter = BehavioralAssertion(
             api_key="test_key",
             prompt_injector=custom_prompts
         )

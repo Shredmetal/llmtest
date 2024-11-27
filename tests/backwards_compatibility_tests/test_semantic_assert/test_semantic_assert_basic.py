@@ -1,10 +1,9 @@
-import os
 import pytest
 
-from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
+from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from llm_app_test.exceptions.test_exceptions import (
-    SemanticAssertionError,
+    BehavioralAssertionError,
     LLMConnectionError
 )
 
@@ -27,9 +26,9 @@ class TestSemanticAssertion:
         """Test semantic mismatch raises correct exception"""
         actual = "The sky is blue"
         expected = "A statement about the weather forecast"
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match(actual, expected)
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_openai_api_error(self):
         """Test OpenAI API error handling"""
@@ -50,9 +49,9 @@ class TestSemanticAssertion:
 
     def test_empty_inputs(self, asserter):
         """Test empty inputs"""
-        with pytest.raises(SemanticAssertionError) as excinfo:
+        with pytest.raises(BehavioralAssertionError) as excinfo:
             asserter.assert_semantic_match("", "")
-        assert "Semantic assertion failed" in str(excinfo.value)
+        assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_none_inputs(self, asserter):
         """Test None inputs raise TypeError"""

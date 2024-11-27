@@ -1,6 +1,6 @@
 from typing import Optional
 
-from llm_app_test.semantic_assert.asserter_prompts.asserter_prompts import AsserterPrompts
+from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompts import AsserterPrompts
 
 
 class AsserterPromptInjector:
