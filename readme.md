@@ -34,6 +34,7 @@ You can go straight to the [documentation](https://Shredmetal.github.io/llmtest/
 💰 Cost-effective testing solution
 
 🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)
+
 ## Installation - Reading the rest of the readme first is strongly recommended before use
 
 ```
@@ -185,7 +186,7 @@ def test_ww2_narrative():
     behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
 ```
 
-Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, use this:
+Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, we used this:
 
 ```
 "Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."

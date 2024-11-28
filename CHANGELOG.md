@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Sets `default_request_timeout` in default ChatAnthropic object
 - Can be passed directly to asserter as `timeout` argument
 - Recommended to use environment variable instead of direct parameter
+- Default is set to 60.0
 
 ### Summary
 This release focuses on:
