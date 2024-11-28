@@ -185,7 +185,13 @@ def test_ww2_narrative():
     behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
 ```
 
-Actual bot response from one run:
+Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, use this:
+
+```
+"Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."
+```
+
+Actual bot response from one run (GPT-4o):
 
 ```
 The European Theater of World War II was a significant front in the global conflict that lasted from 1939 to 1945. It involved most of the countries of Europe and was marked by numerous major battles and campaigns. Here is an overview of some of the key events and battles:
