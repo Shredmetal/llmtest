@@ -15,13 +15,13 @@ def deprecated(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         warnings.warn(
-            f"{func.__name__} is deprecated. Use behavioral testing methods instead. "
+            f"{func.__name__} is deprecated. Use behavioral testing methods such as BehavioralAssert.assert_behavioral_match(actual, expected) instead. "
             f"{func.__name__} will be removed in version 1.0.0 or the first update "
             f"after 1 June 2025, whichever comes later",
             category=UserWarning,
             stacklevel=2
         )
-        print(f"\nWARNING: {func.__name__} is deprecated. Use behavioral testing methods instead. "
+        print(f"\nWARNING: {func.__name__} is deprecated. Use behavioral testing methods such as BehavioralAssert.assert_behavioral_match(actual, expected) instead. "
               f"{func.__name__} will be removed in version 1.0.0 or the first update "
               f"after 1 June 2025, whichever comes later\n",
               file=sys.stderr)
