@@ -273,24 +273,24 @@ If you encounter issues:
 
 ### Emergency Rollback Instructions
 
-If you experience issues with version 0.1.0b4, you can roll back to the previous stable version (0.1.0b3.post3) using one of these methods:
+If you experience issues with version 0.2.0b1, you can roll back to the previous stable version (0.1.0b4) using one of these methods:
 
 #### Method 1: Direct Installation of Previous Version
 
 ```
 pip uninstall llm-app-test 
-pip install llm-app-test==0.1.0b3.post3
+pip install llm-app-test==0.1.0b4
 ```
 #### Method 2: Force Reinstall (if Method 1 fails)
 
 ```
-pip install --force-reinstall llm-app-test==0.1.0b3.post3
+pip install --force-reinstall llm-app-test==0.1.0b4
 ```
 #### Verification
 After rolling back, verify the installation:
 ```
 import llm_app_test 
-print(llm_app_test.version) # Should show 0.1.0b3.post3
+print(llm_app_test.version) # Should show 0.1.0b4
 ```
 
 ## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:
