@@ -6,7 +6,9 @@ Guidelines for effective behavioral testing with llm_app_test.
 
 ## Understanding Behavioral Testing
 
-Behavioral testing focuses on validating that outputs exhibit expected characteristics and behaviors. For example:
+When testing LLM applications, focus on describing what your application should do rather than how it should do it.
+
+Behavioral testing focuses on validating that outputs exhibit expected characteristics and behaviors in a declarative manner. For example:
 
 Expected Behavior: 
 
