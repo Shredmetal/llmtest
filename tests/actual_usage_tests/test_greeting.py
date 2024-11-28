@@ -1,12 +1,12 @@
 from langchain_core.messages import HumanMessage
 
-from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from tests.actual_usage_tests.test_content_generator.test_greeting_bot import SimpleApiCallBot
 
 
 def test_greeting_semantic():
 
-    semantic_assert = SemanticAssertion()
+    semantic_assert = BehavioralAssertion()
 
     bot = SimpleApiCallBot()
 
@@ -24,7 +24,7 @@ def test_greeting_semantic():
     2. Asks about their wellbeing
     """
 
-    semantic_assert.assert_semantic_match(
+    semantic_assert.assert_behavioral_match(
         actual=actual_output,
         expected_behavior=expected_behavior
     )

@@ -1,14 +1,14 @@
 import pytest
 from langchain_core.messages import HumanMessage, SystemMessage
 
-from llm_app_test.exceptions.test_exceptions import SemanticAssertionError
-from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+from llm_app_test.exceptions.test_exceptions import BehavioralAssertionError
+from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from tests.actual_usage_tests.test_content_generator.test_greeting_bot import SimpleApiCallBot
 
 
 def test_ww2_narrative():
 
-    semantic_assert = SemanticAssertion()
+    behavioral_assert = BehavioralAssertion()
 
     system_message = SystemMessage(
         """
@@ -20,7 +20,7 @@ def test_ww2_narrative():
     bot = SimpleApiCallBot(system_message=system_message)
 
     human_message = HumanMessage(
-        content=f"Tell me about the European Theater of World War 2, the major battles, and how the European war ended"
+        content=f"Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."
     )
 
     actual_output = bot.generate_ai_response(human_message)
@@ -31,6 +31,6 @@ def test_ww2_narrative():
     A narrative about World War 2 and the global nature of the war
     """
 
-    with pytest.raises(SemanticAssertionError) as excinfo:
-        semantic_assert.assert_semantic_match(actual_output, expected_behavior)
-    assert "Semantic assertion failed" in str(excinfo.value)
+    with pytest.raises(BehavioralAssertionError) as excinfo:
+        behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
+    assert "Behavioral assertion failed" in str(excinfo.value)

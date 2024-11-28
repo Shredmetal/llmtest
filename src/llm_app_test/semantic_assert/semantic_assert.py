@@ -1,24 +1,36 @@
-import os
+import functools
+import sys
+import warnings
 from typing import Optional, Union
-from dotenv import load_dotenv
+
 from langchain_core.language_models import BaseLanguageModel
-from langchain.schema import HumanMessage, SystemMessage
 
-from llm_app_test.semantic_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
-from llm_app_test.semantic_assert.llm_config.llm_config import LLMConfig
-from llm_app_test.semantic_assert.llm_config.llm_factory import LLMFactory
-from llm_app_test.semantic_assert.llm_config.llm_provider_enum import LLMProvider
-from llm_app_test.exceptions.test_exceptions import (
-    SemanticAssertionError,
-    catch_llm_errors,
-)
-from llm_app_test.semantic_assert.semantic_assert_config.semantic_assert_constants import ModelConstants, LLMConstants
-from llm_app_test.semantic_assert.validation.config_validator import ConfigValidator
-from llm_app_test.semantic_assert.validation.validator_config import ValidationConfig
+from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
+from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
+from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
 
 
-class SemanticAssertion:
-    """Core class for semantic testing using LLMs"""
+def deprecated(func):
+    """This decorator marks functions and classes as deprecated"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        warnings.warn(
+            f"{func.__name__} is deprecated. Use behavioral testing methods instead. "
+            f"{func.__name__} will be removed in version 1.0.0 or the first update "
+            f"after 1 June 2025, whichever comes later",
+            category=UserWarning,
+            stacklevel=2
+        )
+        print(f"\nWARNING: {func.__name__} is deprecated. Use behavioral testing methods instead. "
+              f"{func.__name__} will be removed in version 1.0.0 or the first update "
+              f"after 1 June 2025, whichever comes later\n",
+              file=sys.stderr)
+        return func(*args, **kwargs)
+    return wrapper
+
+@deprecated
+class SemanticAssertion(BehavioralAssertion):
+    """Deprecated: Use BehavioralAssertion instead. This class is maintained for backward compatibility."""
 
     def __init__(
             self,
@@ -61,61 +73,20 @@ class SemanticAssertion:
            Raises:
                LLMConfigurationError: If configuration is invalid or required values are missing
            """
-        load_dotenv()
 
-        self.prompt_injector = prompt_injector or AsserterPromptInjector()
-
-        if llm:
-            self.llm = llm
-            return
-
-        provider_value = provider.value if isinstance(provider, LLMProvider) else (
-                    provider or os.getenv('LLM_PROVIDER', 'openai'))
-
-        if provider_value.lower() == LLMProvider.OPENAI.value:
-            api_key = api_key or os.getenv('OPENAI_API_KEY')
-            default_model = ModelConstants.DEFAULT_OPENAI_MODEL
-            valid_models = ModelConstants.OPENAI_MODELS
-        else:
-            api_key = api_key or os.getenv('ANTHROPIC_API_KEY')
-            default_model = ModelConstants.DEFAULT_ANTHROPIC_MODEL
-            valid_models = ModelConstants.ANTHROPIC_MODELS
-
-        model = model or os.getenv('LLM_MODEL', default_model)
-        temperature = temperature if temperature is not None else float(
-            os.getenv('LLM_TEMPERATURE', str(LLMConstants.DEFAULT_TEMPERATURE)))
-        max_tokens = max_tokens if max_tokens is not None else int(
-            os.getenv('LLM_MAX_TOKENS', str(LLMConstants.DEFAULT_MAX_TOKENS)))
-        max_retries = max_retries if max_retries is not None else int(
-            os.getenv('LLM_MAX_RETRIES', str(LLMConstants.DEFAULT_MAX_RETRIES)))
-        timeout = timeout if timeout is not None else float(
-            os.getenv('LLM_TIMEOUT', str(LLMConstants.DEFAULT_TIMEOUT)))
-
-        validation_config = ValidationConfig(
-            api_key=api_key,
-            provider=provider_value,
-            model=model,
-            valid_models=valid_models,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            timeout=timeout
+        super().__init__(
+                api_key,
+                llm,
+                provider,
+                model,
+                temperature,
+                max_tokens,
+                max_retries,
+                timeout,
+                prompt_injector,
         )
 
-        provider = ConfigValidator.validate(validation_config)
-
-        config = LLMConfig(
-            provider=provider,
-            api_key=api_key,
-            model=model,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            max_retries=max_retries,
-            timeout=timeout
-        )
-
-        self.llm = LLMFactory.create_llm(config)
-
-    @catch_llm_errors
+    @deprecated
     def assert_semantic_match(
             self,
             actual: str,
@@ -134,49 +105,4 @@ class SemanticAssertion:
                 LLMConnectionError: If LLM service fails
                 LLMConfigurationError: If LLM is not properly configured
             """
-        if actual is None or expected_behavior is None:
-            raise TypeError("Inputs cannot be None")
-
-        prompts = self.prompt_injector.prompts
-
-        messages = [
-            SystemMessage(content=prompts.system_prompt),
-            HumanMessage(content=prompts.human_prompt.format(
-                expected_behavior=expected_behavior,
-                actual=actual
-            ))
-        ]
-
-        result = self.llm.invoke(messages).content
-
-        if result.startswith("FAIL"):
-            raise SemanticAssertionError(
-                "Semantic assertion failed",
-                reason=result.split("FAIL: ")[1]
-            )
-        elif result.startswith("PASS"):
-            pass
-        else:
-            raise RuntimeError(
-                f"Format Non-compliance Detected {result}"
-            )
-
-# I guess use it like this?
-# # Normal usage (default prompts)
-# asserter = SemanticAssertion(provider="openai")
-#
-# # Advanced usage with custom prompts
-# custom_prompts = AsserterPromptInjector(
-#     system_prompt="You are a testing system that only responds with PASS or FAIL: reason...",
-#     human_prompt="Compare:\nExpected: {expected_behavior}\nActual: {actual}"
-# )
-# asserter = SemanticAssertion(
-#     provider="openai",
-#     prompt_injector=custom_prompts
-# )
-#
-# # The assertion itself works the same way
-# asserter.assert_semantic_match(
-#     actual="Hello, world!",
-#     expected_behavior="Should greet the world"
-# )
+        return self.assert_behavioral_match(actual, expected_behavior)

@@ -2,18 +2,34 @@
 
 # Best Practices
 
-Guidelines for effective semantic testing with llm_app_test.
+Guidelines for effective behavioral testing with llm_app_test.
 
-## Understanding Semantic Testing
+## Understanding Behavioral Testing
 
-Semantic testing focuses on meaning rather than exact matches. For example:
+When testing LLM applications, focus on describing what your application should do rather than how it should do it.
+
+Behavioral testing focuses on validating that outputs exhibit expected characteristics and behaviors in a declarative manner. For example:
+
+Expected Behavior: 
 
 ```
-# THESE ARE SEMANTICALLY EQUIVALENT
+"A response that provides a weather forecast including temperature and conditions"
+```
 
-actual_1 = "Hello Alice, how are you today?" 
-actual_2 = "Hi Alice! Hope you're doing well!" 
-expected = "A polite greeting addressing Alice"
+These responses would PASS:
+
+```
+actual_1 = "Today will be sunny with a high of 75°F"
+actual_2 = "Expect cloudy skies and temperatures around 24°C"
+actual_3 = "The forecast shows clear weather, reaching 298K"
+```
+
+These would FAIL:
+
+```
+fail_1 = "Have a nice day!" (missing forecast elements)
+fail_2 = "It's weather time!" (missing required information)
+fail_3 = "75 degrees" (incomplete behavior)
 ```
 
 ## Writing Good Expected Behaviors
@@ -22,40 +38,36 @@ expected = "A polite greeting addressing Alice"
 
 ```
 # Good
-
 expected_behavior = """ A polite greeting that:
                     Addresses the person by name (Alice)
                     Asks about their wellbeing """
-
+                    
 # Bad - too vague
-
 expected_behavior = "A nice greeting"
-
 ```
 
-2. **Focus on Requirements**:
+2. **Focus on Behaviors**:
 
-```
-# Good
-
+```# Good
 expected_behavior = """ An error message that:
                     Explains the API key is invalid
                     Provides steps to fix the issue """
-
-# Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, JUST USE REGULAR PYTEST
-
+                    
+# Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, USE REGULAR PYTEST
 expected_behavior = "Should say 'Invalid API key'"
 ```
 
-
-## When to Use Semantic Testing
+## When to Use Behavioral Testing
 
 Good Use Cases:
+
 - Testing LLM outputs
 - Validating natural language responses
 - Testing content generation
+- Checking response behaviors
 
 Not Suitable For:
+
 - Exact string matching
 - Numerical comparisons
 - Binary conditions
@@ -66,13 +78,10 @@ Not Suitable For:
 
 ```
 # Good
-
-def test_greeting_format(): """Test greeting format only"""
-
-def test_greeting_personalization(): """Test name usage separately"""
+def test_greeting_behavior(): """Test greeting behavior only"""
+def test_personalization_behavior(): """Test name usage separately"""
 
 # Bad - testing too much
-
 def test_everything_about_greeting(): """Testing multiple aspects at once"""
 ```
 
@@ -80,11 +89,9 @@ def test_everything_about_greeting(): """Testing multiple aspects at once"""
 
 ```
 # Good
-
 def test_error_message_includes_solution_steps():
 
 # Bad
-
 def test_error():
 ```
 
@@ -94,11 +101,9 @@ def test_error():
 
 ```
 # Too specific
-
 expected = "Must say hello and use exactly these words"
 
 # Better
-
 expected = "Should be a greeting in conversational English"
 ```
 
@@ -106,30 +111,27 @@ expected = "Should be a greeting in conversational English"
 
 ```
 # Too vague
-
 expected = "Should be good"
 
 # Better
-
 expected = """ Response should:
            Answer the user's question
            Use professional language
            Stay on topic """
-
 ```
 
-## Cost Optimization
+## Cost Optimisation
 
 1. Use specific, focused tests
-2. Group related semantic tests
+2. Group related behavioral tests
 3. Consider test importance vs cost
 4. Use appropriate model tiers
 
 ---
 ## Closing words
 
-In general, this is a complete different type of testing designed to mimic a human testing your LLM application. 
-You might need to use your brain a little bit to figure out to instruct your assistant on what to check.
+This testing approach is designed to mimic how a human would validate your LLM application's behavior. 
+Think about what behaviors you want to verify and express them clearly in natural language.
 
 ---
 ## Navigation
@@ -137,4 +139,4 @@ You might need to use your brain a little bit to figure out to instruct your ass
 - [Back to Home](../index.md)
 - [Installation Guide](../getting-started/installation.md)
 - [Quick Start Guide](../getting-started/quickstart.md)
-- [API Reference](../api/semantic-assertion.md)
+- [API Reference](../api/behavioral-assertion.md)
