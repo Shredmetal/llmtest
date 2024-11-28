@@ -7,7 +7,7 @@ llm-app-test provides specific exceptions for different error scenarios to help 
 ## Exception Hierarchy
 
 ```
-LLMTestError # Base exception for all llm-app-test errors 
+LLMAppTestError # Base exception for all llm-app-test errors 
 ├── BehavioralAssertionError # When behavioral matching fails 
 ├── LLMConfigurationError # When configuration is invalid 
 └── LLMConnectionError # When LLM service fails 
@@ -62,7 +62,7 @@ Example:
 
 try:
     behavioral_assert.assert_behavioral_match(...) 
-except LLMTestError as e:
+except LLMAppTestError as e:
     print(f"Message: {e.message}")
     print(f"Reason: {e.reason}")
     print(f"Details: {e.details}")
@@ -71,7 +71,7 @@ except LLMTestError as e:
 
 ## Best Practices
 
-1. Always catch specific exceptions rather than the base LLMTestError
+1. Always catch specific exceptions rather than the base LLMAppTestError
 2. Log the full error information for debugging
 3. Handle LLMConnectionError for retry logic
 4. Use error details for test reporting
