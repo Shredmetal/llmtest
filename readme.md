@@ -23,7 +23,7 @@ We made this because we were unsatisfied with existing approaches to testing our
 
 We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. In this regard, please refer to the reliability testing section of the documentation.
 
-You can go straight to the [documentation](https://Shredmetal.github.io/llmtest/) if you wish.
+You can go straight to the [documentation](https://Shredmetal.github.io/llmtest/) if you wish ⚠️ This is where you will find the most up-to-date information about the library.
 
 ## The Cool Stuff:
 
