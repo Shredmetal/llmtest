@@ -20,7 +20,7 @@ def test_ww2_narrative():
     bot = SimpleApiCallBot(system_message=system_message)
 
     human_message = HumanMessage(
-        content=f"Tell me about the European Theater of World War 2, the major battles, and how the European war ended"
+        content=f"Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."
     )
 
     actual_output = bot.generate_ai_response(human_message)

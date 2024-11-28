@@ -16,6 +16,7 @@ class TestBehavioralAssertionConfiguration:
 
         # Create asserter with all custom values
         asserter = BehavioralAssertion(
+            provider="openai",
             api_key="test_key",
             timeout=5.0,
             temperature=0.5,
@@ -48,7 +49,7 @@ class TestBehavioralAssertionConfiguration:
         mock_chat.return_value = mock_instance
 
         # Create asserter with only required api_key
-        asserter = BehavioralAssertion(api_key="test_key")
+        asserter = BehavioralAssertion(provider="openai", api_key="test_key")
 
         # Use the asserter
         asserter.assert_behavioral_match(

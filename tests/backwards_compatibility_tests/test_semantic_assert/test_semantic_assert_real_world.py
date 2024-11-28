@@ -111,7 +111,7 @@ class TestRealWorldSemanticAssertion:
         1. Contain an overview section explaining the condition
         2. List specific numerical guidelines (blood sugar ranges, exercise minutes)
         3. Include structured sections for diet, exercise, and medication
-        4. Provide clear warning signs AND detailed emergency response procedures
+        4. Provide clear warning signs AND detailed multi-step emergency response procedures
         5. End with follow-up care instructions"""
 
         with pytest.raises(BehavioralAssertionError) as excinfo:

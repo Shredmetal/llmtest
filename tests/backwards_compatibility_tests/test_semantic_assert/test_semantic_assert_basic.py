@@ -33,7 +33,10 @@ class TestSemanticAssertion:
     def test_openai_api_error(self):
         """Test OpenAI API error handling"""
         with pytest.raises(LLMConnectionError) as exc_info:
-            asserter = SemanticAssertion(api_key="invalid_key")
+            asserter = SemanticAssertion(
+                provider=LLMProvider.OPENAI,
+                api_key="invalid_key"
+            )
             asserter.assert_semantic_match("test", "test")
         assert "OpenAI API error occurred" in str(exc_info.value)
 

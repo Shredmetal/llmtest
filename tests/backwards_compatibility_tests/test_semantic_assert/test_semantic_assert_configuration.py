@@ -16,6 +16,7 @@ class TestSemanticAssertionConfiguration:
 
         # Create asserter with all custom values
         asserter = SemanticAssertion(
+            provider="openai",
             api_key="test_key",
             timeout=5.0,
             temperature=0.5,
@@ -48,7 +49,7 @@ class TestSemanticAssertionConfiguration:
         mock_chat.return_value = mock_instance
 
         # Create asserter with only required api_key
-        asserter = SemanticAssertion(api_key="test_key")
+        asserter = SemanticAssertion(provider="openai", api_key="test_key")
 
         # Use the asserter
         asserter.assert_semantic_match(
