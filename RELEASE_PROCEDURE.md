@@ -13,11 +13,14 @@ All tests must pass on the release branch before proceeding - 100% coverage is r
 - Use format: `version.devX` where X is incremented if issues arise with PyPI test deployment
 - Example: `0.1.0.dev0`, `0.1.0.dev1`, etc.
 
-3. Build Process
+3. Build and Build Check Process
 
 ```
 # Build wheel
 python -m build
+
+# Check Build
+twine check dist/*
 ```
 
 4. Test Repository Deployment
@@ -35,9 +38,7 @@ python -m venv test_env
 source test_env/bin/activate  # or `test_env\Scripts\activate` on Windows
 
 # Install from test PyPI with main index fallback
-pip install --index-url https://test.pypi.org/simple/ \
-    --extra-index-url https://pypi.org/simple \
-    llm-app-test
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple llm-app-test
 ```
 
 6. Testing Procedure
