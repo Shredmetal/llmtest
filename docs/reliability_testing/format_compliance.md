@@ -4,7 +4,7 @@
 
 ⚠️ **Important Notice About Semantic Testing**
 
-This documentation refers to tests originally named semantic assertion. We have since deprecated the name `semantic` in favor of behavioral testing, as we found it more accurate describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.
+This documentation refers to tests originally named semantic assertion. We have since deprecated the name `semantic` in favor of behavioral testing, as we found that it more accurately describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.
 
 ## Overview
 

@@ -2,15 +2,15 @@
 
 ⚠️ **Important Notice About Semantic Testing**
 
-This documentation refers to tests originally named semantic assertion. We have since deprecated the name `semantic` in favor of behavioral testing, as we found it more accurate describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.
+This documentation refers to tests originally named semantic assertion. We have since deprecated the name `semantic` in favor of behavioral testing, as we found that it more accurately describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.
 
 ## Overview
 
 This page documents our extensive testing of llm-app-test against real-world industry use cases. We designed this test suite to validate the library's reliability with the kind of content that LLM applications would probably generate in production environments.
 
-The first test case in this suite initially exhibited behavioral non-determinism. Upon investigation, this was caused by a legitimate semantic boundary in the test case - a situation where the expected and actual outputs sit at the edge of what could be considered equivalent behaviors. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyze these behavioral boundaries to identify the exact conditions causing the non-determinism. This analysis and its implications are documented in detail [here](behavior_at_semantic_boundaries.md).
+The first test case in this suite initially exhibited behavioral non-determinism. Upon investigation, this was caused by a legitimate semantic boundary in the test case - a situation where the expected and actual outputs sit at the edge of what could be considered equivalent behaviors. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyze the semantic boundaries to identify the exact conditions causing the non-determinism. This analysis and its implications are documented in detail [here](behavior_at_semantic_boundaries.md).
 
-The remaining 9 test cases maintained 100% consistency across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved 100% pass rate.
+The remaining 9 test cases maintained 100% pass rate across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved a 100% pass rate.
 
 The relevant logs for the testing covered by this page can be found [here](https://github.com/Shredmetal/llmtest/main/reliability_testing).
 
@@ -87,7 +87,7 @@ Cost Breakdown:
 - Per Run (10 tests): US$0.014
 - Per 100 Runs: US$1.40
 
-This demonstrates that comprehensive semantic testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.
+This demonstrates that comprehensive behavioral testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.
 
 Key Cost Insights:
 

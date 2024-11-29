@@ -44,5 +44,5 @@ nav:
     - Error Handling: api/error-handling.md
   - Reliability Testing:
       - Format Compliance: reliability_testing/format_compliance.md
-      - Semantic Reliability: reliability_testing/behavioral_testing_reliability.md
-      - Semantic Boundary Analysis: reliability_testing/behavior_at_semantic_boundaries.md
+      - Behavioral Matching Reliability: reliability_testing/behavioral_testing_reliability.md
+      - Behavioral Matching at Semantic Boundary Analysis: reliability_testing/behavior_at_semantic_boundaries.md
