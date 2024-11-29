@@ -39,6 +39,9 @@ jobs:
         run: |
           pip install llm-app-test
 
+      - name: Make test script executable
+        run: chmod +x ci-necessary-tests.sh
+
       - name: Run tests
         run: ./ci-necessary-tests.sh
         env:
