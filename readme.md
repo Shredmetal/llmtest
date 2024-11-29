@@ -1,4 +1,4 @@
-# llm-app-test
+# llm_app_test
 
 [![Discord](https://img.shields.io/discord/1307634517766443058?logo=discord&logoColor=white)](https://discord.gg/awy83bZsKf)
 [![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)](https://pypi.org/project/llm-app-test/)
@@ -54,7 +54,7 @@ When integrating LLMs into your application, treat them as you would any closed-
 
 ### ⚠️ Important Information on Understanding Responsibilities
 
-llm-app-test is built by engineers for engineers so that all of us have a tool to validate the behaviour of applications that have had an LLM stuffed into them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
+llm_app_test is built by engineers for engineers so that all of us have a tool to validate the behaviour of applications that have had an LLM stuffed into them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
 
 #### Software Engineer's Role
 

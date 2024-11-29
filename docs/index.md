@@ -1,4 +1,4 @@
-# llm-app-test
+# llm_app_test
 
 [![Discord](https://img.shields.io/discord/1307634517766443058?logo=discord&logoColor=white)](https://discord.gg/awy83bZsKf)
 [![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)](https://pypi.org/project/llm-app-test/)
@@ -94,46 +94,46 @@ Data Science Tools:
 - Evaluate model accuracy
 - Measure model metrics
 
-llm-app-test (Engineering Tool):
+llm_app_test (Engineering Tool):
 - Tests your APPLICATION code
 - Validates integration points
 - Ensures system behavior
 - Maintains production reliability
 
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
-Similarly, llm-app-test helps you test your application's use of LLMs.
+Similarly, llm_app_test helps you test your application's use of LLMs.
 
 
 ## In summary:
 
-### What llm-app-test Does
+### What llm_app_test Does
 
 - Tests LLM applications (not the LLMs themselves)
 - Validates system message + prompt template outputs
 - Ensures expected behavioral patterns in responses
 - Tests the parts YOU control in your LLM application
 
-### What llm-app-test Doesn't Do
+### What llm_app_test Doesn't Do
 
 - Test LLM model performance (that's the provider's responsibility)
 - Validate base model capabilities
 - Test model reliability
 - Handle model safety features
 
-## When to Use llm-app-test
+## When to Use llm_app_test
 
 - Testing application-level LLM integration
 - Validating prompt engineering
 - Testing system message effectiveness
 - Ensuring consistent response patterns
 
-## When Not to Use llm-app-test
+## When Not to Use llm_app_test
 
 - Testing base LLM performance
 - Evaluating model capabilities
 - Testing model safety features
 
-## Need testing ideas? Check out the tests we used to test llm-app-test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
+## Need testing ideas? Check out the tests we used to test llm_app_test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
 ## Quick Links
 - [Installation](getting-started/installation.md)
