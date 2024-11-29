@@ -3,8 +3,16 @@
 1. Release Branch Validation
 
 Ensure the release/version branch has been reviewed and approved
-All tests must pass on the release branch before proceeding - 100% coverage is required because this is a testing library. The core functionality **MUST** be covered by tests.
-
+All tests must pass on the release branch before proceeding
+- Coverage Requirements:
+  * 100% coverage of src directory is MANDATORY
+  * <100% coverage is an immediate no-go
+  * Coverage must include both current and deprecated paths
+  * Coverage Tool:
+    - Use PyCharm Professional coverage tool
+    - __init__.py files are excluded from coverage requirements
+    - Coverage must be verified in both current and deprecated paths
+    
 2. Version Management
 
 - Update version number in two locations:
@@ -43,6 +51,15 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 
 6. Testing Procedure
 
+Integration Testing Verification
+
+- Run integration tests in two environments:
+
+Clean Environment Tests:
+   * Copy test directory from library project
+   * Install from test PyPI
+   * Run full test suite in both OpenAI and Anthropic modes
+
 - Copy test directory from working project to new installation
 - Create .env file with required API keys:
 
@@ -60,6 +77,12 @@ LLM_PROVIDER=openai
 # Anthropic mode
 LLM_PROVIDER=anthropic
 ```
+Real-World Application Tests:
+   * Use test project (FastAPI chatbot with langchain/langgraph)
+   * Uninstall existing library version
+   * Install new version from test PyPI
+   * Run application-specific integration tests
+   * Verify both deprecated and current assert methods
 
 7. Quality Gates
 
