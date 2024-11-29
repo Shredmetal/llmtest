@@ -42,7 +42,7 @@ class SemanticAssertion(BehavioralAssertion):
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
-            prompt_injector: Optional[AsserterPromptConfigurator] = None
+            custom_prompts: Optional[AsserterPromptConfigurator] = None
     ):
         """
            Initialise the semantic assertion tester.
@@ -83,7 +83,7 @@ class SemanticAssertion(BehavioralAssertion):
                 max_tokens,
                 max_retries,
                 timeout,
-                prompt_injector,
+                custom_prompts,
         )
 
     @deprecated
