@@ -1,4 +1,7 @@
+from unittest.mock import Mock
+
 import pytest
+from langchain_core.language_models import BaseLanguageModel
 
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
@@ -49,6 +52,19 @@ class TestSemanticAssertion:
             )
             asserter.assert_semantic_match("test", "test")
         assert "Anthropic API error occurred" in str(exc_info.value)
+
+    def test_generic_llm_error(self, asserter):
+        """Test handling of generic LLM errors"""
+        mock_llm = Mock(spec=BaseLanguageModel)
+        mock_llm.invoke.side_effect = ValueError("Generic LLM error")
+
+        asserter.llm = mock_llm
+
+        with pytest.raises(LLMConnectionError) as exc_info:
+            asserter.assert_semantic_match("test", "test")
+
+        assert "LLM operation failed in assert_behavioral_match" in str(exc_info.value)
+        assert "Generic LLM error" in str(exc_info.value)
 
     def test_empty_inputs(self, asserter):
         """Test empty inputs"""
