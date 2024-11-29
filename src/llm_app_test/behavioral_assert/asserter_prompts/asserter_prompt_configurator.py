@@ -30,7 +30,7 @@ class AsserterPromptConfigurator:
             human_prompt: Optional[str] = None
     ) -> None:
         """
-        Initialise the prompt injector with optional custom prompts.
+        Initialise the prompt configurator with optional custom prompts.
 
         Args:
             system_prompt: Optional custom system prompt

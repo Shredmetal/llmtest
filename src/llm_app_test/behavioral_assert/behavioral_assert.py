@@ -65,7 +65,7 @@ class BehavioralAssertion:
             max_tokens: Maximum tokens for response
             max_retries: Maximum number of retries for API calls
             timeout: Timeout for API calls in seconds
-            custom_prompts: Custom prompt injector for testing (intentional added friction)
+            custom_prompts: Custom prompt configuration for testing (intentional added friction)
 
         Raises:
             LLMConfigurationError: If configuration is invalid or required values are missing
@@ -73,7 +73,7 @@ class BehavioralAssertion:
 
         load_dotenv()
 
-        self.prompt_injector = custom_prompts or AsserterPromptConfigurator()
+        self.custom_prompts = custom_prompts or AsserterPromptConfigurator()
 
         if llm:
             self.llm = llm
@@ -149,7 +149,7 @@ class BehavioralAssertion:
         if actual is None or expected_behavior is None:
             raise TypeError("Inputs cannot be None")
 
-        prompts = self.prompt_injector.prompts
+        prompts = self.custom_prompts.prompts
 
         messages = [
             SystemMessage(content=prompts.system_prompt),
