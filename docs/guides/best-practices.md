@@ -36,26 +36,27 @@ fail_3 = "75 degrees" (incomplete behavior)
 
 1. **Be Specific**:
 
-```
-# Good
-expected_behavior = """ A polite greeting that:
-                    Addresses the person by name (Alice)
-                    Asks about their wellbeing """
-                    
-# Bad - too vague
-expected_behavior = "A nice greeting"
-```
+    ```
+    # Good
+    expected_behavior = """ A polite greeting that:
+                        Addresses the person by name (Alice)
+                        Asks about their wellbeing """
+                        
+    # Bad - too vague
+    expected_behavior = "A nice greeting"
+    ```
 
 2. **Focus on Behaviors**:
 
-```# Good
-expected_behavior = """ An error message that:
-                    Explains the API key is invalid
-                    Provides steps to fix the issue """
-                    
-# Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, USE REGULAR PYTEST
-expected_behavior = "Should say 'Invalid API key'"
-```
+    ```
+    # Good
+    expected_behavior = """ An error message that:
+                        Explains the API key is invalid
+                        Provides steps to fix the issue """
+                        
+    # Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, USE REGULAR PYTEST
+    expected_behavior = "Should say 'Invalid API key'"
+    ```
 
 ## When to Use Behavioral Testing
 
@@ -76,49 +77,49 @@ Not Suitable For:
 
 1. **Keep Tests Focused**:
 
-```
-# Good
-def test_greeting_behavior(): """Test greeting behavior only"""
-def test_personalization_behavior(): """Test name usage separately"""
-
-# Bad - testing too much
-def test_everything_about_greeting(): """Testing multiple aspects at once"""
-```
+    ```
+    # Good
+    def test_greeting_behavior(): """Test greeting behavior only"""
+    def test_personalization_behavior(): """Test name usage separately"""
+    
+    # Bad - testing too much
+    def test_everything_about_greeting(): """Testing multiple aspects at once"""
+    ```
 
 2. **Clear Test Names**:
 
-```
-# Good
-def test_error_message_includes_solution_steps():
-
-# Bad
-def test_error():
-```
+    ```
+    # Good
+    def test_error_message_includes_solution_steps():
+    
+    # Bad
+    def test_error():
+    ```
 
 ## Common Pitfalls
 
 1. **Over-Specific Expected Behaviors**:
 
-```
-# Too specific
-expected = "Must say hello and use exactly these words"
-
-# Better
-expected = "Should be a greeting in conversational English"
-```
+    ```
+    # Too specific
+    expected = "Must say hello and use exactly these words"
+    
+    # Better
+    expected = "Should be a greeting in conversational English"
+    ```
 
 2. **Under-Specific Expected Behaviors**:
 
-```
-# Too vague
-expected = "Should be good"
-
-# Better
-expected = """ Response should:
-           Answer the user's question
-           Use professional language
-           Stay on topic """
-```
+    ```
+    # Too vague
+    expected = "Should be good"
+    
+    # Better
+    expected = """ Response should:
+               Answer the user's question
+               Use professional language
+               Stay on topic """
+    ```
 
 ## Cost Optimisation
 

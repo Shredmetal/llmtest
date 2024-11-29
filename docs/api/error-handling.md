@@ -52,6 +52,7 @@ except LLMConnectionError as e:
 ## Error Information
 
 All exceptions provide:
+
 - Clear error message
 - Detailed reason (when available)
 - Additional context in details dictionary

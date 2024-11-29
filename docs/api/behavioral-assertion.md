@@ -16,7 +16,7 @@ BehavioralAssertion(api_key: Optional[str] = None,
                     max_tokens: Optional[int] = None, 
                     max_retries: Optional[int] = None,
                     timeout: Optional[float] = None,
-                    prompt_injector: Optional[AsserterPromptConfigurator] = None)
+                    custom_prompts: Optional[AsserterPromptConfigurator] = None)
 ```
 
 
@@ -27,10 +27,10 @@ All parameters are optional (except for API key) and will use environment variab
 - **api_key**: API key for the LLM provider
 
     - Environment: OPENAI_API_KEY or ANTHROPIC_API_KEY
-    - Default: None (must be provided via environment or parameter)
+    - Default: None (must be provided via environment or parameter unless using custom LLM, see `llm` parameter)
     - If using default provider: use OPENAI_API_KEY since default provider is openai
 
-- **llm**: Pre-configured LLM instance (must be of type langchain_core.language_models import BaseLanguageModel)
+- **llm**: Pre-configured LLM instance (must be of type `langchain_core.language_models import BaseLanguageModel`)
     
     - Default: None (if provided, bypasses all other configuration)
 
@@ -64,9 +64,9 @@ All parameters are optional (except for API key) and will use environment variab
 - **timeout**: Timeout for API calls in seconds
 
     - Environment: LLM_TIMEOUT
-        - Default: 10.0
+        - Default: 60.0
 
-- **prompt_injector**: Custom prompt injector for testing
+- **custom_prompts**: Custom prompts for asserter
 
     - Default: None (uses default AsserterPromptConfigurator)
     - Intentional added friction for custom prompts

@@ -1,7 +1,5 @@
 [← Back to Home](../index.md)
 
-[← Back to Home](../index.md)
-
 # Custom Prompt Configuration - Understanding the Options
 
 ⚠️ **Important Notice**
@@ -9,7 +7,7 @@ Custom prompt configuration is an advanced feature that can affect the reliabili
 
 ## Default Prompts
 
-The library uses these carefully designed default prompts that have been tested across thousands (>40,000) of iterations:
+The library uses these carefully designed default prompts that have been tested across thousands (>30,000) of iterations:
 
 System Prompt:
 ```

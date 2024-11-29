@@ -66,7 +66,7 @@ This library is built by software engineers to give software engineers a tool to
 - Validate inputs and outputs
 - Ensure proper integration
 - Monitor system performance
-- Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps to seek assistance with the `expected_behavior` prompt in the `assert_semantic_match` function)
+- Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps to seek assistance with the `expected_behavior` prompt in the `assert_behavioral_match` function)
 
 #### Data Science Team's Role
 

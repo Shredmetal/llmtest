@@ -1,8 +1,8 @@
 # Behavioral Testing Reliability - Real-World Industry Specific Testing
 
 ⚠️ **Important Notice About Semantic Testing**
-This documentation refers to tests originally designed for semantic testing. We have since deprecated the semantic testing approach in favor of behavioral testing, as we found it provides a more accurate and useful way to test LLM applications. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect how the testing actually works.
 
+This documentation refers to tests originally named semantic assertion. We have since deprecated the name `semantic` in favor of behavioral testing, as we found it more accurate describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.
 
 ## Overview
 
@@ -105,7 +105,7 @@ LLM_MODEL=gpt-4o
 LLM_TEMPERATURE=0.0 
 LLM_MAX_TOKENS=4096 
 LLM_MAX_RETRIES=2 
-LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
+LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch
 ```
 The `semantic_assert_match` function (**Update**: Deprecated and replaced with identical `assert_behavioral_match`) also saw slight modification:
 

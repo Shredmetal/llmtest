@@ -3,7 +3,8 @@
 # Format Compliance - Brute Force Validation of Format Compliance
 
 ⚠️ **Important Notice About Semantic Testing**
-This documentation refers to tests originally designed for semantic testing. We have since deprecated the semantic testing approach in favor of behavioral testing, as we found it provides a more accurate and useful way to test LLM applications. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect how the testing actually works.
+
+This documentation refers to tests originally named semantic assertion. We have since deprecated the name `semantic` in favor of behavioral testing, as we found it more accurate describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.
 
 ## Overview
 
@@ -75,7 +76,7 @@ LLM_MODEL=gpt-4o
 LLM_TEMPERATURE=0.0 
 LLM_MAX_TOKENS=4096 
 LLM_MAX_RETRIES=2 
-LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
+LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch
 ```
 The `assert_semantic_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`) function also saw slight modification:
 
@@ -128,11 +129,11 @@ Running the test suite of 13 tests below 100 times (so 1,300 tests), cost us a t
 
 Upon observing the cost of throwing thousands of API calls at OpenAI, we decided to just sod it and throw 13,000 API calls at them for the grand sum of... US$7.90. 
 
-The purpose of these 13,000 runs was primarily to test the reliability of this library insofar as **format violations** were concerned, and get some insight as to the reliability of the semantic comparison.
+The purpose of these 13,000 runs was primarily to test the reliability of this library insofar as **format violations** were concerned, while lightly testing behavioral matching capabilities.
 
 Based on the testing documented in this page however, we are quite confident that llm-app-test will adhere to the format requirements in most situations and not throw stupid errors by failing to adhere to the requirements. 
 
-Please refer to the other pages of testing reliability, specifically [Behavioral Reliability Testing](behavioral_testing_reliability.md) and [Behavior At Semantic Boundary Analysis](behavior_at_semantic_boundaries.md) for more information on reliability testing of the ability of this library to test for semantic equivalence.
+Please refer to the other pages of testing reliability, specifically [Behavioral Reliability Testing](behavioral_testing_reliability.md) and [Behavior At Semantic Boundary Analysis](behavior_at_semantic_boundaries.md) for more information on reliability testing of the ability of this library to test for behavioral matches.
 
 
 
