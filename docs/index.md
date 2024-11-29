@@ -1,4 +1,4 @@
-# llm_app_test
+# llm-app-test
 
 [![Discord](https://img.shields.io/discord/1307634517766443058?logo=discord&logoColor=white)](https://discord.gg/awy83bZsKf)
 [![PyPI Version](https://img.shields.io/pypi/v/llm-app-test?label=pypi%20package)](https://pypi.org/project/llm-app-test/)
@@ -94,7 +94,7 @@ Data Science Tools:
 - Evaluate model accuracy
 - Measure model metrics
 
-llm_app_test (Engineering Tool):
+llm-app-test (Engineering Tool):
 - Tests your APPLICATION code
 - Validates integration points
 - Ensures system behavior
