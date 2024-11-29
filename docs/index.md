@@ -37,7 +37,7 @@ We stress that  past success doesn't guarantee future determinism - this is an u
 
 💰 Cost-effective testing solution
 
-🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)
+🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the [configuration](api/configuration.md) page of the documentation for details)
 
 ## Library Reliability Testing
 
