@@ -7,7 +7,7 @@ from _pytest.reports import TestReport
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='../../reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_medical_only_2.log'
+    filename='../../reliability_testing/reliability_testing_real_world_2/2024-11-23_semantic_reliability_test_medical_only_2.log'
 )
 
 class DetailedTestRunner:
