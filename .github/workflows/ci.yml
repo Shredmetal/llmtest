@@ -40,6 +40,6 @@ jobs:
           pip install llm-app-test
 
       - name: Run tests
-        run: ./necessary-tests.sh
+        run: ./ci-necessary-tests.sh
         env:
           OPENAI_API_KEY: ${{ env.OPENAI_API_KEY }}
