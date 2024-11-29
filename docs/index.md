@@ -101,33 +101,33 @@ llm_app_test (Engineering Tool):
 - Maintains production reliability
 
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
-Similarly, llm_app_test helps you test your application's use of LLMs.
+Similarly, llm-app-test helps you test your application's use of LLMs.
 
 
 ## In summary:
 
-### What llm_app_test Does
+### What llm-app-test Does
 
 - Tests LLM applications (not the LLMs themselves)
 - Validates system message + prompt template outputs
 - Ensures expected behavioral patterns in responses
 - Tests the parts YOU control in your LLM application
 
-### What llm_app_test Doesn't Do
+### What llm-app-test Doesn't Do
 
 - Test LLM model performance (that's the provider's responsibility)
 - Validate base model capabilities
 - Test model reliability
 - Handle model safety features
 
-## When to Use llm_app_test
+## When to Use llm-app-test
 
 - Testing application-level LLM integration
 - Validating prompt engineering
 - Testing system message effectiveness
 - Ensuring consistent response patterns
 
-## When Not to Use llm_app_test
+## When Not to Use llm-app-test
 
 - Testing base LLM performance
 - Evaluating model capabilities
