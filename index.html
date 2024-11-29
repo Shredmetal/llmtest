@@ -499,18 +499,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-llm_app_test-does" class="md-nav__link">
+  <a href="#what-llm-app-test-does" class="md-nav__link">
     <span class="md-ellipsis">
-      What llm_app_test Does
+      What llm-app-test Does
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-llm_app_test-doesnt-do" class="md-nav__link">
+  <a href="#what-llm-app-test-doesnt-do" class="md-nav__link">
     <span class="md-ellipsis">
-      What llm_app_test Doesn't Do
+      What llm-app-test Doesn't Do
     </span>
   </a>
   
@@ -522,18 +522,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-llm_app_test" class="md-nav__link">
+  <a href="#when-to-use-llm-app-test" class="md-nav__link">
     <span class="md-ellipsis">
-      When to Use llm_app_test
+      When to Use llm-app-test
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-not-to-use-llm_app_test" class="md-nav__link">
+  <a href="#when-not-to-use-llm-app-test" class="md-nav__link">
     <span class="md-ellipsis">
-      When Not to Use llm_app_test
+      When Not to Use llm-app-test
     </span>
   </a>
   
@@ -1269,18 +1269,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-llm_app_test-does" class="md-nav__link">
+  <a href="#what-llm-app-test-does" class="md-nav__link">
     <span class="md-ellipsis">
-      What llm_app_test Does
+      What llm-app-test Does
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-llm_app_test-doesnt-do" class="md-nav__link">
+  <a href="#what-llm-app-test-doesnt-do" class="md-nav__link">
     <span class="md-ellipsis">
-      What llm_app_test Doesn't Do
+      What llm-app-test Doesn't Do
     </span>
   </a>
   
@@ -1292,18 +1292,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-llm_app_test" class="md-nav__link">
+  <a href="#when-to-use-llm-app-test" class="md-nav__link">
     <span class="md-ellipsis">
-      When to Use llm_app_test
+      When to Use llm-app-test
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-not-to-use-llm_app_test" class="md-nav__link">
+  <a href="#when-not-to-use-llm-app-test" class="md-nav__link">
     <span class="md-ellipsis">
-      When Not to Use llm_app_test
+      When Not to Use llm-app-test
     </span>
   </a>
   
@@ -1491,7 +1491,7 @@
 <p>✨ Test your LLM apps in minutes, not hours</p>
 <p>🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)</p>
 <p>💰 Cost-effective testing solution</p>
-<p>🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)</p>
+<p>🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the <a href="api/configuration/">configuration</a> page of the documentation for details)</p>
 <h2 id="library-reliability-testing">Library Reliability Testing</h2>
 <p><a href="reliability_testing/format_compliance/">Format Compliance Reliability Testing</a></p>
 <p><a href="reliability_testing/behavioral_testing_reliability/">Behavioral Testing Reliability</a></p>
@@ -1499,16 +1499,16 @@
 <h2 id="testing-philosophy">Testing Philosophy</h2>
 <p>When integrating LLMs into your application, treat them as you would any closed-source third-party library:</p>
 <ol>
-<li>Write tests for expected behaviour</li>
+<li>Write tests for expected behavior</li>
 <li>Focus on interface boundaries</li>
 <li>Test application-level functionality</li>
 <li>Maintain clear separation of concerns</li>
 </ol>
 <h3 id="important-information-on-understanding-responsibilities">⚠️ Important Information on Understanding Responsibilities</h3>
-<p>This library is built by software engineers to give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is <strong>NOT</strong> a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.</p>
+<p>This library is built by software engineers to give software engineers a tool to validate the behavior of applications that have had an LLM stuffed in them. It is <strong>NOT</strong> a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.</p>
 <h4 id="software-engineers-role">Software Engineer's Role</h4>
 <ul>
-<li>Write tests for expected application behaviour</li>
+<li>Write tests for expected application behavior</li>
 <li>Validate inputs and outputs</li>
 <li>Ensure proper integration</li>
 <li>Monitor system performance</li>
@@ -1539,33 +1539,33 @@
 <p>llm_app_test (Engineering Tool):
 - Tests your APPLICATION code
 - Validates integration points
-- Ensures system behaviour
+- Ensures system behavior
 - Maintains production reliability</p>
 <p>Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
-Similarly, llm_app_test helps you test your application's use of LLMs.</p>
+Similarly, llm-app-test helps you test your application's use of LLMs.</p>
 <h2 id="in-summary">In summary:</h2>
-<h3 id="what-llm_app_test-does">What llm_app_test Does</h3>
+<h3 id="what-llm-app-test-does">What llm-app-test Does</h3>
 <ul>
 <li>Tests LLM applications (not the LLMs themselves)</li>
 <li>Validates system message + prompt template outputs</li>
 <li>Ensures expected behavioral patterns in responses</li>
 <li>Tests the parts YOU control in your LLM application</li>
 </ul>
-<h3 id="what-llm_app_test-doesnt-do">What llm_app_test Doesn't Do</h3>
+<h3 id="what-llm-app-test-doesnt-do">What llm-app-test Doesn't Do</h3>
 <ul>
 <li>Test LLM model performance (that's the provider's responsibility)</li>
 <li>Validate base model capabilities</li>
 <li>Test model reliability</li>
 <li>Handle model safety features</li>
 </ul>
-<h2 id="when-to-use-llm_app_test">When to Use llm_app_test</h2>
+<h2 id="when-to-use-llm-app-test">When to Use llm-app-test</h2>
 <ul>
 <li>Testing application-level LLM integration</li>
 <li>Validating prompt engineering</li>
 <li>Testing system message effectiveness</li>
 <li>Ensuring consistent response patterns</li>
 </ul>
-<h2 id="when-not-to-use-llm_app_test">When Not to Use llm_app_test</h2>
+<h2 id="when-not-to-use-llm-app-test">When Not to Use llm-app-test</h2>
 <ul>
 <li>Testing base LLM performance</li>
 <li>Evaluating model capabilities</li>
