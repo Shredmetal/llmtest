@@ -60,7 +60,6 @@ Clean Environment Tests:
    * Install from test PyPI
    * Run full test suite in both OpenAI and Anthropic modes
 
-- Copy test directory from working project to new installation
 - Create .env file with required API keys:
 
 ```
