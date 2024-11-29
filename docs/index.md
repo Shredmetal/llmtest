@@ -51,18 +51,18 @@ We stress that  past success doesn't guarantee future determinism - this is an u
 
 When integrating LLMs into your application, treat them as you would any closed-source third-party library:
 
-1. Write tests for expected behaviour
+1. Write tests for expected behavior
 2. Focus on interface boundaries
 3. Test application-level functionality
 4. Maintain clear separation of concerns
 
 ### ⚠️ Important Information on Understanding Responsibilities
 
-This library is built by software engineers to give software engineers a tool to validate the behaviour of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
+This library is built by software engineers to give software engineers a tool to validate the behavior of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
 
 #### Software Engineer's Role
 
-- Write tests for expected application behaviour
+- Write tests for expected application behavior
 - Validate inputs and outputs
 - Ensure proper integration
 - Monitor system performance
@@ -97,7 +97,7 @@ Data Science Tools:
 llm_app_test (Engineering Tool):
 - Tests your APPLICATION code
 - Validates integration points
-- Ensures system behaviour
+- Ensures system behavior
 - Maintains production reliability
 
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
