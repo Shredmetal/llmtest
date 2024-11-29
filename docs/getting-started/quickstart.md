@@ -132,7 +132,7 @@ rather than providing a narrative about the global nature of the war.
 ### What This Example Demonstrates
 
 1. Real Application Testing
-    - Tests an actual LLM-based application
+    - Tests an actual LLM application
 
 2. Behavioral Testing Power
     - The bot provides a detailed, accurate response
