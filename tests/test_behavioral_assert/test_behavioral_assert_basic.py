@@ -7,7 +7,7 @@ from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvi
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from llm_app_test.exceptions.test_exceptions import (
     BehavioralAssertionError,
-    LLMConnectionError
+    LLMConnectionError, LLMAppTestError
 )
 
 
@@ -76,3 +76,43 @@ class TestBehavioralAssertion:
         with pytest.raises(TypeError) as excinfo:
             asserter.assert_behavioral_match(None, None)
         assert "Inputs cannot be None" in str(excinfo.value)
+
+    def test_llm_app_test_error_with_details(self):
+        """Test LLMAppTestError with details dictionary"""
+        details = {"error_code": 500, "timestamp": "2024-11-29"}
+        error = LLMAppTestError(
+            message="Test error",
+            reason="Something went wrong",
+            details=details
+        )
+
+        assert error.message == "Test error"
+        assert error.reason == "Something went wrong"
+        assert error.details == details
+
+        error_str = str(error)
+        assert "Test error" in error_str
+        assert "Something went wrong" in error_str
+        assert "{'error_code': 500" in error_str
+        assert "'timestamp': '2024-11-29'" in error_str
+
+    def test_llm_app_test_error_propagation(self):
+        """Test LLMAppTestError propagation through the decorator"""
+        mock_llm = Mock(spec=BaseLanguageModel)
+        details = {"error_code": 500, "timestamp": "2024-11-29"}
+        mock_llm.invoke.side_effect = LLMAppTestError(
+            message="Custom error",
+            reason="Test reason",
+            details=details
+        )
+
+        asserter = BehavioralAssertion()
+        asserter.llm = mock_llm
+
+        with pytest.raises(LLMAppTestError) as exc_info:
+            asserter.assert_behavioral_match("test", "test")
+
+        assert exc_info.value.message == "Custom error"
+        assert exc_info.value.reason == "Test reason"
+        assert exc_info.value.details == details
+

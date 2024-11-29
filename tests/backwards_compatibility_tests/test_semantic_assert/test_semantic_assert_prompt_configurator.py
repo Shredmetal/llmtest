@@ -49,7 +49,7 @@ class TestAsserterPromptInjector:
 
         asserter = SemanticAssertion(
             api_key="test_key",
-            prompt_injector=custom_prompts
+            custom_prompts=custom_prompts
         )
 
         assert asserter.prompt_injector.prompts.system_prompt == custom_system
