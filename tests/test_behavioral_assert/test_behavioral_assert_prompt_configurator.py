@@ -37,7 +37,7 @@ class TestAsserterPromptInjector:
             )
         assert "must contain {expected_behavior} and {actual} placeholders" in str(excinfo.value)
 
-    def test_prompt_injection_in_semantic_assertion(self):
+    def test_prompt_configuration_in_behavioral_assertion(self):
         """Test that prompts are properly injected into BehavioralAssertion"""
         custom_system = "Custom system prompt"
         custom_human = "Custom human prompt with {expected_behavior} and {actual}"
@@ -49,7 +49,7 @@ class TestAsserterPromptInjector:
 
         asserter = BehavioralAssertion(
             api_key="test_key",
-            prompt_injector=custom_prompts
+            custom_prompts=custom_prompts
         )
 
         assert asserter.prompt_injector.prompts.system_prompt == custom_system

@@ -37,7 +37,7 @@ class TestAsserterPromptInjector:
             )
         assert "must contain {expected_behavior} and {actual} placeholders" in str(excinfo.value)
 
-    def test_prompt_injection_in_semantic_assertion(self):
+    def test_prompt_configuration_in_semantic_assertion(self):
         """Test that prompts are properly injected into SemanticAssertion"""
         custom_system = "Custom system prompt"
         custom_human = "Custom human prompt with {expected_behavior} and {actual}"
