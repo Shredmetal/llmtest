@@ -70,7 +70,7 @@ All parameters are optional (except for API key) and will use environment variab
 
     - Default: None (uses default AsserterPromptConfigurator)
     - Intentional added friction for custom prompts
-    - Please refer to [this documentation](custom-prompt-injection.md) on how to use it.
+    - Please refer to [this documentation](custom-prompt-configuration) on how to use it.
 
 ## Methods
 

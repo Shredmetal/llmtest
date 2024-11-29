@@ -1,9 +1,11 @@
 [← Back to Home](../index.md)
 
-# Custom Prompt Injection - Understanding the Risks
+[← Back to Home](../index.md)
+
+# Custom Prompt Configuration - Understanding the Options
 
 ⚠️ **Important Notice**
-Custom prompt injection is an advanced feature that can compromise the reliability of your testing framework if not used carefully. We strongly recommend using the default prompts unless you have a specific, well-understood need for customization.
+Custom prompt configuration is an advanced feature that can affect the reliability of your testing framework if not used carefully. We strongly recommend using the default prompts unless you have a specific, well-understood need for customization.
 
 ## Default Prompts
 
@@ -32,14 +34,14 @@ Does the actual output match the expected behavior? Remember, you will fail your
 with 'PASS' or 'FAIL: <reason>'.
 ```
 
-## Why Custom Prompts Are Risky
+## Why Custom Prompts Require Careful Consideration
 
 1. Format Reliability:
 
     - Custom prompts might not enforce the strict PASS/FAIL format
     - This leads to runtime errors when the LLM returns unexpected formats
     - The default prompts are specifically designed to maintain format compliance
-    - Format compliance is critical - any deviation causes immediate test failure
+    - Format compliance is critical - any deviation can cause immediate test failure
 
 2. Testing Consistency:
 
@@ -56,8 +58,7 @@ with 'PASS' or 'FAIL: <reason>'.
 
 ## Why Allow Custom Prompts?
 
-While custom prompts are risky, we recognize that some testing scenarios might require specialized evaluation criteria. However, this should be extremely rare - the default prompts have been proven reliable across a wide range of testing scenarios.
-
+While custom prompts are risky, we recognise that some testing scenarios might require specialized evaluation criteria. However, this should be extremely rare - the default prompts have been proven reliable across a wide range of testing scenarios.
 
 ## If You Must Use Custom Prompts
 
@@ -93,7 +94,7 @@ custom_prompts = AsserterPromptConfigurator(
     
 asserter = BehavioralAssertion(
     provider="openai",
-    prompt_injector=custom_prompts
+    custom_prompts=custom_prompts
 )
 
 # The assertion works the same way
@@ -104,8 +105,8 @@ asserter.assert_behavioral_match(
 )
 ```
 
-This example is problematic because it:
 
+This example is problematic because it:
 - Doesn't enforce strict format requirements
 - Lacks behavioral evaluation guidance
 - Missing format compliance constraints
@@ -117,7 +118,7 @@ This example is problematic because it:
 2. Document why they don't meet your needs
 3. Consult the development team
 4. Consider alternative solutions
-5. Only then, if absolutely necessary, create custom prompts
+5. Only then, if absolutely necessary, create custom prompt configurations
 
 ## Quick Links
 - [Behavioral Testing Reliability](../reliability_testing/behavioral_testing_reliability.md)

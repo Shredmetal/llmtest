@@ -39,7 +39,7 @@ nav:
     - Testing Patterns: guides/testing-patterns.md
   - API Reference:
     - BehavioralAssertion: api/behavioral-assertion.md
-    - Custom Prompt Injection: api/custom-prompt-injection.md
+    - Custom Prompt Injection: api/custom-prompt-configuration.md
     - Configuration: api/configuration.md
     - Error Handling: api/error-handling.md
   - Reliability Testing:
