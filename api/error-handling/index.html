@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../semantic-assertion/" class="md-tabs__link">
+        <a href="../behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -611,11 +611,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../semantic-assertion/" class="md-nav__link">
+      <a href="../behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -718,9 +739,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#semanticassertionerror" class="md-nav__link">
+  <a href="#behavioralassertionerror" class="md-nav__link">
     <span class="md-ellipsis">
-      SemanticAssertionError
+      BehavioralAssertionError
     </span>
   </a>
   
@@ -739,15 +760,6 @@
   <a href="#llmconnectionerror" class="md-nav__link">
     <span class="md-ellipsis">
       LLMConnectionError
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#invalidprompterror-not-currently-in-use" class="md-nav__link">
-    <span class="md-ellipsis">
-      InvalidPromptError (NOT CURRENTLY IN USE)
     </span>
   </a>
   
@@ -871,11 +883,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_reliability/" class="md-nav__link">
+      <a href="../../reliability_testing/behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -892,11 +904,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+      <a href="../../reliability_testing/behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -959,9 +971,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#semanticassertionerror" class="md-nav__link">
+  <a href="#behavioralassertionerror" class="md-nav__link">
     <span class="md-ellipsis">
-      SemanticAssertionError
+      BehavioralAssertionError
     </span>
   </a>
   
@@ -980,15 +992,6 @@
   <a href="#llmconnectionerror" class="md-nav__link">
     <span class="md-ellipsis">
       LLMConnectionError
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#invalidprompterror-not-currently-in-use" class="md-nav__link">
-    <span class="md-ellipsis">
-      InvalidPromptError (NOT CURRENTLY IN USE)
     </span>
   </a>
   
@@ -1046,70 +1049,67 @@
 
 <p><a href="../../">← Back to Home</a></p>
 <h1 id="error-handling">Error Handling</h1>
-<p>llm_app_test provides specific exceptions for different error scenarios to help you handle errors gracefully in your tests.</p>
+<p>llm-app-test provides specific exceptions for different error scenarios to help you handle errors gracefully in your tests.</p>
 <h2 id="exception-hierarchy">Exception Hierarchy</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLMTestError # Base exception for all llm_app_test errors 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── SemanticAssertionError # When semantic matching fails 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLMAppTestError # Base exception for all llm-app-test errors 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── BehavioralAssertionError # When behavioral matching fails 
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── LLMConfigurationError # When configuration is invalid 
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── LLMConnectionError # When LLM service fails 
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── InvalidPromptError # When prompt construction fails - not currently in use, code left in situ for future development
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└── LLMConnectionError # When LLM service fails 
 </code></pre></div>
 <h2 id="exception-details">Exception Details</h2>
-<h3 id="semanticassertionerror">SemanticAssertionError</h3>
-<p>Raised when the semantic assertion fails:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>try: 
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    semantic_assert.assert_semantic_match(actual=&quot;Hello Bob&quot;, 
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                                          expected_behavior=&quot;A greeting for Alice&quot;) 
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>except SemanticAssertionError as e: 
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    print(f&quot;Test failed: {e}&quot;) # Includes detailed reason why outputs don&#39;t match
+<h3 id="behavioralassertionerror">BehavioralAssertionError</h3>
+<p>Raised when the behavioral assertion fails:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>try:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    behavioral_assert.assert_behavioral_match(
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        actual=&quot;Hello Bob&quot;, 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        expected_behavior=&quot;A greeting for Alice&quot;
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    ) 
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>except BehavioralAssertionError as e:
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    print(f&quot;Test failed: {e}&quot;) # Includes detailed reason why outputs don&#39;t match
 </code></pre></div>
 <h3 id="llmconfigurationerror">LLMConfigurationError</h3>
 <p>Raised when configuration is invalid:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>try: 
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    semantic_assert = SemanticAssertion(provider=&quot;invalid_provider&quot;) 
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>except LLMConfigurationError as e: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>try:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    behavioral_assert = BehavioralAssertion(provider=&quot;invalid_provider&quot;) 
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>except LLMConfigurationError as e:
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    print(f&quot;Configuration error: {e}&quot;) # Details about invalid configuration
 </code></pre></div>
 <h3 id="llmconnectionerror">LLMConnectionError</h3>
 <p>Raised when LLM service fails:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>try: 
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    semantic_assert.assert_semantic_match(...) 
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>except LLMConnectionError as e: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>try:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    behavioral_assert.assert_behavioral_match(...) 
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>except LLMConnectionError as e:
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    print(f&quot;Service error: {e}&quot;) # Contains original provider error details
 </code></pre></div>
-<h3 id="invalidprompterror-not-currently-in-use">InvalidPromptError (NOT CURRENTLY IN USE)</h3>
-<p>Raised when prompt construction fails:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>try: semantic_assert.assert_semantic_match(actual=None, # Invalid input 
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                                            expected_behavior=&quot;Some behavior&quot;) 
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>except InvalidPromptError as e: 
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    print(f&quot;Prompt error: {e}&quot;)
-</code></pre></div>
 <h2 id="error-information">Error Information</h2>
-<p>All exceptions should provide:
-- Clear error message
-- Detailed reason (when available)
-- Additional context in details dictionary</p>
+<p>All exceptions provide:</p>
+<ul>
+<li>Clear error message</li>
+<li>Detailed reason (when available)</li>
+<li>Additional context in details dictionary</li>
+</ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>try: 
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    semantic_assert.assert_semantic_match(...) 
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>except LLMTestError as e: 
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    print(f&quot;Message: {e.message}&quot;) print(f&quot;Reason: {e.reason}&quot;) print(f&quot;Details: {e.details}&quot;)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>try:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    behavioral_assert.assert_behavioral_match(...) 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>except LLMAppTestError as e:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    print(f&quot;Message: {e.message}&quot;)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    print(f&quot;Reason: {e.reason}&quot;)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    print(f&quot;Details: {e.details}&quot;)
 </code></pre></div>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
-<li>Always catch specific exceptions rather than the base LLMTestError</li>
+<li>Always catch specific exceptions rather than the base LLMAppTestError</li>
 <li>Log the full error information for debugging</li>
 <li>Handle LLMConnectionError for retry logic</li>
 <li>Use error details for test reporting</li>
 </ol>
-<hr />
 <p>Note: All exceptions properly chain to their root cause, preserving the full error context.</p>
 <h2 id="navigation">Navigation</h2>
 <ul>
 <li><a href="../../">Back to Home</a></li>
 <li><a href="../../getting-started/installation/">Installation Guide</a></li>
 <li><a href="../../getting-started/quickstart/">Quick Start Guide</a></li>
-<li><a href="../semantic-assertion/">API Reference</a></li>
+<li><a href="../behavioral-assertion/">API Reference</a></li>
 </ul>
 
 

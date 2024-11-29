@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../api/semantic-assertion/" class="md-tabs__link">
+        <a href="../../api/behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -545,9 +545,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-semantic-testing" class="md-nav__link">
+  <a href="#understanding-behavioral-testing" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Semantic Testing
+      Understanding Behavioral Testing
     </span>
   </a>
   
@@ -563,9 +563,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-semantic-testing" class="md-nav__link">
+  <a href="#when-to-use-behavioral-testing" class="md-nav__link">
     <span class="md-ellipsis">
-      When to Use Semantic Testing
+      When to Use Behavioral Testing
     </span>
   </a>
   
@@ -590,9 +590,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
+  <a href="#cost-optimisation" class="md-nav__link">
     <span class="md-ellipsis">
-      Cost Optimization
+      Cost Optimisation
     </span>
   </a>
   
@@ -723,11 +723,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/semantic-assertion/" class="md-nav__link">
+      <a href="../../api/behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -856,11 +877,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_reliability/" class="md-nav__link">
+      <a href="../../reliability_testing/behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -877,11 +898,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+      <a href="../../reliability_testing/behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -925,9 +946,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-semantic-testing" class="md-nav__link">
+  <a href="#understanding-behavioral-testing" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Semantic Testing
+      Understanding Behavioral Testing
     </span>
   </a>
   
@@ -943,9 +964,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-semantic-testing" class="md-nav__link">
+  <a href="#when-to-use-behavioral-testing" class="md-nav__link">
     <span class="md-ellipsis">
-      When to Use Semantic Testing
+      When to Use Behavioral Testing
     </span>
   </a>
   
@@ -970,9 +991,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
+  <a href="#cost-optimisation" class="md-nav__link">
     <span class="md-ellipsis">
-      Cost Optimization
+      Cost Optimisation
     </span>
   </a>
   
@@ -1016,120 +1037,126 @@
 
 <p><a href="../../">← Back to Home</a></p>
 <h1 id="best-practices">Best Practices</h1>
-<p>Guidelines for effective semantic testing with llm_app_test.</p>
-<h2 id="understanding-semantic-testing">Understanding Semantic Testing</h2>
-<p>Semantic testing focuses on meaning rather than exact matches. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># THESE ARE SEMANTICALLY EQUIVALENT
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>actual_1 = &quot;Hello Alice, how are you today?&quot; 
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>actual_2 = &quot;Hi Alice! Hope you&#39;re doing well!&quot; 
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>expected = &quot;A polite greeting addressing Alice&quot;
+<p>Guidelines for effective behavioral testing with llm_app_test.</p>
+<h2 id="understanding-behavioral-testing">Understanding Behavioral Testing</h2>
+<p>When testing LLM applications, focus on describing what your application should do rather than how it should do it.</p>
+<p>Behavioral testing focuses on validating that outputs exhibit expected characteristics and behaviors in a declarative manner. For example:</p>
+<p>Expected Behavior: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;A response that provides a weather forecast including temperature and conditions&quot;
+</code></pre></div>
+<p>These responses would PASS:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>actual_1 = &quot;Today will be sunny with a high of 75°F&quot;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>actual_2 = &quot;Expect cloudy skies and temperatures around 24°C&quot;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>actual_3 = &quot;The forecast shows clear weather, reaching 298K&quot;
+</code></pre></div>
+<p>These would FAIL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>fail_1 = &quot;Have a nice day!&quot; (missing forecast elements)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>fail_2 = &quot;It&#39;s weather time!&quot; (missing required information)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>fail_3 = &quot;75 degrees&quot; (incomplete behavior)
 </code></pre></div>
 <h2 id="writing-good-expected-behaviors">Writing Good Expected Behaviors</h2>
 <ol>
-<li><strong>Be Specific</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Good
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>expected_behavior = &quot;&quot;&quot; A polite greeting that:
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                    Addresses the person by name (Alice)
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                    Asks about their wellbeing &quot;&quot;&quot;
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a># Bad - too vague
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>expected_behavior = &quot;A nice greeting&quot;
+<li>
+<p><strong>Be Specific</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Good
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>expected_behavior = &quot;&quot;&quot; A polite greeting that:
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                    Addresses the person by name (Alice)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    Asks about their wellbeing &quot;&quot;&quot;
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a># Bad - too vague
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>expected_behavior = &quot;A nice greeting&quot;
 </code></pre></div>
-<ol>
-<li><strong>Focus on Requirements</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Good
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>expected_behavior = &quot;&quot;&quot; An error message that:
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                    Explains the API key is invalid
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                    Provides steps to fix the issue &quot;&quot;&quot;
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, JUST USE REGULAR PYTEST
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>expected_behavior = &quot;Should say &#39;Invalid API key&#39;&quot;
+</li>
+<li>
+<p><strong>Focus on Behaviors</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Good
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>expected_behavior = &quot;&quot;&quot; An error message that:
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                    Explains the API key is invalid
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                    Provides steps to fix the issue &quot;&quot;&quot;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a># Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, USE REGULAR PYTEST
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>expected_behavior = &quot;Should say &#39;Invalid API key&#39;&quot;
 </code></pre></div>
-<h2 id="when-to-use-semantic-testing">When to Use Semantic Testing</h2>
-<p>Good Use Cases:
-- Testing LLM outputs
-- Validating natural language responses
-- Testing content generation</p>
-<p>Not Suitable For:
-- Exact string matching
-- Numerical comparisons
-- Binary conditions</p>
+</li>
+</ol>
+<h2 id="when-to-use-behavioral-testing">When to Use Behavioral Testing</h2>
+<p>Good Use Cases:</p>
+<ul>
+<li>Testing LLM outputs</li>
+<li>Validating natural language responses</li>
+<li>Testing content generation</li>
+<li>Checking response behaviors</li>
+</ul>
+<p>Not Suitable For:</p>
+<ul>
+<li>Exact string matching</li>
+<li>Numerical comparisons</li>
+<li>Binary conditions</li>
+</ul>
 <h2 id="test-structure">Test Structure</h2>
 <ol>
-<li><strong>Keep Tests Focused</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Good
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>def test_greeting_format(): &quot;&quot;&quot;Test greeting format only&quot;&quot;&quot;
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>def test_greeting_personalization(): &quot;&quot;&quot;Test name usage separately&quot;&quot;&quot;
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Bad - testing too much
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>def test_everything_about_greeting(): &quot;&quot;&quot;Testing multiple aspects at once&quot;&quot;&quot;
+<li>
+<p><strong>Keep Tests Focused</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Good
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>def test_greeting_behavior(): &quot;&quot;&quot;Test greeting behavior only&quot;&quot;&quot;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>def test_personalization_behavior(): &quot;&quot;&quot;Test name usage separately&quot;&quot;&quot;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># Bad - testing too much
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>def test_everything_about_greeting(): &quot;&quot;&quot;Testing multiple aspects at once&quot;&quot;&quot;
 </code></pre></div>
-<ol>
-<li><strong>Clear Test Names</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Good
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>def test_error_message_includes_solution_steps():
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a># Bad
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>def test_error():
+</li>
+<li>
+<p><strong>Clear Test Names</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Good
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>def test_error_message_includes_solution_steps():
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># Bad
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>def test_error():
 </code></pre></div>
+</li>
+</ol>
 <h2 id="common-pitfalls">Common Pitfalls</h2>
 <ol>
-<li><strong>Over-Specific Expected Behaviors</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Too specific
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>expected = &quot;Must say hello and use exactly these words&quot;
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># Better
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>expected = &quot;Should be a greeting in conversational English&quot;
+<li>
+<p><strong>Over-Specific Expected Behaviors</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Too specific
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>expected = &quot;Must say hello and use exactly these words&quot;
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># Better
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>expected = &quot;Should be a greeting in conversational English&quot;
 </code></pre></div>
-<ol>
-<li><strong>Under-Specific Expected Behaviors</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Too vague
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>expected = &quot;Should be good&quot;
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a># Better
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>expected = &quot;&quot;&quot; Response should:
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>           Answer the user&#39;s question
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>           Use professional language
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>           Stay on topic &quot;&quot;&quot;
+</li>
+<li>
+<p><strong>Under-Specific Expected Behaviors</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># Too vague
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>expected = &quot;Should be good&quot;
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a># Better
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>expected = &quot;&quot;&quot; Response should:
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>           Answer the user&#39;s question
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>           Use professional language
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>           Stay on topic &quot;&quot;&quot;
 </code></pre></div>
-<h2 id="cost-optimization">Cost Optimization</h2>
+</li>
+</ol>
+<h2 id="cost-optimisation">Cost Optimisation</h2>
 <ol>
 <li>Use specific, focused tests</li>
-<li>Group related semantic tests</li>
+<li>Group related behavioral tests</li>
 <li>Consider test importance vs cost</li>
 <li>Use appropriate model tiers</li>
 </ol>
 <hr />
 <h2 id="closing-words">Closing words</h2>
-<p>In general, this is a complete different type of testing designed to mimic a human testing your LLM application. 
-You might need to use your brain a little bit to figure out to instruct your assistant on what to check.</p>
+<p>This testing approach is designed to mimic how a human would validate your LLM application's behavior. 
+Think about what behaviors you want to verify and express them clearly in natural language.</p>
 <hr />
 <h2 id="navigation">Navigation</h2>
 <ul>
 <li><a href="../../">Back to Home</a></li>
 <li><a href="../../getting-started/installation/">Installation Guide</a></li>
 <li><a href="../../getting-started/quickstart/">Quick Start Guide</a></li>
-<li><a href="../../api/semantic-assertion/">API Reference</a></li>
+<li><a href="../../api/behavioral-assertion/">API Reference</a></li>
 </ul>
 
 

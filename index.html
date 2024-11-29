@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/semantic-assertion/" class="md-tabs__link">
+        <a href="api/behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -385,6 +385,24 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#the-cool-stuff" class="md-nav__link">
@@ -916,11 +934,32 @@
   
   
     <li class="md-nav__item">
-      <a href="api/semantic-assertion/" class="md-nav__link">
+      <a href="api/behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -1049,11 +1088,11 @@
   
   
     <li class="md-nav__item">
-      <a href="reliability_testing/semantic_reliability/" class="md-nav__link">
+      <a href="reliability_testing/behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -1070,11 +1109,11 @@
   
   
     <li class="md-nav__item">
-      <a href="reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+      <a href="reliability_testing/behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -1116,6 +1155,24 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#the-cool-stuff" class="md-nav__link">
@@ -1412,9 +1469,24 @@
 <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
 <img alt="Python" src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue" />
 <a href="https://Shredmetal.github.io/llmtest/"><img alt="Documentation" src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" /></a></p>
-<p>A unit testing framework for applications using large language models (LLMs). It leverages LLMs to validate outputs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for behavioural testing of applications containing an LLM (not for testing LLMs themselves). Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.</p>
+<h2 id="quick-start">Quick Start</h2>
+<ul>
+<li><a href="getting-started/installation/">Installation</a></li>
+<li><a href="getting-started/quickstart/">Quick Start Guide</a></li>
+<li><a href="guides/ci-cd/">CI/CD Integration</a></li>
+<li><a href="api/behavioral-assertion/">API Reference</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>A behavioral testing framework for applications using large language models (LLMs). It leverages LLMs to validate the behavior of applications containing LLMs against natural language test specifications (reliability validated through 30,000 test executions), providing a powerful tool for unit/integration testing of applications containing an LLM (not for testing LLMs themselves). </p>
+<p>Please use a proper data science tool to evaluate models, this is first and foremost an engineering tool for application testing.</p>
+<p>We made this because we were unsatisfied with existing approaches:</p>
+<ol>
+<li>String/regex matching and embeddings are too brittle - this is obvious for the former. Embeddings allow slightly more flexibility, but you still need to roughly guess what your LLM-powered app is going to say, and set things like thresholds while having an understanding of vector spaces.</li>
+<li>Academic metrics are of little help to API consumers like us with no ability to change the model. However, we still believe this tool is useful for the software engineering side of things. Please refer to the <a href="#testing-philosophy">Testing Philosophy</a> section below on when to send things back to the data scientists.</li>
+<li>We just wanted to define a behavior and assert on it.</li>
+</ol>
 <p>⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. </p>
-<p>We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the <a href="https://shredmetal.github.io/llmtest/reliability_testing/format_compliance/">Format Compliance Testing page</a>, the <a href="https://shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/">Semantic Reliability Testing page</a>, and the <a href="https://shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/">Semantic Boundary Analysis page</a>.</p>
+<p>We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the <a href="reliability_testing/format_compliance/">Format Compliance Testing page</a>, the <a href="reliability_testing/behavioral_testing_reliability/">Behavioral Testing Reliability testing page</a>, and the <a href="reliability_testing/behavior_at_semantic_boundaries/">Behavioral Testing Non-determinism At Semantic Boundary analysis page</a>.</p>
 <h2 id="the-cool-stuff">The Cool Stuff:</h2>
 <p>✨ Test your LLM apps in minutes, not hours</p>
 <p>🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)</p>
@@ -1422,8 +1494,8 @@
 <p>🔧 No infrastructure needed (Unless if you want to inject a custom LLM, please refer to the configuration page of the documentation for details)</p>
 <h2 id="library-reliability-testing">Library Reliability Testing</h2>
 <p><a href="reliability_testing/format_compliance/">Format Compliance Reliability Testing</a></p>
-<p><a href="reliability_testing/semantic_reliability/">Semantic Reliability Testing</a></p>
-<p><a href="reliability_testing/semantic_boundary_analysis/">Semantic Boundary Discovery and Analysis</a></p>
+<p><a href="reliability_testing/behavioral_testing_reliability/">Behavioral Testing Reliability</a></p>
+<p><a href="reliability_testing/behavior_at_semantic_boundaries/">Behavioral Testing Non-determinism At Semantic Boundary - Discovery and Analysis</a></p>
 <h2 id="testing-philosophy">Testing Philosophy</h2>
 <p>When integrating LLMs into your application, treat them as you would any closed-source third-party library:</p>
 <ol>
@@ -1440,7 +1512,7 @@
 <li>Validate inputs and outputs</li>
 <li>Ensure proper integration</li>
 <li>Monitor system performance</li>
-<li>Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps to seek assistance with the <code>expected_behavior</code> prompt in the <code>assert_semantic_match</code> function)</li>
+<li>Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps to seek assistance with the <code>expected_behavior</code> prompt in the <code>assert_behavioral_match</code> function)</li>
 </ul>
 <h4 id="data-science-teams-role">Data Science Team's Role</h4>
 <ul>
@@ -1476,7 +1548,7 @@ Similarly, llm_app_test helps you test your application's use of LLMs.</p>
 <ul>
 <li>Tests LLM applications (not the LLMs themselves)</li>
 <li>Validates system message + prompt template outputs</li>
-<li>Ensures semantic equivalence of responses</li>
+<li>Ensures expected behavioral patterns in responses</li>
 <li>Tests the parts YOU control in your LLM application</li>
 </ul>
 <h3 id="what-llm_app_test-doesnt-do">What llm_app_test Doesn't Do</h3>
@@ -1506,7 +1578,7 @@ Similarly, llm_app_test helps you test your application's use of LLMs.</p>
 <li><a href="getting-started/quickstart/">Quick Start</a></li>
 <li><a href="guides/ci-cd/">CI/CD Integration</a></li>
 <li><a href="guides/best-practices/">Best Practices</a></li>
-<li><a href="api/semantic-assertion/">API Reference</a></li>
+<li><a href="api/behavioral-assertion/">API Reference</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p><a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a></p>
@@ -1527,18 +1599,18 @@ Similarly, llm_app_test helps you test your application's use of LLMs.</p>
 </ul>
 <h2 id="due-to-the-number-of-downloads-i-am-seeing-on-pypistatsorg-i-am-including-these-instructions-in-case-a-beta-update-breaks-something-on-your-end">Due to the number of downloads I am seeing on pypistats.org, I am including these instructions in case a beta update breaks something on your end:</h2>
 <h3 id="emergency-rollback-instructions">Emergency Rollback Instructions</h3>
-<p>If you experience issues with version 0.1.0b4, you can roll back to the previous stable version (0.1.0b3.post3) using one of these methods:</p>
+<p>If you experience issues with version 0.2.0b1, you can roll back to the previous stable version (0.1.0b4) using one of these methods:</p>
 <h4 id="method-1-direct-installation-of-previous-version">Method 1: Direct Installation of Previous Version</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip uninstall llm-app-test 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip install llm-app-test==0.1.0b3.post3
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip install llm-app-test==0.1.0b4
 </code></pre></div>
 <h4 id="method-2-force-reinstall-if-method-1-fails">Method 2: Force Reinstall (if Method 1 fails)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install --force-reinstall llm-app-test==0.1.0b3.post3
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install --force-reinstall llm-app-test==0.1.0b4
 </code></pre></div>
 <h4 id="verification">Verification</h4>
 <p>After rolling back, verify the installation:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>import llm_app_test 
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>print(llm_app_test.version) # Should show 0.1.0b3.post3
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>print(llm_app_test.version) # Should show 0.1.0b4
 </code></pre></div></p>
 <h2 id="important-note-about-rate-limits-if-running-large-numbers-of-tests">⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:</h2>
 <h3 id="anthropic-rate-limits">Anthropic Rate limits:</h3>

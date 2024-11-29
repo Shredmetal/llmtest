@@ -6,14 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
         <link rel="canonical" href="https://Shredmetal.github.io/llmtest/api/configuration/">
       
       
-        <link rel="prev" href="../semantic-assertion/">
+        <link rel="prev" href="../custom-prompt-configuration/">
       
       
         <link rel="next" href="../error-handling/">
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../semantic-assertion/" class="md-tabs__link">
+        <a href="../behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -611,11 +611,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../semantic-assertion/" class="md-nav__link">
+      <a href="../behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -904,11 +925,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_reliability/" class="md-nav__link">
+      <a href="../../reliability_testing/behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -925,11 +946,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+      <a href="../../reliability_testing/behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -1112,40 +1133,42 @@
 
 <p><a href="../../">← Back to Home</a></p>
 <h1 id="configuration">Configuration</h1>
-<p>llm_app_test provides flexible configuration through environment variables and direct parameters.</p>
+<p>llm-app-test provides flexible configuration through environment variables and direct parameters.</p>
 <h2 id="environment-variables">Environment Variables</h2>
 <h3 id="provider-selection">Provider Selection</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLM_PROVIDER=openai # or &#39;anthropic&#39;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLM_PROVIDER=openai # or &#39;anthropic&#39;, default is openai
 </code></pre></div>
 <h3 id="api-keys">API Keys</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># For OpenAI (default provider)
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>OPENAI_API_KEY=your-openai-key
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a># For Anthropic
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>ANTHROPIC_API_KEY=your-anthropic-key
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>OPENAI_API_KEY=your-openai-key
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># For Anthropic 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ANTHROPIC_API_KEY=your-anthropic-key
 </code></pre></div>
 <h3 id="optional-settings">Optional Settings</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>LLM_MODEL=gpt-4o # Model name - default for OpenAI: gpt-4o, default for anthropic: claude-3-5-sonnet-latest
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>LLM_TEMPERATURE=0.0 # Response randomness (0.0-1.0) 
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>LLM_MAX_TOKENS=4096 # Maximum response length 
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>LLM_MAX_RETRIES=2 # API retry attempts
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>LLM_TEMPERATURE=0.0 # Response randomness (0.0-1.0), default is 0.0
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>LLM_MAX_TOKENS=4096 # Maximum response length, default is 4096
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>LLM_MAX_RETRIES=2 # API retry attempts, default is 2
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>LLM_TIMEOUT=60.0 # API timeout in seconds, default is 60.0
 </code></pre></div>
 <h2 id="direct-configuration">Direct Configuration</h2>
 <p>You can also configure llm_app_test programmatically:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>asserter = SemanticAssertion(api_key=&quot;your-api-key&quot;, # Strongly advised against, use env vars 
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                             provider=&quot;openai&quot;, # or &#39;anthropic&#39; 
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                             model=&quot;gpt-4o&quot;, # See Supported Models 
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                             temperature=0.0, # Default: 0.0 
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>                             max_tokens=4096, # Default: 4096 
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                             max_retries=2 # Default: 2 
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                             )
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>asserter = BehavioralAssertion(
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    api_key=&quot;your-api-key&quot;, # Strongly advised against, use env vars
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    provider=&quot;openai&quot;, # or &#39;anthropic&#39;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    model=&quot;gpt-4o&quot;, # See Supported Models
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    temperature=0.0, # Default: 0.0
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    max_tokens=4096, # Default: 4096
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    max_retries=2, # Default: 2
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    timeout=60.0 # Default: 60.0
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>)
 </code></pre></div>
+An optional parameter for BehavioralAssertion is <code>custom_prompts</code>, see <a href="../custom-prompt-configuration/">this page</a> for details.</p>
 <h2 id="supported-and-recommended-models">Supported (and recommended) Models</h2>
-<p>Model support is restricted due to the complex semantic reasoning required for accurate testing. We've found that only the most advanced models can reliably handle semantic comparison tasks.</p>
+<p>Model support is restricted due to the complex behavioral reasoning required for accurate testing. We've found that only the most advanced models can reliably handle behavioral comparison tasks.</p>
 <h3 id="openai">OpenAI</h3>
 <ul>
 <li>gpt-4o</li>
@@ -1157,24 +1180,24 @@
 <li>claude-3-opus-latest (EXPENSIVE!!!)</li>
 </ul>
 <h2 id="custom-llm-configuration-advanced-users-only">Custom LLM Configuration (Advanced Users Only)</h2>
-<p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's semantic reasoning capabilities. Smaller or less capable models will likely fail at the semantic testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
+<p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's behavioral reasoning capabilities. Smaller or less capable models will likely fail at the behavioral testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Advanced usage - Only for thoroughly tested models
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>from langchain_core.language_models import BaseLanguageModel
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>custom_llm: BaseLanguageModel = your_custom_llm
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>asserter = SemanticAssertion(llm=custom_llm)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>asserter = BehavioralAssertion(llm=custom_llm)
 </code></pre></div>
 <p>If you pass in a custom llm, it will disable <strong>ALL</strong> other LLM configuration options, and you have to configure that LLM yourself.</p>
 <h2 id="configuration-priority">Configuration Priority</h2>
 <p>Configuration values are resolved in this order:</p>
 <ol>
-<li>Custom LLM (if provided, disables <strong>ALL</strong> other LLM settings and uses the settings of the Langchain <code>BaseLanguageModel</code> object that you have passed)</li>
+<li>Custom LLM (if provided, disables <strong>ALL</strong> other LLM settings and uses the settings of the Langchain BaseLanguageModel object that you have passed)</li>
 <li>Directly passed parameters</li>
 <li>Environment variables</li>
 <li>Default values</li>
 </ol>
-<p>Note: if a custom LLM is not passed, llm_app_test validates all configuration values at startup to prevent runtime errors.</p>
+<p>Note: if a custom LLM is not passed, llm-app-test validates all configuration values at startup to prevent runtime errors.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
 <li>Use environment variables for API keys</li>
@@ -1189,7 +1212,7 @@
 <li><a href="../../">Back to Home</a></li>
 <li><a href="../../getting-started/installation/">Installation Guide</a></li>
 <li><a href="../../getting-started/quickstart/">Quick Start Guide</a></li>
-<li><a href="../semantic-assertion/">API Reference</a></li>
+<li><a href="../behavioral-assertion/">API Reference</a></li>
 </ul>
 
 

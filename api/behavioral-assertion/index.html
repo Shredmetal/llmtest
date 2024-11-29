@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
-        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/api/semantic-assertion/">
+        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/api/behavioral-assertion/">
       
       
         <link rel="prev" href="../../guides/testing-patterns/">
       
       
-        <link rel="next" href="../configuration/">
+        <link rel="next" href="../custom-prompt-configuration/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>SemanticAssertion - llm_app_test Documentation</title>
+        <title>BehavioralAssertion - llm_app_test Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#semanticassertion" class="md-skip">
+        <a href="#behavioralassertion" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SemanticAssertion
+              BehavioralAssertion
             
           </span>
         </div>
@@ -624,7 +624,7 @@
           
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
   </span>
   
 
@@ -635,7 +635,7 @@
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
   </span>
   
 
@@ -691,13 +691,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assert_semantic_match" class="md-nav__link">
+  <a href="#assert_behavioral_match" class="md-nav__link">
     <span class="md-ellipsis">
-      assert_semantic_match
+      assert_behavioral_match
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="assert_semantic_match">
+    <nav class="md-nav" aria-label="assert_behavioral_match">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -774,6 +774,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -898,11 +919,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_reliability/" class="md-nav__link">
+      <a href="../../reliability_testing/behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -919,11 +940,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+      <a href="../../reliability_testing/behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -1001,13 +1022,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assert_semantic_match" class="md-nav__link">
+  <a href="#assert_behavioral_match" class="md-nav__link">
     <span class="md-ellipsis">
-      assert_semantic_match
+      assert_behavioral_match
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="assert_semantic_match">
+    <nav class="md-nav" aria-label="assert_behavioral_match">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1099,16 +1120,18 @@
 
 
 <p><a href="../../">← Back to Home</a></p>
-<h1 id="semanticassertion">SemanticAssertion</h1>
-<p>Core class for semantic testing of LLM applications.</p>
+<h1 id="behavioralassertion">BehavioralAssertion</h1>
+<p>Core class for behavioral testing of LLM applications.</p>
 <h2 id="constructor">Constructor</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SemanticAssertion(api_key: Optional[str] = None, 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                  llm: Optional[BaseLanguageModel] = None, 
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                  provider: Optional[Union[str, LLMProvider]] = None, 
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                  model: Optional[str] = None, 
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                  temperature: Optional[float] = None, 
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                  max_tokens: Optional[int] = None, 
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                  max_retries: Optional[int] = None )
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>BehavioralAssertion(api_key: Optional[str] = None, 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                    llm: Optional[BaseLanguageModel] = None, 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                    provider: Optional[Union[str, LLMProvider]] = None, 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                    model: Optional[str] = None, 
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                    temperature: Optional[float] = None, 
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                    max_tokens: Optional[int] = None, 
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                    max_retries: Optional[int] = None,
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    timeout: Optional[float] = None,
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    custom_prompts: Optional[AsserterPromptConfigurator] = None)
 </code></pre></div>
 <h3 id="parameters">Parameters</h3>
 <p>All parameters are optional (except for API key) and will use environment variables or defaults if not specified:</p>
@@ -1116,9 +1139,9 @@
 <li>
 <p><strong>api_key</strong>: API key for the LLM provider</p>
 <ul>
-<li>Environment: <code>OPENAI_API_KEY</code> or <code>ANTHROPIC_API_KEY</code></li>
-<li>Default: None (must be provided via environment or parameter)</li>
-<li>If using default provider: use <code>OPENAI_API_KEY</code> since default provider is <code>openai</code></li>
+<li>Environment: OPENAI_API_KEY or ANTHROPIC_API_KEY</li>
+<li>Default: None (must be provided via environment or parameter unless using custom LLM, see <code>llm</code> parameter)</li>
+<li>If using default provider: use OPENAI_API_KEY since default provider is openai</li>
 </ul>
 </li>
 <li>
@@ -1130,51 +1153,72 @@
 <li>
 <p><strong>provider</strong>: LLM provider ('openai' or 'anthropic')</p>
 <ul>
-<li>Environment: <code>LLM_PROVIDER</code></li>
+<li>Environment: LLM_PROVIDER</li>
 <li>Default: 'openai'</li>
 </ul>
 </li>
 <li>
 <p><strong>model</strong>: Model name to use</p>
-</li>
-<li>
-<p>Environment: <code>LLM_MODEL</code></p>
 <ul>
+<li>Environment: LLM_MODEL<ul>
 <li>Default: 'gpt-4o' for OpenAI, 'claude-3-5-sonnet-latest' for Anthropic</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>temperature</strong>: Temperature setting for LLM responses</p>
-</li>
+<ul>
 <li>
-<p>Environment: <code>LLM_TEMPERATURE</code></p>
+<p>Environment: LLM_TEMPERATURE</p>
 <ul>
 <li>Default: 0.0</li>
 <li>Range: 0.0 to 1.0</li>
 </ul>
 </li>
-<li>
-<p><strong>max_tokens</strong>: Maximum tokens for response</p>
+</ul>
 </li>
 <li>
-<p>Environment: <code>LLM_MAX_TOKENS</code></p>
+<p><strong>max_tokens</strong>: Maximum tokens for response</p>
 <ul>
+<li>Environment: LLM_MAX_TOKENS<ul>
 <li>Default: 4096</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p><strong>max_retries</strong>: Maximum number of API call retries</p>
-</li>
-<li>Environment: <code>LLM_MAX_RETRIES</code><ul>
+<ul>
+<li>Environment: LLM_MAX_RETRIES<ul>
 <li>Default: 2</li>
 </ul>
 </li>
 </ul>
+</li>
+<li>
+<p><strong>timeout</strong>: Timeout for API calls in seconds</p>
+<ul>
+<li>Environment: LLM_TIMEOUT<ul>
+<li>Default: 60.0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>custom_prompts</strong>: Custom prompts for asserter</p>
+<ul>
+<li>Default: None (uses default AsserterPromptConfigurator)</li>
+<li>Intentional added friction for custom prompts</li>
+<li>Please refer to <a href="../custom-prompt-configuration/">this documentation</a> on how to use it.</li>
+</ul>
+</li>
+</ul>
 <h2 id="methods">Methods</h2>
-<h3 id="assert_semantic_match">assert_semantic_match</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>def assert_semantic_match(actual: str, expected_behavior: str ) -&gt; None
+<h3 id="assert_behavioral_match">assert_behavioral_match</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>def assert_behavioral_match(actual: str, expected_behavior: str ) -&gt; None
 </code></pre></div>
-<p>Asserts that actual output semantically matches expected behavior.</p>
+<p>Asserts that actual output exhibits the expected behavior.</p>
 <h4 id="parameters_1">Parameters</h4>
 <ul>
 <li><strong>actual</strong>: The actual output to test</li>
@@ -1182,22 +1226,26 @@
 </ul>
 <h4 id="raises">Raises</h4>
 <ul>
-<li><strong>SemanticAssertionError</strong>: If outputs don't match semantically</li>
+<li><strong>BehavioralAssertionError</strong>: If output doesn't exhibit expected behavior</li>
 <li><strong>LLMConnectionError</strong>: If LLM service fails</li>
 <li><strong>LLMConfigurationError</strong>: If configuration is invalid</li>
 <li><strong>TypeError</strong>: If inputs are None</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>asserter = SemanticAssertion() # Uses environment variables 
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>asserter.assert_semantic_match(actual=&quot;Hello Alice, how are you?&quot;, # In practice, use the output from your LLM application
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                               expected_behavior=&quot;A greeting addressing Alice&quot; 
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                               )
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>asserter = BehavioralAssertion() # Uses environment variables 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>asserter.assert_behavioral_match(
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    actual=&quot;Hello Alice, how are you?&quot;, # In practice, use the output from your LLM application
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    expected_behavior=&quot;A greeting addressing Alice&quot; 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>)
 </code></pre></div>
 <h3 id="custom-configuration">Custom Configuration</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>asserter = SemanticAssertion(provider=&quot;anthropic&quot;, 
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                             model=&quot;claude-3-5-sonnet-latest&quot;, # Look I can&#39;t stop you from burning a hole in your wallet but please don&#39;t use Claude 3 Opus. 
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                             temperature=0.1 )
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>asserter = BehavioralAssertion(
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    provider=&quot;anthropic&quot;, 
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    model=&quot;claude-3-5-sonnet-latest&quot;, # Look I can&#39;t stop you from burning a hole in your wallet but please don&#39;t use Claude 3 Opus. 
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    temperature=0.1,
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    timeout=15.0
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>)
 </code></pre></div>
 <h2 id="navigation">Navigation</h2>
 <ul>

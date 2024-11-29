@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
-        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/reliability_testing/semantic_reliability/">
+        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/reliability_testing/behavioral_testing_reliability/">
       
       
         <link rel="prev" href="../format_compliance/">
       
       
-        <link rel="next" href="../semantic_boundary_analysis/">
+        <link rel="next" href="../behavior_at_semantic_boundaries/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Semantic Reliability - llm_app_test Documentation</title>
+        <title>Behavioral Matching Reliability - llm_app_test Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#semantic-reliability-real-world-industry-specific-testing" class="md-skip">
+        <a href="#behavioral-testing-reliability-real-world-industry-specific-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Semantic Reliability
+              Behavioral Matching Reliability
             
           </span>
         </div>
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../api/semantic-assertion/" class="md-tabs__link">
+        <a href="../../api/behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -608,11 +608,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/semantic-assertion/" class="md-nav__link">
+      <a href="../../api/behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -757,7 +778,7 @@
           
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -768,7 +789,7 @@
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -937,11 +958,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../semantic_boundary_analysis/" class="md-nav__link">
+      <a href="../behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -1134,12 +1155,14 @@
   
 
 
-<h1 id="semantic-reliability-real-world-industry-specific-testing">Semantic Reliability - Real-World Industry Specific Testing</h1>
+<h1 id="behavioral-testing-reliability-real-world-industry-specific-testing">Behavioral Testing Reliability - Real-World Industry Specific Testing</h1>
+<p>⚠️ <strong>Important Notice About Semantic Testing</strong></p>
+<p>This documentation refers to tests originally named semantic assertion. We have since deprecated the name <code>semantic</code> in favor of behavioral testing, as we found that it more accurately describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.</p>
 <h2 id="overview">Overview</h2>
 <p>This page documents our extensive testing of llm-app-test against real-world industry use cases. We designed this test suite to validate the library's reliability with the kind of content that LLM applications would probably generate in production environments.</p>
-<p>The first test case in this suite initially exhibited non-determinism due to a legitimate semantic boundary. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyse the semantic nuances to identify the exact boundary condition. This analysis and its implications are documented in detail <a href="../semantic_boundary_analysis/">here</a>.</p>
-<p>The remaining 9 test cases maintained 100% consistency across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved 100% pass rate.</p>
-<p>The relevant logs for the testing covered by this page can be found <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">here</a>.</p>
+<p>The first test case in this suite initially exhibited behavioral non-determinism. Upon investigation, this was caused by a legitimate semantic boundary in the test case - a situation where the expected and actual outputs sit at the edge of what could be considered equivalent behaviors. As the library's author (a lawyer by training with three years of litigation experience), I had to carefully analyze the semantic boundaries to identify the exact conditions causing the non-determinism. This analysis and its implications are documented in detail <a href="../behavior_at_semantic_boundaries/">here</a>.</p>
+<p>The remaining 9 test cases maintained 100% pass rate across 1,700 runs. For simplicity and clarity in this documentation, we focus on the 1,200 runs where all 10 cases in the suite achieved a 100% pass rate.</p>
+<p>The relevant logs for the testing covered by this page can be found <a href="https://github.com/Shredmetal/llmtest/main/reliability_testing">here</a>.</p>
 <h2 id="test-suite-design">Test Suite Design</h2>
 <p>The test suite covers 10 key industries where LLMs are likely already seeing active use:</p>
 <ol>
@@ -1166,7 +1189,7 @@
 <ul>
 <li>See <a href="#test-configuration">Test Configuration</a> for setup details</li>
 <li>See <a href="#test-results">Test Results</a> for detailed analysis</li>
-<li>Full test logs available in <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing">reliability_testing</a></li>
+<li>Full test logs available in <a href="https://github.com/Shredmetal/llmtest/reliability_testing">reliability_testing</a></li>
 </ul>
 <h2 id="test-characteristics">Test Characteristics</h2>
 <p>Each test was designed to reflect:</p>
@@ -1208,7 +1231,7 @@
 <li>Per Run (10 tests): US$0.014</li>
 <li>Per 100 Runs: US$1.40</li>
 </ul>
-<p>This demonstrates that comprehensive semantic testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.</p>
+<p>This demonstrates that comprehensive behavioral testing remains economically viable even at scale. The cost per test is minimal considering the confidence gained in library reliability.</p>
 <p>Key Cost Insights:</p>
 <ul>
 <li>Linear cost scaling with test volume</li>
@@ -1222,9 +1245,9 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>LLM_TEMPERATURE=0.0 
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>LLM_MAX_TOKENS=4096 
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LLM_MAX_RETRIES=2 
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch
 </code></pre></div>
-The <code>semantic_assert_match</code> function also saw slight modification:</p>
+The <code>semantic_assert_match</code> function (<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>) also saw slight modification:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        if result.startswith(&quot;FAIL&quot;):
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            raise SemanticAssertionError(
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                &quot;Semantic assertion failed&quot;,
@@ -1240,7 +1263,7 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                f&quot;Format Non-compliance Detected {result}&quot;
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            )
 </code></pre></div>
-<p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>) were:</p>
+<p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>(<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>)) were:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Important: You can only respond with EXACTLY: 
@@ -1260,6 +1283,10 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;
 </code></pre></div>
 <h2 id="test-suite-code">Test Suite Code</h2>
+<p>⚠️ <strong>Note About Test Code</strong>: 
+The test suite shown uses the deprecated <code>SemanticAssertion</code> class and <code>assert_semantic_match</code> method. 
+These tests remain valid as the underlying implementation is identical in the new <code>BehavioralAssertion</code> class 
+and <code>assert_behavioral_match</code> method. The only change is in terminology to better reflect the testing approach.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>import pytest
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>from llm_app_test.exceptions.test_exceptions import (

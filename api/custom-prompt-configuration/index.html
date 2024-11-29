@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/getting-started/installation/">
+        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/api/custom-prompt-configuration/">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../behavioral-assertion/">
       
       
-        <link rel="next" href="../quickstart/">
+        <link rel="next" href="../configuration/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Installation - llm_app_test Documentation</title>
+        <title>Custom Prompt Configuration - llm_app_test Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#custom-prompt-configuration-understanding-the-options" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Custom Prompt Configuration
             
           </span>
         </div>
@@ -220,13 +220,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   Getting Started
@@ -258,11 +256,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../api/behavioral-assertion/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -360,30 +360,27 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -394,7 +391,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Getting Started
@@ -405,30 +402,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Installation
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -437,62 +414,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-llm_app_test" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing llm_app_test
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next Steps
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -505,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -642,27 +563,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -673,7 +597,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -687,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/behavioral-assertion/" class="md-nav__link">
+      <a href="../behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -705,10 +629,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../api/custom-prompt-configuration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -717,6 +661,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Prompts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-custom-prompts-require-careful-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Custom Prompts Require Careful Consideration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-allow-custom-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Allow Custom Prompts?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-you-must-use-custom-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      If You Must Use Custom Prompts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-problematic-custom-prompt-and-custom-prompt-example-bad-example-but-correct-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Problematic Custom Prompt and Custom Prompt Example (Bad Example but Correct Syntax)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -729,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -750,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/error-handling/" class="md-nav__link">
+      <a href="../error-handling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -910,36 +937,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#default-prompts" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      Default Prompts
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#installing-llm_app_test" class="md-nav__link">
+  <a href="#why-custom-prompts-require-careful-consideration" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing llm_app_test
+      Why Custom Prompts Require Careful Consideration
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-installation" class="md-nav__link">
+  <a href="#why-allow-custom-prompts" class="md-nav__link">
     <span class="md-ellipsis">
-      Development Installation
+      Why Allow Custom Prompts?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#if-you-must-use-custom-prompts" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      If You Must Use Custom Prompts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-problematic-custom-prompt-and-custom-prompt-example-bad-example-but-correct-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of Problematic Custom Prompt and Custom Prompt Example (Bad Example but Correct Syntax)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
     </span>
   </a>
   
@@ -964,33 +1018,126 @@
 
 
 <p><a href="../../">← Back to Home</a></p>
-<h1 id="installation">Installation</h1>
-<h2 id="requirements">Requirements</h2>
+<h1 id="custom-prompt-configuration-understanding-the-options">Custom Prompt Configuration - Understanding the Options</h1>
+<p>⚠️ <strong>Important Notice</strong>
+Custom prompt configuration is an advanced feature that can affect the reliability of your testing framework if not used carefully. We strongly recommend using the default prompts unless you have a specific, well-understood need for customization.</p>
+<h2 id="default-prompts">Default Prompts</h2>
+<p>The library uses these carefully designed default prompts that have been tested across thousands (&gt;30,000) of iterations:</p>
+<p>System Prompt:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You are a testing system. Your job is to determine if an actual output matches the expected behavior.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Important: You can only respond with EXACTLY: 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>1. &#39;PASS&#39; if it matches, or 
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Be strict but consider semantic meaning rather than exact wording.
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Human Prompt:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Expected Behavior: {expected_behavior}
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Actual Output: {actual}
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.
+</code></pre></div>
+<h2 id="why-custom-prompts-require-careful-consideration">Why Custom Prompts Require Careful Consideration</h2>
+<ol>
+<li>
+<p>Format Reliability:</p>
 <ul>
-<li>Python 3.10 or higher</li>
-<li>pip (package installer for Python)</li>
+<li>Custom prompts might not enforce the strict PASS/FAIL format</li>
+<li>This leads to runtime errors when the LLM returns unexpected formats</li>
+<li>The default prompts are specifically designed to maintain format compliance</li>
+<li>Format compliance is critical - any deviation can cause immediate test failure</li>
 </ul>
-<h2 id="installing-llm_app_test">Installing llm_app_test</h2>
-<p>Install from PyPI:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install llm-app-test
-</code></pre></div>
-<h2 id="development-installation">Development Installation</h2>
-<p>If you want to contribute to llm_app_test, install with development dependencies:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Clone the repository
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git clone https://github.com/Shredmetal/llmtest.git
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a># Change to project directory
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>cd llm_app_test
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># Install with development dependencies
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>pip install -e &quot;.[dev]&quot;
-</code></pre></div>
-<h2 id="next-steps">Next Steps</h2>
+</li>
+<li>
+<p>Testing Consistency:</p>
 <ul>
-<li><a href="../quickstart/">Quick Start Guide</a> - Learn how to use llm_app_test</li>
+<li>Custom prompts can change how "matching" is interpreted</li>
+<li>This leads to inconsistent test results</li>
+<li>The default prompts maintain reliable behavioral testing</li>
+<li>Behavioral testing requires consistent interpretation of "matching"</li>
+</ul>
+</li>
+<li>
+<p>Non-determinism:</p>
+<ul>
+<li>Custom prompts haven't been tested at scale</li>
+<li>May introduce additional non-deterministic behavior</li>
+<li>Default prompts are validated across thousands of tests</li>
+</ul>
+</li>
+</ol>
+<h2 id="why-allow-custom-prompts">Why Allow Custom Prompts?</h2>
+<p>While custom prompts are risky, we recognise that some testing scenarios might require specialized evaluation criteria. However, this should be extremely rare - the default prompts have been proven reliable across a wide range of testing scenarios.</p>
+<h2 id="if-you-must-use-custom-prompts">If You Must Use Custom Prompts</h2>
+<p>If you absolutely need to use custom prompts:</p>
+<ol>
+<li>
+<p>Maintain Format Requirements:</p>
+<ul>
+<li>MUST enforce PASS/FAIL format</li>
+<li>MUST include reason for FAIL</li>
+<li>MUST prevent free-form responses</li>
+</ul>
+</li>
+<li>
+<p>Test Extensively:</p>
+<ul>
+<li>Run at least 1000 iterations</li>
+<li>Verify format compliance</li>
+<li>Check for behavioral consistency</li>
+</ul>
+</li>
+<li>
+<p>Documentation:</p>
+<ul>
+<li>Document why custom prompts are needed</li>
+<li>Detail all modifications made</li>
+<li>Include reliability implications</li>
+</ul>
+</li>
+</ol>
+<h2 id="example-of-problematic-custom-prompt-and-custom-prompt-example-bad-example-but-correct-syntax">Example of Problematic Custom Prompt and Custom Prompt Example (Bad Example but Correct Syntax)</h2>
+<p>DO NOT USE - For Illustration Only:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>custom_prompts = AsserterPromptConfigurator( 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    system_prompt=&quot;You are a testing system that only responds with PASS or FAIL: reason...&quot;, 
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    human_prompt=&quot;Compare:\nExpected: {expected_behavior}\nActual: {actual}&quot; 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    )
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>asserter = BehavioralAssertion(
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    provider=&quot;openai&quot;,
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    custom_prompts=custom_prompts
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a># The assertion works the same way
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>asserter.assert_behavioral_match(
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    actual=&quot;Hello, world!&quot;,
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    expected_behavior=&quot;Should greet the world&quot;
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>)
+</code></pre></div>
+<p>This example is problematic because it:
+- Doesn't enforce strict format requirements
+- Lacks behavioral evaluation guidance
+- Missing format compliance constraints
+- No safeguards against non-determinism</p>
+<h2 id="recommended-approach">Recommended Approach</h2>
+<ol>
+<li>Start with default prompts</li>
+<li>Document why they don't meet your needs</li>
+<li>Consult the development team</li>
+<li>Consider alternative solutions</li>
+<li>Only then, if absolutely necessary, create custom prompt configurations</li>
+</ol>
+<h2 id="quick-links">Quick Links</h2>
+<ul>
+<li><a href="../../reliability_testing/behavioral_testing_reliability/">Behavioral Testing Reliability</a></li>
+<li><a href="../../reliability_testing/format_compliance/">Format Compliance</a></li>
+<li><a href="../../guides/best-practices/">Testing Best Practices</a></li>
 </ul>
 
 

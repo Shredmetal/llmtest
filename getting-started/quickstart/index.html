@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../api/semantic-assertion/" class="md-tabs__link">
+        <a href="../../api/behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -517,12 +517,45 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Additional notes:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#real-world-example" class="md-nav__link">
     <span class="md-ellipsis">
       Real World Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-example-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What This Example Demonstrates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
     </span>
   </a>
   
@@ -705,11 +738,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/semantic-assertion/" class="md-nav__link">
+      <a href="../../api/behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -838,11 +892,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_reliability/" class="md-nav__link">
+      <a href="../../reliability_testing/behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -859,11 +913,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reliability_testing/semantic_boundary_analysis/" class="md-nav__link">
+      <a href="../../reliability_testing/behavior_at_semantic_boundaries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -949,12 +1003,45 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Additional notes:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#real-world-example" class="md-nav__link">
     <span class="md-ellipsis">
       Real World Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-example-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What This Example Demonstrates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
     </span>
   </a>
   
@@ -980,39 +1067,36 @@
 
 <p><a href="../../">← Back to Home</a></p>
 <h1 id="quick-start">Quick Start</h1>
-<p>Get up and running with llm_app_test in under 5 minutes.</p>
+<p>Get up and running with llm-app-test in under 5 minutes.</p>
 <h2 id="1-set-up-environment">1. Set Up Environment</h2>
 <p>Create a <code>.env</code> file in your project root:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># For OpenAI
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>OPENAI_API_KEY=your-openai-api-key-here
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># OR for Anthropic
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>ANTHROPIC_API_KEY=your-anthropic-key-here
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>OPENAI_API_KEY=your-openai-api-key-here
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># OR for Anthropic
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ANTHROPIC_API_KEY=your-anthropic-key-here
 </code></pre></div>
 <h2 id="2-write-your-first-test">2. Write Your First Test</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>def my_first_semantic_test(): 
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    # Initialize asserter 
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    semantic_assert = SemanticAssertion()
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    # Your LLM output
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    actual_output = &quot;The sky is blue&quot;
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    # Expected behavior in natural language
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    expected_behavior = &quot;A statement about the color of the sky&quot;
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    # Test semantic equivalence
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    semantic_assert.assert_semantic_match(
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        actual=actual_output,
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        expected_behavior=expected_behavior
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>def my_first_behavioral_test(): 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    # Initialize asserter 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    behavioral_assert = BehavioralAssertion()
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    # Your LLM output
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    actual_output = &quot;The sky is blue&quot;
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    # Expected behavior in natural language
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    expected_behavior = &quot;A statement about the color of the sky&quot;
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    # Test behavioral equivalence
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    behavioral_assert.assert_behavioral_match(
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        actual=actual_output,
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        expected_behavior=expected_behavior
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    )
 </code></pre></div>
 <h2 id="3-run-your-test">3. Run Your Test</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pytest my_first_semantic_test.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pytest my_first_behavioral_test.py
 </code></pre></div>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
@@ -1020,44 +1104,122 @@
 <li><a href="../../api/configuration/">Configuration</a> - Configure llm_app_test for your needs</li>
 </ul>
 <h2 id="additional-notes">Additional notes:</h2>
-<h2 id="real-world-example">Real World Example</h2>
-<blockquote>
-<p>Want to see llm_app_test in action? Here's a real test from our test suite:</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion 
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>from llm_app_test.tests.test_content_generators.test_greeting_bot import SimpleGreetingBot
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>def test_greeting_semantic(): 
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    semantic_assert = SemanticAssertion()
+<h3 id="real-world-example">Real World Example</h3>
+<p>Here's a powerful example showing behavioral testing in action:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from langchain_core.messages import SystemMessage, HumanMessage
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>from your_bot_module import SimpleApiCallBot  # Your LLM wrapper
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>def test_ww2_narrative():
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    behavioral_assert = BehavioralAssertion()
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    bot = SimpleGreetingBot()
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    actual_output = bot.generate_greeting(&quot;Alice&quot;)
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    expected_behavior = &quot;&quot;&quot;
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    A polite greeting that:
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    1. Addresses the person by name (Alice)
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    2. Asks about their wellbeing
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    &quot;&quot;&quot;
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    # Define the bot&#39;s behavior with a system message
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    system_message = SystemMessage(
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        You are a historian bot and you will respond to specific requests 
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        for information about history. Be detailed but do not go beyond 
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        what was asked for.
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    )
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    semantic_assert.assert_semantic_match(
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        actual=actual_output,
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        expected_behavior=expected_behavior
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    )
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    # Initialize the bot
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    # This is a simple API call to openAI - you can find this in our tests/actual_usage_tests directory in the repo
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    bot = SimpleApiCallBot(system_message=system_message) 
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    # Create the user&#39;s request
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    human_message = HumanMessage(
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        content=&quot;Tell me about the European Theater of World War 2, the major battles, and how the European war ended&quot;
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    )
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    # Get the bot&#39;s response
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    actual_output = bot.generate_ai_response(human_message)
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    # Define expected behavior
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    expected_behavior = &quot;&quot;&quot;
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    A narrative about World War 2 and the global nature of the war
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    &quot;&quot;&quot;
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    # This will fail because the bot&#39;s response focuses only on Europe
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
 </code></pre></div>
-<p>You can find this example in our repository: <a href="https://github.com/Shredmetal/llmtest/blob/main/tests/actual_usage_tests/test_greeting.py">test_greeting.py</a></p>
-<p>It can be run from this project root with the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pytest tests/actual_usage_tests/test_greeting.py
+<p>Actual bot response from one run:</p>
+<p>The European Theater of World War II was a significant front in the global conflict that lasted from 1939 to 1945. It involved most of the countries of Europe and was marked by numerous major battles and campaigns. Here is an overview of some of the key events and battles:</p>
+<ol>
+<li>
+<p><strong>Invasion of Poland (1939):</strong> The war in Europe began with Germany's invasion of Poland on September 1, 1939. This prompted Britain and France to declare war on Germany. The swift German victory was achieved through the use of Blitzkrieg tactics.</p>
+</li>
+<li>
+<p><strong>Battle of France (1940):</strong> In May 1940, Germany launched an invasion of France and the Low Countries. The German forces bypassed the heavily fortified Maginot Line and quickly advanced through the Ardennes, leading to the fall of France in June 1940.</p>
+</li>
+<li>
+<p><strong>Battle of Britain (1940):</strong> Following the fall of France, Germany attempted to gain air superiority over Britain in preparation for an invasion. The Royal Air Force successfully defended the UK, marking the first major defeat for Hitler's military forces.</p>
+</li>
+<li>
+<p><strong>Operation Barbarossa (1941):</strong> On June 22, 1941, Germany launched a massive invasion of the Soviet Union. This campaign opened the Eastern Front, which became the largest and bloodiest theater of war in World War II.</p>
+</li>
+<li>
+<p><strong>Battle of Stalingrad (1942-1943):</strong> One of the deadliest battles in history, the Battle of Stalingrad was a turning point on the Eastern Front. The Soviet victory marked the beginning of a major offensive push against German forces.</p>
+</li>
+<li>
+<p><strong>North African Campaign (1940-1943):</strong> This series of battles involved the Allies and Axis powers fighting for control of North Africa. The decisive Allied victory at the Second Battle of El Alamein in 1942 marked the beginning of the end for Axis forces in Africa.</p>
+</li>
+<li>
+<p><strong>Invasion of Italy (1943):</strong> After the successful North African Campaign, the Allies invaded Sicily in July 1943 and then mainland Italy. This led to the fall of Mussolini's regime and Italy's eventual surrender, although fighting continued in Italy until 1945.</p>
+</li>
+<li>
+<p><strong>D-Day and the Battle of Normandy (1944):</strong> On June 6, 1944, Allied forces launched Operation Overlord, the largest amphibious invasion in history, landing on the beaches of Normandy, France. This marked the beginning of the liberation of Western Europe from Nazi occupation.</p>
+</li>
+<li>
+<p><strong>Battle of the Bulge (1944-1945):</strong> Germany's last major offensive on the Western Front took place in the Ardennes Forest. Despite initial successes, the Allies eventually repelled the German forces, leading to a rapid advance into Germany.</p>
+</li>
+<li>
+<p><strong>Fall of Berlin (1945):</strong> The final major offensive in Europe was the Soviet assault on Berlin in April 1945. The city fell on May 2, 1945, leading to the suicide of Adolf Hitler and the unconditional surrender of German forces.</p>
+</li>
+</ol>
+<p>The European war officially ended with Germany's unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan's surrender in September 1945.</p>
+<p>Error message thrown by <code>assert_behavioral_match</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>E           llm_app_test.exceptions.test_exceptions.BehavioralAssertionError: Behavioral assertion failed: 
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Behavioral Assertion Failed:  - Reason: The actual output focuses primarily on the European Theater of World War II, 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>rather than providing a narrative about the global nature of the war.
 </code></pre></div>
-<p>You can find and run this example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Clone the repository
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git clone https://github.com/Shredmetal/llmtest.git
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># Run the test
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>pytest tests/actual_usage_tests/test_greeting.py
-</code></pre></div>
+<h3 id="what-this-example-demonstrates">What This Example Demonstrates</h3>
+<ol>
+<li>
+<p>Real Application Testing</p>
+<ul>
+<li>Tests an actual LLM-based application</li>
+</ul>
+</li>
+<li>
+<p>Behavioral Testing Power</p>
+<ul>
+<li>The bot provides a detailed, accurate response</li>
+<li>However, the test fails because it doesn't meet the expected behavior</li>
+<li>Shows how behavioral testing catches incorrect behavior from your app</li>
+</ul>
+</li>
+<li>
+<p>Clear Error Messages</p>
+<ul>
+<li>The error clearly explains why the test failed</li>
+<li>Points to specific behavioral mismatch</li>
+<li>Helps developers understand what needs to change</li>
+</ul>
+</li>
+</ol>
+<h2 id="next-steps_1">Next Steps</h2>
+<ul>
+<li><a href="../../guides/ci-cd/">CI/CD Integration</a> - Set up automated testing</li>
+<li><a href="../../api/configuration/">Configuration</a> - Configure llm-app-test for your needs</li>
+<li><a href="../../reliability_testing/behavioral_testing_reliability/">Behavioral Testing Reliability</a> - Learn about testing at scale</li>
+</ul>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="../../">Back to Home</a></li>
+<li><a href="../installation/">Installation Guide</a></li>
+<li><a href="../../api/configuration/">Configuration</a></li>
+<li><a href="../../api/behavioral-assertion/">API Reference</a></li>
+</ul>
 
 
 

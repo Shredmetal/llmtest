@@ -6,14 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A semantic testing framework for LLM applications">
+        <meta name="description" content="A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor.">
       
       
       
-        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/reliability_testing/semantic_boundary_analysis/">
+        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/reliability_testing/behavior_at_semantic_boundaries/">
       
       
-        <link rel="prev" href="../semantic_reliability/">
+        <link rel="prev" href="../behavioral_testing_reliability/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Semantic Boundary Analysis - llm_app_test Documentation</title>
+        <title>Behavioral Matching at Semantic Boundary Analysis - llm_app_test Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#semantic-boundary-analysis" class="md-skip">
+        <a href="#behavior-at-semantic-boundaries" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Semantic Boundary Analysis
+              Behavioral Matching at Semantic Boundary Analysis
             
           </span>
         </div>
@@ -258,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../api/semantic-assertion/" class="md-tabs__link">
+        <a href="../../api/behavioral-assertion/" class="md-tabs__link">
           
   
   API Reference
@@ -606,11 +606,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/semantic-assertion/" class="md-nav__link">
+      <a href="../../api/behavioral-assertion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SemanticAssertion
+    BehavioralAssertion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/custom-prompt-configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Prompt Configuration
   </span>
   
 
@@ -742,11 +763,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../semantic_reliability/" class="md-nav__link">
+      <a href="../behavioral_testing_reliability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Semantic Reliability
+    Behavioral Matching Reliability
   </span>
   
 
@@ -776,7 +797,7 @@
           
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -787,7 +808,7 @@
         
   
   <span class="md-ellipsis">
-    Semantic Boundary Analysis
+    Behavioral Matching at Semantic Boundary Analysis
   </span>
   
 
@@ -1012,11 +1033,13 @@
   
 
 
-<h1 id="semantic-boundary-analysis">Semantic Boundary Analysis</h1>
+<h1 id="behavior-at-semantic-boundaries">Behavior At Semantic Boundaries</h1>
+<p>⚠️ <strong>Important Notice About Semantic Testing</strong></p>
+<p>This documentation refers to tests originally named semantic assertion. We have since deprecated the name <code>semantic</code> in favor of behavioral testing, as we found that it more accurately describes what we were doing. The underlying implementation and reliability testing remain valid, as the core functionality is identical - we've simply improved the conceptual framework to better reflect what the library is actually doing.</p>
 <h2 id="overview">Overview</h2>
-<p>During our real-world style testing, we encountered an interesting semantic boundary case that highlighted both the sophistication and limitations of LLM-based testing. </p>
-<p>This was discovered during the initial 500 runs of our real-world test suite, where only this one test demonstrated non-determinism.</p>
-<p>This case provides valuable insights into how LLMs interpret semantic requirements.</p>
+<p>During our real-world style testing, we encountered an interesting boundary case that highlighted both the sophistication and limitations of LLM-based behavioral testing. </p>
+<p>This case was discovered during the initial 500 runs of our real-world test suite, where only this one test demonstrated non-determinism. The non-determinism occurred at what we identified as a semantic boundary - a point where the interpretation of expected behavior could legitimately differ.</p>
+<p>This case provides valuable insights into how LLMs interpret behavioral requirements and the importance of precise specification in behavioral testing.</p>
 <h2 id="the-case">The Case</h2>
 <p>This is our healthcare test case:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>def test_patient_education_diabetes_management(self, asserter):
@@ -1113,9 +1136,9 @@ In <code>expected_behavior</code> (i.e. the specification we expect developers t
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>LLM_TEMPERATURE=0.0 
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>LLM_MAX_TOKENS=4096 
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>LLM_MAX_RETRIES=2 
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation 
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch 
 </code></pre></div>
-The <code>semantic_assert_match</code> function also saw slight modification:</p>
+The <code>semantic_assert_match</code> function (<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>) also saw slight modification:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>        if result.startswith(&quot;FAIL&quot;):
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>            raise SemanticAssertionError(
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>                &quot;Semantic assertion failed&quot;,
@@ -1131,7 +1154,7 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>                f&quot;Format Non-compliance Detected {result}&quot;
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>            )
 </code></pre></div>
-<p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>) were:</p>
+<p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>(<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>)) were:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Important: You can only respond with EXACTLY: 
@@ -1167,7 +1190,7 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 <p>We are unable to determine what longer API response times mean, and unless if OpenAI wades in, it is unlikely that we will find out.</p>
 <p>Logs can be found in the reliability_testing_real_world directory of the <a href="https://github.com/Shredmetal/llmtest/tree/release/0.1.0b5/reliability_testing_real_world">0.1.0b5 branch</a> of the github repo.</p>
 <h2 id="analysis">Analysis</h2>
-<p>Upon careful analysis (Library author's note: I had to read the test case several times to pick up on it, and I'm a lawyer by training with 3 years of litigation experience), we identified a subtle but critical semantic boundary in the original requirement:</p>
+<p>Upon careful analysis, we identified a subtle but critical semantic boundary that affected the behavioral testing:</p>
 <ol>
 <li>
 <p>The Semantic Boundary:</p>
@@ -1177,6 +1200,9 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 <li>Question: Does a single, obvious response step satisfy a requirement for "steps"?</li>
 </ul>
 </li>
+</ol>
+<p>This semantic boundary - the interpretation of whether a single step satisfies a plural requirement - caused non-deterministic behavior in our behavioral tests. This demonstrates how semantic ambiguities can directly impact the reliability of behavioral testing.</p>
+<ol>
 <li>
 <p>The Test Content:</p>
 <ul>
@@ -1233,7 +1259,7 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 </li>
 </ol>
 <h2 id="impact-on-library-usage">Impact on Library Usage</h2>
-<p>When writing semantic test cases:</p>
+<p>When writing behavioral test cases:</p>
 <ol>
 <li>Be explicit about conjunctive requirements</li>
 <li>Use "AND" when both elements are required</li>
@@ -1242,7 +1268,7 @@ The <code>semantic_assert_match</code> function also saw slight modification:</p
 </ol>
 <h2 id="quick-links">Quick Links</h2>
 <ul>
-<li><a href="../semantic_reliability/">Semantic Reliability Testing</a></li>
+<li><a href="../behavioral_testing_reliability/">Behavioral Reliability Testing</a></li>
 <li><a href="../format_compliance/">Format Compliance</a></li>
 <li><a href="../../getting-started/quickstart/">Quick Start</a></li>
 </ul>
