@@ -38,8 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Summary
 This release focuses on:
 1. Better terminology (Semantic → Behavioral)
-2. Advanced configuration options
-3. Custom prompt capabilities (with safety guardrails)
+2. New configuration options
+3. Custom prompt capabilities
 4. Improved timeout handling
 
 
