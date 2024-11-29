@@ -94,6 +94,12 @@ Real-World Application Tests:
 
 8. Production Deployment
 
+Delete egg-info and dist, switch to regular release version number, rebuild with 
+
+```
+python -m build
+```
+
 ```
 # Upload to production PyPI
 twine upload dist/*
