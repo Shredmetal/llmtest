@@ -64,7 +64,7 @@ If you absolutely need to use custom prompts:
 
 1. Maintain Format Requirements:
 
-    - MUST enforce PASS/FAIL format
+    - MUST enforce PASS/FAIL format - Take a look at the default prompts for an example.
     - MUST include reason for FAIL
     - MUST prevent free-form responses
 
