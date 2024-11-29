@@ -86,7 +86,7 @@ If you absolutely need to use custom prompts:
 DO NOT USE - For Illustration Only:
 
 ```
-custom_prompts = AsserterPromptInjector( 
+custom_prompts = AsserterPromptConfigurator( 
     system_prompt="You are a testing system that only responds with PASS or FAIL: reason...", 
     human_prompt="Compare:\nExpected: {expected_behavior}\nActual: {actual}" 
     )

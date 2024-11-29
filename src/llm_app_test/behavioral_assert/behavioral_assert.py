@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain_core.language_models import BaseLanguageModel
 from langchain.schema import HumanMessage, SystemMessage
 
-from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
+from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurator import AsserterPromptConfigurator
 from llm_app_test.behavioral_assert.llm_config.llm_config import LLMConfig
 from llm_app_test.behavioral_assert.llm_config.llm_factory import LLMFactory
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
@@ -35,7 +35,7 @@ class BehavioralAssertion:
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
-            prompt_injector: Optional[AsserterPromptInjector] = None
+            prompt_injector: Optional[AsserterPromptConfigurator] = None
     ):
 
         """Initialize the behavioral assertion tester.
@@ -73,7 +73,7 @@ class BehavioralAssertion:
 
         load_dotenv()
 
-        self.prompt_injector = prompt_injector or AsserterPromptInjector()
+        self.prompt_injector = prompt_injector or AsserterPromptConfigurator()
 
         if llm:
             self.llm = llm

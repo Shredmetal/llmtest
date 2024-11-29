@@ -16,7 +16,7 @@ BehavioralAssertion(api_key: Optional[str] = None,
                     max_tokens: Optional[int] = None, 
                     max_retries: Optional[int] = None,
                     timeout: Optional[float] = None,
-                    prompt_injector: Optional[AsserterPromptInjector] = None)
+                    prompt_injector: Optional[AsserterPromptConfigurator] = None)
 ```
 
 
@@ -68,7 +68,7 @@ All parameters are optional (except for API key) and will use environment variab
 
 - **prompt_injector**: Custom prompt injector for testing
 
-    - Default: None (uses default AsserterPromptInjector)
+    - Default: None (uses default AsserterPromptConfigurator)
     - Intentional added friction for custom prompts
     - Please refer to [this documentation](custom-prompt-injection.md) on how to use it.
 

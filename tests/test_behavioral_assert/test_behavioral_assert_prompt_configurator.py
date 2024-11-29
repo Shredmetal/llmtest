@@ -1,27 +1,27 @@
 import pytest
-from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
+from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurator import AsserterPromptConfigurator
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 
 
 class TestAsserterPromptInjector:
-    """Test suite for AsserterPromptInjector"""
+    """Test suite for AsserterPromptConfigurator"""
 
     def test_default_prompts(self):
         """Test that default prompts are set correctly"""
-        injector = AsserterPromptInjector()
+        injector = AsserterPromptConfigurator()
 
         # Check system prompt
-        assert injector.prompts.system_prompt == AsserterPromptInjector.DEFAULT_SYSTEM_PROMPT
+        assert injector.prompts.system_prompt == AsserterPromptConfigurator.DEFAULT_SYSTEM_PROMPT
 
         # Check human prompt
-        assert injector.prompts.human_prompt == AsserterPromptInjector.DEFAULT_HUMAN_PROMPT
+        assert injector.prompts.human_prompt == AsserterPromptConfigurator.DEFAULT_HUMAN_PROMPT
 
     def test_custom_prompts(self):
         """Test that custom prompts are set correctly"""
         custom_system = "Custom system prompt"
         custom_human = "Custom human prompt with {expected_behavior} and {actual}"
 
-        injector = AsserterPromptInjector(
+        injector = AsserterPromptConfigurator(
             system_prompt=custom_system,
             human_prompt=custom_human
         )
@@ -32,7 +32,7 @@ class TestAsserterPromptInjector:
     def test_invalid_human_prompt(self):
         """Test that invalid human prompt raises ValueError"""
         with pytest.raises(ValueError) as excinfo:
-            AsserterPromptInjector(
+            AsserterPromptConfigurator(
                 human_prompt="Invalid prompt without placeholders"
             )
         assert "must contain {expected_behavior} and {actual} placeholders" in str(excinfo.value)
@@ -42,7 +42,7 @@ class TestAsserterPromptInjector:
         custom_system = "Custom system prompt"
         custom_human = "Custom human prompt with {expected_behavior} and {actual}"
 
-        custom_prompts = AsserterPromptInjector(
+        custom_prompts = AsserterPromptConfigurator(
             system_prompt=custom_system,
             human_prompt=custom_human
         )

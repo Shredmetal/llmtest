@@ -3,7 +3,7 @@ from typing import Optional
 from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompts import AsserterPrompts
 
 
-class AsserterPromptInjector:
+class AsserterPromptConfigurator:
     """Manages prompts for behavioral assertion testing"""
 
     DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.

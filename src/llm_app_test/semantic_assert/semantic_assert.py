@@ -5,7 +5,7 @@ from typing import Optional, Union
 
 from langchain_core.language_models import BaseLanguageModel
 
-from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_injector import AsserterPromptInjector
+from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurator import AsserterPromptConfigurator
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
 
@@ -42,7 +42,7 @@ class SemanticAssertion(BehavioralAssertion):
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
-            prompt_injector: Optional[AsserterPromptInjector] = None
+            prompt_injector: Optional[AsserterPromptConfigurator] = None
     ):
         """
            Initialise the semantic assertion tester.

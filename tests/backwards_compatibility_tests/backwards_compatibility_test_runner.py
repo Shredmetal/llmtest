@@ -15,7 +15,7 @@ def run_semantic_tests():
         str(test_dir / "pytest_plugin_tests" / "test_pytest_configuration.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_validations.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_configuration.py"),
-        str(test_dir / "test_semantic_assert" / "test_semantic_assert_prompt_injector.py"),
+        str(test_dir / "test_semantic_assert" / "test_semantic_assert_prompt_configurator.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_llm_injection.py"),
         str(test_dir / "actual_usage_tests" / "test_greeting.py"),
         str(test_dir / "actual_usage_tests" / "test_ww2_narrative.py"),
