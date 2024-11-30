@@ -1096,22 +1096,37 @@
 <h2 id="test-structure">Test Structure</h2>
 <ol>
 <li>
-<p><strong>Keep Tests Focused</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Good
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>def test_greeting_behavior(): &quot;&quot;&quot;Test greeting behavior only&quot;&quot;&quot;
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>def test_personalization_behavior(): &quot;&quot;&quot;Test name usage separately&quot;&quot;&quot;
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># Bad - testing too much
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>def test_everything_about_greeting(): &quot;&quot;&quot;Testing multiple aspects at once&quot;&quot;&quot;
+<p><strong>Test Scope Based on Behavioral Requirements</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Testing Single Behavior 
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>def test_greeting_format(): 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  &quot;&quot;&quot;Test that greeting follows required format&quot;&quot;&quot;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Testing Multiple Related Behaviors
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>def test_patient_education_diabetes():
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   expected = &quot;&quot;&quot;Test comprehensive diabetes education document including:
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    - Overview section
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    - Numerical guidelines
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    - Structured sections
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    - Warning signs
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    - Follow-up instructions&quot;&quot;&quot;
 </code></pre></div>
 </li>
 <li>
+<p><strong>Choose Test Scope Based on Document Purpose</strong>:</p>
+</li>
+<li>Single behavior tests for simple, focused requirements</li>
+<li>Comprehensive behavior tests for complete documents</li>
+<li>
+<p>Let document purpose drive test structure</p>
+</li>
+<li>
 <p><strong>Clear Test Names</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Good
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>def test_error_message_includes_solution_steps():
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># Bad
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>def test_error():
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Good
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>def test_error_message_includes_solution_steps():
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># Bad
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>def test_error():
 </code></pre></div>
 </li>
 </ol>
@@ -1119,23 +1134,23 @@
 <ol>
 <li>
 <p><strong>Over-Specific Expected Behaviors</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Too specific
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>expected = &quot;Must say hello and use exactly these words&quot;
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># Better
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>expected = &quot;Should be a greeting in conversational English&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># Too specific
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>expected = &quot;Must say hello and use exactly these words&quot;
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a># Better
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>expected = &quot;Should be a greeting in conversational English&quot;
 </code></pre></div>
 </li>
 <li>
 <p><strong>Under-Specific Expected Behaviors</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># Too vague
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>expected = &quot;Should be good&quot;
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a># Better
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>expected = &quot;&quot;&quot; Response should:
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>           Answer the user&#39;s question
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>           Use professional language
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>           Stay on topic &quot;&quot;&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># Too vague
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>expected = &quot;Should be good&quot;
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a># Better
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>expected = &quot;&quot;&quot; Response should:
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>           Answer the user&#39;s question
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>           Use professional language
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>           Stay on topic &quot;&quot;&quot;
 </code></pre></div>
 </li>
 </ol>
