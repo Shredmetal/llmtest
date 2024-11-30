@@ -112,6 +112,18 @@ Updated version that led to determinism:
 4. Provide clear warning signs AND detailed emergency response procedures
 ```
 
+⚠️ New update (30 November 2024):
+
+Claude is more conversational and does not consistently fail this test case even when asked for detailed emergency response procedures (no volume testing done but significant non-determinism observed in <100 runs).
+
+Claude actually needs to be told to look for multi-step emergency response procecures like so:
+
+```
+4. Provide clear warning signs AND detailed multi-step emergency response procedures
+```
+
+Therefore, we strongly recommend using GPT-4o for your behavioral testing needs as GPT-4o's strictness is what is required.
+
 ## Test Configuration
 
 All tests used library defaults:
