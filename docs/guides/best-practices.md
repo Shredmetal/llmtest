@@ -75,14 +75,14 @@ Not Suitable For:
 
 ## Test Structure
 
-1. **Keep Tests Focused**:
+1. **Keep Unit Tests Focused and Broaden For Integration Tests**:
 
     ```
-    # Good
+    # Good Unit Test
     def test_greeting_behavior(): """Test greeting behavior only"""
     def test_personalization_behavior(): """Test name usage separately"""
     
-    # Bad - testing too much
+    # Good Integration Test
     def test_everything_about_greeting(): """Testing multiple aspects at once"""
     ```
 
