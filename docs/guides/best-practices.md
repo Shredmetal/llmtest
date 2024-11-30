@@ -75,18 +75,32 @@ Not Suitable For:
 
 ## Test Structure
 
-1. **Keep Unit Tests Focused and Broaden For Integration Tests**:
+1. **Test Scope Based on Behavioral Requirements**:
 
     ```
-    # Good Unit Test
-    def test_greeting_behavior(): """Test greeting behavior only"""
-    def test_personalization_behavior(): """Test name usage separately"""
-    
-    # Good Integration Test
-    def test_everything_about_greeting(): """Testing multiple aspects at once"""
+    # Testing Single Behavior 
+    def test_greeting_format(): 
+      """Test that greeting follows required format"""
     ```
+   
+    ```
+    # Testing Multiple Related Behaviors
+    def test_patient_education_diabetes():
+   
+       expected = """Test comprehensive diabetes education document including:
+        - Overview section
+        - Numerical guidelines
+        - Structured sections
+        - Warning signs
+        - Follow-up instructions"""
+    ```
+   
+2. **Choose Test Scope Based on Document Purpose**:
+   * Single behavior tests for simple, focused requirements
+   * Comprehensive behavior tests for complete documents
+   * Let document purpose drive test structure
 
-2. **Clear Test Names**:
+3. **Clear Test Names**:
 
     ```
     # Good
