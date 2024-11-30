@@ -96,9 +96,9 @@ Not Suitable For:
     ```
    
 2. **Choose Test Scope Based on Document Purpose**:
-   * Single behavior tests for simple, focused requirements
-   * Comprehensive behavior tests for complete documents
-   * Let document purpose drive test structure
+    * Single behavior tests for simple, focused requirements
+    * Comprehensive behavior tests for complete documents
+    * Let document purpose drive test structure
 
 3. **Clear Test Names**:
 
