@@ -599,6 +599,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Selection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#closing-words" class="md-nav__link">
     <span class="md-ellipsis">
       Closing words
@@ -1000,6 +1009,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Selection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#closing-words" class="md-nav__link">
     <span class="md-ellipsis">
       Closing words
@@ -1159,8 +1177,32 @@
 <li>Use specific, focused tests</li>
 <li>Group related behavioral tests</li>
 <li>Consider test importance vs cost</li>
-<li>Use appropriate model tiers</li>
 </ol>
+<h2 id="model-selection">Model Selection</h2>
+<p>We ran extensive tests on our library with GPT-4o, and limited tests with Claude 3.5 Sonnet.</p>
+<p>What we found is that Claude is a little more "lax" (for want of a better word). While GPT-4o will adopt a more strict and literal interpretation, Claude has shown a tendency to be more lenient (and seems to try to pass cases based on "intent"), and adopt a less pedantic stance on what constitutes meeting the requirements.</p>
+<p>Let's look at the example from our behavioral testing at semantic boundaries documentation:</p>
+<p>In <code>actual</code> (i.e. the simulated LLM output):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Warning Signs:
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Learn to recognize and respond to:
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- Hypoglycemia (low blood sugar): shakiness, sweating, confusion
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- Hyperglycemia (high blood sugar): increased thirst, frequent urination, fatigue
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Seek immediate medical attention if you experience severe symptoms or sustained 
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>high blood sugar levels.
+</code></pre></div></p>
+<p>In <code>expected_behavior</code> (i.e. the specification we expect developers to write when using our library):</p>
+<p>Version that led to non-determinism (14 out of 600 runs with GPT-4o did not fail this test case for not providing emergency response steps):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>4. Provide clear warning signs and emergency response steps
+</code></pre></div></p>
+<p>Updated version that led to determinism (1,200 out of 1,200 test runs were correctly failed):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>4. Provide clear warning signs AND detailed emergency response procedures
+</code></pre></div></p>
+<p>However, Claude 3.5 Sonnet does not consistently fail this test case even when asked for detailed emergency response procedures (no volume testing done but significant non-determinism observed in &lt;100 runs).</p>
+<p>Claude actually needs to specifically be told to look for multi-step emergency response procedures like so:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>4. Provide clear warning signs AND detailed multi-step emergency response procedures
+</code></pre></div>
+<p>Needless to say, this is generally <strong>NOT</strong> what you want in a testing system, unless if you want to simulate a flexible developer manually testing your bot. We do not recommend this. We recommend writing test cases with the expectation that the LLM will apply a strict literal interpretation.</p>
+<p>Therefore, we recommend sticking to the library default of GPT-4o, unless if you have a specific reason for doing otherwise.</p>
 <hr />
 <h2 id="closing-words">Closing words</h2>
 <p>This testing approach is designed to mimic how a human would validate your LLM application's behavior. 

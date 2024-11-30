@@ -1179,6 +1179,7 @@ An optional parameter for BehavioralAssertion is <code>custom_prompts</code>, se
 <li>claude-3-5-sonnet-latest</li>
 <li>claude-3-opus-latest (EXPENSIVE!!!)</li>
 </ul>
+<p><strong>Note</strong>: GPT-4o is our recommended model because it was what we used to validate reliability, and has demonstrated a level of pedantry and literalism that we find is best for a testing system.</p>
 <h2 id="custom-llm-configuration-advanced-users-only">Custom LLM Configuration (Advanced Users Only)</h2>
 <p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's behavioral reasoning capabilities. Smaller or less capable models will likely fail at the behavioral testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Advanced usage - Only for thoroughly tested models
