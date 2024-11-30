@@ -1,7 +1,7 @@
 [project]
 name = "llm_app_test"
-version = "0.1.0b4"
-description = "Semantic testing framework for LLM applications"
+version = "0.2.0b1"
+description = "A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor."
 requires-python = ">=3.10"
 readme = "README.md"
 authors = [
@@ -15,7 +15,7 @@ dependencies = [
     "pytest>=7.0.0"
 ]
 license = {text = "MIT"}
-keywords = ["testing", "llm", "semantic", "pytest"]
+keywords = ["testing", "llm", "behavioral", "pytest"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",

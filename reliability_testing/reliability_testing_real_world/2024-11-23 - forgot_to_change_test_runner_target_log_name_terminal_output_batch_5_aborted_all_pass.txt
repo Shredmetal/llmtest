@@ -1,0 +1,330 @@
+E:\PyCharm\PycharmProjects\llmtest\.venv\Scripts\python.exe E:\PyCharm\PycharmProjects\llmtest\tests\brute_force_reliability_test_runner.py 
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.66s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 19.31s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.76s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.79s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.94s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.89s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.74s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.50s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.74s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 17.15s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.24s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.66s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.68s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 16.73s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.57s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.28s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.60s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.12s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.01s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 13.34s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response PASSED [100%]
+
+============================= 10 passed in 12.97s =============================
+============================= test session starts =============================
+collecting ... collected 10 items
+
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_patient_education_diabetes_management PASSED [ 10%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_investment_portfolio_report_generation PASSED [ 20%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_content_recommendation_missing_viewing_patterns PASSED [ 30%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_legal_document_summary_generation PASSED [ 40%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_maintenance_prediction_missing_historical_context PASSED [ 50%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_product_description_generation PASSED [ 60%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_assignment_feedback_missing_improvement_steps PASSED [ 70%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_real_estate_listing_generation PASSED [ 80%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_interview_feedback_missing_criteria PASSED [ 90%]
+test_semantic_assert\test_semantic_assert_real_world.py::TestRealWorldSemanticAssertion::test_customer_service_ticket_response 
+Process finished with exit code -1

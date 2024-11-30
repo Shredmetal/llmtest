@@ -10,24 +10,21 @@ llm_app_test is designed for seamless integration with CI/CD pipelines.
 Add your API keys as secrets in your CI/CD environment:
 
 ```
-# GitHub Actions example
-
-env: OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+env:
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
 # OR
-
-env: ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+env:
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 ```
 
 ### 2. Test Configuration
 
 ```
-# tests/test_llm_app.py
+from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 
-from llm_app_test.semanticassert.semantic_assert import SemanticAssertion
-
-def test_llm_output(): 
-    semantic_assert = SemanticAssertion() # Your tests here
+def test_llm_output():
+    behavioral_assert = BehavioralAssertion() # Your tests here
 ```
 
 
@@ -36,7 +33,7 @@ def test_llm_output():
 #### GitHub Actions Example
 
 ```
-name: LLM Tests
+name: LLM Application Tests
 
 on: [push, pull_request]
 
@@ -66,29 +63,32 @@ jobs:
 ## Best Practices
 
 1. **API Key Management**:
+
     - Never commit API keys
     - Use CI/CD environment secrets
     - Rotate keys regularly
 
 2. **Cost Control**:
-    - Use cheaper models in CI/CD
-    - Run semantic tests only on critical paths
+
+    - Run behavioral tests only on critical paths
     - Consider test result caching
 
 3. **Pipeline Optimization**:
+
     - Run traditional tests first
-    - Run semantic tests in parallel
+    - Run behavioral tests in parallel
     - Set appropriate timeouts
 
 4. **Error Handling**:
-    - Implement retry logic for API failures
+
+    - Implement retry logic for API failures (though Langchain should have this covered)
     - Log detailed error information
     - Set up alerts for repeated failures
 
 ## Common Issues
 
 1. **API Rate Limits**:
-    - Implement exponential backoff
+    - Implement exponential backoff (configuration and integration of Langchain implementation planned for future version)
     - Use test result caching
     - Consider parallel test execution
 
@@ -103,4 +103,4 @@ jobs:
 - [Back to Home](../index.md)
 - [Installation Guide](../getting-started/installation.md)
 - [Quick Start Guide](../getting-started/quickstart.md)
-- [API Reference](../api/semantic-assertion.md)
+- [API Reference](../api/behavioral-assertion.md)

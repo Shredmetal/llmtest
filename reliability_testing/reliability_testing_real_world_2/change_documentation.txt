@@ -1,0 +1,12 @@
+changed expected behaviour in a real-world style test case to be more specific because there's was a grey area even I
+would have thought twice about.
+
+From:
+
+4. Provide clear warning signs and emergency response steps
+
+to:
+
+4. Provide clear warning signs AND detailed emergency response procedures
+
+God damned bot has learned to be a lawyer.

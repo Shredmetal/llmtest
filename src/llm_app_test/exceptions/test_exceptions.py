@@ -23,7 +23,7 @@ def catch_llm_errors(func: Callable) -> Callable:
         except TypeError as e:
             raise
         except Exception as e:
-            if isinstance(e, LLMTestError):
+            if isinstance(e, LLMAppTestError):
                 raise
             raise LLMConnectionError(
                 f"LLM operation failed in {func.__name__}",
@@ -32,7 +32,7 @@ def catch_llm_errors(func: Callable) -> Callable:
     return wrapper
 
 
-class LLMTestError(Exception):
+class LLMAppTestError(Exception):
     """Base exception class for all llm_app_test errors."""
     def __init__(
         self,
@@ -54,17 +54,17 @@ class LLMTestError(Exception):
         return base_message
 
 
-class SemanticAssertionError(LLMTestError):
+class BehavioralAssertionError(LLMAppTestError):
     """Raised when semantic assertion fails."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
         super().__init__(
-            message=f"Semantic assertion failed: {message}",
+            message=f"Behavioral assertion failed: {message}",
             reason=reason,
             details=details
         )
 
 
-class LLMConfigurationError(LLMTestError):
+class LLMConfigurationError(LLMAppTestError):
     """Raised when there are issues with LLM configuration."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
         super().__init__(
@@ -74,7 +74,7 @@ class LLMConfigurationError(LLMTestError):
         )
 
 
-class LLMConnectionError(LLMTestError):
+class LLMConnectionError(LLMAppTestError):
     """Raised when there are issues connecting to the LLM service."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
         super().__init__(
@@ -85,14 +85,14 @@ class LLMConnectionError(LLMTestError):
 
 
 # Need to think about what constitutes an invalid prompt and use this somewhere - WIP
-class InvalidPromptError(LLMTestError):
-    """Raised when prompt construction fails or is invalid."""
-    def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
-        super().__init__(
-            message=f"Invalid prompt error: {message}",
-            reason=reason,
-            details=details
-        )
+# class InvalidPromptError(LLMAppTestError):
+#     """Raised when prompt construction fails or is invalid."""
+#     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
+#         super().__init__(
+#             message=f"Invalid prompt error: {message}",
+#             reason=reason,
+#             details=details
+#         )
 
 
 
