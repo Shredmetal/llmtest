@@ -33,13 +33,13 @@ class TestRealWorldBehavioralAssertion:
         - Comprehensive coverage of common LLM outputs
 
     Purpose:
-        This test suite is designed for brute force reliability testing of the semantic
+        This test suite is designed for brute force reliability testing of the behavioral
         matcher. It ensures the library can handle diverse, real-world content while
         maintaining consistent behavior across multiple test runs.
 
     Usage:
         These tests are intended to be run multiple times (1000+) to validate the
-        consistency and reliability of the semantic matching functionality across
+        consistency and reliability of the behavioral matching functionality across
         different contexts and content types.
     """
     @pytest.fixture
@@ -48,7 +48,7 @@ class TestRealWorldBehavioralAssertion:
 
 
     def test_patient_education_diabetes_management(self, asserter):
-        """Test semantic matching for patient education content about diabetes management. Failure is expected because
+        """Test behavioral matching for patient education content about diabetes management. Failure is expected because
         this does not contain emergency response steps and follow-up care instructions."""
         actual = """
         Understanding and Managing Type 2 Diabetes
@@ -119,7 +119,7 @@ class TestRealWorldBehavioralAssertion:
         assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_investment_portfolio_report_generation(self, asserter):
-        """Test semantic matching for investment portfolio report generation. Tests that the report
+        """Test behavioral matching for investment portfolio report generation. Tests that the report
         contains all required sections and maintains professional financial terminology."""
         actual = """
         Q4 2023 Portfolio Performance Summary
@@ -183,7 +183,7 @@ class TestRealWorldBehavioralAssertion:
         asserter.assert_behavioral_match(actual, expected)
 
     def test_content_recommendation_missing_viewing_patterns(self, asserter):
-        """Test semantic matching for content recommendations. Should fail due to missing viewing patterns
+        """Test behavioral matching for content recommendations. Should fail due to missing viewing patterns
         and user preferences section."""
         actual = """
         Personalized Content Recommendations - User Profile #A1234
@@ -226,7 +226,7 @@ class TestRealWorldBehavioralAssertion:
         assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_legal_document_summary_generation(self, asserter):
-        """Test semantic matching for legal document summary generation. Tests that the summary
+        """Test behavioral matching for legal document summary generation. Tests that the summary
         maintains accuracy while being accessible to non-legal readers."""
         actual = """
         Contract Summary Analysis
@@ -292,7 +292,7 @@ class TestRealWorldBehavioralAssertion:
         asserter.assert_behavioral_match(actual, expected)
 
     def test_maintenance_prediction_missing_historical_context(self, asserter):
-        """Test semantic matching for maintenance prediction report. Should fail due to
+        """Test behavioral matching for maintenance prediction report. Should fail due to
         missing historical maintenance context and pattern analysis."""
         actual = """
         Equipment Maintenance Analysis
@@ -332,7 +332,7 @@ class TestRealWorldBehavioralAssertion:
         assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_product_description_generation(self, asserter):
-        """Test semantic matching for e-commerce product description generation. Tests that the description
+        """Test behavioral matching for e-commerce product description generation. Tests that the description
         includes all required elements of an effective product listing."""
         actual = """
         Smart Home Security Camera - Model HC2000
@@ -391,7 +391,7 @@ class TestRealWorldBehavioralAssertion:
         asserter.assert_behavioral_match(actual, expected)
 
     def test_assignment_feedback_missing_improvement_steps(self, asserter):
-        """Test semantic matching for student assignment feedback. Should fail due to
+        """Test behavioral matching for student assignment feedback. Should fail due to
         missing specific improvement steps and learning objectives."""
         actual = """
         Assignment Feedback
@@ -435,7 +435,7 @@ class TestRealWorldBehavioralAssertion:
         assert "Behavioral assertion failed" in str(excinfo.value)
 
     def test_real_estate_listing_generation(self, asserter):
-        """Test semantic matching for real estate listing generation. Tests that the listing
+        """Test behavioral matching for real estate listing generation. Tests that the listing
         includes all essential elements of an effective property description."""
         actual = """
         Stunning Modern Oasis in Prime Location
@@ -493,7 +493,7 @@ class TestRealWorldBehavioralAssertion:
         asserter.assert_behavioral_match(actual, expected)
 
     def test_interview_feedback_missing_criteria(self, asserter):
-        """Test semantic matching for interview feedback generation. Should fail due to
+        """Test behavioral matching for interview feedback generation. Should fail due to
         missing evaluation criteria and specific examples."""
         actual = """
         Interview Feedback Summary
