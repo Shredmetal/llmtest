@@ -84,15 +84,14 @@ class LLMConnectionError(LLMAppTestError):
         )
 
 
-# Need to think about what constitutes an invalid prompt and use this somewhere - WIP
-# class InvalidPromptError(LLMAppTestError):
-#     """Raised when prompt construction fails or is invalid."""
-#     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
-#         super().__init__(
-#             message=f"Invalid prompt error: {message}",
-#             reason=reason,
-#             details=details
-#         )
+class InvalidPromptError(LLMAppTestError):
+    """Raised when prompt construction fails or is invalid."""
+    def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
+        super().__init__(
+            message=f"Invalid prompt error: {message}",
+            reason=reason,
+            details=details
+        )
 
 
 

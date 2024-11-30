@@ -1,6 +1,7 @@
 import pytest
 from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurator import AsserterPromptConfigurator
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
+from llm_app_test.exceptions.test_exceptions import InvalidPromptError
 
 
 class TestAsserterPromptConfigurator:
@@ -31,7 +32,7 @@ class TestAsserterPromptConfigurator:
 
     def test_invalid_human_prompt(self):
         """Test that invalid human prompt raises ValueError"""
-        with pytest.raises(ValueError) as excinfo:
+        with pytest.raises(InvalidPromptError) as excinfo:
             AsserterPromptConfigurator(
                 human_prompt="Invalid prompt without placeholders"
             )
