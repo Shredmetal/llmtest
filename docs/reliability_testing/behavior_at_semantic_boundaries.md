@@ -116,7 +116,7 @@ Updated version that led to determinism:
 
 Claude is more conversational and does not consistently fail this test case even when asked for detailed emergency response procedures (no volume testing done but significant non-determinism observed in <100 runs).
 
-Claude actually needs to be told to look for multi-step emergency response procecures like so:
+Claude actually needs to be told to look for multi-step emergency response procedures like so:
 
 ```
 4. Provide clear warning signs AND detailed multi-step emergency response procedures
