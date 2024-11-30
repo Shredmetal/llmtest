@@ -1129,49 +1129,55 @@ In <code>expected_behavior</code> (i.e. the specification we expect developers t
 <p>Updated version that led to determinism:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>4. Provide clear warning signs AND detailed emergency response procedures
 </code></pre></div></p>
+<p>⚠️ New update (30 November 2024):</p>
+<p>Claude is more conversational and does not consistently fail this test case even when asked for detailed emergency response procedures (no volume testing done but significant non-determinism observed in &lt;100 runs).</p>
+<p>Claude actually needs to be told to look for multi-step emergency response procecures like so:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>4. Provide clear warning signs AND detailed multi-step emergency response procedures
+</code></pre></div>
+<p>Therefore, we strongly recommend using GPT-4o for your behavioral testing needs as GPT-4o's strictness is what is required.</p>
 <h2 id="test-configuration">Test Configuration</h2>
 <p>All tests used library defaults:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>LLM_PROVIDER=openai
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>LLM_MODEL=gpt-4o 
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>LLM_TEMPERATURE=0.0 
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>LLM_MAX_TOKENS=4096 
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>LLM_MAX_RETRIES=2 
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch 
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>LLM_PROVIDER=openai
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>LLM_MODEL=gpt-4o 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>LLM_TEMPERATURE=0.0 
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>LLM_MAX_TOKENS=4096 
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>LLM_MAX_RETRIES=2 
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch 
 </code></pre></div>
 The <code>semantic_assert_match</code> function (<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>) also saw slight modification:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>        if result.startswith(&quot;FAIL&quot;):
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>            raise SemanticAssertionError(
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>                &quot;Semantic assertion failed&quot;,
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>                reason=result.split(&quot;FAIL: &quot;)[1]
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>            )
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        # Section below added to cause failure in the event of format violation    
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        elif result.startswith(&quot;PASS&quot;):
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>            pass
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        else:
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            raise RuntimeError(
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>                f&quot;Format Non-compliance Detected {result}&quot;
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>            )
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>        if result.startswith(&quot;FAIL&quot;):
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>            raise SemanticAssertionError(
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>                &quot;Semantic assertion failed&quot;,
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>                reason=result.split(&quot;FAIL: &quot;)[1]
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            )
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        # Section below added to cause failure in the event of format violation    
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        elif result.startswith(&quot;PASS&quot;):
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>            pass
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        else:
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>            raise RuntimeError(
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>                f&quot;Format Non-compliance Detected {result}&quot;
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            )
 </code></pre></div>
 <p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>(<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>)) were:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Important: You can only respond with EXACTLY: 
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>1. &#39;PASS&#39; if it matches, or 
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Any other type of response will mean disaster which as a testing system, you are meant to prevent.
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Be strict but consider semantic meaning rather than exact wording.&quot;&quot;&quot;
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>DEFAULT_HUMAN_PROMPT = &quot;&quot;&quot;
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>Expected Behavior: {expected_behavior}
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>Actual Output: {actual}
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Important: You can only respond with EXACTLY: 
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>1. &#39;PASS&#39; if it matches, or 
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>Be strict but consider semantic meaning rather than exact wording.&quot;&quot;&quot;
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>DEFAULT_HUMAN_PROMPT = &quot;&quot;&quot;
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>Expected Behavior: {expected_behavior}
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>Actual Output: {actual}
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;
 </code></pre></div>
 <h2 id="testing-results">Testing Results</h2>
 <p>This particular test was run 600 times.</p>
