@@ -14,7 +14,7 @@ from llm_app_test.exceptions.test_exceptions import (
 )
 from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import ModelConstants, LLMConstants
 from llm_app_test.behavioral_assert.validation.config_validator import ConfigValidator
-from llm_app_test.behavioral_assert.validation.validator_config import ValidationConfig
+from llm_app_test.behavioral_assert.validation.config_validator_config import ConfigValidatorConfig
 
 
 class BehavioralAssertion:
@@ -101,7 +101,7 @@ class BehavioralAssertion:
         timeout = timeout if timeout is not None else float(
             os.getenv('LLM_TIMEOUT', str(LLMConstants.DEFAULT_TIMEOUT)))
 
-        validation_config = ValidationConfig(
+        validation_config = ConfigValidatorConfig(
             api_key=api_key,
             provider=provider_value,
             model=model,
