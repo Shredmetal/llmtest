@@ -97,6 +97,7 @@ def test_ww2_narrative():
 
 Actual bot response from one run:
 
+```
 The European Theater of World War II was a significant front in the global conflict that lasted from 1939 to 1945. It involved most of the countries of Europe and was marked by numerous major battles and campaigns. Here is an overview of some of the key events and battles:
 
 1. **Invasion of Poland (1939):** The war in Europe began with Germany's invasion of Poland on September 1, 1939. This prompted Britain and France to declare war on Germany. The swift German victory was achieved through the use of Blitzkrieg tactics.
@@ -120,6 +121,7 @@ The European Theater of World War II was a significant front in the global confl
 10. **Fall of Berlin (1945):** The final major offensive in Europe was the Soviet assault on Berlin in April 1945. The city fell on May 2, 1945, leading to the suicide of Adolf Hitler and the unconditional surrender of German forces.
 
 The European war officially ended with Germany's unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan's surrender in September 1945.
+```
 
 Error message thrown by `assert_behavioral_match`:
 

@@ -64,6 +64,8 @@ Model support is restricted due to the complex behavioral reasoning required for
 - claude-3-5-sonnet-latest
 - claude-3-opus-latest (EXPENSIVE!!!)
 
+**Note**: GPT-4o is our recommended model because it was what we used to validate reliability, and has demonstrated a level of pedantry and literalism that we find is best for a testing system.
+
 ## Custom LLM Configuration (Advanced Users Only)
 
 While it's possible to inject a custom LLM using Langchain's `BaseLanguageModel`, this is strongly discouraged unless you have extensively tested your model's behavioral reasoning capabilities. Smaller or less capable models will likely fail at the behavioral testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.
