@@ -6,6 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
+[![codecov](https://codecov.io/gh/Shredmetal/llmtest/branch/feature%2F0.2.0b2-rate-limiter/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/gh/Shredmetal/llmtest)
 
 > TL;DR: A Python library that lets you test LLM applications by describing expected behavior in plain English.
 
@@ -268,7 +269,7 @@ If you encounter issues:
 - Discord: [Join our community](https://discord.gg/awy83bZsKf)
 - Issues: [GitHub Issues](https://github.com/Shredmetal/llmtest/issues)
 - Documentation: [Full Docs](https://shredmetal.github.io/llmtest/)
-- Email: morganj.lee01@gmail.com
+- Email: morganj.lee01@gmail.com / Elnathan.erh@gmail.com
 
 ## Due to the number of downloads I am seeing on pypistats.org, I am including these instructions in case a beta update breaks something on your end:
 

@@ -20,8 +20,6 @@ def catch_llm_errors(func: Callable) -> Callable:
                 "Anthropic API error occurred",
                 reason=str(e)
             ) from e
-        except TypeError as e:
-            raise
         except Exception as e:
             if isinstance(e, LLMAppTestError):
                 raise
@@ -55,7 +53,7 @@ class LLMAppTestError(Exception):
 
 
 class BehavioralAssertionError(LLMAppTestError):
-    """Raised when semantic assertion fails."""
+    """Raised when behavioral assertion fails."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
         super().__init__(
             message=f"Behavioral assertion failed: {message}",

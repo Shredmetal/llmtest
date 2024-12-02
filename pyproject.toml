@@ -33,13 +33,14 @@ Repository = "https://github.com/Shredmetal/llmtest.git"
 
 [project.optional-dependencies]
 dev = [
-    "pytest-cov",
+    "coverage",
     "black",
     "flake8",
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.0.0",
     "build",
-    "twine"
+    "twine",
+    "codecov"
 ]
 
 [build-system]
