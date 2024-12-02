@@ -3,8 +3,8 @@ import sys
 from pathlib import Path
 
 
-def run_semantic_tests():
-    """Run all semantic assertion tests"""
+def run_behavioral_tests():
+    """Run all behavioral assertion tests"""
     test_dir = Path(__file__).parent
     test_files = [
 
@@ -40,5 +40,5 @@ if __name__ == "__main__":
 
     load_dotenv()
 
-    exit_code = run_semantic_tests()
+    exit_code = run_behavioral_tests()
     sys.exit(exit_code)
