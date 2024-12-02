@@ -1,19 +1,19 @@
 from typing import Optional, Set
 from llm_app_test.exceptions.test_exceptions import LLMConfigurationError
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
-from llm_app_test.behavioral_assert.validation.validator_config import ValidationConfig
+from llm_app_test.behavioral_assert.validation.config_validator_config import ConfigValidatorConfig
 
 
 class ConfigValidator:
     """Validator for LLM configuration parameters"""
 
     @staticmethod
-    def validate(config: ValidationConfig) -> LLMProvider:
+    def validate(config: ConfigValidatorConfig) -> LLMProvider:
         """
         Validate all configuration parameters
 
         Args:
-            config: ValidationConfig containing all parameters to validate
+            config: ConfigValidatorConfig containing all parameters to validate
 
         Returns:
             Validated LLMProvider

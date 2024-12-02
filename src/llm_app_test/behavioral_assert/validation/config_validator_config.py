@@ -3,7 +3,7 @@ from typing import Optional, Set
 
 
 @dataclass
-class ValidationConfig:
+class ConfigValidatorConfig:
     """Configuration data for validation"""
     api_key: Optional[str]
     provider: Optional[str]
