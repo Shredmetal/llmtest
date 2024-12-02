@@ -13,6 +13,7 @@ def run_semantic_tests():
         str(test_dir / "test_config_validator" / "test_config_validator.py"),
         str(test_dir / "pytest_plugin_tests" / "test_fixture_isolation.py"),
         str(test_dir / "pytest_plugin_tests" / "test_pytest_configuration.py"),
+        str(test_dir / "test_behavioral_assert" / "test_assert_behavioral_match_input_validator.py"),
         str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_validations.py"),
         str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_configuration.py"),
         str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_prompt_configurator.py"),
