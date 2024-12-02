@@ -8,6 +8,7 @@ from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurato
 from llm_app_test.behavioral_assert.llm_config.llm_config import LLMConfig
 from llm_app_test.behavioral_assert.llm_config.llm_factory import LLMFactory
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
+from llm_app_test.behavioral_assert.validation.behavioral_assert_input_validator import AssertBehavioralMatchValidator
 from llm_app_test.exceptions.test_exceptions import (
     catch_llm_errors,
     BehavioralAssertionError
@@ -146,8 +147,7 @@ class BehavioralAssertion:
             LLMConnectionError: If LLM service fails
             LLMConfigurationError: If LLM is not properly configured
         """
-        if actual is None or expected_behavior is None:
-            raise TypeError("Inputs cannot be None")
+        AssertBehavioralMatchValidator.validate(actual, expected_behavior)
 
         prompts = self.custom_prompts.prompts
 
