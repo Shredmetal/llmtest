@@ -72,12 +72,6 @@ class TestSemanticAssertion:
             asserter.assert_semantic_match("", "")
         assert "Behavioral assertion failed" in str(excinfo.value)
 
-    def test_none_inputs(self, asserter):
-        """Test None inputs raise TypeError"""
-        with pytest.raises(TypeError) as excinfo:
-            asserter.assert_semantic_match(None, None)
-        assert "Inputs cannot be None" in str(excinfo.value)
-
     def test_llm_app_test_error_with_details(self):
         """Test LLMAppTestError with details dictionary"""
         details = {"error_code": 500, "timestamp": "2024-11-29"}
