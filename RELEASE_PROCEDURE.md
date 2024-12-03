@@ -12,6 +12,7 @@ All tests must pass on the release branch before proceeding
     - Use PyCharm Professional coverage tool
     - __init__.py files are excluded from coverage requirements
     - Coverage must be verified in both current and deprecated paths
+  * Run all tests using Coverage and push results to Codecov for release branch
     
 2. Version Management
 
@@ -131,9 +132,13 @@ twine yank llm-app-test==<version>
 
 11. Branch Management
 
+- Ensure readme codecov badge points to CodeCov for main
 - Create pull request to merge release branch into main
 - Ensure CI passes on the PR
 - Obtain necessary approvals
 - Complete the merge
+- Run all tests again with Coverage and upload to CodeCov
+- If major issue detected - yank
+- If minor issue detected - reprioritise all GitHub issues for urgent patch
 
 
