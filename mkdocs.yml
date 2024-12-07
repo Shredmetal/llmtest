@@ -37,6 +37,7 @@ nav:
     - Best Practices: guides/best-practices.md
     - CI/CD Integration: guides/ci-cd.md
     - Testing Patterns: guides/testing-patterns.md
+    - Testing Hierarchy: guides/testing-hierarchy.md
   - API Reference:
     - BehavioralAssertion: api/behavioral-assertion.md
     - Custom Prompt Configuration: api/custom-prompt-configuration.md

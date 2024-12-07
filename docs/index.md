@@ -104,35 +104,23 @@ llm_app_test (Engineering Tool):
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
 Similarly, llm_app_test helps you test your application's use of LLMs.
 
+## Testing Hierarchy
 
-## In summary:
+llm-app-test is designed to complement existing LLM evaluation approaches. We recommend this testing hierarchy:
 
-### What llm_app_test Does
+1. **Behavioral Testing (llm-app-test)**
+    - Fast, cost-effective first line of testing
+    - Validates if your LLM application is doing the RIGHT thing
+    - Tests core functionality and behavior
+    - Must pass before proceeding to benchmarking
+    - Failure indicates fundamental problems with the application
 
-- Tests LLM applications (not the LLMs themselves)
-- Validates system message + prompt template outputs
-- Ensures expected behavioral patterns in responses
-- Tests the parts YOU control in your LLM application
-
-### What llm_app_test Doesn't Do
-
-- Test LLM model performance (that's the provider's responsibility)
-- Validate base model capabilities
-- Test model reliability
-- Handle model safety features
-
-## When to Use llm_app_test
-
-- Testing application-level LLM integration
-- Validating prompt engineering
-- Testing system message effectiveness
-- Ensuring consistent response patterns
-
-## When Not to Use llm_app_test
-
-- Testing base LLM performance
-- Evaluating model capabilities
-- Testing model safety features
+2. **Benchmarking and Performance Evaluation**
+    - Much slower and more expensive
+    - Only run AFTER behavioral tests pass
+    - Measures HOW WELL the application performs
+    - Tests performance metrics, response quality
+    - Used for optimization and model selection
 
 ## Need testing ideas? Check out the tests we used to test llm_app_test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
