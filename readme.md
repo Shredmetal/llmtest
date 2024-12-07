@@ -118,6 +118,9 @@ llm-app-test is designed to complement existing LLM evaluation approaches. We re
     - Tests performance metrics, response quality
     - Used for optimization and model selection
 
+### Visual representation of testing hierarchy:
+
+![Testing Hierarchy](https://i.imgur.com/TFPJa9M.png "LLM Application Testing Flow")
 
 ## Example of Behavioral Testing:
 
