@@ -3,7 +3,7 @@
 # List of test files to run
 test_files=(
     "tests/test_behavioral_assert/test_behavioral_assert_basic.py"
-    "tests/test_behavioral_assert/test_behavioral_assert_basic.py"
+    "tests/test_behavioral_assert/test_behavioral_assert_complex.py"
     "tests/test_behavioral_assert/test_behavioral_assert_configuration.py"
     "tests/test_behavioral_assert/test_behavioral_assert_llm_injection.py"
     "tests/test_behavioral_assert/test_behavioral_assert_prompt_configurator.py"
