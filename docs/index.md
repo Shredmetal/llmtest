@@ -122,6 +122,8 @@ llm-app-test is designed to complement existing LLM evaluation approaches. We re
     - Tests performance metrics, response quality
     - Used for optimization and model selection
 
+Please visit the [Testing Hierarchy Documentation](guides/testing-hierarchy.md) for a visual representation and a more in-depth explanation.
+
 ## Need testing ideas? Check out the tests we used to test llm_app_test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
 ## Quick Links
