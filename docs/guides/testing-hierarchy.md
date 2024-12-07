@@ -23,6 +23,8 @@ We recommend a testing hierarchy for LLM applications:
 
 ### Example Flow:
 
+![Testing Hierarchy](https://i.imgur.com/TFPJa9M.png "LLM Application Testing Flow")
+
 ```
 # 1. First, run behavioral tests
 behavioral_asserter.assert_behavioral_match(result, "Expected behavior description")
