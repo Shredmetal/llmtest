@@ -1481,13 +1481,13 @@
 <p>Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
 Similarly, llm_app_test helps you test your application's use of LLMs.</p>
 <h2 id="testing-hierarchy">Testing Hierarchy</h2>
-<p>llm-app-test is designed to complement existing LLM evaluation approaches. We recommend this testing hierarchy:</p>
+<p>llm-app-test is designed to complement existing approaches. We recommend this testing hierarchy:</p>
 <ol>
 <li>
 <p><strong>Behavioral Testing (llm-app-test)</strong></p>
 <ul>
 <li>Fast, cost-effective first line of testing</li>
-<li>Validates if your LLM application is doing the RIGHT thing</li>
+<li>Validates IF your LLM application is even working as intended</li>
 <li>Tests core functionality and behavior</li>
 <li>Must pass before proceeding to benchmarking</li>
 <li>Failure indicates fundamental problems with the application</li>
@@ -1498,7 +1498,7 @@ Similarly, llm_app_test helps you test your application's use of LLMs.</p>
 <ul>
 <li>Much slower and more expensive</li>
 <li>Only run AFTER behavioral tests pass</li>
-<li>Measures HOW WELL the application performs</li>
+<li>Measures HOW WELL the application performs (in our view, this blurs the lines into LLM evaluation but it should still be done, just not as the first line of defence against broken apps due to the time and cost required)</li>
 <li>Tests performance metrics, response quality</li>
 <li>Used for optimization and model selection</li>
 </ul>

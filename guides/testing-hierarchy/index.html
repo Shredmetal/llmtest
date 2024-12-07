@@ -957,24 +957,26 @@
   <h1>Testing Hierarchy</h1>
 
 <h2 id="testing-hierarchy">Testing Hierarchy</h2>
-<p>We recommend a testing hierarchy for LLM applications:</p>
+<p>llm-app-test is designed to complement existing approaches. We recommend this testing hierarchy:</p>
 <ol>
 <li>
 <p><strong>Behavioral Testing (llm-app-test)</strong></p>
 <ul>
-<li>Validates if the LLM application is doing the RIGHT thing</li>
+<li>Fast, cost-effective first line of testing</li>
+<li>Validates IF your LLM application is even working as intended</li>
 <li>Tests core functionality and behavior</li>
 <li>Must pass before proceeding to benchmarking</li>
 <li>Failure indicates fundamental problems with the application</li>
 </ul>
 </li>
 <li>
-<p><strong>Benchmarking (much slower and much more expensive)</strong></p>
+<p><strong>Benchmarking and Performance Evaluation</strong></p>
 <ul>
+<li>Much slower and more expensive</li>
 <li>Only run AFTER behavioral tests pass</li>
-<li>Measures HOW WELL the application performs</li>
-<li>Tests performance metrics</li>
-<li>Used for optimization</li>
+<li>Measures HOW WELL the application performs (in our view, this blurs the lines into LLM evaluation but it should still be done, just not as the first line of defence against broken apps due to the time and cost required)</li>
+<li>Tests performance metrics, response quality</li>
+<li>Used for optimization and model selection</li>
 </ul>
 </li>
 </ol>
