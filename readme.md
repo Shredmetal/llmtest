@@ -46,24 +46,24 @@ Please refer to the [documentation](https://shredmetal.github.io/llmtest/getting
 
 ## Testing Philosophy
 
-When integrating LLMs into your application, treat them as you would any closed-source third-party library (because there's a pretty good chance you can't actually change the LLM itself):
+When integrating LLMs into your application, treat them as you would any closed-source third-party library:
 
-1. Write tests for expected behaviour
+1. Write tests for expected behavior
 2. Focus on interface boundaries
 3. Test application-level functionality
 4. Maintain clear separation of concerns
 
 ### ⚠️ Important Information on Understanding Responsibilities
 
-llm_app_test is built by engineers for engineers so that all of us have a tool to validate the behaviour of applications that have had an LLM stuffed into them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
+This library is built by software engineers to give software engineers a tool to validate the behavior of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
 
 #### Software Engineer's Role
 
-- Write tests for expected application behaviour (in the same way you would for any piece of production code)
+- Write tests for expected application behavior
 - Validate inputs and outputs
 - Ensure proper integration
-- Monitor system performance (if all of your llm_app_test tests were passing before, and they suddenly start failing, you might have a problem)
-- Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps it might be worth seeking assistance with the `expected_behavior` prompt in the `assert_behavioral_match` function)
+- Monitor system performance
+- Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps to seek assistance with the `expected_behavior` prompt in the `assert_behavioral_match` function)
 
 #### Data Science Team's Role
 
@@ -94,54 +94,30 @@ Data Science Tools:
 llm_app_test (Engineering Tool):
 - Tests your APPLICATION code
 - Validates integration points
-- Ensures system behaviour
+- Ensures system behavior
 - Maintains production reliability
 
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
 Similarly, llm_app_test helps you test your application's use of LLMs.
 
-## In summary:
+## Testing Hierarchy
 
-### What llm_app_test Does
+llm-app-test is designed to complement existing LLM evaluation approaches. We recommend this testing hierarchy:
 
-- Tests LLM applications (not the LLMs themselves)
-- Validates system message + prompt template outputs
-- Ensures correct behavior of your application
-- Tests the parts YOU control in your LLM application
+1. **Behavioral Testing (llm-app-test)**
+    - Fast, cost-effective first line of testing
+    - Validates if your LLM application is doing the RIGHT thing
+    - Tests core functionality and behavior
+    - Must pass before proceeding to benchmarking
+    - Failure indicates fundamental problems with the application
 
-### What llm_app_test Doesn't Do
+2. **Benchmarking and Performance Evaluation**
+    - Much slower and more expensive
+    - Only run AFTER behavioral tests pass
+    - Measures HOW WELL the application performs
+    - Tests performance metrics, response quality
+    - Used for optimization and model selection
 
-- Test LLM model performance (that's the provider's responsibility)
-- Validate base model capabilities
-- Test model reliability
-- Handle model safety features
-
-### When to Use llm_app_test
-
-- Testing application-level LLM integration
-- Validating prompt engineering
-- Testing system message effectiveness
-- Ensuring consistent response patterns (just stick the test in a loop if you have to)
-
-### When Not to Use llm_app_test
-
-- Testing base LLM performance
-- Evaluating model capabilities
-- Testing model safety features
-
-## Why llm_app_test?
-
-Testing LLM applications is challenging because:
-- Outputs are non-deterministic
-- Application behavior meaning matters more than exact matches
-- Traditional testing approaches don't work well
-- Integration into CI/CD pipelines is complex
-
-llm_app_test solves these challenges by:
-- Using LLMs to evaluate the correct behavior
-- Providing a clean, maintainable testing framework
-- Offering simple CI/CD integration
-- Supporting multiple LLM providers
 
 ## Example of Behavioral Testing:
 
@@ -220,8 +196,9 @@ The European Theater of World War II was a significant front in the global confl
 
 The European war officially ended with Germany's unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan's surrender in September 1945.
 
-Error message thrown by `assert_behavioral_match`:
 ```
+
+Error message thrown by `assert_behavioral_match`:
 
 ```
 E           llm_app_test.exceptions.test_exceptions.BehavioralAssertionError: Behavioral assertion failed: 
