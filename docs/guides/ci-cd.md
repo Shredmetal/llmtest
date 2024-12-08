@@ -51,7 +51,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install .
+          pip install llm-app-test
 
       - name: Make test script executable
         run: chmod +x ci-necessary-tests.sh
@@ -112,7 +112,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install .
+        run: pip install llm-app-test
 
       - name: Run Tests
         run: pytest
