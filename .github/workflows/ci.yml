@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Run basic tests and ensure all pass only for branch names containing testcionly
+    name: Run necessary tests and ensure all pass for any pull requests to main or push to main branch.
     runs-on: ubuntu-latest
 
     steps:
