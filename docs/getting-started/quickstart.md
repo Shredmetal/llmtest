@@ -13,8 +13,10 @@ Create a `.env` file in your project root:
 OPENAI_API_KEY=your-openai-api-key-here
 
 # OR for Anthropic
+LLM_PROVIDER=anthropic # This must be provided if using Anthropic models as behavioral matcher to override the default of openai
 ANTHROPIC_API_KEY=your-anthropic-key-here
 ```
+Important note: We noticed that Claude is not as strict as GPT-4o when it comes to passing or failing outputs for behavioral mismatches. Therefore, we recommend using the default provider and providing an OpenAI API key.
 
 ## 2. Write Your First Test
 
@@ -93,6 +95,12 @@ def test_ww2_narrative():
 
     # This will fail because the bot's response focuses only on Europe
     behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
+```
+
+Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, we used this:
+
+```
+"Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."
 ```
 
 Actual bot response from one run:
