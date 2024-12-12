@@ -144,7 +144,7 @@ If you encounter issues:
 
 1. Create an issue on our GitHub repository
 2. Include your Python version and environment details
-3. Describe the problem you encountered with version 0.1.0b4
+3. Describe the problem you encountered with version 0.2.0b1
 
 ## 🆘 Support
 
