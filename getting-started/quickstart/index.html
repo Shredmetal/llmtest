@@ -1091,12 +1091,14 @@
 <p>Get up and running with llm-app-test in under 5 minutes.</p>
 <h2 id="1-set-up-environment">1. Set Up Environment</h2>
 <p>Create a <code>.env</code> file in your project root:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># For OpenAI
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># For OpenAI
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>OPENAI_API_KEY=your-openai-api-key-here
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># OR for Anthropic
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ANTHROPIC_API_KEY=your-anthropic-key-here
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LLM_PROVIDER=anthropic # This must be provided if using Anthropic models as behavioral matcher to override the default of openai
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>ANTHROPIC_API_KEY=your-anthropic-key-here
 </code></pre></div>
+Important note: We noticed that Claude is not as strict as GPT-4o when it comes to passing or failing outputs for behavioral mismatches. Therefore, we recommend using the default provider and providing an OpenAI API key.</p>
 <h2 id="2-write-your-first-test">2. Write Your First Test</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -1163,35 +1165,38 @@
 <a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    # This will fail because the bot&#39;s response focuses only on Europe
 <a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
 </code></pre></div>
+<p>Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, we used this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&quot;Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters.&quot;
+</code></pre></div>
 <p>Actual bot response from one run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>The European Theater of World War II was a significant front in the global conflict that lasted from 1939 to 1945. It involved most of the countries of Europe and was marked by numerous major battles and campaigns. Here is an overview of some of the key events and battles:
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1. **Invasion of Poland (1939):** The war in Europe began with Germany&#39;s invasion of Poland on September 1, 1939. This prompted Britain and France to declare war on Germany. The swift German victory was achieved through the use of Blitzkrieg tactics.
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>2. **Battle of France (1940):** In May 1940, Germany launched an invasion of France and the Low Countries. The German forces bypassed the heavily fortified Maginot Line and quickly advanced through the Ardennes, leading to the fall of France in June 1940.
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>3. **Battle of Britain (1940):** Following the fall of France, Germany attempted to gain air superiority over Britain in preparation for an invasion. The Royal Air Force successfully defended the UK, marking the first major defeat for Hitler&#39;s military forces.
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>4. **Operation Barbarossa (1941):** On June 22, 1941, Germany launched a massive invasion of the Soviet Union. This campaign opened the Eastern Front, which became the largest and bloodiest theater of war in World War II.
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>5. **Battle of Stalingrad (1942-1943):** One of the deadliest battles in history, the Battle of Stalingrad was a turning point on the Eastern Front. The Soviet victory marked the beginning of a major offensive push against German forces.
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>6. **North African Campaign (1940-1943):** This series of battles involved the Allies and Axis powers fighting for control of North Africa. The decisive Allied victory at the Second Battle of El Alamein in 1942 marked the beginning of the end for Axis forces in Africa.
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>7. **Invasion of Italy (1943):** After the successful North African Campaign, the Allies invaded Sicily in July 1943 and then mainland Italy. This led to the fall of Mussolini&#39;s regime and Italy&#39;s eventual surrender, although fighting continued in Italy until 1945.
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>8. **D-Day and the Battle of Normandy (1944):** On June 6, 1944, Allied forces launched Operation Overlord, the largest amphibious invasion in history, landing on the beaches of Normandy, France. This marked the beginning of the liberation of Western Europe from Nazi occupation.
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>9. **Battle of the Bulge (1944-1945):** Germany&#39;s last major offensive on the Western Front took place in the Ardennes Forest. Despite initial successes, the Allies eventually repelled the German forces, leading to a rapid advance into Germany.
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>10. **Fall of Berlin (1945):** The final major offensive in Europe was the Soviet assault on Berlin in April 1945. The city fell on May 2, 1945, leading to the suicide of Adolf Hitler and the unconditional surrender of German forces.
-<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>
-<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>The European war officially ended with Germany&#39;s unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan&#39;s surrender in September 1945.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>The European Theater of World War II was a significant front in the global conflict that lasted from 1939 to 1945. It involved most of the countries of Europe and was marked by numerous major battles and campaigns. Here is an overview of some of the key events and battles:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>1. **Invasion of Poland (1939):** The war in Europe began with Germany&#39;s invasion of Poland on September 1, 1939. This prompted Britain and France to declare war on Germany. The swift German victory was achieved through the use of Blitzkrieg tactics.
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>2. **Battle of France (1940):** In May 1940, Germany launched an invasion of France and the Low Countries. The German forces bypassed the heavily fortified Maginot Line and quickly advanced through the Ardennes, leading to the fall of France in June 1940.
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>3. **Battle of Britain (1940):** Following the fall of France, Germany attempted to gain air superiority over Britain in preparation for an invasion. The Royal Air Force successfully defended the UK, marking the first major defeat for Hitler&#39;s military forces.
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>4. **Operation Barbarossa (1941):** On June 22, 1941, Germany launched a massive invasion of the Soviet Union. This campaign opened the Eastern Front, which became the largest and bloodiest theater of war in World War II.
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>5. **Battle of Stalingrad (1942-1943):** One of the deadliest battles in history, the Battle of Stalingrad was a turning point on the Eastern Front. The Soviet victory marked the beginning of a major offensive push against German forces.
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>6. **North African Campaign (1940-1943):** This series of battles involved the Allies and Axis powers fighting for control of North Africa. The decisive Allied victory at the Second Battle of El Alamein in 1942 marked the beginning of the end for Axis forces in Africa.
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>7. **Invasion of Italy (1943):** After the successful North African Campaign, the Allies invaded Sicily in July 1943 and then mainland Italy. This led to the fall of Mussolini&#39;s regime and Italy&#39;s eventual surrender, although fighting continued in Italy until 1945.
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>8. **D-Day and the Battle of Normandy (1944):** On June 6, 1944, Allied forces launched Operation Overlord, the largest amphibious invasion in history, landing on the beaches of Normandy, France. This marked the beginning of the liberation of Western Europe from Nazi occupation.
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>9. **Battle of the Bulge (1944-1945):** Germany&#39;s last major offensive on the Western Front took place in the Ardennes Forest. Despite initial successes, the Allies eventually repelled the German forces, leading to a rapid advance into Germany.
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>10. **Fall of Berlin (1945):** The final major offensive in Europe was the Soviet assault on Berlin in April 1945. The city fell on May 2, 1945, leading to the suicide of Adolf Hitler and the unconditional surrender of German forces.
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>The European war officially ended with Germany&#39;s unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan&#39;s surrender in September 1945.
 </code></pre></div>
 <p>Error message thrown by <code>assert_behavioral_match</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>E           llm_app_test.exceptions.test_exceptions.BehavioralAssertionError: Behavioral assertion failed: 
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Behavioral Assertion Failed:  - Reason: The actual output focuses primarily on the European Theater of World War II, 
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>rather than providing a narrative about the global nature of the war.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>E           llm_app_test.exceptions.test_exceptions.BehavioralAssertionError: Behavioral assertion failed: 
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Behavioral Assertion Failed:  - Reason: The actual output focuses primarily on the European Theater of World War II, 
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>rather than providing a narrative about the global nature of the war.
 </code></pre></div>
 <h3 id="what-this-example-demonstrates">What This Example Demonstrates</h3>
 <ol>
