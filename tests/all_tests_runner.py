@@ -34,6 +34,7 @@ def get_test_files():
     semantic_test_files = [
         str(backwards_dir / "test_llm_setup" / "test_llm_provider.py"),
         str(backwards_dir / "test_llm_setup" / "test_llm_factory.py"),
+        str(backwards_dir / "test_rate_limiter" / "test_rate_limiter_backwards_compatibility.py"),
         str(backwards_dir / "test_config_validator" / "test_config_validator.py"),
         str(backwards_dir / "pytest_plugin_tests" / "test_fixture_isolation.py"),
         str(backwards_dir / "pytest_plugin_tests" / "test_pytest_configuration.py"),

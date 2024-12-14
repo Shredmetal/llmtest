@@ -91,5 +91,13 @@ class InvalidPromptError(LLMAppTestError):
             details=details
         )
 
+class RateLimiterConfigurationError(LLMAppTestError):
+    """Raised when rate limiter configuration is invalid."""
+    def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
+        super().__init__(
+            message=f"Rate limiter configuration error: {message}",
+            reason=reason,
+            details=details
+        )
 
 
