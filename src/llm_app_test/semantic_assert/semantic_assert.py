@@ -47,41 +47,48 @@ class SemanticAssertion(BehavioralAssertion):
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
             custom_prompts: Optional[AsserterPromptConfigurator] = None,
-            use_rate_limiter: bool = False
+            use_rate_limiter: bool = False,
+            rate_limiter_requests_per_second: Optional[float] = None,
+            rate_limiter_check_every_n_seconds: Optional[float] = None,
+            rate_limiter_max_bucket_size: Optional[float] = None
     ):
         """
-           Initialise the semantic assertion tester.
+            Initializes an object with configuration parameters for interacting with
+            a language model or API. The attributes define the API credentials, model
+            specifications, retry logic, request settings, rate-limiter configurations,
+            and other optional functionalities.
 
-           This class supports both direct configuration through parameters and environment variables.
-           Environment variables take precedence in the following order:
-           1. Explicitly passed parameters
-           2. Environment variables
-           3. Default values
+            Parameters:
+                api_key (Optional[str]): The API key for authenticating with the
+                    language model or API.
+                llm (Optional[BaseLanguageModel]): The base language model to be used,
+                    if specified.
+                provider (Optional[Union[str, LLMProvider]]): The provider or identifier
+                    of the language model service.
+                model (Optional[str]): Specifies the model name to be used with the
+                    provider.
+                temperature (Optional[float]): A float value to control randomness in
+                    responses from the model. Higher values introduce more variation.
+                max_tokens (Optional[int]): Defines the maximum token limit in the
+                    model's response.
+                max_retries (Optional[int]): The permissible number of retries for
+                    failed API calls.
+                timeout (Optional[float]): The timeout value, in seconds, for API
+                    responses.
+                custom_prompts (Optional[AsserterPromptConfigurator]): Custom
+                    configurator for prompts to tailor model interactions.
+                use_rate_limiter (bool): Specifies whether to enforce rate-limiting
+                    policies.
+                rate_limiter_requests_per_second (Optional[float]): Requests per second
+                    allowed by the rate-limiter.
+                rate_limiter_check_every_n_seconds (Optional[float]): Frequency, in
+                    seconds, at which the rate-limiter checks the request count.
+                rate_limiter_max_bucket_size (Optional[float]): Maximum number of
+                    requests allowed to accumulate in the rate-limiter's bucket.
 
-           Supported environment variables:
-               - OPENAI_API_KEY / ANTHROPIC_API_KEY: API keys for respective providers
-               - LLM_PROVIDER: The LLM provider to use ('openai' or 'anthropic')
-               - LLM_MODEL: Model name to use
-               - LLM_TEMPERATURE: Temperature setting (0.0 to 1.0)
-               - LLM_MAX_TOKENS: Maximum tokens for response
-               - LLM_MAX_RETRIES: Maximum number of retries for API calls
-               - REQUESTS_PER_SECOND: Rate limiter setting controlling the number of tokens to add per second to the bucket. Must be at least 1.
-               - CHECK_EVERY_N_SECONDS: Rate limiter setting to check whether the tokens are available
-                every n seconds
-               - MAX_BUCKET_SIZE: Rate limiter setting controlling the maximum number of tokens that can be in the bucket.
-
-           Args:
-               api_key: API key for the LLM provider (overrides environment variable)
-               llm: Optional pre-configured LLM (bypasses all other configuration)
-               provider: LLM provider (openai or anthropic)
-               model: Model name to use
-               temperature: Temperature setting (0.0 to 1.0)
-               max_tokens: Maximum tokens for response
-               max_retries: Maximum number of retries for API calls
-
-           Raises:
-               LLMConfigurationError: If configuration is invalid or required values are missing
-           """
+            Raises:
+                None
+        """
 
         super().__init__(
             api_key,
@@ -93,7 +100,10 @@ class SemanticAssertion(BehavioralAssertion):
             max_retries,
             timeout,
             custom_prompts,
-            use_rate_limiter
+            use_rate_limiter,
+            rate_limiter_requests_per_second,
+            rate_limiter_check_every_n_seconds,
+            rate_limiter_max_bucket_size
         )
 
     @deprecated
