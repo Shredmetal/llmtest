@@ -9,10 +9,9 @@ from llm_app_test.behavioral_assert.validation.rate_limiter_input_validator impo
 
 
 class LLMInMemoryRateLimiter:
-    def __init__(self, use_rate_limiter: bool):
+    def __init__(self):
 
         load_dotenv()
-        self.use_rate_limiter = use_rate_limiter
         requests_per_second_env = os.getenv('RATE_LIMITER_REQUESTS_PER_SECOND',
                                             RateLimiterConstants.REQUESTS_PER_SECOND)
         check_every_n_seconds_env = os.getenv('RATE_LIMITER_CHECK_EVERY_N_SECONDS',
@@ -31,4 +30,4 @@ class LLMInMemoryRateLimiter:
             requests_per_second=self.requests_per_second,
             check_every_n_seconds=self.check_every_n_seconds,
             max_bucket_size=self.max_bucket_size
-        ) if self.use_rate_limiter else None
+        )

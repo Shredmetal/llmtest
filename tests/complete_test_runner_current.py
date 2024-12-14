@@ -24,7 +24,10 @@ def run_behavioral_tests():
         str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_basic.py"),
         str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_complex.py"),
         str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_ridiculous.py"),
-        str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_real_world.py")
+        str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_real_world.py"),
+        str(test_dir / "test_behavioral_assert" / "test_behavioral_assert_real_world.py"),
+        str(test_dir / "test_rate_limiter" / "test_rate_limiter.py"),
+        str(test_dir / "test_rate_limiter_validator" / "test_rate_limiter_input_validator.py")
     ]
 
     args = [

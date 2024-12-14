@@ -128,9 +128,12 @@ class BehavioralAssertion:
             timeout=timeout
         )
 
-        llm_in_memory_rate_limiter = LLMInMemoryRateLimiter(use_rate_limiter=use_rate_limiter)
+        if use_rate_limiter:
+            llm_in_memory_rate_limiter = LLMInMemoryRateLimiter.get_rate_limiter
+        else:
+            llm_in_memory_rate_limiter = None
 
-        self.llm = LLMFactory.create_llm(config, llm_in_memory_rate_limiter.get_rate_limiter)
+        self.llm = LLMFactory.create_llm(config, llm_in_memory_rate_limiter)
 
     @catch_llm_errors
     def assert_behavioral_match(

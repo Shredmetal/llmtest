@@ -2,8 +2,11 @@ import os
 from unittest.mock import patch, MagicMock
 
 import pytest
+
+from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import RateLimiterConstants
 from llm_app_test.behavioral_assert.validation.rate_limiter_input_validator import RateLimiterInputsValidator
+from llm_app_test.pytest_plugin.plugin import behavioral_assert
 from llm_app_test.rate_limiter.rate_limiter_handler import LLMInMemoryRateLimiter
 
 
@@ -21,7 +24,7 @@ def test_initialization_with_env_variables(mock_env_variables):
     with patch.object(RateLimiterInputsValidator, 'validate_requests_per_second', return_value=5) as mock_rps, \
             patch.object(RateLimiterInputsValidator, 'validate_check_every_n_seconds', return_value=2) as mock_check, \
             patch.object(RateLimiterInputsValidator, 'validate_max_bucket_size', return_value=10) as mock_max:
-        rate_limiter = LLMInMemoryRateLimiter(use_rate_limiter=True)
+        rate_limiter = LLMInMemoryRateLimiter()
 
         assert rate_limiter.requests_per_second == 5
         assert rate_limiter.check_every_n_seconds == 2
@@ -37,7 +40,7 @@ def test_default_values_when_env_variables_missing():
                          return_value=RateLimiterConstants.CHECK_EVERY_N_SECONDS) as mock_check, \
             patch.object(RateLimiterInputsValidator, 'validate_max_bucket_size',
                          return_value=RateLimiterConstants.MAX_BUCKET_SIZE) as mock_max:
-        rate_limiter = LLMInMemoryRateLimiter(use_rate_limiter=True)
+        rate_limiter = LLMInMemoryRateLimiter()
 
         assert rate_limiter.requests_per_second == RateLimiterConstants.REQUESTS_PER_SECOND
         assert rate_limiter.check_every_n_seconds == RateLimiterConstants.CHECK_EVERY_N_SECONDS
@@ -48,7 +51,7 @@ def test_default_values_when_env_variables_missing():
         mock_max.assert_called_once_with(RateLimiterConstants.MAX_BUCKET_SIZE)
 
 def test_get_rate_limiter_with_limiter_enabled(mock_env_variables):
-    rate_limiter = LLMInMemoryRateLimiter(use_rate_limiter=True)
+    rate_limiter = LLMInMemoryRateLimiter()
     with patch('llm_app_test.rate_limiter.rate_limiter_handler.InMemoryRateLimiter', return_value=MagicMock()) as mock_rate_limiter:
         limiter = rate_limiter.get_rate_limiter
         mock_rate_limiter.assert_called_once_with(
@@ -59,7 +62,12 @@ def test_get_rate_limiter_with_limiter_enabled(mock_env_variables):
         assert limiter is not None
 
 
-def test_get_rate_limiter_with_limiter_disabled(mock_env_variables):
-    rate_limiter = LLMInMemoryRateLimiter(use_rate_limiter=False)
-    limiter = rate_limiter.get_rate_limiter
-    assert limiter is None
+def test_rate_limiter_disabled_by_default():
+    asserter = BehavioralAssertion()
+
+    assert asserter.llm.rate_limiter is None
+
+def test_rate_limiter_disabled_by_default_in_anthropic():
+    asserter = BehavioralAssertion(provider="anthropic")
+
+    assert asserter.llm.rate_limiter is None
