@@ -5,8 +5,7 @@
 ![PyPI Downloads](https://img.shields.io/pypi/dm/llm-app-test)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
-[![codecov](https://codecov.io/github/Shredmetal/llmtest/branch/release%2F0.2.0b2/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/github/Shredmetal/llmtest)
+[![codecov](https://codecov.io/gh/Shredmetal/llmtest/branch/feature%2F0.2.0b2-rate-limiter/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/gh/Shredmetal/llmtest)
 
 ## Quick Start
 - [Installation](getting-started/installation.md)
@@ -145,7 +144,7 @@ If you encounter issues:
 
 1. Create an issue on our GitHub repository
 2. Include your Python version and environment details
-3. Describe the problem you encountered with version 0.1.0b4
+3. Describe the problem you encountered with version 0.2.0b1
 
 ## 🆘 Support
 

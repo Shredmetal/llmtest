@@ -13,3 +13,9 @@ class ModelConstants:
 
     OPENAI_MODELS = {"gpt-4o", "gpt-4-turbo"}
     ANTHROPIC_MODELS = {"claude-3-5-sonnet-latest", "claude-3-opus-latest"}
+
+class RateLimiterConstants:
+    """Constants for rate limiter configuration"""
+    REQUESTS_PER_SECOND = 1.0
+    CHECK_EVERY_N_SECONDS = 0.1
+    MAX_BUCKET_SIZE = 1

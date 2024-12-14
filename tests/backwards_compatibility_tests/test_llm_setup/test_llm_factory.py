@@ -57,7 +57,8 @@ class TestLLMFactory:
             openai_api_key="test-key",
             max_retries=2,
             max_tokens=4096,
-            request_timeout=10.0
+            request_timeout=10.0,
+            rate_limiter=None
         )
         assert llm == mock_instance
 
@@ -75,7 +76,8 @@ class TestLLMFactory:
             anthropic_api_key="anthropic-key",
             max_retries=2,
             max_tokens=4096,
-            default_request_timeout=10.0
+            default_request_timeout=10.0,
+            rate_limiter=None
         )
         assert llm == mock_instance
 
@@ -93,6 +95,7 @@ class TestLLMFactory:
             openai_api_key=None,
             max_retries=None,
             max_tokens=None,
-            request_timeout=None
+            request_timeout=None,
+            rate_limiter=None
         )
         assert llm == mock_instance

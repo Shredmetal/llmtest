@@ -65,6 +65,7 @@ class TestBehavioralAssertionConfiguration:
         assert create_args['max_tokens'] == LLMConstants.DEFAULT_MAX_TOKENS
         assert create_args['max_retries'] == LLMConstants.DEFAULT_MAX_RETRIES
         assert create_args['model_name'] == ModelConstants.DEFAULT_OPENAI_MODEL
+        assert create_args['rate_limiter'] is None
 
     @patch('llm_app_test.behavioral_assert.llm_config.llm_factory.ChatAnthropic')
     def test_anthropic_default_configurations(self, mock_chat):

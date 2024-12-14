@@ -12,6 +12,7 @@ from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvi
 
 def deprecated(func):
     """This decorator marks functions and classes as deprecated"""
+
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         warnings.warn(
@@ -21,12 +22,15 @@ def deprecated(func):
             category=UserWarning,
             stacklevel=2
         )
-        print(f"\nWARNING: {func.__name__} is deprecated. Use behavioral testing methods such as BehavioralAssert.assert_behavioral_match(actual, expected) instead. "
-              f"{func.__name__} will be removed in version 1.0.0 or the first update "
-              f"after 1 June 2025, whichever comes later\n",
-              file=sys.stderr)
+        print(
+            f"\nWARNING: {func.__name__} is deprecated. Use behavioral testing methods such as BehavioralAssert.assert_behavioral_match(actual, expected) instead. "
+            f"{func.__name__} will be removed in version 1.0.0 or the first update "
+            f"after 1 June 2025, whichever comes later\n",
+            file=sys.stderr)
         return func(*args, **kwargs)
+
     return wrapper
+
 
 @deprecated
 class SemanticAssertion(BehavioralAssertion):
@@ -42,7 +46,8 @@ class SemanticAssertion(BehavioralAssertion):
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
-            custom_prompts: Optional[AsserterPromptConfigurator] = None
+            custom_prompts: Optional[AsserterPromptConfigurator] = None,
+            use_rate_limiter: bool = False
     ):
         """
            Initialise the semantic assertion tester.
@@ -60,6 +65,10 @@ class SemanticAssertion(BehavioralAssertion):
                - LLM_TEMPERATURE: Temperature setting (0.0 to 1.0)
                - LLM_MAX_TOKENS: Maximum tokens for response
                - LLM_MAX_RETRIES: Maximum number of retries for API calls
+               - REQUESTS_PER_SECOND: Rate limiter setting controlling the number of tokens to add per second to the bucket. Must be at least 1.
+               - CHECK_EVERY_N_SECONDS: Rate limiter setting to check whether the tokens are available
+                every n seconds
+               - MAX_BUCKET_SIZE: Rate limiter setting controlling the maximum number of tokens that can be in the bucket.
 
            Args:
                api_key: API key for the LLM provider (overrides environment variable)
@@ -75,15 +84,16 @@ class SemanticAssertion(BehavioralAssertion):
            """
 
         super().__init__(
-                api_key,
-                llm,
-                provider,
-                model,
-                temperature,
-                max_tokens,
-                max_retries,
-                timeout,
-                custom_prompts,
+            api_key,
+            llm,
+            provider,
+            model,
+            temperature,
+            max_tokens,
+            max_retries,
+            timeout,
+            custom_prompts,
+            use_rate_limiter
         )
 
     @deprecated
