@@ -13,9 +13,12 @@ from llm_app_test.exceptions.test_exceptions import (
     catch_llm_errors,
     BehavioralAssertionError
 )
-from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import ModelConstants, LLMConstants
+from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import ModelConstants, \
+    LLMConstants
 from llm_app_test.behavioral_assert.validation.config_validator import ConfigValidator
 from llm_app_test.behavioral_assert.validation.config_validator_config import ConfigValidatorConfig
+
+from llm_app_test.rate_limiter.rate_limiter_handler import LLMInMemoryRateLimiter
 
 
 class BehavioralAssertion:
@@ -36,7 +39,8 @@ class BehavioralAssertion:
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
-            custom_prompts: Optional[AsserterPromptConfigurator] = None
+            custom_prompts: Optional[AsserterPromptConfigurator] = None,
+            use_rate_limiter: bool = False
     ):
 
         """Initialize the behavioral assertion tester.
@@ -81,7 +85,7 @@ class BehavioralAssertion:
             return
 
         provider_value = provider.value if isinstance(provider, LLMProvider) else (
-                    provider or os.getenv('LLM_PROVIDER', 'openai'))
+                provider or os.getenv('LLM_PROVIDER', 'openai'))
 
         if provider_value.lower() == LLMProvider.OPENAI.value:
             api_key = api_key or os.getenv('OPENAI_API_KEY')
@@ -124,7 +128,9 @@ class BehavioralAssertion:
             timeout=timeout
         )
 
-        self.llm = LLMFactory.create_llm(config)
+        llm_in_memory_rate_limiter = LLMInMemoryRateLimiter(use_rate_limiter=use_rate_limiter)
+
+        self.llm = LLMFactory.create_llm(config, llm_in_memory_rate_limiter.get_rate_limiter)
 
     @catch_llm_errors
     def assert_behavioral_match(

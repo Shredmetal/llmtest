@@ -13,3 +13,11 @@ src/llm_app_test.egg-info/
 # Exclude the tests directory itself and all non-__pycache__ content
 !tests/
 !tests/**/
+
+# Coverage
+.coverage
+coverage.xml
+
+# Build
+build/
+dist/
