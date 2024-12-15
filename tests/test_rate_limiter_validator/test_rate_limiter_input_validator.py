@@ -51,7 +51,7 @@ class TestRateLimiterInputsValidator:
         """Test that invalid check_every_n_seconds values raise appropriate errors."""
         with pytest.raises(RateLimiterConfigurationError) as exc_info:
             RateLimiterInputsValidator.validate_check_every_n_seconds(invalid_value)
-        assert "Must be a valid non-negative float" in str(exc_info.value)
+        assert "must be a valid non-negative float" in str(exc_info.value)
 
     @pytest.mark.parametrize("value, expected", [
         (0.0, 0.0),
@@ -73,4 +73,24 @@ class TestRateLimiterInputsValidator:
         """Test that invalid max_bucket_size values raise appropriate errors."""
         with pytest.raises(RateLimiterConfigurationError) as exc_info:
             RateLimiterInputsValidator.validate_max_bucket_size(invalid_value)
-        assert "Must be a valid non-negative float" in str(exc_info.value)
+        assert "must be a valid non-negative float" in str(exc_info.value)
+
+    @pytest.mark.parametrize("string", [
+        "hello",
+        "zero point five",
+        "float(1.0)"
+    ])
+    def test_validate_alphabetical_strings_always_fail(self, string: float):
+        """Test that invalid alphabetical values always raise appropriate errors."""
+
+        with pytest.raises(RateLimiterConfigurationError) as exc_info:
+            RateLimiterInputsValidator.validate_max_bucket_size(string)
+        assert "must be a valid non-negative float" in str(exc_info.value)
+
+        with pytest.raises(RateLimiterConfigurationError) as exc_info:
+            RateLimiterInputsValidator.validate_check_every_n_seconds(string)
+        assert "must be a valid non-negative float" in str(exc_info.value)
+
+        with pytest.raises(RateLimiterConfigurationError) as exc_info:
+            RateLimiterInputsValidator.validate_requests_per_second(string)
+        assert "must be a valid non-negative float" in str(exc_info.value)
