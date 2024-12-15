@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -830,6 +830,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/rate-limiter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rate Limiter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1081,40 +1102,40 @@
 <p>When testing LLM applications, focus on describing what your application should do rather than how it should do it.</p>
 <p>Behavioral testing focuses on validating that outputs exhibit expected characteristics and behaviors in a declarative manner. For example:</p>
 <p>Expected Behavior: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;A response that provides a weather forecast including temperature and conditions&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="s2">&quot;A response that provides a weather forecast including temperature and conditions&quot;</span>
 </code></pre></div>
 <p>These responses would PASS:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>actual_1 = &quot;Today will be sunny with a high of 75°F&quot;
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>actual_2 = &quot;Expect cloudy skies and temperatures around 24°C&quot;
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>actual_3 = &quot;The forecast shows clear weather, reaching 298K&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">actual_1</span> <span class="o">=</span> <span class="s2">&quot;Today will be sunny with a high of 75°F&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">actual_2</span> <span class="o">=</span> <span class="s2">&quot;Expect cloudy skies and temperatures around 24°C&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">actual_3</span> <span class="o">=</span> <span class="s2">&quot;The forecast shows clear weather, reaching 298K&quot;</span>
 </code></pre></div>
 <p>These would FAIL:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>fail_1 = &quot;Have a nice day!&quot; (missing forecast elements)
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>fail_2 = &quot;It&#39;s weather time!&quot; (missing required information)
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>fail_3 = &quot;75 degrees&quot; (incomplete behavior)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">fail_1</span> <span class="o">=</span> <span class="s2">&quot;Have a nice day!&quot;</span> <span class="p">(</span><span class="n">missing</span> <span class="n">forecast</span> <span class="n">elements</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">fail_2</span> <span class="o">=</span> <span class="s2">&quot;It&#39;s weather time!&quot;</span> <span class="p">(</span><span class="n">missing</span> <span class="n">required</span> <span class="n">information</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">fail_3</span> <span class="o">=</span> <span class="s2">&quot;75 degrees&quot;</span> <span class="p">(</span><span class="n">incomplete</span> <span class="n">behavior</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="writing-good-expected-behaviors">Writing Good Expected Behaviors</h2>
 <ol>
 <li>
 <p><strong>Be Specific</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Good
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>expected_behavior = &quot;&quot;&quot; A polite greeting that:
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                    Addresses the person by name (Alice)
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    Asks about their wellbeing &quot;&quot;&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Good</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">expected_behavior</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; A polite greeting that:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s2">                    Addresses the person by name (Alice)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s2">                    Asks about their wellbeing &quot;&quot;&quot;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a># Bad - too vague
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>expected_behavior = &quot;A nice greeting&quot;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Bad - too vague</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">expected_behavior</span> <span class="o">=</span> <span class="s2">&quot;A nice greeting&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Focus on Behaviors</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Good
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>expected_behavior = &quot;&quot;&quot; An error message that:
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                    Explains the API key is invalid
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                    Provides steps to fix the issue &quot;&quot;&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Good</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">expected_behavior</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; An error message that:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s2">                    Explains the API key is invalid</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s2">                    Provides steps to fix the issue &quot;&quot;&quot;</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a># Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, USE REGULAR PYTEST
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>expected_behavior = &quot;Should say &#39;Invalid API key&#39;&quot;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Bad - testing exact wording - DO NOT USE llm_app_test FOR THIS, USE REGULAR PYTEST</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">expected_behavior</span> <span class="o">=</span> <span class="s2">&quot;Should say &#39;Invalid API key&#39;&quot;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1136,19 +1157,19 @@
 <ol>
 <li>
 <p><strong>Test Scope Based on Behavioral Requirements</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># Testing Single Behavior 
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>def test_greeting_format(): 
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  &quot;&quot;&quot;Test that greeting follows required format&quot;&quot;&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Testing Single Behavior </span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span> <span class="nf">test_greeting_format</span><span class="p">():</span> 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="sd">&quot;&quot;&quot;Test that greeting follows required format&quot;&quot;&quot;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Testing Multiple Related Behaviors
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>def test_patient_education_diabetes():
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Testing Multiple Related Behaviors</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span> <span class="nf">test_patient_education_diabetes</span><span class="p">():</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   expected = &quot;&quot;&quot;Test comprehensive diabetes education document including:
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    - Overview section
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    - Numerical guidelines
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    - Structured sections
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    - Warning signs
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    - Follow-up instructions&quot;&quot;&quot;
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Test comprehensive diabetes education document including:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s2">    - Overview section</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s2">    - Numerical guidelines</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="s2">    - Structured sections</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="s2">    - Warning signs</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="s2">    - Follow-up instructions&quot;&quot;&quot;</span>
 </code></pre></div>
 </li>
 <li>
@@ -1161,11 +1182,11 @@
 </li>
 <li>
 <p><strong>Clear Test Names</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># Good
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>def test_error_message_includes_solution_steps():
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Good</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">def</span> <span class="nf">test_error_message_includes_solution_steps</span><span class="p">():</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># Bad
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>def test_error():
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Bad</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">def</span> <span class="nf">test_error</span><span class="p">():</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1173,23 +1194,23 @@
 <ol>
 <li>
 <p><strong>Over-Specific Expected Behaviors</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a># Too specific
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>expected = &quot;Must say hello and use exactly these words&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Too specific</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;Must say hello and use exactly these words&quot;</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a># Better
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>expected = &quot;Should be a greeting in conversational English&quot;
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Better</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;Should be a greeting in conversational English&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Under-Specific Expected Behaviors</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># Too vague
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>expected = &quot;Should be good&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Too vague</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;Should be good&quot;</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a># Better
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>expected = &quot;&quot;&quot; Response should:
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>           Answer the user&#39;s question
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>           Use professional language
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>           Stay on topic &quot;&quot;&quot;
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Better</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; Response should:</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s2">           Answer the user&#39;s question</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="s2">           Use professional language</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="s2">           Stay on topic &quot;&quot;&quot;</span>
 </code></pre></div>
 </li>
 </ol>

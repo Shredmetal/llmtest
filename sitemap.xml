@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://Shredmetal.github.io/llmtest/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/behavioral-assertion/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/configuration/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/custom-prompt-configuration/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/api/error-handling/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
+    </url>
+    <url>
+         <loc>https://Shredmetal.github.io/llmtest/api/rate-limiter/</loc>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/getting-started/installation/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/getting-started/quickstart/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/best-practices/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/ci-cd/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/testing-hierarchy/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/guides/testing-patterns/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/reliability_testing/behavior_at_semantic_boundaries/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/reliability_testing/behavioral_testing_reliability/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://Shredmetal.github.io/llmtest/reliability_testing/format_compliance/</loc>
-         <lastmod>2024-12-12</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
 </urlset>

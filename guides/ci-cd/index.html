@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cicd-integration" class="md-skip">
+        <a href="#cicd-guide-for-llm-application-test-library" class="md-skip">
           Skip to content
         </a>
       
@@ -566,41 +566,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-cicd" class="md-nav__link">
+  <a href="#1-ci-integration" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up CI/CD
+      1. CI Integration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Setting Up CI/CD">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-environment-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Environment Setup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-test-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Test Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-cicd-pipeline-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. CI/CD Pipeline Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. CI/CD Pipeline Configuration">
+    <nav class="md-nav" aria-label="1. CI Integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -616,6 +588,52 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variable-setup-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variable Setup Guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-for-ci-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for CI Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Workflow Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explaining-ci-necessary-testssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explaining ci-necessary-tests.sh
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explaining ci-necessary-tests.sh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
@@ -623,18 +641,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#-" class="md-nav__link">
     <span class="md-ellipsis">
-      Best Practices
+      ---
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
+  <a href="#customizing-the-ci-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Issues
+      Customizing the CI Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing the CI Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tailoring-to-your-needs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tailoring to Your Needs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -833,6 +884,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/rate-limiter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rate Limiter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -979,41 +1051,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-cicd" class="md-nav__link">
+  <a href="#1-ci-integration" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up CI/CD
+      1. CI Integration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Setting Up CI/CD">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-environment-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Environment Setup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-test-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Test Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-cicd-pipeline-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. CI/CD Pipeline Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. CI/CD Pipeline Configuration">
+    <nav class="md-nav" aria-label="1. CI Integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1029,6 +1073,52 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variable-setup-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variable Setup Guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-for-ci-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for CI Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Workflow Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explaining-ci-necessary-testssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explaining ci-necessary-tests.sh
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explaining ci-necessary-tests.sh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
@@ -1036,18 +1126,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#-" class="md-nav__link">
     <span class="md-ellipsis">
-      Best Practices
+      ---
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
+  <a href="#customizing-the-ci-workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Issues
+      Customizing the CI Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing the CI Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tailoring-to-your-needs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tailoring to Your Needs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -1081,105 +1204,211 @@
 
 
 <p><a href="../../">← Back to Home</a></p>
-<h1 id="cicd-integration">CI/CD Integration</h1>
-<p>llm_app_test is designed for seamless integration with CI/CD pipelines.</p>
-<h2 id="setting-up-cicd">Setting Up CI/CD</h2>
-<h3 id="1-environment-setup">1. Environment Setup</h3>
-<p>Add your API keys as secrets in your CI/CD environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>env:
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># OR
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>env:
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+<h1 id="cicd-guide-for-llm-application-test-library">CI/CD Guide for llm-application Test Library</h1>
+<p>This guide provides a detailed explanation of setting up Continuous Integration (CI) using GitHub Actions for the <code>llm-application</code> test library. It includes a step-by-step example of a CI workflow, environment variable setup, and best practices for CI integration.</p>
+<hr />
+<h2 id="1-ci-integration">1. CI Integration</h2>
+<h3 id="github-actions-example">GitHub Actions Example</h3>
+<p>Below is an example of a GitHub Actions workflow file (<code>ci.yml</code>) configured for the <code>llm-application</code> test library. It runs necessary tests in parallel for changes pushed to the <code>main</code> branch or submitted as pull requests to <code>main</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run basic tests and ensure all pass</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python 3.10</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install GPG</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sudo apt-get install -y gpg</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decrypt API key</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">          </span><span class="nt">GPG_PASSPHRASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GPG_PASSPHRASE }}</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">          </span><span class="no">gpg --batch --yes --passphrase &quot;$GPG_PASSPHRASE&quot; \</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">              </span><span class="no">-o openai-api-key.txt -d openai-api-key.txt.gpg</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set API Key Environment Variable</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">            </span><span class="no">export OPENAI_API_KEY=$(cat openai-api-key.txt)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">            </span><span class="no">echo &quot;OPENAI_API_KEY=$OPENAI_API_KEY&quot; &gt;&gt; $GITHUB_ENV</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">          </span><span class="no">pip install llm-app-test</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Make test script executable</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chmod +x ci-necessary-tests.sh</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./ci-necessary-tests.sh</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">          </span><span class="nt">OPENAI_API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.OPENAI_API_KEY }}</span>
 </code></pre></div>
-<h3 id="2-test-configuration">2. Test Configuration</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>def test_llm_output():
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    behavioral_assert = BehavioralAssertion() # Your tests here
+<h2 id="environment-variable-setup-guide">Environment Variable Setup Guide</h2>
+<div class="highlight"><pre><span></span><code>1.  Create Encrypted Secrets:
+   •    Navigate to your repository on GitHub.
+   •    Go to Settings &gt; Secrets and variables &gt; Actions.
+   •    Add a secret named GPG_PASSPHRASE containing the passphrase for your encrypted API key.
+2.  Encrypt API Keys:
+  • Use gpg to encrypt the API key file locally:
 </code></pre></div>
-<h3 id="3-cicd-pipeline-configuration">3. CI/CD Pipeline Configuration</h3>
-<h4 id="github-actions-example">GitHub Actions Example</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>name: LLM Application Tests
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>on: [push, pull_request]
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>jobs:
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  test:
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    runs-on: ubuntu-latest
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    steps:
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>      - uses: actions/checkout@v2
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>      - name: Set up Python
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        uses: actions/setup-python@v2
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        with:
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>          python-version: &#39;3.10&#39;
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>      - name: Install dependencies
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        run: |
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>          pip install -r requirements.txt
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>          pip install llm-app-test
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>      - name: Run tests
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        env:
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        run: pytest tests/
+<p><code>gpg --batch --yes --passphrase "your-passphrase" -c openai-api-key.txt</code>
+      • Add the resulting openai-api-key.txt.gpg file to your repository.</p>
+<div class="highlight"><pre><span></span><code>3.  Environment Variable Usage:
+  • The workflow uses the decrypted key as an environment variable (OPENAI_API_KEY) during the test run.
 </code></pre></div>
-<h2 id="best-practices">Best Practices</h2>
+<h2 id="best-practices-for-ci-integration">Best Practices for CI Integration</h2>
+<div class="highlight"><pre><span></span><code>•   Keep Secrets Secure:
+•   Never commit plain-text API keys or sensitive credentials.
+•   Use GitHub Secrets to securely manage sensitive data.
+•   Parallelize Tests:
+•   Leverage parallel execution to reduce CI runtime, especially for large test suites.
+•   Fail Fast:
+•   Configure the CI to exit immediately upon test failure to save time and resources.
+•   Keep Workflows Modular:
+•   Separate workflows for testing, deployment, and other stages to enhance clarity and maintainability.
+</code></pre></div>
+<h2 id="2-workflow-example">2. Workflow Example</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python 3.10</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install llm-app-test</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Tests</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span>
+</code></pre></div>
+<h2 id="explaining-ci-necessary-testssh">Explaining ci-necessary-tests.sh</h2>
+<h3 id="how-it-works">How It Works</h3>
+<div class="highlight"><pre><span></span><code>1.  Test File List:
+  • Specify the test files to be run in the test_files array.
+2.  Parallel Execution:
+  • Each test file runs as a background process, improving efficiency.
+3.  Error Tracking:
+  • The script tracks process IDs and exit statuses to determine if any test failed.
+4.  Final Status:
+  • If all tests pass, the script exits with a status of 0. Otherwise, it exits with an error status of 1.
+</code></pre></div>
+<h2 id="-">---</h2>
+<h2 id="customizing-the-ci-workflow">Customizing the CI Workflow</h2>
+<h3 id="tailoring-to-your-needs">Tailoring to Your Needs</h3>
+<p>The provided workflow is modular and can be easily customized:</p>
 <ol>
+<li><strong>Triggering on Specific Events</strong>:</li>
 <li>
-<p><strong>API Key Management</strong>:</p>
-<ul>
-<li>Never commit API keys</li>
-<li>Use CI/CD environment secrets</li>
-<li>Rotate keys regularly</li>
-</ul>
+<p>Modify the <code>on</code> section to run workflows for specific branches or events.
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+</code></pre></div></p>
 </li>
 <li>
-<p><strong>Cost Control</strong>:</p>
-<ul>
-<li>Run behavioral tests only on critical paths</li>
-<li>Consider test result caching</li>
-</ul>
+<p><strong>Adding Additional Steps</strong>:</p>
 </li>
 <li>
-<p><strong>Pipeline Optimization</strong>:</p>
-<ul>
-<li>Run traditional tests first</li>
-<li>Run behavioral tests in parallel</li>
-<li>Set appropriate timeouts</li>
-</ul>
+<p>Include additional steps like linting, type checking, or deployment.
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint code</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pylint my_library/</span>
+</code></pre></div></p>
 </li>
 <li>
-<p><strong>Error Handling</strong>:</p>
-<ul>
-<li>Implement retry logic for API failures (though Langchain should have this covered)</li>
-<li>Log detailed error information</li>
-<li>Set up alerts for repeated failures</li>
-</ul>
-</li>
-</ol>
-<h2 id="common-issues">Common Issues</h2>
-<ol>
-<li>
-<p><strong>API Rate Limits</strong>:</p>
-<ul>
-<li>Implement exponential backoff (configuration and integration of Langchain implementation planned for future version)</li>
-<li>Use test result caching</li>
-<li>Consider parallel test execution</li>
-</ul>
+<p><strong>Changing Python Versions</strong>:</p>
 </li>
 <li>
-<p><strong>Cost Management</strong>:</p>
-<ul>
-<li>Monitor API usage</li>
-<li>Set budget alerts</li>
-<li>Use test filtering</li>
-</ul>
+<p>Update the <code>python-version</code> field to test across multiple Python versions.
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;3.9&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span><span class="p p-Indicator">]</span>
+</code></pre></div></p>
 </li>
+<li>
+<p><strong>Conditional Execution</strong>:</p>
+</li>
+<li>Use <code>if</code> conditions to execute specific steps only when required.
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to production</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./deploy.sh</span>
+</code></pre></div></li>
 </ol>
 <hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Here are common issues and solutions for setting up CI workflows:</p>
+<ol>
+<li><strong><code>OPENAI_API_KEY</code> Not Found</strong>:</li>
+<li>
+<p>Ensure the <code>OPENAI_API_KEY</code> env variable is correctly configured in the .env file.</p>
+</li>
+<li>
+<p><strong><code>ci-necessary-tests.sh</code> Permissions Denied</strong>:</p>
+</li>
+<li>
+<p>Ensure the script is executable:
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>ci-necessary-tests.sh
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Workflow Doesn’t Trigger</strong>:</p>
+</li>
+<li>
+<p>Verify the <code>on</code> section matches the desired branch and event settings.</p>
+</li>
+<li>
+<p><strong>Long Runtime</strong>:</p>
+</li>
+<li>Cache dependencies using the <code>actions/cache</code> action to speed up workflows:
+     <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cache Python dependencies</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v3</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pip</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-pip-${{ hashFiles(&#39;**/requirements.txt&#39;) }}</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="no">${{ runner.os }}-pip-</span>
+</code></pre></div></li>
+</ol>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>With this guide, you can confidently set up a CI/CD pipeline for testing your LLM application using our test library. 
+The examples and best practices here are flexible enough to adapt to various CI needs, ensuring efficient, reliable, 
+and secure integration into your development workflow.</p>
+<p>For further enhancements or specific use cases, feel free to extend the scripts and workflows to meet your project’s requirements.</p>
 <h2 id="navigation">Navigation</h2>
 <ul>
 <li><a href="../../">Back to Home</a></li>

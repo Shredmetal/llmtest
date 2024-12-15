@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -706,6 +706,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/rate-limiter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rate Limiter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1269,644 +1290,644 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain implementation in dev branch
 </code></pre></div>
 The <code>semantic_assert_match</code> function (<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>) also saw slight modification:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        if result.startswith(&quot;FAIL&quot;):
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            raise SemanticAssertionError(
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                &quot;Semantic assertion failed&quot;,
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                reason=result.split(&quot;FAIL: &quot;)[1]
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            )
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;FAIL&quot;</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            <span class="k">raise</span> <span class="n">SemanticAssertionError</span><span class="p">(</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                <span class="s2">&quot;Semantic assertion failed&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                <span class="n">reason</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;FAIL: &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            <span class="p">)</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        # Section below added to cause failure in the event of format violation    
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="c1"># Section below added to cause failure in the event of format violation    </span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        elif result.startswith(&quot;PASS&quot;):
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            pass
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        else:
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            raise RuntimeError(
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                f&quot;Format Non-compliance Detected {result}&quot;
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            )
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">elif</span> <span class="n">result</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;PASS&quot;</span><span class="p">):</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="k">pass</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                <span class="sa">f</span><span class="s2">&quot;Format Non-compliance Detected </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>            <span class="p">)</span>
 </code></pre></div>
 <p>The prompts to the asserter LLM (that sits behind <code>semantic_assert_match</code>(<strong>Update</strong>: Deprecated and replaced with identical <code>assert_behavioral_match</code>)) were:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DEFAULT_SYSTEM_PROMPT = &quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">DEFAULT_SYSTEM_PROMPT</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You are a testing system. Your job is to determine if an actual output matches the expected behavior.</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Important: You can only respond with EXACTLY: 
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1. &#39;PASS&#39; if it matches, or 
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">Important: You can only respond with EXACTLY: </span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">1. &#39;PASS&#39; if it matches, or </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">2. &#39;FAIL: &lt;reason&gt;&#39; if it doesn&#39;t match.</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Any other type of response will mean disaster which as a testing system, you are meant to prevent.
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">Any other type of response will mean disaster which as a testing system, you are meant to prevent.</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Be strict but consider semantic meaning rather than exact wording.&quot;&quot;&quot;
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s2">Be strict but consider semantic meaning rather than exact wording.&quot;&quot;&quot;</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>DEFAULT_HUMAN_PROMPT = &quot;&quot;&quot;
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>Expected Behavior: {expected_behavior}
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">DEFAULT_HUMAN_PROMPT</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="s2">Expected Behavior: </span><span class="si">{expected_behavior}</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Actual Output: {actual}
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="s2">Actual Output: </span><span class="si">{actual}</span>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY 
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s2">Does the actual output match the expected behavior? Remember, you will fail your task unless you respond EXACTLY </span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s2">with &#39;PASS&#39; or &#39;FAIL: &lt;reason&gt;&#39;.&quot;&quot;&quot;</span>
 </code></pre></div>
 <h2 id="test-suite-code">Test Suite Code</h2>
 <p>⚠️ <strong>Note About Test Code</strong>: 
 The test suite shown uses the deprecated <code>SemanticAssertion</code> class and <code>assert_semantic_match</code> method. 
 These tests remain valid as the underlying implementation is identical in the new <code>BehavioralAssertion</code> class 
 and <code>assert_behavioral_match</code> method. The only change is in terminology to better reflect the testing approach.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>import pytest
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>from llm_app_test.exceptions.test_exceptions import (
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    SemanticAssertionError
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">llm_app_test.semantic_assert.semantic_assert</span> <span class="kn">import</span> <span class="n">SemanticAssertion</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">llm_app_test.exceptions.test_exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">SemanticAssertionError</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>class TestRealWorldSemanticAssertion:
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    &quot;&quot;&quot;Test suite for semantic matching across diverse industry-specific LLM applications.
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">class</span> <span class="nc">TestRealWorldSemanticAssertion</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Test suite for semantic matching across diverse industry-specific LLM applications.</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    This test class is specifically designed to validate semantic matching capabilities
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    across a wide range of real-world LLM application outputs. It contains both positive
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    and negative test cases that represent actual use cases where LLMs are being used
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    in production environments.
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="sd">    This test class is specifically designed to validate semantic matching capabilities</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="sd">    across a wide range of real-world LLM application outputs. It contains both positive</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="sd">    and negative test cases that represent actual use cases where LLMs are being used</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="sd">    in production environments.</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    Industries Covered:
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        - Healthcare (Patient Education)
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        - Financial Services (Portfolio Reporting)
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        - Media/Entertainment (Content Recommendations)
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        - Legal (Document Summarization)
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        - Manufacturing (Maintenance Prediction)
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        - E-commerce (Product Descriptions)
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        - Education (Assignment Feedback)
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        - Real Estate (Property Listings)
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        - Human Resources (Interview Feedback)
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        - Customer Service (Ticket Response)
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="sd">    Industries Covered:</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="sd">        - Healthcare (Patient Education)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="sd">        - Financial Services (Portfolio Reporting)</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="sd">        - Media/Entertainment (Content Recommendations)</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="sd">        - Legal (Document Summarization)</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="sd">        - Manufacturing (Maintenance Prediction)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="sd">        - E-commerce (Product Descriptions)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="sd">        - Education (Assignment Feedback)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="sd">        - Real Estate (Property Listings)</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="sd">        - Human Resources (Interview Feedback)</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="sd">        - Customer Service (Ticket Response)</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    Test Structure:
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        - Each test validates specific industry requirements
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>        - Mix of positive and negative test cases
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>        - Focus on realistic content length and complexity
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>        - Industry-specific terminology and formatting
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        - Comprehensive coverage of common LLM outputs
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="sd">    Test Structure:</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="sd">        - Each test validates specific industry requirements</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="sd">        - Mix of positive and negative test cases</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="sd">        - Focus on realistic content length and complexity</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="sd">        - Industry-specific terminology and formatting</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="sd">        - Comprehensive coverage of common LLM outputs</span>
 <a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    Purpose:
-<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        This test suite is designed for brute force reliability testing of the semantic
-<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>        matcher. It ensures the library can handle diverse, real-world content while
-<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        maintaining consistent behavior across multiple test runs.
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="sd">    Purpose:</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="sd">        This test suite is designed for brute force reliability testing of the semantic</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="sd">        matcher. It ensures the library can handle diverse, real-world content while</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="sd">        maintaining consistent behavior across multiple test runs.</span>
 <a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
-<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>    Usage:
-<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        These tests are intended to be run multiple times (1000+) to validate the
-<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        consistency and reliability of the semantic matching functionality across
-<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>        different contexts and content types.
-<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    &quot;&quot;&quot;
-<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    @pytest.fixture
-<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    def asserter(self):
-<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        return SemanticAssertion()
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="sd">    Usage:</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="sd">        These tests are intended to be run multiple times (1000+) to validate the</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="sd">        consistency and reliability of the semantic matching functionality across</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="sd">        different contexts and content types.</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    <span class="k">def</span> <span class="nf">asserter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        <span class="k">return</span> <span class="n">SemanticAssertion</span><span class="p">()</span>
 <a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>
 <a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>
-<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    def test_patient_education_diabetes_management(self, asserter):
-<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>        &quot;&quot;&quot;Test semantic matching for patient education content about diabetes management. Failure is expected because
-<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        this does not contain emergency response steps.&quot;&quot;&quot;
-<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>        Understanding and Managing Type 2 Diabetes
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    <span class="k">def</span> <span class="nf">test_patient_education_diabetes_management</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for patient education content about diabetes management. Failure is expected because</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="sd">        this does not contain emergency response steps.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="s2">        Understanding and Managing Type 2 Diabetes</span>
 <a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
-<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>        Type 2 diabetes is a chronic condition that affects how your body processes blood sugar (glucose). 
-<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>        While this condition is serious, it can be effectively managed through lifestyle changes and, 
-<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>        when necessary, medication. This guide will help you understand the key aspects of diabetes 
-<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>        management.
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="s2">        Type 2 diabetes is a chronic condition that affects how your body processes blood sugar (glucose). </span>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="s2">        While this condition is serious, it can be effectively managed through lifestyle changes and, </span>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="s2">        when necessary, medication. This guide will help you understand the key aspects of diabetes </span>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="s2">        management.</span>
 <a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>
-<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        Blood Sugar Monitoring:
-<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>        Regular blood sugar monitoring is essential. Your target blood glucose levels should typically 
-<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>        be 80-130 mg/dL before meals and less than 180 mg/dL two hours after meals. However, your 
-<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>        healthcare provider may set different targets based on your individual needs. Keep a log of 
-<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>        your readings to identify patterns and adjust your management strategy accordingly.
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a><span class="s2">        Blood Sugar Monitoring:</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="s2">        Regular blood sugar monitoring is essential. Your target blood glucose levels should typically </span>
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="s2">        be 80-130 mg/dL before meals and less than 180 mg/dL two hours after meals. However, your </span>
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a><span class="s2">        healthcare provider may set different targets based on your individual needs. Keep a log of </span>
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a><span class="s2">        your readings to identify patterns and adjust your management strategy accordingly.</span>
 <a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>
-<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>        Dietary Considerations:
-<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>        A balanced diet is crucial for managing type 2 diabetes. Focus on:
-<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>        - Controlling portion sizes
-<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>        - Choosing high-fiber, low-glycemic foods
-<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>        - Limiting refined carbohydrates and processed sugars
-<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>        - Including lean proteins and healthy fats
-<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>        - Spacing meals evenly throughout the day
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a><span class="s2">        Dietary Considerations:</span>
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a><span class="s2">        A balanced diet is crucial for managing type 2 diabetes. Focus on:</span>
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a><span class="s2">        - Controlling portion sizes</span>
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a><span class="s2">        - Choosing high-fiber, low-glycemic foods</span>
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a><span class="s2">        - Limiting refined carbohydrates and processed sugars</span>
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a><span class="s2">        - Including lean proteins and healthy fats</span>
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a><span class="s2">        - Spacing meals evenly throughout the day</span>
 <a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>
-<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>        Physical Activity:
-<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>        Regular exercise helps control blood sugar levels by improving insulin sensitivity. Aim for:
-<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>        - At least 150 minutes of moderate-intensity aerobic activity weekly
-<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>        - Resistance training 2-3 times per week
-<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>        - Daily movement, even if just short walks
-<a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>        Always check your blood sugar before and after exercise, and carry a fast-acting 
-<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>        carbohydrate source.
+<a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a><span class="s2">        Physical Activity:</span>
+<a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a><span class="s2">        Regular exercise helps control blood sugar levels by improving insulin sensitivity. Aim for:</span>
+<a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a><span class="s2">        - At least 150 minutes of moderate-intensity aerobic activity weekly</span>
+<a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a><span class="s2">        - Resistance training 2-3 times per week</span>
+<a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a><span class="s2">        - Daily movement, even if just short walks</span>
+<a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a><span class="s2">        Always check your blood sugar before and after exercise, and carry a fast-acting </span>
+<a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a><span class="s2">        carbohydrate source.</span>
 <a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>
-<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a>        Medication Management:
-<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a>        If prescribed, take diabetes medications as directed. Common medications include:
-<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>        - Metformin (helps reduce glucose production)
-<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>        - Sulfonylureas (increase insulin production)
-<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>        - DPP-4 inhibitors (help maintain blood sugar control)
-<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>        Never adjust or stop medications without consulting your healthcare provider.
+<a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a><span class="s2">        Medication Management:</span>
+<a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a><span class="s2">        If prescribed, take diabetes medications as directed. Common medications include:</span>
+<a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a><span class="s2">        - Metformin (helps reduce glucose production)</span>
+<a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a><span class="s2">        - Sulfonylureas (increase insulin production)</span>
+<a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a><span class="s2">        - DPP-4 inhibitors (help maintain blood sugar control)</span>
+<a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a><span class="s2">        Never adjust or stop medications without consulting your healthcare provider.</span>
 <a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>
-<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>        Warning Signs:
-<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a>        Learn to recognize and respond to:
-<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>        - Hypoglycemia (low blood sugar): shakiness, sweating, confusion
-<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>        - Hyperglycemia (high blood sugar): increased thirst, frequent urination, fatigue
-<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a>        Seek immediate medical attention if you experience severe symptoms or sustained 
-<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a>        high blood sugar levels.
+<a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a><span class="s2">        Warning Signs:</span>
+<a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a><span class="s2">        Learn to recognize and respond to:</span>
+<a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a><span class="s2">        - Hypoglycemia (low blood sugar): shakiness, sweating, confusion</span>
+<a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a><span class="s2">        - Hyperglycemia (high blood sugar): increased thirst, frequent urination, fatigue</span>
+<a id="__codelineno-3-94" name="__codelineno-3-94" href="#__codelineno-3-94"></a><span class="s2">        Seek immediate medical attention if you experience severe symptoms or sustained </span>
+<a id="__codelineno-3-95" name="__codelineno-3-95" href="#__codelineno-3-95"></a><span class="s2">        high blood sugar levels.</span>
 <a id="__codelineno-3-96" name="__codelineno-3-96" href="#__codelineno-3-96"></a>
-<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a>        Regular Health Monitoring:
-<a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a>        Schedule regular check-ups with your healthcare team, including:
-<a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a>        - HbA1c tests every 3-6 months
-<a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a>        - Annual eye examinations
-<a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a>        - Regular foot checks
-<a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a>        - Kidney function tests
-<a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a>        - Cholesterol level monitoring
+<a id="__codelineno-3-97" name="__codelineno-3-97" href="#__codelineno-3-97"></a><span class="s2">        Regular Health Monitoring:</span>
+<a id="__codelineno-3-98" name="__codelineno-3-98" href="#__codelineno-3-98"></a><span class="s2">        Schedule regular check-ups with your healthcare team, including:</span>
+<a id="__codelineno-3-99" name="__codelineno-3-99" href="#__codelineno-3-99"></a><span class="s2">        - HbA1c tests every 3-6 months</span>
+<a id="__codelineno-3-100" name="__codelineno-3-100" href="#__codelineno-3-100"></a><span class="s2">        - Annual eye examinations</span>
+<a id="__codelineno-3-101" name="__codelineno-3-101" href="#__codelineno-3-101"></a><span class="s2">        - Regular foot checks</span>
+<a id="__codelineno-3-102" name="__codelineno-3-102" href="#__codelineno-3-102"></a><span class="s2">        - Kidney function tests</span>
+<a id="__codelineno-3-103" name="__codelineno-3-103" href="#__codelineno-3-103"></a><span class="s2">        - Cholesterol level monitoring</span>
 <a id="__codelineno-3-104" name="__codelineno-3-104" href="#__codelineno-3-104"></a>
-<a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a>        Remember, diabetes management is a journey, not a destination. Small, consistent 
-<a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a>        steps in the right direction can lead to significant improvements in your health 
-<a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a>        and quality of life.
-<a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-105" name="__codelineno-3-105" href="#__codelineno-3-105"></a><span class="s2">        Remember, diabetes management is a journey, not a destination. Small, consistent </span>
+<a id="__codelineno-3-106" name="__codelineno-3-106" href="#__codelineno-3-106"></a><span class="s2">        steps in the right direction can lead to significant improvements in your health </span>
+<a id="__codelineno-3-107" name="__codelineno-3-107" href="#__codelineno-3-107"></a><span class="s2">        and quality of life.</span>
+<a id="__codelineno-3-108" name="__codelineno-3-108" href="#__codelineno-3-108"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-109" name="__codelineno-3-109" href="#__codelineno-3-109"></a>
-<a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a>        expected = &quot;&quot;&quot;A medical education document that must:
-<a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a>        1. Contain an overview section explaining the condition
-<a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a>        2. List specific numerical guidelines (blood sugar ranges, exercise minutes)
-<a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a>        3. Include structured sections for diet, exercise, and medication
-<a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a>        4. Provide clear warning signs AND detailed emergency response procedures
-<a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a>        5. End with follow-up care instructions&quot;&quot;&quot;
+<a id="__codelineno-3-110" name="__codelineno-3-110" href="#__codelineno-3-110"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A medical education document that must:</span>
+<a id="__codelineno-3-111" name="__codelineno-3-111" href="#__codelineno-3-111"></a><span class="s2">        1. Contain an overview section explaining the condition</span>
+<a id="__codelineno-3-112" name="__codelineno-3-112" href="#__codelineno-3-112"></a><span class="s2">        2. List specific numerical guidelines (blood sugar ranges, exercise minutes)</span>
+<a id="__codelineno-3-113" name="__codelineno-3-113" href="#__codelineno-3-113"></a><span class="s2">        3. Include structured sections for diet, exercise, and medication</span>
+<a id="__codelineno-3-114" name="__codelineno-3-114" href="#__codelineno-3-114"></a><span class="s2">        4. Provide clear warning signs AND detailed emergency response procedures</span>
+<a id="__codelineno-3-115" name="__codelineno-3-115" href="#__codelineno-3-115"></a><span class="s2">        5. End with follow-up care instructions&quot;&quot;&quot;</span>
 <a id="__codelineno-3-116" name="__codelineno-3-116" href="#__codelineno-3-116"></a>
-<a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
-<a id="__codelineno-3-118" name="__codelineno-3-118" href="#__codelineno-3-118"></a>            asserter.assert_semantic_match(actual, expected)
-<a id="__codelineno-3-119" name="__codelineno-3-119" href="#__codelineno-3-119"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-117" name="__codelineno-3-117" href="#__codelineno-3-117"></a>        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">SemanticAssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+<a id="__codelineno-3-118" name="__codelineno-3-118" href="#__codelineno-3-118"></a>            <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-3-119" name="__codelineno-3-119" href="#__codelineno-3-119"></a>        <span class="k">assert</span> <span class="s2">&quot;Semantic assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <a id="__codelineno-3-120" name="__codelineno-3-120" href="#__codelineno-3-120"></a>
-<a id="__codelineno-3-121" name="__codelineno-3-121" href="#__codelineno-3-121"></a>    def test_investment_portfolio_report_generation(self, asserter):
-<a id="__codelineno-3-122" name="__codelineno-3-122" href="#__codelineno-3-122"></a>        &quot;&quot;&quot;Test semantic matching for investment portfolio report generation. Tests that the report
-<a id="__codelineno-3-123" name="__codelineno-3-123" href="#__codelineno-3-123"></a>        contains all required sections and maintains professional financial terminology.&quot;&quot;&quot;
-<a id="__codelineno-3-124" name="__codelineno-3-124" href="#__codelineno-3-124"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-125" name="__codelineno-3-125" href="#__codelineno-3-125"></a>        Q4 2023 Portfolio Performance Summary
+<a id="__codelineno-3-121" name="__codelineno-3-121" href="#__codelineno-3-121"></a>    <span class="k">def</span> <span class="nf">test_investment_portfolio_report_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-122" name="__codelineno-3-122" href="#__codelineno-3-122"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for investment portfolio report generation. Tests that the report</span>
+<a id="__codelineno-3-123" name="__codelineno-3-123" href="#__codelineno-3-123"></a><span class="sd">        contains all required sections and maintains professional financial terminology.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-124" name="__codelineno-3-124" href="#__codelineno-3-124"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-125" name="__codelineno-3-125" href="#__codelineno-3-125"></a><span class="s2">        Q4 2023 Portfolio Performance Summary</span>
 <a id="__codelineno-3-126" name="__codelineno-3-126" href="#__codelineno-3-126"></a>
-<a id="__codelineno-3-127" name="__codelineno-3-127" href="#__codelineno-3-127"></a>        Portfolio Overview:
-<a id="__codelineno-3-128" name="__codelineno-3-128" href="#__codelineno-3-128"></a>        Your investment portfolio has demonstrated resilient performance during Q4 2023, 
-<a id="__codelineno-3-129" name="__codelineno-3-129" href="#__codelineno-3-129"></a>        achieving a total return of 8.2% against our benchmark index return of 7.5%. 
-<a id="__codelineno-3-130" name="__codelineno-3-130" href="#__codelineno-3-130"></a>        Total portfolio value stands at $1,245,000 as of December 31, 2023.
+<a id="__codelineno-3-127" name="__codelineno-3-127" href="#__codelineno-3-127"></a><span class="s2">        Portfolio Overview:</span>
+<a id="__codelineno-3-128" name="__codelineno-3-128" href="#__codelineno-3-128"></a><span class="s2">        Your investment portfolio has demonstrated resilient performance during Q4 2023, </span>
+<a id="__codelineno-3-129" name="__codelineno-3-129" href="#__codelineno-3-129"></a><span class="s2">        achieving a total return of 8.2</span><span class="si">% a</span><span class="s2">gainst our benchmark index return of 7.5%. </span>
+<a id="__codelineno-3-130" name="__codelineno-3-130" href="#__codelineno-3-130"></a><span class="s2">        Total portfolio value stands at $1,245,000 as of December 31, 2023.</span>
 <a id="__codelineno-3-131" name="__codelineno-3-131" href="#__codelineno-3-131"></a>
-<a id="__codelineno-3-132" name="__codelineno-3-132" href="#__codelineno-3-132"></a>        Asset Allocation Analysis:
-<a id="__codelineno-3-133" name="__codelineno-3-133" href="#__codelineno-3-133"></a>        Current allocation stands at:
-<a id="__codelineno-3-134" name="__codelineno-3-134" href="#__codelineno-3-134"></a>        - Equities: 65% ($809,250)
-<a id="__codelineno-3-135" name="__codelineno-3-135" href="#__codelineno-3-135"></a>            - US Large Cap: 40% ($498,000)
-<a id="__codelineno-3-136" name="__codelineno-3-136" href="#__codelineno-3-136"></a>            - International Developed: 15% ($186,750)
-<a id="__codelineno-3-137" name="__codelineno-3-137" href="#__codelineno-3-137"></a>            - Emerging Markets: 10% ($124,500)
-<a id="__codelineno-3-138" name="__codelineno-3-138" href="#__codelineno-3-138"></a>        - Fixed Income: 25% ($311,250)
-<a id="__codelineno-3-139" name="__codelineno-3-139" href="#__codelineno-3-139"></a>            - Government Bonds: 15% ($186,750)
-<a id="__codelineno-3-140" name="__codelineno-3-140" href="#__codelineno-3-140"></a>            - Corporate Bonds: 10% ($124,500)
-<a id="__codelineno-3-141" name="__codelineno-3-141" href="#__codelineno-3-141"></a>        - Alternative Investments: 10% ($124,500)
-<a id="__codelineno-3-142" name="__codelineno-3-142" href="#__codelineno-3-142"></a>            - Real Estate: 5% ($62,250)
-<a id="__codelineno-3-143" name="__codelineno-3-143" href="#__codelineno-3-143"></a>            - Commodities: 5% ($62,250)
+<a id="__codelineno-3-132" name="__codelineno-3-132" href="#__codelineno-3-132"></a><span class="s2">        Asset Allocation Analysis:</span>
+<a id="__codelineno-3-133" name="__codelineno-3-133" href="#__codelineno-3-133"></a><span class="s2">        Current allocation stands at:</span>
+<a id="__codelineno-3-134" name="__codelineno-3-134" href="#__codelineno-3-134"></a><span class="s2">        - Equities: 65% ($809,250)</span>
+<a id="__codelineno-3-135" name="__codelineno-3-135" href="#__codelineno-3-135"></a><span class="s2">            - US Large Cap: 40% ($498,000)</span>
+<a id="__codelineno-3-136" name="__codelineno-3-136" href="#__codelineno-3-136"></a><span class="s2">            - International Developed: 15% ($186,750)</span>
+<a id="__codelineno-3-137" name="__codelineno-3-137" href="#__codelineno-3-137"></a><span class="s2">            - Emerging Markets: 10% ($124,500)</span>
+<a id="__codelineno-3-138" name="__codelineno-3-138" href="#__codelineno-3-138"></a><span class="s2">        - Fixed Income: 25% ($311,250)</span>
+<a id="__codelineno-3-139" name="__codelineno-3-139" href="#__codelineno-3-139"></a><span class="s2">            - Government Bonds: 15% ($186,750)</span>
+<a id="__codelineno-3-140" name="__codelineno-3-140" href="#__codelineno-3-140"></a><span class="s2">            - Corporate Bonds: 10% ($124,500)</span>
+<a id="__codelineno-3-141" name="__codelineno-3-141" href="#__codelineno-3-141"></a><span class="s2">        - Alternative Investments: 10% ($124,500)</span>
+<a id="__codelineno-3-142" name="__codelineno-3-142" href="#__codelineno-3-142"></a><span class="s2">            - Real Estate: 5% ($62,250)</span>
+<a id="__codelineno-3-143" name="__codelineno-3-143" href="#__codelineno-3-143"></a><span class="s2">            - Commodities: 5% ($62,250)</span>
 <a id="__codelineno-3-144" name="__codelineno-3-144" href="#__codelineno-3-144"></a>
-<a id="__codelineno-3-145" name="__codelineno-3-145" href="#__codelineno-3-145"></a>        Performance Attribution:
-<a id="__codelineno-3-146" name="__codelineno-3-146" href="#__codelineno-3-146"></a>        Key contributors to performance:
-<a id="__codelineno-3-147" name="__codelineno-3-147" href="#__codelineno-3-147"></a>        1. US Technology sector outperformance (+12.3%)
-<a id="__codelineno-3-148" name="__codelineno-3-148" href="#__codelineno-3-148"></a>        2. Emerging Markets recovery (+9.1%)
-<a id="__codelineno-3-149" name="__codelineno-3-149" href="#__codelineno-3-149"></a>        3. Corporate Bond yield optimization (+4.2%)
+<a id="__codelineno-3-145" name="__codelineno-3-145" href="#__codelineno-3-145"></a><span class="s2">        Performance Attribution:</span>
+<a id="__codelineno-3-146" name="__codelineno-3-146" href="#__codelineno-3-146"></a><span class="s2">        Key contributors to performance:</span>
+<a id="__codelineno-3-147" name="__codelineno-3-147" href="#__codelineno-3-147"></a><span class="s2">        1. US Technology sector outperformance (+12.3%)</span>
+<a id="__codelineno-3-148" name="__codelineno-3-148" href="#__codelineno-3-148"></a><span class="s2">        2. Emerging Markets recovery (+9.1%)</span>
+<a id="__codelineno-3-149" name="__codelineno-3-149" href="#__codelineno-3-149"></a><span class="s2">        3. Corporate Bond yield optimization (+4.2%)</span>
 <a id="__codelineno-3-150" name="__codelineno-3-150" href="#__codelineno-3-150"></a>
-<a id="__codelineno-3-151" name="__codelineno-3-151" href="#__codelineno-3-151"></a>        Risk Metrics:
-<a id="__codelineno-3-152" name="__codelineno-3-152" href="#__codelineno-3-152"></a>        - Portfolio Beta: 0.85
-<a id="__codelineno-3-153" name="__codelineno-3-153" href="#__codelineno-3-153"></a>        - Sharpe Ratio: 1.45
-<a id="__codelineno-3-154" name="__codelineno-3-154" href="#__codelineno-3-154"></a>        - Maximum Drawdown: -5.2%
-<a id="__codelineno-3-155" name="__codelineno-3-155" href="#__codelineno-3-155"></a>        - Standard Deviation: 12.3%
+<a id="__codelineno-3-151" name="__codelineno-3-151" href="#__codelineno-3-151"></a><span class="s2">        Risk Metrics:</span>
+<a id="__codelineno-3-152" name="__codelineno-3-152" href="#__codelineno-3-152"></a><span class="s2">        - Portfolio Beta: 0.85</span>
+<a id="__codelineno-3-153" name="__codelineno-3-153" href="#__codelineno-3-153"></a><span class="s2">        - Sharpe Ratio: 1.45</span>
+<a id="__codelineno-3-154" name="__codelineno-3-154" href="#__codelineno-3-154"></a><span class="s2">        - Maximum Drawdown: -5.2%</span>
+<a id="__codelineno-3-155" name="__codelineno-3-155" href="#__codelineno-3-155"></a><span class="s2">        - Standard Deviation: 12.3%</span>
 <a id="__codelineno-3-156" name="__codelineno-3-156" href="#__codelineno-3-156"></a>
-<a id="__codelineno-3-157" name="__codelineno-3-157" href="#__codelineno-3-157"></a>        Rebalancing Recommendations:
-<a id="__codelineno-3-158" name="__codelineno-3-158" href="#__codelineno-3-158"></a>        Based on current market conditions and your investment objectives:
-<a id="__codelineno-3-159" name="__codelineno-3-159" href="#__codelineno-3-159"></a>        1. Consider increasing Fixed Income allocation by 2%
-<a id="__codelineno-3-160" name="__codelineno-3-160" href="#__codelineno-3-160"></a>        2. Reduce US Large Cap exposure by 3%
-<a id="__codelineno-3-161" name="__codelineno-3-161" href="#__codelineno-3-161"></a>        3. Increase Emerging Markets exposure by 1%
+<a id="__codelineno-3-157" name="__codelineno-3-157" href="#__codelineno-3-157"></a><span class="s2">        Rebalancing Recommendations:</span>
+<a id="__codelineno-3-158" name="__codelineno-3-158" href="#__codelineno-3-158"></a><span class="s2">        Based on current market conditions and your investment objectives:</span>
+<a id="__codelineno-3-159" name="__codelineno-3-159" href="#__codelineno-3-159"></a><span class="s2">        1. Consider increasing Fixed Income allocation by 2%</span>
+<a id="__codelineno-3-160" name="__codelineno-3-160" href="#__codelineno-3-160"></a><span class="s2">        2. Reduce US Large Cap exposure by 3%</span>
+<a id="__codelineno-3-161" name="__codelineno-3-161" href="#__codelineno-3-161"></a><span class="s2">        3. Increase Emerging Markets exposure by 1%</span>
 <a id="__codelineno-3-162" name="__codelineno-3-162" href="#__codelineno-3-162"></a>
-<a id="__codelineno-3-163" name="__codelineno-3-163" href="#__codelineno-3-163"></a>        Market Outlook:
-<a id="__codelineno-3-164" name="__codelineno-3-164" href="#__codelineno-3-164"></a>        Looking ahead to 2024, we anticipate:
-<a id="__codelineno-3-165" name="__codelineno-3-165" href="#__codelineno-3-165"></a>        - Continued monetary policy normalization
-<a id="__codelineno-3-166" name="__codelineno-3-166" href="#__codelineno-3-166"></a>        - Potential emerging markets opportunities
-<a id="__codelineno-3-167" name="__codelineno-3-167" href="#__codelineno-3-167"></a>        - Heightened focus on quality factors in equity selection
+<a id="__codelineno-3-163" name="__codelineno-3-163" href="#__codelineno-3-163"></a><span class="s2">        Market Outlook:</span>
+<a id="__codelineno-3-164" name="__codelineno-3-164" href="#__codelineno-3-164"></a><span class="s2">        Looking ahead to 2024, we anticipate:</span>
+<a id="__codelineno-3-165" name="__codelineno-3-165" href="#__codelineno-3-165"></a><span class="s2">        - Continued monetary policy normalization</span>
+<a id="__codelineno-3-166" name="__codelineno-3-166" href="#__codelineno-3-166"></a><span class="s2">        - Potential emerging markets opportunities</span>
+<a id="__codelineno-3-167" name="__codelineno-3-167" href="#__codelineno-3-167"></a><span class="s2">        - Heightened focus on quality factors in equity selection</span>
 <a id="__codelineno-3-168" name="__codelineno-3-168" href="#__codelineno-3-168"></a>
-<a id="__codelineno-3-169" name="__codelineno-3-169" href="#__codelineno-3-169"></a>        Next Steps:
-<a id="__codelineno-3-170" name="__codelineno-3-170" href="#__codelineno-3-170"></a>        1. Schedule quarterly review meeting
-<a id="__codelineno-3-171" name="__codelineno-3-171" href="#__codelineno-3-171"></a>        2. Discuss rebalancing recommendations
-<a id="__codelineno-3-172" name="__codelineno-3-172" href="#__codelineno-3-172"></a>        3. Update investment policy statement if needed
-<a id="__codelineno-3-173" name="__codelineno-3-173" href="#__codelineno-3-173"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-169" name="__codelineno-3-169" href="#__codelineno-3-169"></a><span class="s2">        Next Steps:</span>
+<a id="__codelineno-3-170" name="__codelineno-3-170" href="#__codelineno-3-170"></a><span class="s2">        1. Schedule quarterly review meeting</span>
+<a id="__codelineno-3-171" name="__codelineno-3-171" href="#__codelineno-3-171"></a><span class="s2">        2. Discuss rebalancing recommendations</span>
+<a id="__codelineno-3-172" name="__codelineno-3-172" href="#__codelineno-3-172"></a><span class="s2">        3. Update investment policy statement if needed</span>
+<a id="__codelineno-3-173" name="__codelineno-3-173" href="#__codelineno-3-173"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-174" name="__codelineno-3-174" href="#__codelineno-3-174"></a>
-<a id="__codelineno-3-175" name="__codelineno-3-175" href="#__codelineno-3-175"></a>        expected = &quot;&quot;&quot;A professional investment portfolio report that must:
-<a id="__codelineno-3-176" name="__codelineno-3-176" href="#__codelineno-3-176"></a>        1. Present portfolio performance with specific metrics
-<a id="__codelineno-3-177" name="__codelineno-3-177" href="#__codelineno-3-177"></a>        2. Detail current asset allocation with percentages
-<a id="__codelineno-3-178" name="__codelineno-3-178" href="#__codelineno-3-178"></a>        3. Include risk analysis metrics
-<a id="__codelineno-3-179" name="__codelineno-3-179" href="#__codelineno-3-179"></a>        4. Provide forward-looking recommendations
-<a id="__codelineno-3-180" name="__codelineno-3-180" href="#__codelineno-3-180"></a>        5. Maintain formal financial terminology
-<a id="__codelineno-3-181" name="__codelineno-3-181" href="#__codelineno-3-181"></a>        6. Include clear next steps or action items&quot;&quot;&quot;
+<a id="__codelineno-3-175" name="__codelineno-3-175" href="#__codelineno-3-175"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A professional investment portfolio report that must:</span>
+<a id="__codelineno-3-176" name="__codelineno-3-176" href="#__codelineno-3-176"></a><span class="s2">        1. Present portfolio performance with specific metrics</span>
+<a id="__codelineno-3-177" name="__codelineno-3-177" href="#__codelineno-3-177"></a><span class="s2">        2. Detail current asset allocation with percentages</span>
+<a id="__codelineno-3-178" name="__codelineno-3-178" href="#__codelineno-3-178"></a><span class="s2">        3. Include risk analysis metrics</span>
+<a id="__codelineno-3-179" name="__codelineno-3-179" href="#__codelineno-3-179"></a><span class="s2">        4. Provide forward-looking recommendations</span>
+<a id="__codelineno-3-180" name="__codelineno-3-180" href="#__codelineno-3-180"></a><span class="s2">        5. Maintain formal financial terminology</span>
+<a id="__codelineno-3-181" name="__codelineno-3-181" href="#__codelineno-3-181"></a><span class="s2">        6. Include clear next steps or action items&quot;&quot;&quot;</span>
 <a id="__codelineno-3-182" name="__codelineno-3-182" href="#__codelineno-3-182"></a>
-<a id="__codelineno-3-183" name="__codelineno-3-183" href="#__codelineno-3-183"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-183" name="__codelineno-3-183" href="#__codelineno-3-183"></a>        <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 <a id="__codelineno-3-184" name="__codelineno-3-184" href="#__codelineno-3-184"></a>
-<a id="__codelineno-3-185" name="__codelineno-3-185" href="#__codelineno-3-185"></a>    def test_content_recommendation_missing_viewing_patterns(self, asserter):
-<a id="__codelineno-3-186" name="__codelineno-3-186" href="#__codelineno-3-186"></a>        &quot;&quot;&quot;Test semantic matching for content recommendations. Should fail due to missing viewing patterns
-<a id="__codelineno-3-187" name="__codelineno-3-187" href="#__codelineno-3-187"></a>        and user preferences section.&quot;&quot;&quot;
-<a id="__codelineno-3-188" name="__codelineno-3-188" href="#__codelineno-3-188"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-189" name="__codelineno-3-189" href="#__codelineno-3-189"></a>        Personalized Content Recommendations - User Profile #A1234
-<a id="__codelineno-3-190" name="__codelineno-3-190" href="#__codelineno-3-190"></a>        Generated: November 22, 2024
+<a id="__codelineno-3-185" name="__codelineno-3-185" href="#__codelineno-3-185"></a>    <span class="k">def</span> <span class="nf">test_content_recommendation_missing_viewing_patterns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-186" name="__codelineno-3-186" href="#__codelineno-3-186"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for content recommendations. Should fail due to missing viewing patterns</span>
+<a id="__codelineno-3-187" name="__codelineno-3-187" href="#__codelineno-3-187"></a><span class="sd">        and user preferences section.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-188" name="__codelineno-3-188" href="#__codelineno-3-188"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-189" name="__codelineno-3-189" href="#__codelineno-3-189"></a><span class="s2">        Personalized Content Recommendations - User Profile #A1234</span>
+<a id="__codelineno-3-190" name="__codelineno-3-190" href="#__codelineno-3-190"></a><span class="s2">        Generated: November 22, 2024</span>
 <a id="__codelineno-3-191" name="__codelineno-3-191" href="#__codelineno-3-191"></a>
-<a id="__codelineno-3-192" name="__codelineno-3-192" href="#__codelineno-3-192"></a>        Recommended Content Queue:
-<a id="__codelineno-3-193" name="__codelineno-3-193" href="#__codelineno-3-193"></a>        1. &quot;Climate Pioneers&quot; (Documentary Series)
-<a id="__codelineno-3-194" name="__codelineno-3-194" href="#__codelineno-3-194"></a>            - Episode length: 45 minutes
-<a id="__codelineno-3-195" name="__codelineno-3-195" href="#__codelineno-3-195"></a>            - New episodes available
+<a id="__codelineno-3-192" name="__codelineno-3-192" href="#__codelineno-3-192"></a><span class="s2">        Recommended Content Queue:</span>
+<a id="__codelineno-3-193" name="__codelineno-3-193" href="#__codelineno-3-193"></a><span class="s2">        1. &quot;Climate Pioneers&quot; (Documentary Series)</span>
+<a id="__codelineno-3-194" name="__codelineno-3-194" href="#__codelineno-3-194"></a><span class="s2">            - Episode length: 45 minutes</span>
+<a id="__codelineno-3-195" name="__codelineno-3-195" href="#__codelineno-3-195"></a><span class="s2">            - New episodes available</span>
 <a id="__codelineno-3-196" name="__codelineno-3-196" href="#__codelineno-3-196"></a>
-<a id="__codelineno-3-197" name="__codelineno-3-197" href="#__codelineno-3-197"></a>        2. &quot;Global Power Play&quot; (Political Drama)
-<a id="__codelineno-3-198" name="__codelineno-3-198" href="#__codelineno-3-198"></a>            - Episode length: 55 minutes
-<a id="__codelineno-3-199" name="__codelineno-3-199" href="#__codelineno-3-199"></a>            - Features actors from previously watched content
+<a id="__codelineno-3-197" name="__codelineno-3-197" href="#__codelineno-3-197"></a><span class="s2">        2. &quot;Global Power Play&quot; (Political Drama)</span>
+<a id="__codelineno-3-198" name="__codelineno-3-198" href="#__codelineno-3-198"></a><span class="s2">            - Episode length: 55 minutes</span>
+<a id="__codelineno-3-199" name="__codelineno-3-199" href="#__codelineno-3-199"></a><span class="s2">            - Features actors from previously watched content</span>
 <a id="__codelineno-3-200" name="__codelineno-3-200" href="#__codelineno-3-200"></a>
-<a id="__codelineno-3-201" name="__codelineno-3-201" href="#__codelineno-3-201"></a>        3. &quot;Earth&#39;s Tipping Points&quot; (Scientific Documentary)
-<a id="__codelineno-3-202" name="__codelineno-3-202" href="#__codelineno-3-202"></a>            - Episode length: 40 minutes
-<a id="__codelineno-3-203" name="__codelineno-3-203" href="#__codelineno-3-203"></a>            - Recently added to platform
+<a id="__codelineno-3-201" name="__codelineno-3-201" href="#__codelineno-3-201"></a><span class="s2">        3. &quot;Earth&#39;s Tipping Points&quot; (Scientific Documentary)</span>
+<a id="__codelineno-3-202" name="__codelineno-3-202" href="#__codelineno-3-202"></a><span class="s2">            - Episode length: 40 minutes</span>
+<a id="__codelineno-3-203" name="__codelineno-3-203" href="#__codelineno-3-203"></a><span class="s2">            - Recently added to platform</span>
 <a id="__codelineno-3-204" name="__codelineno-3-204" href="#__codelineno-3-204"></a>
-<a id="__codelineno-3-205" name="__codelineno-3-205" href="#__codelineno-3-205"></a>        Engagement Optimization:
-<a id="__codelineno-3-206" name="__codelineno-3-206" href="#__codelineno-3-206"></a>        - Scheduled new episode alerts
-<a id="__codelineno-3-207" name="__codelineno-3-207" href="#__codelineno-3-207"></a>        - Downloadable content for offline viewing
-<a id="__codelineno-3-208" name="__codelineno-3-208" href="#__codelineno-3-208"></a>        - Similar content suggestions refreshed weekly
-<a id="__codelineno-3-209" name="__codelineno-3-209" href="#__codelineno-3-209"></a>        - Customized language preferences maintained
+<a id="__codelineno-3-205" name="__codelineno-3-205" href="#__codelineno-3-205"></a><span class="s2">        Engagement Optimization:</span>
+<a id="__codelineno-3-206" name="__codelineno-3-206" href="#__codelineno-3-206"></a><span class="s2">        - Scheduled new episode alerts</span>
+<a id="__codelineno-3-207" name="__codelineno-3-207" href="#__codelineno-3-207"></a><span class="s2">        - Downloadable content for offline viewing</span>
+<a id="__codelineno-3-208" name="__codelineno-3-208" href="#__codelineno-3-208"></a><span class="s2">        - Similar content suggestions refreshed weekly</span>
+<a id="__codelineno-3-209" name="__codelineno-3-209" href="#__codelineno-3-209"></a><span class="s2">        - Customized language preferences maintained</span>
 <a id="__codelineno-3-210" name="__codelineno-3-210" href="#__codelineno-3-210"></a>
-<a id="__codelineno-3-211" name="__codelineno-3-211" href="#__codelineno-3-211"></a>        Content Accessibility:
-<a id="__codelineno-3-212" name="__codelineno-3-212" href="#__codelineno-3-212"></a>        All recommended content includes your preferred subtitle options and is 
-<a id="__codelineno-3-213" name="__codelineno-3-213" href="#__codelineno-3-213"></a>        available in HD quality. Downloads are enabled for offline viewing during 
-<a id="__codelineno-3-214" name="__codelineno-3-214" href="#__codelineno-3-214"></a>        your upcoming travel dates.
-<a id="__codelineno-3-215" name="__codelineno-3-215" href="#__codelineno-3-215"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-211" name="__codelineno-3-211" href="#__codelineno-3-211"></a><span class="s2">        Content Accessibility:</span>
+<a id="__codelineno-3-212" name="__codelineno-3-212" href="#__codelineno-3-212"></a><span class="s2">        All recommended content includes your preferred subtitle options and is </span>
+<a id="__codelineno-3-213" name="__codelineno-3-213" href="#__codelineno-3-213"></a><span class="s2">        available in HD quality. Downloads are enabled for offline viewing during </span>
+<a id="__codelineno-3-214" name="__codelineno-3-214" href="#__codelineno-3-214"></a><span class="s2">        your upcoming travel dates.</span>
+<a id="__codelineno-3-215" name="__codelineno-3-215" href="#__codelineno-3-215"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-216" name="__codelineno-3-216" href="#__codelineno-3-216"></a>
-<a id="__codelineno-3-217" name="__codelineno-3-217" href="#__codelineno-3-217"></a>        expected = &quot;&quot;&quot;A personalized content recommendation document that must:
-<a id="__codelineno-3-218" name="__codelineno-3-218" href="#__codelineno-3-218"></a>        1. Include the viewing patterns and preferences of the user
-<a id="__codelineno-3-219" name="__codelineno-3-219" href="#__codelineno-3-219"></a>        2. List recommended content with clear reasoning
-<a id="__codelineno-3-220" name="__codelineno-3-220" href="#__codelineno-3-220"></a>        3. Provide matching percentages or relevance metrics
-<a id="__codelineno-3-221" name="__codelineno-3-221" href="#__codelineno-3-221"></a>        4. Include viewing optimization suggestions
-<a id="__codelineno-3-222" name="__codelineno-3-222" href="#__codelineno-3-222"></a>        5. Address content accessibility features&quot;&quot;&quot;
+<a id="__codelineno-3-217" name="__codelineno-3-217" href="#__codelineno-3-217"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A personalized content recommendation document that must:</span>
+<a id="__codelineno-3-218" name="__codelineno-3-218" href="#__codelineno-3-218"></a><span class="s2">        1. Include the viewing patterns and preferences of the user</span>
+<a id="__codelineno-3-219" name="__codelineno-3-219" href="#__codelineno-3-219"></a><span class="s2">        2. List recommended content with clear reasoning</span>
+<a id="__codelineno-3-220" name="__codelineno-3-220" href="#__codelineno-3-220"></a><span class="s2">        3. Provide matching percentages or relevance metrics</span>
+<a id="__codelineno-3-221" name="__codelineno-3-221" href="#__codelineno-3-221"></a><span class="s2">        4. Include viewing optimization suggestions</span>
+<a id="__codelineno-3-222" name="__codelineno-3-222" href="#__codelineno-3-222"></a><span class="s2">        5. Address content accessibility features&quot;&quot;&quot;</span>
 <a id="__codelineno-3-223" name="__codelineno-3-223" href="#__codelineno-3-223"></a>
-<a id="__codelineno-3-224" name="__codelineno-3-224" href="#__codelineno-3-224"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
-<a id="__codelineno-3-225" name="__codelineno-3-225" href="#__codelineno-3-225"></a>            asserter.assert_semantic_match(actual, expected)
-<a id="__codelineno-3-226" name="__codelineno-3-226" href="#__codelineno-3-226"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-224" name="__codelineno-3-224" href="#__codelineno-3-224"></a>        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">SemanticAssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+<a id="__codelineno-3-225" name="__codelineno-3-225" href="#__codelineno-3-225"></a>            <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-3-226" name="__codelineno-3-226" href="#__codelineno-3-226"></a>        <span class="k">assert</span> <span class="s2">&quot;Semantic assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <a id="__codelineno-3-227" name="__codelineno-3-227" href="#__codelineno-3-227"></a>
-<a id="__codelineno-3-228" name="__codelineno-3-228" href="#__codelineno-3-228"></a>    def test_legal_document_summary_generation(self, asserter):
-<a id="__codelineno-3-229" name="__codelineno-3-229" href="#__codelineno-3-229"></a>        &quot;&quot;&quot;Test semantic matching for legal document summary generation. Tests that the summary
-<a id="__codelineno-3-230" name="__codelineno-3-230" href="#__codelineno-3-230"></a>        maintains accuracy while being accessible to non-legal readers.&quot;&quot;&quot;
-<a id="__codelineno-3-231" name="__codelineno-3-231" href="#__codelineno-3-231"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-232" name="__codelineno-3-232" href="#__codelineno-3-232"></a>        Contract Summary Analysis
-<a id="__codelineno-3-233" name="__codelineno-3-233" href="#__codelineno-3-233"></a>        Document Reference: MSA-2024-0892
-<a id="__codelineno-3-234" name="__codelineno-3-234" href="#__codelineno-3-234"></a>        Date of Analysis: November 22, 2024
+<a id="__codelineno-3-228" name="__codelineno-3-228" href="#__codelineno-3-228"></a>    <span class="k">def</span> <span class="nf">test_legal_document_summary_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-229" name="__codelineno-3-229" href="#__codelineno-3-229"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for legal document summary generation. Tests that the summary</span>
+<a id="__codelineno-3-230" name="__codelineno-3-230" href="#__codelineno-3-230"></a><span class="sd">        maintains accuracy while being accessible to non-legal readers.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-231" name="__codelineno-3-231" href="#__codelineno-3-231"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-232" name="__codelineno-3-232" href="#__codelineno-3-232"></a><span class="s2">        Contract Summary Analysis</span>
+<a id="__codelineno-3-233" name="__codelineno-3-233" href="#__codelineno-3-233"></a><span class="s2">        Document Reference: MSA-2024-0892</span>
+<a id="__codelineno-3-234" name="__codelineno-3-234" href="#__codelineno-3-234"></a><span class="s2">        Date of Analysis: November 22, 2024</span>
 <a id="__codelineno-3-235" name="__codelineno-3-235" href="#__codelineno-3-235"></a>
-<a id="__codelineno-3-236" name="__codelineno-3-236" href="#__codelineno-3-236"></a>        Agreement Overview:
-<a id="__codelineno-3-237" name="__codelineno-3-237" href="#__codelineno-3-237"></a>        Software Development Master Services Agreement between TechCorp Inc. (&quot;Provider&quot;) 
-<a id="__codelineno-3-238" name="__codelineno-3-238" href="#__codelineno-3-238"></a>        and GlobalEnterprises LLC (&quot;Client&quot;) for the development and maintenance of 
-<a id="__codelineno-3-239" name="__codelineno-3-239" href="#__codelineno-3-239"></a>        enterprise software solutions.
+<a id="__codelineno-3-236" name="__codelineno-3-236" href="#__codelineno-3-236"></a><span class="s2">        Agreement Overview:</span>
+<a id="__codelineno-3-237" name="__codelineno-3-237" href="#__codelineno-3-237"></a><span class="s2">        Software Development Master Services Agreement between TechCorp Inc. (&quot;Provider&quot;) </span>
+<a id="__codelineno-3-238" name="__codelineno-3-238" href="#__codelineno-3-238"></a><span class="s2">        and GlobalEnterprises LLC (&quot;Client&quot;) for the development and maintenance of </span>
+<a id="__codelineno-3-239" name="__codelineno-3-239" href="#__codelineno-3-239"></a><span class="s2">        enterprise software solutions.</span>
 <a id="__codelineno-3-240" name="__codelineno-3-240" href="#__codelineno-3-240"></a>
-<a id="__codelineno-3-241" name="__codelineno-3-241" href="#__codelineno-3-241"></a>        Key Terms and Conditions:
-<a id="__codelineno-3-242" name="__codelineno-3-242" href="#__codelineno-3-242"></a>        1. Service Scope
-<a id="__codelineno-3-243" name="__codelineno-3-243" href="#__codelineno-3-243"></a>            - Custom software development services
-<a id="__codelineno-3-244" name="__codelineno-3-244" href="#__codelineno-3-244"></a>            - System integration capabilities
-<a id="__codelineno-3-245" name="__codelineno-3-245" href="#__codelineno-3-245"></a>            - Ongoing maintenance and support
-<a id="__codelineno-3-246" name="__codelineno-3-246" href="#__codelineno-3-246"></a>            - Security compliance implementations
+<a id="__codelineno-3-241" name="__codelineno-3-241" href="#__codelineno-3-241"></a><span class="s2">        Key Terms and Conditions:</span>
+<a id="__codelineno-3-242" name="__codelineno-3-242" href="#__codelineno-3-242"></a><span class="s2">        1. Service Scope</span>
+<a id="__codelineno-3-243" name="__codelineno-3-243" href="#__codelineno-3-243"></a><span class="s2">            - Custom software development services</span>
+<a id="__codelineno-3-244" name="__codelineno-3-244" href="#__codelineno-3-244"></a><span class="s2">            - System integration capabilities</span>
+<a id="__codelineno-3-245" name="__codelineno-3-245" href="#__codelineno-3-245"></a><span class="s2">            - Ongoing maintenance and support</span>
+<a id="__codelineno-3-246" name="__codelineno-3-246" href="#__codelineno-3-246"></a><span class="s2">            - Security compliance implementations</span>
 <a id="__codelineno-3-247" name="__codelineno-3-247" href="#__codelineno-3-247"></a>
-<a id="__codelineno-3-248" name="__codelineno-3-248" href="#__codelineno-3-248"></a>        2. Financial Terms
-<a id="__codelineno-3-249" name="__codelineno-3-249" href="#__codelineno-3-249"></a>            - Base development fee: $750,000
-<a id="__codelineno-3-250" name="__codelineno-3-250" href="#__codelineno-3-250"></a>            - Monthly maintenance: $15,000
-<a id="__codelineno-3-251" name="__codelineno-3-251" href="#__codelineno-3-251"></a>            - Change request rate: $200/hour
-<a id="__codelineno-3-252" name="__codelineno-3-252" href="#__codelineno-3-252"></a>            - Payment terms: Net 30
+<a id="__codelineno-3-248" name="__codelineno-3-248" href="#__codelineno-3-248"></a><span class="s2">        2. Financial Terms</span>
+<a id="__codelineno-3-249" name="__codelineno-3-249" href="#__codelineno-3-249"></a><span class="s2">            - Base development fee: $750,000</span>
+<a id="__codelineno-3-250" name="__codelineno-3-250" href="#__codelineno-3-250"></a><span class="s2">            - Monthly maintenance: $15,000</span>
+<a id="__codelineno-3-251" name="__codelineno-3-251" href="#__codelineno-3-251"></a><span class="s2">            - Change request rate: $200/hour</span>
+<a id="__codelineno-3-252" name="__codelineno-3-252" href="#__codelineno-3-252"></a><span class="s2">            - Payment terms: Net 30</span>
 <a id="__codelineno-3-253" name="__codelineno-3-253" href="#__codelineno-3-253"></a>
-<a id="__codelineno-3-254" name="__codelineno-3-254" href="#__codelineno-3-254"></a>        3. Performance Standards
-<a id="__codelineno-3-255" name="__codelineno-3-255" href="#__codelineno-3-255"></a>            - 99.9% system availability
-<a id="__codelineno-3-256" name="__codelineno-3-256" href="#__codelineno-3-256"></a>            - 4-hour response time for critical issues
-<a id="__codelineno-3-257" name="__codelineno-3-257" href="#__codelineno-3-257"></a>            - Monthly performance reporting
-<a id="__codelineno-3-258" name="__codelineno-3-258" href="#__codelineno-3-258"></a>            - Quarterly service reviews
+<a id="__codelineno-3-254" name="__codelineno-3-254" href="#__codelineno-3-254"></a><span class="s2">        3. Performance Standards</span>
+<a id="__codelineno-3-255" name="__codelineno-3-255" href="#__codelineno-3-255"></a><span class="s2">            - 99.9</span><span class="si">% s</span><span class="s2">ystem availability</span>
+<a id="__codelineno-3-256" name="__codelineno-3-256" href="#__codelineno-3-256"></a><span class="s2">            - 4-hour response time for critical issues</span>
+<a id="__codelineno-3-257" name="__codelineno-3-257" href="#__codelineno-3-257"></a><span class="s2">            - Monthly performance reporting</span>
+<a id="__codelineno-3-258" name="__codelineno-3-258" href="#__codelineno-3-258"></a><span class="s2">            - Quarterly service reviews</span>
 <a id="__codelineno-3-259" name="__codelineno-3-259" href="#__codelineno-3-259"></a>
-<a id="__codelineno-3-260" name="__codelineno-3-260" href="#__codelineno-3-260"></a>        4. Intellectual Property Rights
-<a id="__codelineno-3-261" name="__codelineno-3-261" href="#__codelineno-3-261"></a>            - Client owns all custom development
-<a id="__codelineno-3-262" name="__codelineno-3-262" href="#__codelineno-3-262"></a>            - Provider retains rights to pre-existing IP
-<a id="__codelineno-3-263" name="__codelineno-3-263" href="#__codelineno-3-263"></a>            - Joint ownership of derivative works
-<a id="__codelineno-3-264" name="__codelineno-3-264" href="#__codelineno-3-264"></a>            - Limited license for provider tools
+<a id="__codelineno-3-260" name="__codelineno-3-260" href="#__codelineno-3-260"></a><span class="s2">        4. Intellectual Property Rights</span>
+<a id="__codelineno-3-261" name="__codelineno-3-261" href="#__codelineno-3-261"></a><span class="s2">            - Client owns all custom development</span>
+<a id="__codelineno-3-262" name="__codelineno-3-262" href="#__codelineno-3-262"></a><span class="s2">            - Provider retains rights to pre-existing IP</span>
+<a id="__codelineno-3-263" name="__codelineno-3-263" href="#__codelineno-3-263"></a><span class="s2">            - Joint ownership of derivative works</span>
+<a id="__codelineno-3-264" name="__codelineno-3-264" href="#__codelineno-3-264"></a><span class="s2">            - Limited license for provider tools</span>
 <a id="__codelineno-3-265" name="__codelineno-3-265" href="#__codelineno-3-265"></a>
-<a id="__codelineno-3-266" name="__codelineno-3-266" href="#__codelineno-3-266"></a>        5. Term and Termination
-<a id="__codelineno-3-267" name="__codelineno-3-267" href="#__codelineno-3-267"></a>            - Initial term: 36 months
-<a id="__codelineno-3-268" name="__codelineno-3-268" href="#__codelineno-3-268"></a>            - Automatic renewal: 12-month periods
-<a id="__codelineno-3-269" name="__codelineno-3-269" href="#__codelineno-3-269"></a>            - 90-day termination notice required
-<a id="__codelineno-3-270" name="__codelineno-3-270" href="#__codelineno-3-270"></a>            - Immediate termination for material breach
+<a id="__codelineno-3-266" name="__codelineno-3-266" href="#__codelineno-3-266"></a><span class="s2">        5. Term and Termination</span>
+<a id="__codelineno-3-267" name="__codelineno-3-267" href="#__codelineno-3-267"></a><span class="s2">            - Initial term: 36 months</span>
+<a id="__codelineno-3-268" name="__codelineno-3-268" href="#__codelineno-3-268"></a><span class="s2">            - Automatic renewal: 12-month periods</span>
+<a id="__codelineno-3-269" name="__codelineno-3-269" href="#__codelineno-3-269"></a><span class="s2">            - 90-day termination notice required</span>
+<a id="__codelineno-3-270" name="__codelineno-3-270" href="#__codelineno-3-270"></a><span class="s2">            - Immediate termination for material breach</span>
 <a id="__codelineno-3-271" name="__codelineno-3-271" href="#__codelineno-3-271"></a>
-<a id="__codelineno-3-272" name="__codelineno-3-272" href="#__codelineno-3-272"></a>        Risk Assessment:
-<a id="__codelineno-3-273" name="__codelineno-3-273" href="#__codelineno-3-273"></a>        - Medium risk: Data protection obligations
-<a id="__codelineno-3-274" name="__codelineno-3-274" href="#__codelineno-3-274"></a>        - Low risk: Service level commitments
-<a id="__codelineno-3-275" name="__codelineno-3-275" href="#__codelineno-3-275"></a>        - Low risk: IP ownership structure
-<a id="__codelineno-3-276" name="__codelineno-3-276" href="#__codelineno-3-276"></a>        - Medium risk: Change management process
+<a id="__codelineno-3-272" name="__codelineno-3-272" href="#__codelineno-3-272"></a><span class="s2">        Risk Assessment:</span>
+<a id="__codelineno-3-273" name="__codelineno-3-273" href="#__codelineno-3-273"></a><span class="s2">        - Medium risk: Data protection obligations</span>
+<a id="__codelineno-3-274" name="__codelineno-3-274" href="#__codelineno-3-274"></a><span class="s2">        - Low risk: Service level commitments</span>
+<a id="__codelineno-3-275" name="__codelineno-3-275" href="#__codelineno-3-275"></a><span class="s2">        - Low risk: IP ownership structure</span>
+<a id="__codelineno-3-276" name="__codelineno-3-276" href="#__codelineno-3-276"></a><span class="s2">        - Medium risk: Change management process</span>
 <a id="__codelineno-3-277" name="__codelineno-3-277" href="#__codelineno-3-277"></a>
-<a id="__codelineno-3-278" name="__codelineno-3-278" href="#__codelineno-3-278"></a>        Next Steps:
-<a id="__codelineno-3-279" name="__codelineno-3-279" href="#__codelineno-3-279"></a>        1. Legal team review of data protection terms
-<a id="__codelineno-3-280" name="__codelineno-3-280" href="#__codelineno-3-280"></a>        2. Technical team validation of SLAs
-<a id="__codelineno-3-281" name="__codelineno-3-281" href="#__codelineno-3-281"></a>        3. Finance approval of payment terms
-<a id="__codelineno-3-282" name="__codelineno-3-282" href="#__codelineno-3-282"></a>        4. Compliance review of security standards
-<a id="__codelineno-3-283" name="__codelineno-3-283" href="#__codelineno-3-283"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-278" name="__codelineno-3-278" href="#__codelineno-3-278"></a><span class="s2">        Next Steps:</span>
+<a id="__codelineno-3-279" name="__codelineno-3-279" href="#__codelineno-3-279"></a><span class="s2">        1. Legal team review of data protection terms</span>
+<a id="__codelineno-3-280" name="__codelineno-3-280" href="#__codelineno-3-280"></a><span class="s2">        2. Technical team validation of SLAs</span>
+<a id="__codelineno-3-281" name="__codelineno-3-281" href="#__codelineno-3-281"></a><span class="s2">        3. Finance approval of payment terms</span>
+<a id="__codelineno-3-282" name="__codelineno-3-282" href="#__codelineno-3-282"></a><span class="s2">        4. Compliance review of security standards</span>
+<a id="__codelineno-3-283" name="__codelineno-3-283" href="#__codelineno-3-283"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-284" name="__codelineno-3-284" href="#__codelineno-3-284"></a>
-<a id="__codelineno-3-285" name="__codelineno-3-285" href="#__codelineno-3-285"></a>        expected = &quot;&quot;&quot;A legal document summary that must:
-<a id="__codelineno-3-286" name="__codelineno-3-286" href="#__codelineno-3-286"></a>        1. Identify key parties and document type
-<a id="__codelineno-3-287" name="__codelineno-3-287" href="#__codelineno-3-287"></a>        2. List main contractual terms
-<a id="__codelineno-3-288" name="__codelineno-3-288" href="#__codelineno-3-288"></a>        3. Include specific numerical values (costs, dates, metrics)
-<a id="__codelineno-3-289" name="__codelineno-3-289" href="#__codelineno-3-289"></a>        4. Provide risk assessment
-<a id="__codelineno-3-290" name="__codelineno-3-290" href="#__codelineno-3-290"></a>        5. Outline required actions or next steps&quot;&quot;&quot;
+<a id="__codelineno-3-285" name="__codelineno-3-285" href="#__codelineno-3-285"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A legal document summary that must:</span>
+<a id="__codelineno-3-286" name="__codelineno-3-286" href="#__codelineno-3-286"></a><span class="s2">        1. Identify key parties and document type</span>
+<a id="__codelineno-3-287" name="__codelineno-3-287" href="#__codelineno-3-287"></a><span class="s2">        2. List main contractual terms</span>
+<a id="__codelineno-3-288" name="__codelineno-3-288" href="#__codelineno-3-288"></a><span class="s2">        3. Include specific numerical values (costs, dates, metrics)</span>
+<a id="__codelineno-3-289" name="__codelineno-3-289" href="#__codelineno-3-289"></a><span class="s2">        4. Provide risk assessment</span>
+<a id="__codelineno-3-290" name="__codelineno-3-290" href="#__codelineno-3-290"></a><span class="s2">        5. Outline required actions or next steps&quot;&quot;&quot;</span>
 <a id="__codelineno-3-291" name="__codelineno-3-291" href="#__codelineno-3-291"></a>
-<a id="__codelineno-3-292" name="__codelineno-3-292" href="#__codelineno-3-292"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-292" name="__codelineno-3-292" href="#__codelineno-3-292"></a>        <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 <a id="__codelineno-3-293" name="__codelineno-3-293" href="#__codelineno-3-293"></a>
-<a id="__codelineno-3-294" name="__codelineno-3-294" href="#__codelineno-3-294"></a>    def test_maintenance_prediction_missing_historical_context(self, asserter):
-<a id="__codelineno-3-295" name="__codelineno-3-295" href="#__codelineno-3-295"></a>        &quot;&quot;&quot;Test semantic matching for maintenance prediction report. Should fail due to
-<a id="__codelineno-3-296" name="__codelineno-3-296" href="#__codelineno-3-296"></a>        missing historical maintenance context and pattern analysis.&quot;&quot;&quot;
-<a id="__codelineno-3-297" name="__codelineno-3-297" href="#__codelineno-3-297"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-298" name="__codelineno-3-298" href="#__codelineno-3-298"></a>        Equipment Maintenance Analysis
-<a id="__codelineno-3-299" name="__codelineno-3-299" href="#__codelineno-3-299"></a>        Machine ID: CNC-1234
-<a id="__codelineno-3-300" name="__codelineno-3-300" href="#__codelineno-3-300"></a>        Analysis Date: November 22, 2024
+<a id="__codelineno-3-294" name="__codelineno-3-294" href="#__codelineno-3-294"></a>    <span class="k">def</span> <span class="nf">test_maintenance_prediction_missing_historical_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-295" name="__codelineno-3-295" href="#__codelineno-3-295"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for maintenance prediction report. Should fail due to</span>
+<a id="__codelineno-3-296" name="__codelineno-3-296" href="#__codelineno-3-296"></a><span class="sd">        missing historical maintenance context and pattern analysis.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-297" name="__codelineno-3-297" href="#__codelineno-3-297"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-298" name="__codelineno-3-298" href="#__codelineno-3-298"></a><span class="s2">        Equipment Maintenance Analysis</span>
+<a id="__codelineno-3-299" name="__codelineno-3-299" href="#__codelineno-3-299"></a><span class="s2">        Machine ID: CNC-1234</span>
+<a id="__codelineno-3-300" name="__codelineno-3-300" href="#__codelineno-3-300"></a><span class="s2">        Analysis Date: November 22, 2024</span>
 <a id="__codelineno-3-301" name="__codelineno-3-301" href="#__codelineno-3-301"></a>
-<a id="__codelineno-3-302" name="__codelineno-3-302" href="#__codelineno-3-302"></a>        Current Status Summary:
-<a id="__codelineno-3-303" name="__codelineno-3-303" href="#__codelineno-3-303"></a>        The CNC machine is showing early indicators of potential bearing wear in the main spindle.
-<a id="__codelineno-3-304" name="__codelineno-3-304" href="#__codelineno-3-304"></a>        Recommended action is to schedule maintenance within the next 2 weeks.
+<a id="__codelineno-3-302" name="__codelineno-3-302" href="#__codelineno-3-302"></a><span class="s2">        Current Status Summary:</span>
+<a id="__codelineno-3-303" name="__codelineno-3-303" href="#__codelineno-3-303"></a><span class="s2">        The CNC machine is showing early indicators of potential bearing wear in the main spindle.</span>
+<a id="__codelineno-3-304" name="__codelineno-3-304" href="#__codelineno-3-304"></a><span class="s2">        Recommended action is to schedule maintenance within the next 2 weeks.</span>
 <a id="__codelineno-3-305" name="__codelineno-3-305" href="#__codelineno-3-305"></a>
-<a id="__codelineno-3-306" name="__codelineno-3-306" href="#__codelineno-3-306"></a>        Operational Parameters:
-<a id="__codelineno-3-307" name="__codelineno-3-307" href="#__codelineno-3-307"></a>        - Current Runtime: 2,450 hours
-<a id="__codelineno-3-308" name="__codelineno-3-308" href="#__codelineno-3-308"></a>        - Average Daily Usage: 18 hours
-<a id="__codelineno-3-309" name="__codelineno-3-309" href="#__codelineno-3-309"></a>        - Last Maintenance: October 15, 2024
+<a id="__codelineno-3-306" name="__codelineno-3-306" href="#__codelineno-3-306"></a><span class="s2">        Operational Parameters:</span>
+<a id="__codelineno-3-307" name="__codelineno-3-307" href="#__codelineno-3-307"></a><span class="s2">        - Current Runtime: 2,450 hours</span>
+<a id="__codelineno-3-308" name="__codelineno-3-308" href="#__codelineno-3-308"></a><span class="s2">        - Average Daily Usage: 18 hours</span>
+<a id="__codelineno-3-309" name="__codelineno-3-309" href="#__codelineno-3-309"></a><span class="s2">        - Last Maintenance: October 15, 2024</span>
 <a id="__codelineno-3-310" name="__codelineno-3-310" href="#__codelineno-3-310"></a>
-<a id="__codelineno-3-311" name="__codelineno-3-311" href="#__codelineno-3-311"></a>        Immediate Recommendations:
-<a id="__codelineno-3-312" name="__codelineno-3-312" href="#__codelineno-3-312"></a>        1. Schedule bearing inspection
-<a id="__codelineno-3-313" name="__codelineno-3-313" href="#__codelineno-3-313"></a>        2. Monitor vibration levels daily
-<a id="__codelineno-3-314" name="__codelineno-3-314" href="#__codelineno-3-314"></a>        3. Prepare replacement parts
-<a id="__codelineno-3-315" name="__codelineno-3-315" href="#__codelineno-3-315"></a>        4. Plan for 4-hour maintenance window
+<a id="__codelineno-3-311" name="__codelineno-3-311" href="#__codelineno-3-311"></a><span class="s2">        Immediate Recommendations:</span>
+<a id="__codelineno-3-312" name="__codelineno-3-312" href="#__codelineno-3-312"></a><span class="s2">        1. Schedule bearing inspection</span>
+<a id="__codelineno-3-313" name="__codelineno-3-313" href="#__codelineno-3-313"></a><span class="s2">        2. Monitor vibration levels daily</span>
+<a id="__codelineno-3-314" name="__codelineno-3-314" href="#__codelineno-3-314"></a><span class="s2">        3. Prepare replacement parts</span>
+<a id="__codelineno-3-315" name="__codelineno-3-315" href="#__codelineno-3-315"></a><span class="s2">        4. Plan for 4-hour maintenance window</span>
 <a id="__codelineno-3-316" name="__codelineno-3-316" href="#__codelineno-3-316"></a>
-<a id="__codelineno-3-317" name="__codelineno-3-317" href="#__codelineno-3-317"></a>        Impact Assessment:
-<a id="__codelineno-3-318" name="__codelineno-3-318" href="#__codelineno-3-318"></a>        - Production Impact: Minimal if addressed within 2 weeks
-<a id="__codelineno-3-319" name="__codelineno-3-319" href="#__codelineno-3-319"></a>        - Resource Requirements: Standard maintenance team
-<a id="__codelineno-3-320" name="__codelineno-3-320" href="#__codelineno-3-320"></a>        - Parts Cost Estimate: $2,500
-<a id="__codelineno-3-321" name="__codelineno-3-321" href="#__codelineno-3-321"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-317" name="__codelineno-3-317" href="#__codelineno-3-317"></a><span class="s2">        Impact Assessment:</span>
+<a id="__codelineno-3-318" name="__codelineno-3-318" href="#__codelineno-3-318"></a><span class="s2">        - Production Impact: Minimal if addressed within 2 weeks</span>
+<a id="__codelineno-3-319" name="__codelineno-3-319" href="#__codelineno-3-319"></a><span class="s2">        - Resource Requirements: Standard maintenance team</span>
+<a id="__codelineno-3-320" name="__codelineno-3-320" href="#__codelineno-3-320"></a><span class="s2">        - Parts Cost Estimate: $2,500</span>
+<a id="__codelineno-3-321" name="__codelineno-3-321" href="#__codelineno-3-321"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-322" name="__codelineno-3-322" href="#__codelineno-3-322"></a>
-<a id="__codelineno-3-323" name="__codelineno-3-323" href="#__codelineno-3-323"></a>        expected = &quot;&quot;&quot;A maintenance prediction report that must:
-<a id="__codelineno-3-324" name="__codelineno-3-324" href="#__codelineno-3-324"></a>        1. Include current machine status
-<a id="__codelineno-3-325" name="__codelineno-3-325" href="#__codelineno-3-325"></a>        2. Provide historical maintenance patterns
-<a id="__codelineno-3-326" name="__codelineno-3-326" href="#__codelineno-3-326"></a>        3. Show failure prediction confidence levels
-<a id="__codelineno-3-327" name="__codelineno-3-327" href="#__codelineno-3-327"></a>        4. List specific maintenance recommendations
-<a id="__codelineno-3-328" name="__codelineno-3-328" href="#__codelineno-3-328"></a>        5. Include impact assessment and timeline&quot;&quot;&quot;
+<a id="__codelineno-3-323" name="__codelineno-3-323" href="#__codelineno-3-323"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A maintenance prediction report that must:</span>
+<a id="__codelineno-3-324" name="__codelineno-3-324" href="#__codelineno-3-324"></a><span class="s2">        1. Include current machine status</span>
+<a id="__codelineno-3-325" name="__codelineno-3-325" href="#__codelineno-3-325"></a><span class="s2">        2. Provide historical maintenance patterns</span>
+<a id="__codelineno-3-326" name="__codelineno-3-326" href="#__codelineno-3-326"></a><span class="s2">        3. Show failure prediction confidence levels</span>
+<a id="__codelineno-3-327" name="__codelineno-3-327" href="#__codelineno-3-327"></a><span class="s2">        4. List specific maintenance recommendations</span>
+<a id="__codelineno-3-328" name="__codelineno-3-328" href="#__codelineno-3-328"></a><span class="s2">        5. Include impact assessment and timeline&quot;&quot;&quot;</span>
 <a id="__codelineno-3-329" name="__codelineno-3-329" href="#__codelineno-3-329"></a>
-<a id="__codelineno-3-330" name="__codelineno-3-330" href="#__codelineno-3-330"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
-<a id="__codelineno-3-331" name="__codelineno-3-331" href="#__codelineno-3-331"></a>            asserter.assert_semantic_match(actual, expected)
-<a id="__codelineno-3-332" name="__codelineno-3-332" href="#__codelineno-3-332"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-330" name="__codelineno-3-330" href="#__codelineno-3-330"></a>        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">SemanticAssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+<a id="__codelineno-3-331" name="__codelineno-3-331" href="#__codelineno-3-331"></a>            <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-3-332" name="__codelineno-3-332" href="#__codelineno-3-332"></a>        <span class="k">assert</span> <span class="s2">&quot;Semantic assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <a id="__codelineno-3-333" name="__codelineno-3-333" href="#__codelineno-3-333"></a>
-<a id="__codelineno-3-334" name="__codelineno-3-334" href="#__codelineno-3-334"></a>    def test_product_description_generation(self, asserter):
-<a id="__codelineno-3-335" name="__codelineno-3-335" href="#__codelineno-3-335"></a>        &quot;&quot;&quot;Test semantic matching for e-commerce product description generation. Tests that the description
-<a id="__codelineno-3-336" name="__codelineno-3-336" href="#__codelineno-3-336"></a>        includes all required elements of an effective product listing.&quot;&quot;&quot;
-<a id="__codelineno-3-337" name="__codelineno-3-337" href="#__codelineno-3-337"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-338" name="__codelineno-3-338" href="#__codelineno-3-338"></a>        Smart Home Security Camera - Model HC2000
+<a id="__codelineno-3-334" name="__codelineno-3-334" href="#__codelineno-3-334"></a>    <span class="k">def</span> <span class="nf">test_product_description_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-335" name="__codelineno-3-335" href="#__codelineno-3-335"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for e-commerce product description generation. Tests that the description</span>
+<a id="__codelineno-3-336" name="__codelineno-3-336" href="#__codelineno-3-336"></a><span class="sd">        includes all required elements of an effective product listing.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-337" name="__codelineno-3-337" href="#__codelineno-3-337"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-338" name="__codelineno-3-338" href="#__codelineno-3-338"></a><span class="s2">        Smart Home Security Camera - Model HC2000</span>
 <a id="__codelineno-3-339" name="__codelineno-3-339" href="#__codelineno-3-339"></a>
-<a id="__codelineno-3-340" name="__codelineno-3-340" href="#__codelineno-3-340"></a>        Transform your home security with our latest AI-powered camera system. This next-generation 
-<a id="__codelineno-3-341" name="__codelineno-3-341" href="#__codelineno-3-341"></a>        device combines advanced motion detection with crystal-clear 4K video quality, perfect for 
-<a id="__codelineno-3-342" name="__codelineno-3-342" href="#__codelineno-3-342"></a>        both indoor and outdoor monitoring.
+<a id="__codelineno-3-340" name="__codelineno-3-340" href="#__codelineno-3-340"></a><span class="s2">        Transform your home security with our latest AI-powered camera system. This next-generation </span>
+<a id="__codelineno-3-341" name="__codelineno-3-341" href="#__codelineno-3-341"></a><span class="s2">        device combines advanced motion detection with crystal-clear 4K video quality, perfect for </span>
+<a id="__codelineno-3-342" name="__codelineno-3-342" href="#__codelineno-3-342"></a><span class="s2">        both indoor and outdoor monitoring.</span>
 <a id="__codelineno-3-343" name="__codelineno-3-343" href="#__codelineno-3-343"></a>
-<a id="__codelineno-3-344" name="__codelineno-3-344" href="#__codelineno-3-344"></a>        Key Features:
-<a id="__codelineno-3-345" name="__codelineno-3-345" href="#__codelineno-3-345"></a>        - 4K Ultra HD resolution with HDR
-<a id="__codelineno-3-346" name="__codelineno-3-346" href="#__codelineno-3-346"></a>        - 160° wide-angle view
-<a id="__codelineno-3-347" name="__codelineno-3-347" href="#__codelineno-3-347"></a>        - Advanced AI motion detection
-<a id="__codelineno-3-348" name="__codelineno-3-348" href="#__codelineno-3-348"></a>        - Two-way audio communication
-<a id="__codelineno-3-349" name="__codelineno-3-349" href="#__codelineno-3-349"></a>        - Night vision up to 30 feet
-<a id="__codelineno-3-350" name="__codelineno-3-350" href="#__codelineno-3-350"></a>        - Weather-resistant (IP66 rated)
+<a id="__codelineno-3-344" name="__codelineno-3-344" href="#__codelineno-3-344"></a><span class="s2">        Key Features:</span>
+<a id="__codelineno-3-345" name="__codelineno-3-345" href="#__codelineno-3-345"></a><span class="s2">        - 4K Ultra HD resolution with HDR</span>
+<a id="__codelineno-3-346" name="__codelineno-3-346" href="#__codelineno-3-346"></a><span class="s2">        - 160° wide-angle view</span>
+<a id="__codelineno-3-347" name="__codelineno-3-347" href="#__codelineno-3-347"></a><span class="s2">        - Advanced AI motion detection</span>
+<a id="__codelineno-3-348" name="__codelineno-3-348" href="#__codelineno-3-348"></a><span class="s2">        - Two-way audio communication</span>
+<a id="__codelineno-3-349" name="__codelineno-3-349" href="#__codelineno-3-349"></a><span class="s2">        - Night vision up to 30 feet</span>
+<a id="__codelineno-3-350" name="__codelineno-3-350" href="#__codelineno-3-350"></a><span class="s2">        - Weather-resistant (IP66 rated)</span>
 <a id="__codelineno-3-351" name="__codelineno-3-351" href="#__codelineno-3-351"></a>
-<a id="__codelineno-3-352" name="__codelineno-3-352" href="#__codelineno-3-352"></a>        Smart Integration:
-<a id="__codelineno-3-353" name="__codelineno-3-353" href="#__codelineno-3-353"></a>        Works seamlessly with major platforms including:
-<a id="__codelineno-3-354" name="__codelineno-3-354" href="#__codelineno-3-354"></a>        - Amazon Alexa
-<a id="__codelineno-3-355" name="__codelineno-3-355" href="#__codelineno-3-355"></a>        - Google Home
-<a id="__codelineno-3-356" name="__codelineno-3-356" href="#__codelineno-3-356"></a>        - Apple HomeKit
-<a id="__codelineno-3-357" name="__codelineno-3-357" href="#__codelineno-3-357"></a>        - IFTTT
+<a id="__codelineno-3-352" name="__codelineno-3-352" href="#__codelineno-3-352"></a><span class="s2">        Smart Integration:</span>
+<a id="__codelineno-3-353" name="__codelineno-3-353" href="#__codelineno-3-353"></a><span class="s2">        Works seamlessly with major platforms including:</span>
+<a id="__codelineno-3-354" name="__codelineno-3-354" href="#__codelineno-3-354"></a><span class="s2">        - Amazon Alexa</span>
+<a id="__codelineno-3-355" name="__codelineno-3-355" href="#__codelineno-3-355"></a><span class="s2">        - Google Home</span>
+<a id="__codelineno-3-356" name="__codelineno-3-356" href="#__codelineno-3-356"></a><span class="s2">        - Apple HomeKit</span>
+<a id="__codelineno-3-357" name="__codelineno-3-357" href="#__codelineno-3-357"></a><span class="s2">        - IFTTT</span>
 <a id="__codelineno-3-358" name="__codelineno-3-358" href="#__codelineno-3-358"></a>
-<a id="__codelineno-3-359" name="__codelineno-3-359" href="#__codelineno-3-359"></a>        Technical Specifications:
-<a id="__codelineno-3-360" name="__codelineno-3-360" href="#__codelineno-3-360"></a>        - Dimensions: 3.2&quot; x 3.2&quot; x 5.1&quot;
-<a id="__codelineno-3-361" name="__codelineno-3-361" href="#__codelineno-3-361"></a>        - Weight: 12.3 oz
-<a id="__codelineno-3-362" name="__codelineno-3-362" href="#__codelineno-3-362"></a>        - Power: AC adapter or rechargeable battery
-<a id="__codelineno-3-363" name="__codelineno-3-363" href="#__codelineno-3-363"></a>        - Storage: Cloud or local SD card (up to 256GB)
-<a id="__codelineno-3-364" name="__codelineno-3-364" href="#__codelineno-3-364"></a>        - Connectivity: 2.4GHz/5GHz WiFi
+<a id="__codelineno-3-359" name="__codelineno-3-359" href="#__codelineno-3-359"></a><span class="s2">        Technical Specifications:</span>
+<a id="__codelineno-3-360" name="__codelineno-3-360" href="#__codelineno-3-360"></a><span class="s2">        - Dimensions: 3.2&quot; x 3.2&quot; x 5.1&quot;</span>
+<a id="__codelineno-3-361" name="__codelineno-3-361" href="#__codelineno-3-361"></a><span class="s2">        - Weight: 12.3 oz</span>
+<a id="__codelineno-3-362" name="__codelineno-3-362" href="#__codelineno-3-362"></a><span class="s2">        - Power: AC adapter or rechargeable battery</span>
+<a id="__codelineno-3-363" name="__codelineno-3-363" href="#__codelineno-3-363"></a><span class="s2">        - Storage: Cloud or local SD card (up to 256GB)</span>
+<a id="__codelineno-3-364" name="__codelineno-3-364" href="#__codelineno-3-364"></a><span class="s2">        - Connectivity: 2.4GHz/5GHz WiFi</span>
 <a id="__codelineno-3-365" name="__codelineno-3-365" href="#__codelineno-3-365"></a>
-<a id="__codelineno-3-366" name="__codelineno-3-366" href="#__codelineno-3-366"></a>        What&#39;s in the Box:
-<a id="__codelineno-3-367" name="__codelineno-3-367" href="#__codelineno-3-367"></a>        - HC2000 Camera
-<a id="__codelineno-3-368" name="__codelineno-3-368" href="#__codelineno-3-368"></a>        - Mounting bracket
-<a id="__codelineno-3-369" name="__codelineno-3-369" href="#__codelineno-3-369"></a>        - Power adapter
-<a id="__codelineno-3-370" name="__codelineno-3-370" href="#__codelineno-3-370"></a>        - Quick start guide
-<a id="__codelineno-3-371" name="__codelineno-3-371" href="#__codelineno-3-371"></a>        - Screws and anchors
+<a id="__codelineno-3-366" name="__codelineno-3-366" href="#__codelineno-3-366"></a><span class="s2">        What&#39;s in the Box:</span>
+<a id="__codelineno-3-367" name="__codelineno-3-367" href="#__codelineno-3-367"></a><span class="s2">        - HC2000 Camera</span>
+<a id="__codelineno-3-368" name="__codelineno-3-368" href="#__codelineno-3-368"></a><span class="s2">        - Mounting bracket</span>
+<a id="__codelineno-3-369" name="__codelineno-3-369" href="#__codelineno-3-369"></a><span class="s2">        - Power adapter</span>
+<a id="__codelineno-3-370" name="__codelineno-3-370" href="#__codelineno-3-370"></a><span class="s2">        - Quick start guide</span>
+<a id="__codelineno-3-371" name="__codelineno-3-371" href="#__codelineno-3-371"></a><span class="s2">        - Screws and anchors</span>
 <a id="__codelineno-3-372" name="__codelineno-3-372" href="#__codelineno-3-372"></a>
-<a id="__codelineno-3-373" name="__codelineno-3-373" href="#__codelineno-3-373"></a>        Perfect for:
-<a id="__codelineno-3-374" name="__codelineno-3-374" href="#__codelineno-3-374"></a>        - Home security
-<a id="__codelineno-3-375" name="__codelineno-3-375" href="#__codelineno-3-375"></a>        - Baby monitoring
-<a id="__codelineno-3-376" name="__codelineno-3-376" href="#__codelineno-3-376"></a>        - Pet watching
-<a id="__codelineno-3-377" name="__codelineno-3-377" href="#__codelineno-3-377"></a>        - Front door monitoring
+<a id="__codelineno-3-373" name="__codelineno-3-373" href="#__codelineno-3-373"></a><span class="s2">        Perfect for:</span>
+<a id="__codelineno-3-374" name="__codelineno-3-374" href="#__codelineno-3-374"></a><span class="s2">        - Home security</span>
+<a id="__codelineno-3-375" name="__codelineno-3-375" href="#__codelineno-3-375"></a><span class="s2">        - Baby monitoring</span>
+<a id="__codelineno-3-376" name="__codelineno-3-376" href="#__codelineno-3-376"></a><span class="s2">        - Pet watching</span>
+<a id="__codelineno-3-377" name="__codelineno-3-377" href="#__codelineno-3-377"></a><span class="s2">        - Front door monitoring</span>
 <a id="__codelineno-3-378" name="__codelineno-3-378" href="#__codelineno-3-378"></a>
-<a id="__codelineno-3-379" name="__codelineno-3-379" href="#__codelineno-3-379"></a>        30-day money-back guarantee
-<a id="__codelineno-3-380" name="__codelineno-3-380" href="#__codelineno-3-380"></a>        2-year manufacturer warranty
-<a id="__codelineno-3-381" name="__codelineno-3-381" href="#__codelineno-3-381"></a>        Free technical support
-<a id="__codelineno-3-382" name="__codelineno-3-382" href="#__codelineno-3-382"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-379" name="__codelineno-3-379" href="#__codelineno-3-379"></a><span class="s2">        30-day money-back guarantee</span>
+<a id="__codelineno-3-380" name="__codelineno-3-380" href="#__codelineno-3-380"></a><span class="s2">        2-year manufacturer warranty</span>
+<a id="__codelineno-3-381" name="__codelineno-3-381" href="#__codelineno-3-381"></a><span class="s2">        Free technical support</span>
+<a id="__codelineno-3-382" name="__codelineno-3-382" href="#__codelineno-3-382"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-383" name="__codelineno-3-383" href="#__codelineno-3-383"></a>
-<a id="__codelineno-3-384" name="__codelineno-3-384" href="#__codelineno-3-384"></a>        expected = &quot;&quot;&quot;An e-commerce product description that must:
-<a id="__codelineno-3-385" name="__codelineno-3-385" href="#__codelineno-3-385"></a>        1. Include clear product name and model
-<a id="__codelineno-3-386" name="__codelineno-3-386" href="#__codelineno-3-386"></a>        2. List key features and specifications
-<a id="__codelineno-3-387" name="__codelineno-3-387" href="#__codelineno-3-387"></a>        3. Specify technical details and compatibility
-<a id="__codelineno-3-388" name="__codelineno-3-388" href="#__codelineno-3-388"></a>        4. Describe package contents
-<a id="__codelineno-3-389" name="__codelineno-3-389" href="#__codelineno-3-389"></a>        5. Include warranty and support information&quot;&quot;&quot;
+<a id="__codelineno-3-384" name="__codelineno-3-384" href="#__codelineno-3-384"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;An e-commerce product description that must:</span>
+<a id="__codelineno-3-385" name="__codelineno-3-385" href="#__codelineno-3-385"></a><span class="s2">        1. Include clear product name and model</span>
+<a id="__codelineno-3-386" name="__codelineno-3-386" href="#__codelineno-3-386"></a><span class="s2">        2. List key features and specifications</span>
+<a id="__codelineno-3-387" name="__codelineno-3-387" href="#__codelineno-3-387"></a><span class="s2">        3. Specify technical details and compatibility</span>
+<a id="__codelineno-3-388" name="__codelineno-3-388" href="#__codelineno-3-388"></a><span class="s2">        4. Describe package contents</span>
+<a id="__codelineno-3-389" name="__codelineno-3-389" href="#__codelineno-3-389"></a><span class="s2">        5. Include warranty and support information&quot;&quot;&quot;</span>
 <a id="__codelineno-3-390" name="__codelineno-3-390" href="#__codelineno-3-390"></a>
-<a id="__codelineno-3-391" name="__codelineno-3-391" href="#__codelineno-3-391"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-391" name="__codelineno-3-391" href="#__codelineno-3-391"></a>        <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 <a id="__codelineno-3-392" name="__codelineno-3-392" href="#__codelineno-3-392"></a>
-<a id="__codelineno-3-393" name="__codelineno-3-393" href="#__codelineno-3-393"></a>    def test_assignment_feedback_missing_improvement_steps(self, asserter):
-<a id="__codelineno-3-394" name="__codelineno-3-394" href="#__codelineno-3-394"></a>        &quot;&quot;&quot;Test semantic matching for student assignment feedback. Should fail due to
-<a id="__codelineno-3-395" name="__codelineno-3-395" href="#__codelineno-3-395"></a>        missing specific improvement steps and learning objectives.&quot;&quot;&quot;
-<a id="__codelineno-3-396" name="__codelineno-3-396" href="#__codelineno-3-396"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-397" name="__codelineno-3-397" href="#__codelineno-3-397"></a>        Assignment Feedback
-<a id="__codelineno-3-398" name="__codelineno-3-398" href="#__codelineno-3-398"></a>        Student ID: STU-2024-456
-<a id="__codelineno-3-399" name="__codelineno-3-399" href="#__codelineno-3-399"></a>        Assignment: Research Paper on Climate Change
-<a id="__codelineno-3-400" name="__codelineno-3-400" href="#__codelineno-3-400"></a>        Submission Date: November 22, 2024
+<a id="__codelineno-3-393" name="__codelineno-3-393" href="#__codelineno-3-393"></a>    <span class="k">def</span> <span class="nf">test_assignment_feedback_missing_improvement_steps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-394" name="__codelineno-3-394" href="#__codelineno-3-394"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for student assignment feedback. Should fail due to</span>
+<a id="__codelineno-3-395" name="__codelineno-3-395" href="#__codelineno-3-395"></a><span class="sd">        missing specific improvement steps and learning objectives.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-396" name="__codelineno-3-396" href="#__codelineno-3-396"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-397" name="__codelineno-3-397" href="#__codelineno-3-397"></a><span class="s2">        Assignment Feedback</span>
+<a id="__codelineno-3-398" name="__codelineno-3-398" href="#__codelineno-3-398"></a><span class="s2">        Student ID: STU-2024-456</span>
+<a id="__codelineno-3-399" name="__codelineno-3-399" href="#__codelineno-3-399"></a><span class="s2">        Assignment: Research Paper on Climate Change</span>
+<a id="__codelineno-3-400" name="__codelineno-3-400" href="#__codelineno-3-400"></a><span class="s2">        Submission Date: November 22, 2024</span>
 <a id="__codelineno-3-401" name="__codelineno-3-401" href="#__codelineno-3-401"></a>
-<a id="__codelineno-3-402" name="__codelineno-3-402" href="#__codelineno-3-402"></a>        Overall Assessment:
-<a id="__codelineno-3-403" name="__codelineno-3-403" href="#__codelineno-3-403"></a>        Your research paper demonstrates good understanding of climate change basics.
-<a id="__codelineno-3-404" name="__codelineno-3-404" href="#__codelineno-3-404"></a>        The writing is clear and well-structured, with appropriate use of scientific
-<a id="__codelineno-3-405" name="__codelineno-3-405" href="#__codelineno-3-405"></a>        terminology throughout the document.
+<a id="__codelineno-3-402" name="__codelineno-3-402" href="#__codelineno-3-402"></a><span class="s2">        Overall Assessment:</span>
+<a id="__codelineno-3-403" name="__codelineno-3-403" href="#__codelineno-3-403"></a><span class="s2">        Your research paper demonstrates good understanding of climate change basics.</span>
+<a id="__codelineno-3-404" name="__codelineno-3-404" href="#__codelineno-3-404"></a><span class="s2">        The writing is clear and well-structured, with appropriate use of scientific</span>
+<a id="__codelineno-3-405" name="__codelineno-3-405" href="#__codelineno-3-405"></a><span class="s2">        terminology throughout the document.</span>
 <a id="__codelineno-3-406" name="__codelineno-3-406" href="#__codelineno-3-406"></a>
-<a id="__codelineno-3-407" name="__codelineno-3-407" href="#__codelineno-3-407"></a>        Strengths:
-<a id="__codelineno-3-408" name="__codelineno-3-408" href="#__codelineno-3-408"></a>        - Strong introduction that sets context
-<a id="__codelineno-3-409" name="__codelineno-3-409" href="#__codelineno-3-409"></a>        - Good use of current scientific data
-<a id="__codelineno-3-410" name="__codelineno-3-410" href="#__codelineno-3-410"></a>        - Clear paragraph structure
-<a id="__codelineno-3-411" name="__codelineno-3-411" href="#__codelineno-3-411"></a>        - Proper citation format
+<a id="__codelineno-3-407" name="__codelineno-3-407" href="#__codelineno-3-407"></a><span class="s2">        Strengths:</span>
+<a id="__codelineno-3-408" name="__codelineno-3-408" href="#__codelineno-3-408"></a><span class="s2">        - Strong introduction that sets context</span>
+<a id="__codelineno-3-409" name="__codelineno-3-409" href="#__codelineno-3-409"></a><span class="s2">        - Good use of current scientific data</span>
+<a id="__codelineno-3-410" name="__codelineno-3-410" href="#__codelineno-3-410"></a><span class="s2">        - Clear paragraph structure</span>
+<a id="__codelineno-3-411" name="__codelineno-3-411" href="#__codelineno-3-411"></a><span class="s2">        - Proper citation format</span>
 <a id="__codelineno-3-412" name="__codelineno-3-412" href="#__codelineno-3-412"></a>
-<a id="__codelineno-3-413" name="__codelineno-3-413" href="#__codelineno-3-413"></a>        Areas Noted:
-<a id="__codelineno-3-414" name="__codelineno-3-414" href="#__codelineno-3-414"></a>        - Some statistical interpretations could be more precise
-<a id="__codelineno-3-415" name="__codelineno-3-415" href="#__codelineno-3-415"></a>        - Additional peer-reviewed sources would strengthen arguments
-<a id="__codelineno-3-416" name="__codelineno-3-416" href="#__codelineno-3-416"></a>        - Conclusion could be more comprehensive
+<a id="__codelineno-3-413" name="__codelineno-3-413" href="#__codelineno-3-413"></a><span class="s2">        Areas Noted:</span>
+<a id="__codelineno-3-414" name="__codelineno-3-414" href="#__codelineno-3-414"></a><span class="s2">        - Some statistical interpretations could be more precise</span>
+<a id="__codelineno-3-415" name="__codelineno-3-415" href="#__codelineno-3-415"></a><span class="s2">        - Additional peer-reviewed sources would strengthen arguments</span>
+<a id="__codelineno-3-416" name="__codelineno-3-416" href="#__codelineno-3-416"></a><span class="s2">        - Conclusion could be more comprehensive</span>
 <a id="__codelineno-3-417" name="__codelineno-3-417" href="#__codelineno-3-417"></a>
-<a id="__codelineno-3-418" name="__codelineno-3-418" href="#__codelineno-3-418"></a>        Grade: B+ (88/100)
+<a id="__codelineno-3-418" name="__codelineno-3-418" href="#__codelineno-3-418"></a><span class="s2">        Grade: B+ (88/100)</span>
 <a id="__codelineno-3-419" name="__codelineno-3-419" href="#__codelineno-3-419"></a>
-<a id="__codelineno-3-420" name="__codelineno-3-420" href="#__codelineno-3-420"></a>        Additional Comments:
-<a id="__codelineno-3-421" name="__codelineno-3-421" href="#__codelineno-3-421"></a>        The paper shows promise and indicates solid research skills. Your analysis
-<a id="__codelineno-3-422" name="__codelineno-3-422" href="#__codelineno-3-422"></a>        of temperature data trends was particularly well-done. Consider expanding
-<a id="__codelineno-3-423" name="__codelineno-3-423" href="#__codelineno-3-423"></a>        your discussion of potential mitigation strategies in future work.
-<a id="__codelineno-3-424" name="__codelineno-3-424" href="#__codelineno-3-424"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-420" name="__codelineno-3-420" href="#__codelineno-3-420"></a><span class="s2">        Additional Comments:</span>
+<a id="__codelineno-3-421" name="__codelineno-3-421" href="#__codelineno-3-421"></a><span class="s2">        The paper shows promise and indicates solid research skills. Your analysis</span>
+<a id="__codelineno-3-422" name="__codelineno-3-422" href="#__codelineno-3-422"></a><span class="s2">        of temperature data trends was particularly well-done. Consider expanding</span>
+<a id="__codelineno-3-423" name="__codelineno-3-423" href="#__codelineno-3-423"></a><span class="s2">        your discussion of potential mitigation strategies in future work.</span>
+<a id="__codelineno-3-424" name="__codelineno-3-424" href="#__codelineno-3-424"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-425" name="__codelineno-3-425" href="#__codelineno-3-425"></a>
-<a id="__codelineno-3-426" name="__codelineno-3-426" href="#__codelineno-3-426"></a>        expected = &quot;&quot;&quot;An assignment feedback document that must:
-<a id="__codelineno-3-427" name="__codelineno-3-427" href="#__codelineno-3-427"></a>        1. Include basic assignment and student information
-<a id="__codelineno-3-428" name="__codelineno-3-428" href="#__codelineno-3-428"></a>        2. Provide specific strengths and weaknesses
-<a id="__codelineno-3-429" name="__codelineno-3-429" href="#__codelineno-3-429"></a>        3. List concrete steps for improvement
-<a id="__codelineno-3-430" name="__codelineno-3-430" href="#__codelineno-3-430"></a>        4. Reference specific learning objectives
-<a id="__codelineno-3-431" name="__codelineno-3-431" href="#__codelineno-3-431"></a>        5. Include grading criteria and score&quot;&quot;&quot;
+<a id="__codelineno-3-426" name="__codelineno-3-426" href="#__codelineno-3-426"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;An assignment feedback document that must:</span>
+<a id="__codelineno-3-427" name="__codelineno-3-427" href="#__codelineno-3-427"></a><span class="s2">        1. Include basic assignment and student information</span>
+<a id="__codelineno-3-428" name="__codelineno-3-428" href="#__codelineno-3-428"></a><span class="s2">        2. Provide specific strengths and weaknesses</span>
+<a id="__codelineno-3-429" name="__codelineno-3-429" href="#__codelineno-3-429"></a><span class="s2">        3. List concrete steps for improvement</span>
+<a id="__codelineno-3-430" name="__codelineno-3-430" href="#__codelineno-3-430"></a><span class="s2">        4. Reference specific learning objectives</span>
+<a id="__codelineno-3-431" name="__codelineno-3-431" href="#__codelineno-3-431"></a><span class="s2">        5. Include grading criteria and score&quot;&quot;&quot;</span>
 <a id="__codelineno-3-432" name="__codelineno-3-432" href="#__codelineno-3-432"></a>
-<a id="__codelineno-3-433" name="__codelineno-3-433" href="#__codelineno-3-433"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
-<a id="__codelineno-3-434" name="__codelineno-3-434" href="#__codelineno-3-434"></a>            asserter.assert_semantic_match(actual, expected)
-<a id="__codelineno-3-435" name="__codelineno-3-435" href="#__codelineno-3-435"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-433" name="__codelineno-3-433" href="#__codelineno-3-433"></a>        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">SemanticAssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+<a id="__codelineno-3-434" name="__codelineno-3-434" href="#__codelineno-3-434"></a>            <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-3-435" name="__codelineno-3-435" href="#__codelineno-3-435"></a>        <span class="k">assert</span> <span class="s2">&quot;Semantic assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <a id="__codelineno-3-436" name="__codelineno-3-436" href="#__codelineno-3-436"></a>
-<a id="__codelineno-3-437" name="__codelineno-3-437" href="#__codelineno-3-437"></a>    def test_real_estate_listing_generation(self, asserter):
-<a id="__codelineno-3-438" name="__codelineno-3-438" href="#__codelineno-3-438"></a>        &quot;&quot;&quot;Test semantic matching for real estate listing generation. Tests that the listing
-<a id="__codelineno-3-439" name="__codelineno-3-439" href="#__codelineno-3-439"></a>        includes all essential elements of an effective property description.&quot;&quot;&quot;
-<a id="__codelineno-3-440" name="__codelineno-3-440" href="#__codelineno-3-440"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-441" name="__codelineno-3-441" href="#__codelineno-3-441"></a>        Stunning Modern Oasis in Prime Location
-<a id="__codelineno-3-442" name="__codelineno-3-442" href="#__codelineno-3-442"></a>        123 Maple Avenue, Riverside Heights
+<a id="__codelineno-3-437" name="__codelineno-3-437" href="#__codelineno-3-437"></a>    <span class="k">def</span> <span class="nf">test_real_estate_listing_generation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-438" name="__codelineno-3-438" href="#__codelineno-3-438"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for real estate listing generation. Tests that the listing</span>
+<a id="__codelineno-3-439" name="__codelineno-3-439" href="#__codelineno-3-439"></a><span class="sd">        includes all essential elements of an effective property description.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-440" name="__codelineno-3-440" href="#__codelineno-3-440"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-441" name="__codelineno-3-441" href="#__codelineno-3-441"></a><span class="s2">        Stunning Modern Oasis in Prime Location</span>
+<a id="__codelineno-3-442" name="__codelineno-3-442" href="#__codelineno-3-442"></a><span class="s2">        123 Maple Avenue, Riverside Heights</span>
 <a id="__codelineno-3-443" name="__codelineno-3-443" href="#__codelineno-3-443"></a>
-<a id="__codelineno-3-444" name="__codelineno-3-444" href="#__codelineno-3-444"></a>        Discover urban elegance in this meticulously updated contemporary home, where 
-<a id="__codelineno-3-445" name="__codelineno-3-445" href="#__codelineno-3-445"></a>        modern luxury meets practical living. This 2,400 sq ft residence seamlessly 
-<a id="__codelineno-3-446" name="__codelineno-3-446" href="#__codelineno-3-446"></a>        blends indoor and outdoor living spaces.
+<a id="__codelineno-3-444" name="__codelineno-3-444" href="#__codelineno-3-444"></a><span class="s2">        Discover urban elegance in this meticulously updated contemporary home, where </span>
+<a id="__codelineno-3-445" name="__codelineno-3-445" href="#__codelineno-3-445"></a><span class="s2">        modern luxury meets practical living. This 2,400 sq ft residence seamlessly </span>
+<a id="__codelineno-3-446" name="__codelineno-3-446" href="#__codelineno-3-446"></a><span class="s2">        blends indoor and outdoor living spaces.</span>
 <a id="__codelineno-3-447" name="__codelineno-3-447" href="#__codelineno-3-447"></a>
-<a id="__codelineno-3-448" name="__codelineno-3-448" href="#__codelineno-3-448"></a>        Property Highlights:
-<a id="__codelineno-3-449" name="__codelineno-3-449" href="#__codelineno-3-449"></a>        - 4 bedrooms, 2.5 bathrooms
-<a id="__codelineno-3-450" name="__codelineno-3-450" href="#__codelineno-3-450"></a>        - Built: 2018
-<a id="__codelineno-3-451" name="__codelineno-3-451" href="#__codelineno-3-451"></a>        - Lot size: 0.25 acres
-<a id="__codelineno-3-452" name="__codelineno-3-452" href="#__codelineno-3-452"></a>        - Two-car attached garage
-<a id="__codelineno-3-453" name="__codelineno-3-453" href="#__codelineno-3-453"></a>        - Energy-efficient smart home features
+<a id="__codelineno-3-448" name="__codelineno-3-448" href="#__codelineno-3-448"></a><span class="s2">        Property Highlights:</span>
+<a id="__codelineno-3-449" name="__codelineno-3-449" href="#__codelineno-3-449"></a><span class="s2">        - 4 bedrooms, 2.5 bathrooms</span>
+<a id="__codelineno-3-450" name="__codelineno-3-450" href="#__codelineno-3-450"></a><span class="s2">        - Built: 2018</span>
+<a id="__codelineno-3-451" name="__codelineno-3-451" href="#__codelineno-3-451"></a><span class="s2">        - Lot size: 0.25 acres</span>
+<a id="__codelineno-3-452" name="__codelineno-3-452" href="#__codelineno-3-452"></a><span class="s2">        - Two-car attached garage</span>
+<a id="__codelineno-3-453" name="__codelineno-3-453" href="#__codelineno-3-453"></a><span class="s2">        - Energy-efficient smart home features</span>
 <a id="__codelineno-3-454" name="__codelineno-3-454" href="#__codelineno-3-454"></a>
-<a id="__codelineno-3-455" name="__codelineno-3-455" href="#__codelineno-3-455"></a>        Interior Features:
-<a id="__codelineno-3-456" name="__codelineno-3-456" href="#__codelineno-3-456"></a>        The open-concept main level showcases:
-<a id="__codelineno-3-457" name="__codelineno-3-457" href="#__codelineno-3-457"></a>        - Chef&#39;s kitchen with quartz countertops
-<a id="__codelineno-3-458" name="__codelineno-3-458" href="#__codelineno-3-458"></a>        - Custom Italian cabinetry
-<a id="__codelineno-3-459" name="__codelineno-3-459" href="#__codelineno-3-459"></a>        - Premium stainless steel appliances
-<a id="__codelineno-3-460" name="__codelineno-3-460" href="#__codelineno-3-460"></a>        - Expansive living room with 12-foot ceilings
-<a id="__codelineno-3-461" name="__codelineno-3-461" href="#__codelineno-3-461"></a>        - Primary suite with spa-inspired bathroom
+<a id="__codelineno-3-455" name="__codelineno-3-455" href="#__codelineno-3-455"></a><span class="s2">        Interior Features:</span>
+<a id="__codelineno-3-456" name="__codelineno-3-456" href="#__codelineno-3-456"></a><span class="s2">        The open-concept main level showcases:</span>
+<a id="__codelineno-3-457" name="__codelineno-3-457" href="#__codelineno-3-457"></a><span class="s2">        - Chef&#39;s kitchen with quartz countertops</span>
+<a id="__codelineno-3-458" name="__codelineno-3-458" href="#__codelineno-3-458"></a><span class="s2">        - Custom Italian cabinetry</span>
+<a id="__codelineno-3-459" name="__codelineno-3-459" href="#__codelineno-3-459"></a><span class="s2">        - Premium stainless steel appliances</span>
+<a id="__codelineno-3-460" name="__codelineno-3-460" href="#__codelineno-3-460"></a><span class="s2">        - Expansive living room with 12-foot ceilings</span>
+<a id="__codelineno-3-461" name="__codelineno-3-461" href="#__codelineno-3-461"></a><span class="s2">        - Primary suite with spa-inspired bathroom</span>
 <a id="__codelineno-3-462" name="__codelineno-3-462" href="#__codelineno-3-462"></a>
-<a id="__codelineno-3-463" name="__codelineno-3-463" href="#__codelineno-3-463"></a>        Outdoor Living:
-<a id="__codelineno-3-464" name="__codelineno-3-464" href="#__codelineno-3-464"></a>        - Professional landscaping
-<a id="__codelineno-3-465" name="__codelineno-3-465" href="#__codelineno-3-465"></a>        - Covered patio with built-in BBQ
-<a id="__codelineno-3-466" name="__codelineno-3-466" href="#__codelineno-3-466"></a>        - Low-maintenance xeriscaping
-<a id="__codelineno-3-467" name="__codelineno-3-467" href="#__codelineno-3-467"></a>        - Private backyard retreat
+<a id="__codelineno-3-463" name="__codelineno-3-463" href="#__codelineno-3-463"></a><span class="s2">        Outdoor Living:</span>
+<a id="__codelineno-3-464" name="__codelineno-3-464" href="#__codelineno-3-464"></a><span class="s2">        - Professional landscaping</span>
+<a id="__codelineno-3-465" name="__codelineno-3-465" href="#__codelineno-3-465"></a><span class="s2">        - Covered patio with built-in BBQ</span>
+<a id="__codelineno-3-466" name="__codelineno-3-466" href="#__codelineno-3-466"></a><span class="s2">        - Low-maintenance xeriscaping</span>
+<a id="__codelineno-3-467" name="__codelineno-3-467" href="#__codelineno-3-467"></a><span class="s2">        - Private backyard retreat</span>
 <a id="__codelineno-3-468" name="__codelineno-3-468" href="#__codelineno-3-468"></a>
-<a id="__codelineno-3-469" name="__codelineno-3-469" href="#__codelineno-3-469"></a>        Location Benefits:
-<a id="__codelineno-3-470" name="__codelineno-3-470" href="#__codelineno-3-470"></a>        - Walking distance to Central Park
-<a id="__codelineno-3-471" name="__codelineno-3-471" href="#__codelineno-3-471"></a>        - Top-rated school district
-<a id="__codelineno-3-472" name="__codelineno-3-472" href="#__codelineno-3-472"></a>        - 10 minutes to downtown
-<a id="__codelineno-3-473" name="__codelineno-3-473" href="#__codelineno-3-473"></a>        - Easy access to major highways
+<a id="__codelineno-3-469" name="__codelineno-3-469" href="#__codelineno-3-469"></a><span class="s2">        Location Benefits:</span>
+<a id="__codelineno-3-470" name="__codelineno-3-470" href="#__codelineno-3-470"></a><span class="s2">        - Walking distance to Central Park</span>
+<a id="__codelineno-3-471" name="__codelineno-3-471" href="#__codelineno-3-471"></a><span class="s2">        - Top-rated school district</span>
+<a id="__codelineno-3-472" name="__codelineno-3-472" href="#__codelineno-3-472"></a><span class="s2">        - 10 minutes to downtown</span>
+<a id="__codelineno-3-473" name="__codelineno-3-473" href="#__codelineno-3-473"></a><span class="s2">        - Easy access to major highways</span>
 <a id="__codelineno-3-474" name="__codelineno-3-474" href="#__codelineno-3-474"></a>
-<a id="__codelineno-3-475" name="__codelineno-3-475" href="#__codelineno-3-475"></a>        Recent Updates:
-<a id="__codelineno-3-476" name="__codelineno-3-476" href="#__codelineno-3-476"></a>        - New HVAC system (2023)
-<a id="__codelineno-3-477" name="__codelineno-3-477" href="#__codelineno-3-477"></a>        - Smart home integration
-<a id="__codelineno-3-478" name="__codelineno-3-478" href="#__codelineno-3-478"></a>        - Updated LED lighting
-<a id="__codelineno-3-479" name="__codelineno-3-479" href="#__codelineno-3-479"></a>        - Fresh interior paint
+<a id="__codelineno-3-475" name="__codelineno-3-475" href="#__codelineno-3-475"></a><span class="s2">        Recent Updates:</span>
+<a id="__codelineno-3-476" name="__codelineno-3-476" href="#__codelineno-3-476"></a><span class="s2">        - New HVAC system (2023)</span>
+<a id="__codelineno-3-477" name="__codelineno-3-477" href="#__codelineno-3-477"></a><span class="s2">        - Smart home integration</span>
+<a id="__codelineno-3-478" name="__codelineno-3-478" href="#__codelineno-3-478"></a><span class="s2">        - Updated LED lighting</span>
+<a id="__codelineno-3-479" name="__codelineno-3-479" href="#__codelineno-3-479"></a><span class="s2">        - Fresh interior paint</span>
 <a id="__codelineno-3-480" name="__codelineno-3-480" href="#__codelineno-3-480"></a>
-<a id="__codelineno-3-481" name="__codelineno-3-481" href="#__codelineno-3-481"></a>        Price: $875,000
-<a id="__codelineno-3-482" name="__codelineno-3-482" href="#__codelineno-3-482"></a>        Available for immediate viewing
-<a id="__codelineno-3-483" name="__codelineno-3-483" href="#__codelineno-3-483"></a>        Virtual tour link: [URL]
-<a id="__codelineno-3-484" name="__codelineno-3-484" href="#__codelineno-3-484"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-481" name="__codelineno-3-481" href="#__codelineno-3-481"></a><span class="s2">        Price: $875,000</span>
+<a id="__codelineno-3-482" name="__codelineno-3-482" href="#__codelineno-3-482"></a><span class="s2">        Available for immediate viewing</span>
+<a id="__codelineno-3-483" name="__codelineno-3-483" href="#__codelineno-3-483"></a><span class="s2">        Virtual tour link: [URL]</span>
+<a id="__codelineno-3-484" name="__codelineno-3-484" href="#__codelineno-3-484"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-485" name="__codelineno-3-485" href="#__codelineno-3-485"></a>
-<a id="__codelineno-3-486" name="__codelineno-3-486" href="#__codelineno-3-486"></a>        expected = &quot;&quot;&quot;A real estate listing that must:
-<a id="__codelineno-3-487" name="__codelineno-3-487" href="#__codelineno-3-487"></a>        1. Include property overview and key features
-<a id="__codelineno-3-488" name="__codelineno-3-488" href="#__codelineno-3-488"></a>        2. List specific amenities and updates
-<a id="__codelineno-3-489" name="__codelineno-3-489" href="#__codelineno-3-489"></a>        3. Describe location benefits
-<a id="__codelineno-3-490" name="__codelineno-3-490" href="#__codelineno-3-490"></a>        4. Use engaging, descriptive language
-<a id="__codelineno-3-491" name="__codelineno-3-491" href="#__codelineno-3-491"></a>        5. Provide essential details (size, bedrooms, price)&quot;&quot;&quot;
+<a id="__codelineno-3-486" name="__codelineno-3-486" href="#__codelineno-3-486"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A real estate listing that must:</span>
+<a id="__codelineno-3-487" name="__codelineno-3-487" href="#__codelineno-3-487"></a><span class="s2">        1. Include property overview and key features</span>
+<a id="__codelineno-3-488" name="__codelineno-3-488" href="#__codelineno-3-488"></a><span class="s2">        2. List specific amenities and updates</span>
+<a id="__codelineno-3-489" name="__codelineno-3-489" href="#__codelineno-3-489"></a><span class="s2">        3. Describe location benefits</span>
+<a id="__codelineno-3-490" name="__codelineno-3-490" href="#__codelineno-3-490"></a><span class="s2">        4. Use engaging, descriptive language</span>
+<a id="__codelineno-3-491" name="__codelineno-3-491" href="#__codelineno-3-491"></a><span class="s2">        5. Provide essential details (size, bedrooms, price)&quot;&quot;&quot;</span>
 <a id="__codelineno-3-492" name="__codelineno-3-492" href="#__codelineno-3-492"></a>
-<a id="__codelineno-3-493" name="__codelineno-3-493" href="#__codelineno-3-493"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-493" name="__codelineno-3-493" href="#__codelineno-3-493"></a>        <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 <a id="__codelineno-3-494" name="__codelineno-3-494" href="#__codelineno-3-494"></a>
-<a id="__codelineno-3-495" name="__codelineno-3-495" href="#__codelineno-3-495"></a>    def test_interview_feedback_missing_criteria(self, asserter):
-<a id="__codelineno-3-496" name="__codelineno-3-496" href="#__codelineno-3-496"></a>        &quot;&quot;&quot;Test semantic matching for interview feedback generation. Should fail due to
-<a id="__codelineno-3-497" name="__codelineno-3-497" href="#__codelineno-3-497"></a>        missing evaluation criteria and specific examples.&quot;&quot;&quot;
-<a id="__codelineno-3-498" name="__codelineno-3-498" href="#__codelineno-3-498"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-499" name="__codelineno-3-499" href="#__codelineno-3-499"></a>        Interview Feedback Summary
-<a id="__codelineno-3-500" name="__codelineno-3-500" href="#__codelineno-3-500"></a>        Candidate ID: INT-2024-789
-<a id="__codelineno-3-501" name="__codelineno-3-501" href="#__codelineno-3-501"></a>        Position: Senior Software Engineer
-<a id="__codelineno-3-502" name="__codelineno-3-502" href="#__codelineno-3-502"></a>        Interview Date: November 22, 2024
+<a id="__codelineno-3-495" name="__codelineno-3-495" href="#__codelineno-3-495"></a>    <span class="k">def</span> <span class="nf">test_interview_feedback_missing_criteria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-496" name="__codelineno-3-496" href="#__codelineno-3-496"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for interview feedback generation. Should fail due to</span>
+<a id="__codelineno-3-497" name="__codelineno-3-497" href="#__codelineno-3-497"></a><span class="sd">        missing evaluation criteria and specific examples.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-498" name="__codelineno-3-498" href="#__codelineno-3-498"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-499" name="__codelineno-3-499" href="#__codelineno-3-499"></a><span class="s2">        Interview Feedback Summary</span>
+<a id="__codelineno-3-500" name="__codelineno-3-500" href="#__codelineno-3-500"></a><span class="s2">        Candidate ID: INT-2024-789</span>
+<a id="__codelineno-3-501" name="__codelineno-3-501" href="#__codelineno-3-501"></a><span class="s2">        Position: Senior Software Engineer</span>
+<a id="__codelineno-3-502" name="__codelineno-3-502" href="#__codelineno-3-502"></a><span class="s2">        Interview Date: November 22, 2024</span>
 <a id="__codelineno-3-503" name="__codelineno-3-503" href="#__codelineno-3-503"></a>
-<a id="__codelineno-3-504" name="__codelineno-3-504" href="#__codelineno-3-504"></a>        Overall Impression:
-<a id="__codelineno-3-505" name="__codelineno-3-505" href="#__codelineno-3-505"></a>        The candidate demonstrated strong technical knowledge and communicated well
-<a id="__codelineno-3-506" name="__codelineno-3-506" href="#__codelineno-3-506"></a>        throughout the interview. They showed enthusiasm for the role and our company&#39;s
-<a id="__codelineno-3-507" name="__codelineno-3-507" href="#__codelineno-3-507"></a>        mission.
+<a id="__codelineno-3-504" name="__codelineno-3-504" href="#__codelineno-3-504"></a><span class="s2">        Overall Impression:</span>
+<a id="__codelineno-3-505" name="__codelineno-3-505" href="#__codelineno-3-505"></a><span class="s2">        The candidate demonstrated strong technical knowledge and communicated well</span>
+<a id="__codelineno-3-506" name="__codelineno-3-506" href="#__codelineno-3-506"></a><span class="s2">        throughout the interview. They showed enthusiasm for the role and our company&#39;s</span>
+<a id="__codelineno-3-507" name="__codelineno-3-507" href="#__codelineno-3-507"></a><span class="s2">        mission.</span>
 <a id="__codelineno-3-508" name="__codelineno-3-508" href="#__codelineno-3-508"></a>
-<a id="__codelineno-3-509" name="__codelineno-3-509" href="#__codelineno-3-509"></a>        Discussion Points:
-<a id="__codelineno-3-510" name="__codelineno-3-510" href="#__codelineno-3-510"></a>        - Previous experience with cloud architecture
-<a id="__codelineno-3-511" name="__codelineno-3-511" href="#__codelineno-3-511"></a>        - Team collaboration approaches
-<a id="__codelineno-3-512" name="__codelineno-3-512" href="#__codelineno-3-512"></a>        - Problem-solving methodology
-<a id="__codelineno-3-513" name="__codelineno-3-513" href="#__codelineno-3-513"></a>        - Career goals and aspirations
+<a id="__codelineno-3-509" name="__codelineno-3-509" href="#__codelineno-3-509"></a><span class="s2">        Discussion Points:</span>
+<a id="__codelineno-3-510" name="__codelineno-3-510" href="#__codelineno-3-510"></a><span class="s2">        - Previous experience with cloud architecture</span>
+<a id="__codelineno-3-511" name="__codelineno-3-511" href="#__codelineno-3-511"></a><span class="s2">        - Team collaboration approaches</span>
+<a id="__codelineno-3-512" name="__codelineno-3-512" href="#__codelineno-3-512"></a><span class="s2">        - Problem-solving methodology</span>
+<a id="__codelineno-3-513" name="__codelineno-3-513" href="#__codelineno-3-513"></a><span class="s2">        - Career goals and aspirations</span>
 <a id="__codelineno-3-514" name="__codelineno-3-514" href="#__codelineno-3-514"></a>
-<a id="__codelineno-3-515" name="__codelineno-3-515" href="#__codelineno-3-515"></a>        Technical Discussion:
-<a id="__codelineno-3-516" name="__codelineno-3-516" href="#__codelineno-3-516"></a>        Candidate showed familiarity with:
-<a id="__codelineno-3-517" name="__codelineno-3-517" href="#__codelineno-3-517"></a>        - Microservices architecture
-<a id="__codelineno-3-518" name="__codelineno-3-518" href="#__codelineno-3-518"></a>        - CI/CD pipelines
-<a id="__codelineno-3-519" name="__codelineno-3-519" href="#__codelineno-3-519"></a>        - Cloud platforms (AWS, Azure)
-<a id="__codelineno-3-520" name="__codelineno-3-520" href="#__codelineno-3-520"></a>        - Agile development practices
+<a id="__codelineno-3-515" name="__codelineno-3-515" href="#__codelineno-3-515"></a><span class="s2">        Technical Discussion:</span>
+<a id="__codelineno-3-516" name="__codelineno-3-516" href="#__codelineno-3-516"></a><span class="s2">        Candidate showed familiarity with:</span>
+<a id="__codelineno-3-517" name="__codelineno-3-517" href="#__codelineno-3-517"></a><span class="s2">        - Microservices architecture</span>
+<a id="__codelineno-3-518" name="__codelineno-3-518" href="#__codelineno-3-518"></a><span class="s2">        - CI/CD pipelines</span>
+<a id="__codelineno-3-519" name="__codelineno-3-519" href="#__codelineno-3-519"></a><span class="s2">        - Cloud platforms (AWS, Azure)</span>
+<a id="__codelineno-3-520" name="__codelineno-3-520" href="#__codelineno-3-520"></a><span class="s2">        - Agile development practices</span>
 <a id="__codelineno-3-521" name="__codelineno-3-521" href="#__codelineno-3-521"></a>
-<a id="__codelineno-3-522" name="__codelineno-3-522" href="#__codelineno-3-522"></a>        Cultural Fit:
-<a id="__codelineno-3-523" name="__codelineno-3-523" href="#__codelineno-3-523"></a>        Appears to align well with our company values and team dynamics.
-<a id="__codelineno-3-524" name="__codelineno-3-524" href="#__codelineno-3-524"></a>        Demonstrated good communication skills and collaborative mindset.
+<a id="__codelineno-3-522" name="__codelineno-3-522" href="#__codelineno-3-522"></a><span class="s2">        Cultural Fit:</span>
+<a id="__codelineno-3-523" name="__codelineno-3-523" href="#__codelineno-3-523"></a><span class="s2">        Appears to align well with our company values and team dynamics.</span>
+<a id="__codelineno-3-524" name="__codelineno-3-524" href="#__codelineno-3-524"></a><span class="s2">        Demonstrated good communication skills and collaborative mindset.</span>
 <a id="__codelineno-3-525" name="__codelineno-3-525" href="#__codelineno-3-525"></a>
-<a id="__codelineno-3-526" name="__codelineno-3-526" href="#__codelineno-3-526"></a>        Next Steps:
-<a id="__codelineno-3-527" name="__codelineno-3-527" href="#__codelineno-3-527"></a>        Proceed with reference checks if moving forward.
-<a id="__codelineno-3-528" name="__codelineno-3-528" href="#__codelineno-3-528"></a>        Schedule follow-up with hiring manager.
-<a id="__codelineno-3-529" name="__codelineno-3-529" href="#__codelineno-3-529"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-526" name="__codelineno-3-526" href="#__codelineno-3-526"></a><span class="s2">        Next Steps:</span>
+<a id="__codelineno-3-527" name="__codelineno-3-527" href="#__codelineno-3-527"></a><span class="s2">        Proceed with reference checks if moving forward.</span>
+<a id="__codelineno-3-528" name="__codelineno-3-528" href="#__codelineno-3-528"></a><span class="s2">        Schedule follow-up with hiring manager.</span>
+<a id="__codelineno-3-529" name="__codelineno-3-529" href="#__codelineno-3-529"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-530" name="__codelineno-3-530" href="#__codelineno-3-530"></a>
-<a id="__codelineno-3-531" name="__codelineno-3-531" href="#__codelineno-3-531"></a>        expected = &quot;&quot;&quot;An interview feedback document that must:
-<a id="__codelineno-3-532" name="__codelineno-3-532" href="#__codelineno-3-532"></a>        1. Include candidate and position information
-<a id="__codelineno-3-533" name="__codelineno-3-533" href="#__codelineno-3-533"></a>        2. List specific evaluation criteria with ratings
-<a id="__codelineno-3-534" name="__codelineno-3-534" href="#__codelineno-3-534"></a>        3. Provide concrete examples of responses
-<a id="__codelineno-3-535" name="__codelineno-3-535" href="#__codelineno-3-535"></a>        4. Include technical assessment scores
-<a id="__codelineno-3-536" name="__codelineno-3-536" href="#__codelineno-3-536"></a>        5. Offer clear hiring recommendation&quot;&quot;&quot;
+<a id="__codelineno-3-531" name="__codelineno-3-531" href="#__codelineno-3-531"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;An interview feedback document that must:</span>
+<a id="__codelineno-3-532" name="__codelineno-3-532" href="#__codelineno-3-532"></a><span class="s2">        1. Include candidate and position information</span>
+<a id="__codelineno-3-533" name="__codelineno-3-533" href="#__codelineno-3-533"></a><span class="s2">        2. List specific evaluation criteria with ratings</span>
+<a id="__codelineno-3-534" name="__codelineno-3-534" href="#__codelineno-3-534"></a><span class="s2">        3. Provide concrete examples of responses</span>
+<a id="__codelineno-3-535" name="__codelineno-3-535" href="#__codelineno-3-535"></a><span class="s2">        4. Include technical assessment scores</span>
+<a id="__codelineno-3-536" name="__codelineno-3-536" href="#__codelineno-3-536"></a><span class="s2">        5. Offer clear hiring recommendation&quot;&quot;&quot;</span>
 <a id="__codelineno-3-537" name="__codelineno-3-537" href="#__codelineno-3-537"></a>
-<a id="__codelineno-3-538" name="__codelineno-3-538" href="#__codelineno-3-538"></a>        with pytest.raises(SemanticAssertionError) as excinfo:
-<a id="__codelineno-3-539" name="__codelineno-3-539" href="#__codelineno-3-539"></a>            asserter.assert_semantic_match(actual, expected)
-<a id="__codelineno-3-540" name="__codelineno-3-540" href="#__codelineno-3-540"></a>        assert &quot;Semantic assertion failed&quot; in str(excinfo.value)
+<a id="__codelineno-3-538" name="__codelineno-3-538" href="#__codelineno-3-538"></a>        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">SemanticAssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+<a id="__codelineno-3-539" name="__codelineno-3-539" href="#__codelineno-3-539"></a>            <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-3-540" name="__codelineno-3-540" href="#__codelineno-3-540"></a>        <span class="k">assert</span> <span class="s2">&quot;Semantic assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <a id="__codelineno-3-541" name="__codelineno-3-541" href="#__codelineno-3-541"></a>
-<a id="__codelineno-3-542" name="__codelineno-3-542" href="#__codelineno-3-542"></a>    def test_customer_service_ticket_response(self, asserter):
-<a id="__codelineno-3-543" name="__codelineno-3-543" href="#__codelineno-3-543"></a>        &quot;&quot;&quot;Test semantic matching for customer service ticket analysis and response generation.&quot;&quot;&quot;
-<a id="__codelineno-3-544" name="__codelineno-3-544" href="#__codelineno-3-544"></a>        actual = &quot;&quot;&quot;
-<a id="__codelineno-3-545" name="__codelineno-3-545" href="#__codelineno-3-545"></a>        Ticket Analysis and Response
-<a id="__codelineno-3-546" name="__codelineno-3-546" href="#__codelineno-3-546"></a>        Ticket ID: CS-2024-1122
-<a id="__codelineno-3-547" name="__codelineno-3-547" href="#__codelineno-3-547"></a>        Priority: Medium
-<a id="__codelineno-3-548" name="__codelineno-3-548" href="#__codelineno-3-548"></a>        Category: Product Return
+<a id="__codelineno-3-542" name="__codelineno-3-542" href="#__codelineno-3-542"></a>    <span class="k">def</span> <span class="nf">test_customer_service_ticket_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asserter</span><span class="p">):</span>
+<a id="__codelineno-3-543" name="__codelineno-3-543" href="#__codelineno-3-543"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test semantic matching for customer service ticket analysis and response generation.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-544" name="__codelineno-3-544" href="#__codelineno-3-544"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-3-545" name="__codelineno-3-545" href="#__codelineno-3-545"></a><span class="s2">        Ticket Analysis and Response</span>
+<a id="__codelineno-3-546" name="__codelineno-3-546" href="#__codelineno-3-546"></a><span class="s2">        Ticket ID: CS-2024-1122</span>
+<a id="__codelineno-3-547" name="__codelineno-3-547" href="#__codelineno-3-547"></a><span class="s2">        Priority: Medium</span>
+<a id="__codelineno-3-548" name="__codelineno-3-548" href="#__codelineno-3-548"></a><span class="s2">        Category: Product Return</span>
 <a id="__codelineno-3-549" name="__codelineno-3-549" href="#__codelineno-3-549"></a>
-<a id="__codelineno-3-550" name="__codelineno-3-550" href="#__codelineno-3-550"></a>        Customer Query Summary:
-<a id="__codelineno-3-551" name="__codelineno-3-551" href="#__codelineno-3-551"></a>        Customer purchased a wireless headphone (Model: WH-1000XM4) three days ago
-<a id="__codelineno-3-552" name="__codelineno-3-552" href="#__codelineno-3-552"></a>        and is experiencing connectivity issues with their iPhone 13. Initial
-<a id="__codelineno-3-553" name="__codelineno-3-553" href="#__codelineno-3-553"></a>        troubleshooting steps were attempted without success.
+<a id="__codelineno-3-550" name="__codelineno-3-550" href="#__codelineno-3-550"></a><span class="s2">        Customer Query Summary:</span>
+<a id="__codelineno-3-551" name="__codelineno-3-551" href="#__codelineno-3-551"></a><span class="s2">        Customer purchased a wireless headphone (Model: WH-1000XM4) three days ago</span>
+<a id="__codelineno-3-552" name="__codelineno-3-552" href="#__codelineno-3-552"></a><span class="s2">        and is experiencing connectivity issues with their iPhone 13. Initial</span>
+<a id="__codelineno-3-553" name="__codelineno-3-553" href="#__codelineno-3-553"></a><span class="s2">        troubleshooting steps were attempted without success.</span>
 <a id="__codelineno-3-554" name="__codelineno-3-554" href="#__codelineno-3-554"></a>
-<a id="__codelineno-3-555" name="__codelineno-3-555" href="#__codelineno-3-555"></a>        Issue Analysis:
-<a id="__codelineno-3-556" name="__codelineno-3-556" href="#__codelineno-3-556"></a>        - Product is within return window (3 of 30 days)
-<a id="__codelineno-3-557" name="__codelineno-3-557" href="#__codelineno-3-557"></a>        - Common compatibility issue identified
-<a id="__codelineno-3-558" name="__codelineno-3-558" href="#__codelineno-3-558"></a>        - Troubleshooting already attempted
-<a id="__codelineno-3-559" name="__codelineno-3-559" href="#__codelineno-3-559"></a>        - Customer tone indicates frustration
+<a id="__codelineno-3-555" name="__codelineno-3-555" href="#__codelineno-3-555"></a><span class="s2">        Issue Analysis:</span>
+<a id="__codelineno-3-556" name="__codelineno-3-556" href="#__codelineno-3-556"></a><span class="s2">        - Product is within return window (3 of 30 days)</span>
+<a id="__codelineno-3-557" name="__codelineno-3-557" href="#__codelineno-3-557"></a><span class="s2">        - Common compatibility issue identified</span>
+<a id="__codelineno-3-558" name="__codelineno-3-558" href="#__codelineno-3-558"></a><span class="s2">        - Troubleshooting already attempted</span>
+<a id="__codelineno-3-559" name="__codelineno-3-559" href="#__codelineno-3-559"></a><span class="s2">        - Customer tone indicates frustration</span>
 <a id="__codelineno-3-560" name="__codelineno-3-560" href="#__codelineno-3-560"></a>
-<a id="__codelineno-3-561" name="__codelineno-3-561" href="#__codelineno-3-561"></a>        Recommended Response:
-<a id="__codelineno-3-562" name="__codelineno-3-562" href="#__codelineno-3-562"></a>        Dear [Customer Name],
+<a id="__codelineno-3-561" name="__codelineno-3-561" href="#__codelineno-3-561"></a><span class="s2">        Recommended Response:</span>
+<a id="__codelineno-3-562" name="__codelineno-3-562" href="#__codelineno-3-562"></a><span class="s2">        Dear [Customer Name],</span>
 <a id="__codelineno-3-563" name="__codelineno-3-563" href="#__codelineno-3-563"></a>
-<a id="__codelineno-3-564" name="__codelineno-3-564" href="#__codelineno-3-564"></a>        Thank you for reaching out about the connectivity issues with your WH-1000XM4
-<a id="__codelineno-3-565" name="__codelineno-3-565" href="#__codelineno-3-565"></a>        headphones. I understand how frustrating technical issues can be, especially
-<a id="__codelineno-3-566" name="__codelineno-3-566" href="#__codelineno-3-566"></a>        with a new purchase.
+<a id="__codelineno-3-564" name="__codelineno-3-564" href="#__codelineno-3-564"></a><span class="s2">        Thank you for reaching out about the connectivity issues with your WH-1000XM4</span>
+<a id="__codelineno-3-565" name="__codelineno-3-565" href="#__codelineno-3-565"></a><span class="s2">        headphones. I understand how frustrating technical issues can be, especially</span>
+<a id="__codelineno-3-566" name="__codelineno-3-566" href="#__codelineno-3-566"></a><span class="s2">        with a new purchase.</span>
 <a id="__codelineno-3-567" name="__codelineno-3-567" href="#__codelineno-3-567"></a>
-<a id="__codelineno-3-568" name="__codelineno-3-568" href="#__codelineno-3-568"></a>        Based on your description, I can offer you two immediate solutions:
+<a id="__codelineno-3-568" name="__codelineno-3-568" href="#__codelineno-3-568"></a><span class="s2">        Based on your description, I can offer you two immediate solutions:</span>
 <a id="__codelineno-3-569" name="__codelineno-3-569" href="#__codelineno-3-569"></a>
-<a id="__codelineno-3-570" name="__codelineno-3-570" href="#__codelineno-3-570"></a>        1. Advanced Troubleshooting:
-<a id="__codelineno-3-571" name="__codelineno-3-571" href="#__codelineno-3-571"></a>           - Reset the headphones (detailed steps attached)
-<a id="__codelineno-3-572" name="__codelineno-3-572" href="#__codelineno-3-572"></a>           - Update iPhone Bluetooth settings
-<a id="__codelineno-3-573" name="__codelineno-3-573" href="#__codelineno-3-573"></a>           - Install latest firmware
+<a id="__codelineno-3-570" name="__codelineno-3-570" href="#__codelineno-3-570"></a><span class="s2">        1. Advanced Troubleshooting:</span>
+<a id="__codelineno-3-571" name="__codelineno-3-571" href="#__codelineno-3-571"></a><span class="s2">           - Reset the headphones (detailed steps attached)</span>
+<a id="__codelineno-3-572" name="__codelineno-3-572" href="#__codelineno-3-572"></a><span class="s2">           - Update iPhone Bluetooth settings</span>
+<a id="__codelineno-3-573" name="__codelineno-3-573" href="#__codelineno-3-573"></a><span class="s2">           - Install latest firmware</span>
 <a id="__codelineno-3-574" name="__codelineno-3-574" href="#__codelineno-3-574"></a>
-<a id="__codelineno-3-575" name="__codelineno-3-575" href="#__codelineno-3-575"></a>        2. Hassle-free Return:
-<a id="__codelineno-3-576" name="__codelineno-3-576" href="#__codelineno-3-576"></a>           - Generate return label through our portal
-<a id="__codelineno-3-577" name="__codelineno-3-577" href="#__codelineno-3-577"></a>           - Full refund processed within 3 business days
-<a id="__codelineno-3-578" name="__codelineno-3-578" href="#__codelineno-3-578"></a>           - Free return shipping
+<a id="__codelineno-3-575" name="__codelineno-3-575" href="#__codelineno-3-575"></a><span class="s2">        2. Hassle-free Return:</span>
+<a id="__codelineno-3-576" name="__codelineno-3-576" href="#__codelineno-3-576"></a><span class="s2">           - Generate return label through our portal</span>
+<a id="__codelineno-3-577" name="__codelineno-3-577" href="#__codelineno-3-577"></a><span class="s2">           - Full refund processed within 3 business days</span>
+<a id="__codelineno-3-578" name="__codelineno-3-578" href="#__codelineno-3-578"></a><span class="s2">           - Free return shipping</span>
 <a id="__codelineno-3-579" name="__codelineno-3-579" href="#__codelineno-3-579"></a>
-<a id="__codelineno-3-580" name="__codelineno-3-580" href="#__codelineno-3-580"></a>        Would you prefer to try the advanced troubleshooting steps, or would you like
-<a id="__codelineno-3-581" name="__codelineno-3-581" href="#__codelineno-3-581"></a>        to proceed with the return? I&#39;m here to help with either option.
+<a id="__codelineno-3-580" name="__codelineno-3-580" href="#__codelineno-3-580"></a><span class="s2">        Would you prefer to try the advanced troubleshooting steps, or would you like</span>
+<a id="__codelineno-3-581" name="__codelineno-3-581" href="#__codelineno-3-581"></a><span class="s2">        to proceed with the return? I&#39;m here to help with either option.</span>
 <a id="__codelineno-3-582" name="__codelineno-3-582" href="#__codelineno-3-582"></a>
-<a id="__codelineno-3-583" name="__codelineno-3-583" href="#__codelineno-3-583"></a>        Next Steps:
-<a id="__codelineno-3-584" name="__codelineno-3-584" href="#__codelineno-3-584"></a>        - Await customer preference
-<a id="__codelineno-3-585" name="__codelineno-3-585" href="#__codelineno-3-585"></a>        - Prepare return label if requested
-<a id="__codelineno-3-586" name="__codelineno-3-586" href="#__codelineno-3-586"></a>        - Schedule follow-up within 24 hours
+<a id="__codelineno-3-583" name="__codelineno-3-583" href="#__codelineno-3-583"></a><span class="s2">        Next Steps:</span>
+<a id="__codelineno-3-584" name="__codelineno-3-584" href="#__codelineno-3-584"></a><span class="s2">        - Await customer preference</span>
+<a id="__codelineno-3-585" name="__codelineno-3-585" href="#__codelineno-3-585"></a><span class="s2">        - Prepare return label if requested</span>
+<a id="__codelineno-3-586" name="__codelineno-3-586" href="#__codelineno-3-586"></a><span class="s2">        - Schedule follow-up within 24 hours</span>
 <a id="__codelineno-3-587" name="__codelineno-3-587" href="#__codelineno-3-587"></a>
-<a id="__codelineno-3-588" name="__codelineno-3-588" href="#__codelineno-3-588"></a>        Response Tone: Empathetic and Solution-focused
-<a id="__codelineno-3-589" name="__codelineno-3-589" href="#__codelineno-3-589"></a>        Support Resources: KB-2345, RT-6789
-<a id="__codelineno-3-590" name="__codelineno-3-590" href="#__codelineno-3-590"></a>        &quot;&quot;&quot;
+<a id="__codelineno-3-588" name="__codelineno-3-588" href="#__codelineno-3-588"></a><span class="s2">        Response Tone: Empathetic and Solution-focused</span>
+<a id="__codelineno-3-589" name="__codelineno-3-589" href="#__codelineno-3-589"></a><span class="s2">        Support Resources: KB-2345, RT-6789</span>
+<a id="__codelineno-3-590" name="__codelineno-3-590" href="#__codelineno-3-590"></a><span class="s2">        &quot;&quot;&quot;</span>
 <a id="__codelineno-3-591" name="__codelineno-3-591" href="#__codelineno-3-591"></a>
-<a id="__codelineno-3-592" name="__codelineno-3-592" href="#__codelineno-3-592"></a>        expected = &quot;&quot;&quot;A customer service response that must:
-<a id="__codelineno-3-593" name="__codelineno-3-593" href="#__codelineno-3-593"></a>        1. Include ticket categorization and priority
-<a id="__codelineno-3-594" name="__codelineno-3-594" href="#__codelineno-3-594"></a>        2. Summarize the customer&#39;s issue accurately
-<a id="__codelineno-3-595" name="__codelineno-3-595" href="#__codelineno-3-595"></a>        3. Provide multiple solution options
-<a id="__codelineno-3-596" name="__codelineno-3-596" href="#__codelineno-3-596"></a>        4. Include clear next steps
-<a id="__codelineno-3-597" name="__codelineno-3-597" href="#__codelineno-3-597"></a>        5. Maintain appropriate tone and empathy&quot;&quot;&quot;
+<a id="__codelineno-3-592" name="__codelineno-3-592" href="#__codelineno-3-592"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;A customer service response that must:</span>
+<a id="__codelineno-3-593" name="__codelineno-3-593" href="#__codelineno-3-593"></a><span class="s2">        1. Include ticket categorization and priority</span>
+<a id="__codelineno-3-594" name="__codelineno-3-594" href="#__codelineno-3-594"></a><span class="s2">        2. Summarize the customer&#39;s issue accurately</span>
+<a id="__codelineno-3-595" name="__codelineno-3-595" href="#__codelineno-3-595"></a><span class="s2">        3. Provide multiple solution options</span>
+<a id="__codelineno-3-596" name="__codelineno-3-596" href="#__codelineno-3-596"></a><span class="s2">        4. Include clear next steps</span>
+<a id="__codelineno-3-597" name="__codelineno-3-597" href="#__codelineno-3-597"></a><span class="s2">        5. Maintain appropriate tone and empathy&quot;&quot;&quot;</span>
 <a id="__codelineno-3-598" name="__codelineno-3-598" href="#__codelineno-3-598"></a>
-<a id="__codelineno-3-599" name="__codelineno-3-599" href="#__codelineno-3-599"></a>        asserter.assert_semantic_match(actual, expected)
+<a id="__codelineno-3-599" name="__codelineno-3-599" href="#__codelineno-3-599"></a>        <span class="n">asserter</span><span class="o">.</span><span class="n">assert_semantic_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>This real-world test suite demonstrates that llm-app-test can reliably handle the kind of content that LLM applications generate in production environments. </p>

@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/api/configuration/">
+        <link rel="canonical" href="https://Shredmetal.github.io/llmtest/api/rate-limiter/">
       
       
-        <link rel="prev" href="../custom-prompt-configuration/">
+        <link rel="prev" href="../error-handling/">
       
       
-        <link rel="next" href="../error-handling/">
+        <link rel="next" href="../../reliability_testing/format_compliance/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Configuration - llm_app_test Documentation</title>
+        <title>Rate Limiter - llm_app_test Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#rate-limiter" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              Rate Limiter
             
           </span>
         </div>
@@ -671,30 +671,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Configuration
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -703,146 +683,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Variables
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Variables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#provider-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Provider Selection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      API Keys
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optional Settings
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#direct-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Direct Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-and-recommended-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported (and recommended) Models
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported (and recommended) Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      OpenAI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      Anthropic
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-llm-configuration-advanced-users-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      Custom LLM Configuration (Advanced Users Only)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration Priority
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Navigation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -873,10 +713,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../rate-limiter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Rate Limiter
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -885,6 +745,122 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-usage-with-pytest-fixtures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage with Pytest Fixtures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1036,48 +1012,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       Environment Variables
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Environment Variables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#provider-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Provider Selection
-    </span>
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#api-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      API Keys
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optional Settings
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#direct-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Direct Configuration
@@ -1085,34 +1047,6 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-and-recommended-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported (and recommended) Models
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported (and recommended) Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#openai" class="md-nav__link">
-    <span class="md-ellipsis">
-      OpenAI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anthropic" class="md-nav__link">
-    <span class="md-ellipsis">
-      Anthropic
-    </span>
-  </a>
-  
-</li>
         
       </ul>
     </nav>
@@ -1120,18 +1054,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-llm-configuration-advanced-users-only" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom LLM Configuration (Advanced Users Only)
+      Parameters
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-priority" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Priority
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
     </span>
   </a>
   
@@ -1141,6 +1084,15 @@
   <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-usage-with-pytest-fixtures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage with Pytest Fixtures
     </span>
   </a>
   
@@ -1174,96 +1126,155 @@
 
 
 <p><a href="../../">← Back to Home</a></p>
-<h1 id="configuration">Configuration</h1>
-<p>llm-app-test provides flexible configuration through environment variables and direct parameters.</p>
-<h2 id="environment-variables">Environment Variables</h2>
-<h3 id="provider-selection">Provider Selection</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LLM_PROVIDER=openai # or &#39;anthropic&#39;, default is openai
+<h1 id="rate-limiter">Rate Limiter</h1>
+<p>llm-app-test uses <a href="https://api.python.langchain.com/en/latest/core/rate_limiters/langchain_core.rate_limiters.InMemoryRateLimiter.html">LangChain's InMemoryRateLimiter</a> to provide rate limiting functionality. This feature helps manage API usage and prevent exceeding rate limits imposed by LLM providers.</p>
+<h2 id="overview">Overview</h2>
+<p>The rate limiter is based on a token bucket algorithm. It's an in-memory rate limiter that is thread-safe and can be used in both synchronous and asynchronous contexts. However, it cannot rate limit across different processes.</p>
+<p><strong>Note</strong>: The "tokens" used by this rate limiter are not related to LLM tokens. They simply represent the number of requests that can be made in a given time period.</p>
+<h2 id="configuration">Configuration</h2>
+<p>You can configure the rate limiter using environment variables or by passing parameters directly to the BehavioralAssertion constructor.</p>
+<h3 id="environment-variables">Environment Variables</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>USE_RATE_LIMITER=true # Use rate limiter or not, default is false
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>RATE_LIMITER_REQUESTS_PER_SECOND=4.0 # Sets maximum request per second, default is 1.0
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>RATE_LIMITER_CHECK_EVERY_N_SECONDS=0.2 # Sets interval to check rate limit (seconds), default is 0.1
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>RATE_LIMITER_MAX_BUCKET_SIZE=10.0 # Sets maximum bucket size for rate limiting, default is 1.0
 </code></pre></div>
-<h3 id="api-keys">API Keys</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># For OpenAI (default provider)
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>OPENAI_API_KEY=your-openai-key
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># For Anthropic 
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>ANTHROPIC_API_KEY=your-anthropic-key
+<h3 id="direct-configuration">Direct Configuration</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">llm_app_test.behavioral_assert.behavioral_assert</span> <span class="kn">import</span> <span class="n">BehavioralAssertion</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">asserter</span> <span class="o">=</span> <span class="n">BehavioralAssertion</span><span class="p">(</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">use_rate_limiter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">rate_limiter_requests_per_second</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">rate_limiter_check_every_n_seconds</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">rate_limiter_max_bucket_size</span><span class="o">=</span><span class="mf">10.0</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
 </code></pre></div>
-<h3 id="optional-settings">Optional Settings</h3>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>LLM_MODEL=gpt-4o # Model name - default for OpenAI: gpt-4o, default for anthropic: claude-3-5-sonnet-latest
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>LLM_TEMPERATURE=0.0 # Response randomness (0.0-1.0), default is 0.0
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>LLM_MAX_TOKENS=4096 # Maximum response length, default is 4096
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>LLM_MAX_RETRIES=2 # API retry attempts, default is 2
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>LLM_TIMEOUT=60.0 # API timeout in seconds, default is 60.0
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>USE_RATE_LIMITER=true # Use rate limiter or not, default is false
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>RATE_LIMITER_REQUESTS_PER_SECOND=4.0 # Sets maximum request per second, default is 1.0
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>RATE_LIMITER_CHECK_EVERY_N_SECONDS=0.2 # Sets interval to check rate limit (seconds), default is 0.1
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>RATE_LIMITER_MAX_BUCKET_SIZE=10.0 # Sets maximum bucket size for rate limiting, default is 1.0
-</code></pre></div>
-For rate limiting, please refer to the specific documentation on the <a href="../rate-limiter/">rate limiter</a></p>
-<h2 id="direct-configuration">Direct Configuration</h2>
-<p>You can also configure llm_app_test programmatically:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>asserter = BehavioralAssertion(
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    api_key=&quot;your-api-key&quot;, # Strongly advised against, use env vars
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    provider=&quot;openai&quot;, # or &#39;anthropic&#39;
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    model=&quot;gpt-4o&quot;, # See Supported Models
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    temperature=0.0, # Default: 0.0
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    max_tokens=4096, # Default: 4096
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    max_retries=2, # Default: 2
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    timeout=60.0, # Default: 60.0
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    use_rate_limiter=False, # Enable/disable rate limiting
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    rate_limiter_requests_per_second=1.0, # Requests per second for rate limiting
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    rate_limiter_check_every_n_seconds=0.1, # Interval to check rate limit
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    rate_limiter_max_bucket_size=1.0 # Maximum bucket size for rate limiting
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>)
-</code></pre></div>
-An optional parameter for BehavioralAssertion is <code>custom_prompts</code>, see <a href="../custom-prompt-configuration/">this page</a> for details.</p>
-<h2 id="supported-and-recommended-models">Supported (and recommended) Models</h2>
-<p>Model support is restricted due to the complex behavioral reasoning required for accurate testing. We've found that only the most advanced models can reliably handle behavioral comparison tasks.</p>
-<h3 id="openai">OpenAI</h3>
+<h2 id="parameters">Parameters</h2>
 <ul>
-<li>gpt-4o</li>
-<li>gpt-4-turbo</li>
+<li>use_rate_limiter (bool): Enable or disable the rate limiter.</li>
+<li>rate_limiter_requests_per_second (float): The number of tokens added to the bucket per second. This effectively sets the maximum number of requests allowed per second.</li>
+<li>rate_limiter_check_every_n_seconds (float): How often the rate limiter checks if tokens are available. Can be a fraction of a second.</li>
+<li>rate_limiter_max_bucket_size (float): The maximum number of tokens that can accumulate in the bucket. This controls the maximum burst size.</li>
 </ul>
-<h3 id="anthropic">Anthropic</h3>
-<ul>
-<li>claude-3-5-sonnet-latest</li>
-<li>claude-3-opus-latest (EXPENSIVE!!!)</li>
-</ul>
-<p><strong>Note</strong>: GPT-4o is our recommended model because it was what we used to validate reliability, and has demonstrated a level of pedantry and literalism that we find is best for a testing system.</p>
-<h2 id="custom-llm-configuration-advanced-users-only">Custom LLM Configuration (Advanced Users Only)</h2>
-<p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's behavioral reasoning capabilities. Smaller or less capable models will likely fail at the behavioral testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Advanced usage - Only for thoroughly tested models
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>from langchain_core.language_models import BaseLanguageModel
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>custom_llm: BaseLanguageModel = your_custom_llm
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>asserter = BehavioralAssertion(llm=custom_llm)
-</code></pre></div>
-<p>If you pass in a custom llm, it will disable <strong>ALL</strong> other LLM configuration options, and you have to configure that LLM yourself.</p>
-<h2 id="configuration-priority">Configuration Priority</h2>
-<p>Configuration values are resolved in this order:</p>
+<h2 id="how-it-works">How It Works</h2>
 <ol>
-<li>Custom LLM (if provided, disables <strong>ALL</strong> other LLM settings and uses the settings of the Langchain BaseLanguageModel object that you have passed)</li>
-<li>Directly passed parameters</li>
-<li>Environment variables</li>
-<li>Default values</li>
+<li>The rate limiter maintains a token bucket that fills at the specified rate (requests_per_second).</li>
+<li>Each API request consumes one token from the bucket.</li>
+<li>If there are not enough tokens in the bucket, the request is blocked until enough tokens are available.</li>
+<li>The max_bucket_size parameter prevents excessive token accumulation, which could lead to large bursts of requests.</li>
 </ol>
-<p>Note: if a custom LLM is not passed, llm-app-test validates all configuration values at startup to prevent runtime errors.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The rate limiter only supports time-based rate limiting. It does not consider the size or complexity of individual requests.</li>
+<li>It cannot rate limit across different processes, as it's an in-memory solution.</li>
+</ul>
 <h2 id="best-practices">Best Practices</h2>
 <ol>
-<li>Use environment variables for API keys</li>
-<li>Keep temperature at 0.0 for consistent testing</li>
-<li>Use default max_tokens unless you have specific needs</li>
-<li>Start with default max_retries (2)</li>
-<li>Stick with frontier models for the best results. This library is completely untested with anything other than frontier models.</li>
+<li>
+<p>Set the requests_per_second slightly below the actual rate limit of your API provider to account for potential variations in request timing.</p>
+<ul>
+<li>Note on this - Langchain's InMemoryRateLimiter has a Docstring that says this:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    Args:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        requests_per_second: The number of tokens to add per second to the bucket.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>            Must be at least 1. The tokens represent &quot;credit&quot; that can be used
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            to make requests.
+</code></pre></div>
+<ul>
+<li>However, this is the provided example:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">langchain_core.rate_limiters</span> <span class="kn">import</span> <span class="n">InMemoryRateLimiter</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">rate_limiter</span> <span class="o">=</span> <span class="n">InMemoryRateLimiter</span><span class="p">(</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">requests_per_second</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>  <span class="c1"># &lt;-- Can only make a request once every 10 seconds!!</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">check_every_n_seconds</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>  <span class="c1"># Wake up every 100 ms to check whether allowed to make a request,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">max_bucket_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c1"># Controls the maximum burst size.</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kn">from</span> <span class="nn">langchain_anthropic</span> <span class="kn">import</span> <span class="n">ChatAnthropic</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">model</span> <span class="o">=</span> <span class="n">ChatAnthropic</span><span class="p">(</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;claude-3-opus-20240229&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">rate_limiter</span><span class="o">=</span><span class="n">rate_limiter</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="n">model</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+</code></pre></div>
+- We are not entirely sure which is correct so we do not raise exceptions if a value between 0 and 1 is provided, and you do so at your own risk, please complain to Langchain if you run into problems here</p>
+</li>
+<li>
+<p>Adjust check_every_n_seconds based on your application's needs. Smaller values provide more precise timing but may increase CPU usage.</p>
+</li>
+<li>Set max_bucket_size to allow for reasonable bursts while preventing excessive request spikes.</li>
 </ol>
+<h2 id="example-usage-with-pytest-fixtures">Example Usage with Pytest Fixtures</h2>
+<p>To effectively use the rate limiter across multiple tests, it's important to use a shared fixture with an appropriate scope. Here's an example of how to set this up:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">llm_app_test.behavioral_assert.behavioral_assert</span> <span class="kn">import</span> <span class="n">BehavioralAssertion</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">llm_app_test.exceptions.test_exceptions</span> <span class="kn">import</span> <span class="n">BehavioralAssertionError</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">class</span> <span class="nc">TestRateLimiterScoped</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">def</span> <span class="nf">shared_asserter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="k">return</span> <span class="n">BehavioralAssertion</span><span class="p">(</span><span class="n">use_rate_limiter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                                   <span class="n">rate_limiter_requests_per_second</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                   <span class="n">rate_limiter_check_every_n_seconds</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                                   <span class="n">rate_limiter_max_bucket_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="k">def</span> <span class="nf">test_basic_behavioral_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared_asserter</span><span class="p">):</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test basic behavioral matching with rate limiting enabled&quot;&quot;&quot;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;The sky is blue&quot;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;A statement about the color of the sky&quot;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="n">shared_asserter</span><span class="o">.</span><span class="n">assert_behavioral_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="k">def</span> <span class="nf">test_behavioral_mismatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared_asserter</span><span class="p">):</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Test behavioral mismatch raises correct exception with rate limiting enabled&quot;&quot;&quot;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>        <span class="n">actual</span> <span class="o">=</span> <span class="s2">&quot;The sky is blue&quot;</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="n">expected</span> <span class="o">=</span> <span class="s2">&quot;A statement about the weather forecast&quot;</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">BehavioralAssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">excinfo</span><span class="p">:</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>            <span class="n">shared_asserter</span><span class="o">.</span><span class="n">assert_behavioral_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="k">assert</span> <span class="s2">&quot;Behavioral assertion failed&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">excinfo</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>In this example:</p>
+<ol>
+<li>
+<p>We create a <code>shared_asserter</code> fixture with <code>scope="class"</code>. This ensures that the same BehavioralAssertion instance (and thus the same rate limiter) is used for all tests in the class.</p>
+</li>
+<li>
+<p>The <code>shared_asserter</code> is configured with rate limiting enabled and specific rate limiting parameters.</p>
+</li>
+<li>
+<p>Each test method uses this shared asserter, ensuring that the rate limiting applies across all tests in the class.</p>
+</li>
+<li>
+<p>However, you should be aware that doing so means there may be some shared state between tests, therefore, we suggest thinking through whether you really need a rate limiter or not.</p>
+</li>
+</ol>
+<p>Note: If you use a fixture with <code>scope="function"</code> (the default), a new rate limiter will be created for each test function, which may not provide the desired rate limiting across your entire test suite.</p>
+<p>To verify that the same rate limiter is being used across tests, you can add a test like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    <span class="k">def</span> <span class="nf">test_shared_rate_limiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared_asserter</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        <span class="n">rate_limiter_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">shared_asserter</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">rate_limiter</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="k">assert</span> <span class="n">rate_limiter_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;first_rate_limiter_id&#39;</span><span class="p">),</span> <span class="s2">&quot;First test didn&#39;t run&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="k">assert</span> <span class="n">rate_limiter_id</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_rate_limiter_id</span><span class="p">,</span> <span class="s2">&quot;Rate limiter instance changed&quot;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">autouse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">def</span> <span class="nf">store_first_rate_limiter_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared_asserter</span><span class="p">):</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;first_rate_limiter_id&#39;</span><span class="p">):</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">first_rate_limiter_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="n">shared_asserter</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">rate_limiter</span><span class="p">)</span>
+</code></pre></div>
+<p>This setup ensures that your tests use a shared rate limiter, allowing you to effectively manage and test rate-limited behavior across multiple test cases.</p>
 <hr />
 <h2 id="navigation">Navigation</h2>
 <ul>
 <li><a href="../../">Back to Home</a></li>
-<li><a href="../../getting-started/installation/">Installation Guide</a></li>
-<li><a href="../../getting-started/quickstart/">Quick Start Guide</a></li>
+<li><a href="../configuration/">Configuration</a></li>
 <li><a href="../behavioral-assertion/">API Reference</a></li>
 </ul>
 
