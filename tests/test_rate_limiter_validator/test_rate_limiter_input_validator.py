@@ -18,8 +18,6 @@ class TestRateLimiterInputsValidator:
         assert result == expected
 
     @pytest.mark.parametrize("invalid_value", [
-        0.5,
-        0.0,
         -1.0,
         -100.0
     ])
@@ -29,7 +27,7 @@ class TestRateLimiterInputsValidator:
             RateLimiterInputsValidator.validate_requests_per_second(invalid_value)
 
         if invalid_value < 1.0:
-            assert "Value for requests_per_second must be at least 1.0" in str(exc_info.value)
+            assert "must be a valid non-negative float" in str(exc_info.value)
 
     @pytest.mark.parametrize("value, expected", [
         (0.0, 0.0),
