@@ -6,7 +6,7 @@ Core class for behavioral testing of LLM applications.
 
 ## Constructor
 
-```
+```python
 
 BehavioralAssertion(api_key: Optional[str] = None, 
                     llm: Optional[BaseLanguageModel] = None, 
@@ -16,7 +16,11 @@ BehavioralAssertion(api_key: Optional[str] = None,
                     max_tokens: Optional[int] = None, 
                     max_retries: Optional[int] = None,
                     timeout: Optional[float] = None,
-                    custom_prompts: Optional[AsserterPromptConfigurator] = None)
+                    custom_prompts: Optional[AsserterPromptConfigurator] = None),
+                    use_rate_limiter=False,
+                    rate_limiter_requests_per_second=1.0, 
+                    rate_limiter_check_every_n_seconds=0.1, 
+                    rate_limiter_max_bucket_size=1.0 
 ```
 
 
@@ -72,11 +76,31 @@ All parameters are optional (except for API key) and will use environment variab
     - Intentional added friction for custom prompts
     - Please refer to [this documentation](custom-prompt-configuration.md) on how to use it.
 
+- **use_rate_limiter**: Enable or disable rate limiting
+
+    - Environment: USE_RATE_LIMITER
+    - Default: False
+
+- **rate_limiter_requests_per_second**: Maximum requests per second for rate limiting
+
+    - Environment: RATE_LIMITER_REQUESTS_PER_SECOND
+    - Default: 1.0
+
+- **rate_limiter_check_every_n_seconds**: Interval to check rate limit (in seconds)
+
+    - Environment: RATE_LIMITER_CHECK_EVERY_N_SECONDS
+    - Default: 0.1
+
+- **rate_limiter_max_bucket_size**: Maximum bucket size for rate limiting
+
+    - Environment: RATE_LIMITER_MAX_BUCKET_SIZE
+    - Default: 1.0
+
 ## Methods
 
 ### assert_behavioral_match
 
-```
+```python
 def assert_behavioral_match(actual: str, expected_behavior: str ) -> None
 ```
 
@@ -98,7 +122,7 @@ Asserts that actual output exhibits the expected behavior.
 
 ### Basic Usage
 
-```
+```python
 asserter = BehavioralAssertion() # Uses environment variables 
 asserter.assert_behavioral_match(
     actual="Hello Alice, how are you?", # In practice, use the output from your LLM application
@@ -108,7 +132,7 @@ asserter.assert_behavioral_match(
 
 ### Custom Configuration
 
-```
+```python
 asserter = BehavioralAssertion(
     provider="anthropic", 
     model="claude-3-5-sonnet-latest", # Look I can't stop you from burning a hole in your wallet but please don't use Claude 3 Opus. 

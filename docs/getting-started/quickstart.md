@@ -13,12 +13,14 @@ Create a `.env` file in your project root:
 OPENAI_API_KEY=your-openai-api-key-here
 
 # OR for Anthropic
+LLM_PROVIDER=anthropic # This must be provided if using Anthropic models as behavioral matcher to override the default of openai
 ANTHROPIC_API_KEY=your-anthropic-key-here
 ```
+Important note: We noticed that Claude is not as strict as GPT-4o when it comes to passing or failing outputs for behavioral mismatches. Therefore, we recommend using the default provider and providing an OpenAI API key.
 
 ## 2. Write Your First Test
 
-```
+```python
 
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 
@@ -57,7 +59,7 @@ pytest my_first_behavioral_test.py
 
 Here's a powerful example showing behavioral testing in action:
 
-```
+```python
 from langchain_core.messages import SystemMessage, HumanMessage
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from your_bot_module import SimpleApiCallBot  # Your LLM wrapper
@@ -95,8 +97,15 @@ def test_ww2_narrative():
     behavioral_assert.assert_behavioral_match(actual_output, expected_behavior)
 ```
 
+Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, we used this:
+
+```python
+"Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."
+```
+
 Actual bot response from one run:
 
+```
 The European Theater of World War II was a significant front in the global conflict that lasted from 1939 to 1945. It involved most of the countries of Europe and was marked by numerous major battles and campaigns. Here is an overview of some of the key events and battles:
 
 1. **Invasion of Poland (1939):** The war in Europe began with Germany's invasion of Poland on September 1, 1939. This prompted Britain and France to declare war on Germany. The swift German victory was achieved through the use of Blitzkrieg tactics.
@@ -120,6 +129,7 @@ The European Theater of World War II was a significant front in the global confl
 10. **Fall of Berlin (1945):** The final major offensive in Europe was the Soviet assault on Berlin in April 1945. The city fell on May 2, 1945, leading to the suicide of Adolf Hitler and the unconditional surrender of German forces.
 
 The European war officially ended with Germany's unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan's surrender in September 1945.
+```
 
 Error message thrown by `assert_behavioral_match`:
 

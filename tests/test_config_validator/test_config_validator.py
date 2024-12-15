@@ -2,7 +2,7 @@ import pytest
 from llm_app_test.exceptions.test_exceptions import LLMConfigurationError
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
 from llm_app_test.behavioral_assert.validation.config_validator import ConfigValidator
-from llm_app_test.behavioral_assert.validation.validator_config import ValidationConfig
+from llm_app_test.behavioral_assert.validation.config_validator_config import ConfigValidatorConfig
 
 
 class TestConfigValidator:
@@ -11,7 +11,7 @@ class TestConfigValidator:
     @pytest.fixture
     def valid_config(self):
         """Fixture for valid configuration"""
-        return ValidationConfig(
+        return ConfigValidatorConfig(
             api_key="test-key",
             provider="openai",
             model="gpt-4o",

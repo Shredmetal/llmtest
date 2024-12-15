@@ -6,6 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
+[![codecov](https://codecov.io/github/Shredmetal/llmtest/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/github/Shredmetal/llmtest)
 
 > TL;DR: A Python library that lets you test LLM applications by describing expected behavior in plain English.
 
@@ -29,7 +30,7 @@ You can go straight to the [documentation](https://Shredmetal.github.io/llmtest/
 
 ✨ Test your LLM apps in minutes, not hours
 
-🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
+🚀 CI ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
 
 💰 Cost-effective testing solution
 
@@ -45,24 +46,24 @@ Please refer to the [documentation](https://shredmetal.github.io/llmtest/getting
 
 ## Testing Philosophy
 
-When integrating LLMs into your application, treat them as you would any closed-source third-party library (because there's a pretty good chance you can't actually change the LLM itself):
+When integrating LLMs into your application, treat them as you would any closed-source third-party library:
 
-1. Write tests for expected behaviour
+1. Write tests for expected behavior
 2. Focus on interface boundaries
 3. Test application-level functionality
 4. Maintain clear separation of concerns
 
 ### ⚠️ Important Information on Understanding Responsibilities
 
-llm_app_test is built by engineers for engineers so that all of us have a tool to validate the behaviour of applications that have had an LLM stuffed into them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
+This library is built by software engineers to give software engineers a tool to validate the behavior of applications that have had an LLM stuffed in them. It is **NOT** a Data Science tool nor a replacement for model metrics used by Data Science teams to validate model suitability.
 
 #### Software Engineer's Role
 
-- Write tests for expected application behaviour (in the same way you would for any piece of production code)
+- Write tests for expected application behavior
 - Validate inputs and outputs
 - Ensure proper integration
-- Monitor system performance (if all of your llm_app_test tests were passing before, and they suddenly start failing, you might have a problem)
-- Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps it might be worth seeking assistance with the `expected_behavior` prompt in the `assert_behavioral_match` function)
+- Monitor system performance
+- Escalate consistent failures to DS team (as this might indicate a fundamental problem with the model, or perhaps to seek assistance with the `expected_behavior` prompt in the `assert_behavioral_match` function)
 
 #### Data Science Team's Role
 
@@ -93,54 +94,35 @@ Data Science Tools:
 llm_app_test (Engineering Tool):
 - Tests your APPLICATION code
 - Validates integration points
-- Ensures system behaviour
+- Ensures system behavior
 - Maintains production reliability
 
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
 Similarly, llm_app_test helps you test your application's use of LLMs.
 
-## In summary:
+## Testing Hierarchy
 
-### What llm_app_test Does
+llm-app-test is designed to complement existing approaches. We recommend this testing hierarchy:
 
-- Tests LLM applications (not the LLMs themselves)
-- Validates system message + prompt template outputs
-- Ensures correct behavior of your application
-- Tests the parts YOU control in your LLM application
+1. **Behavioral Testing (llm-app-test)**
+    - Fast, cost-effective first line of testing
+    - Validates IF your LLM application is even working as intended
+    - Tests core functionality and behavior
+    - Must pass before proceeding to benchmarking
+    - Failure indicates fundamental problems with the application
 
-### What llm_app_test Doesn't Do
+2. **Benchmarking and Performance Evaluation**
+    - Much slower and more expensive
+    - Only run AFTER behavioral tests pass
+    - Measures HOW WELL the application performs (in our view, this blurs the lines into LLM evaluation but it should still be done, just not as the first line of defence against broken apps due to the time and cost required)
+    - Tests performance metrics, response quality
+    - Used for optimization and model selection
 
-- Test LLM model performance (that's the provider's responsibility)
-- Validate base model capabilities
-- Test model reliability
-- Handle model safety features
+That said, we are planning on building a benchmarking system to allow you to get some metrics on how well your system is complying with behavioral specifications, planned for 0.3.0b1.
 
-### When to Use llm_app_test
+### Visual representation of testing hierarchy:
 
-- Testing application-level LLM integration
-- Validating prompt engineering
-- Testing system message effectiveness
-- Ensuring consistent response patterns (just stick the test in a loop if you have to)
-
-### When Not to Use llm_app_test
-
-- Testing base LLM performance
-- Evaluating model capabilities
-- Testing model safety features
-
-## Why llm_app_test?
-
-Testing LLM applications is challenging because:
-- Outputs are non-deterministic
-- Application behavior meaning matters more than exact matches
-- Traditional testing approaches don't work well
-- Integration into CI/CD pipelines is complex
-
-llm_app_test solves these challenges by:
-- Using LLMs to evaluate the correct behavior
-- Providing a clean, maintainable testing framework
-- Offering simple CI/CD integration
-- Supporting multiple LLM providers
+![Testing Hierarchy](https://i.imgur.com/TFPJa9M.png "LLM Application Testing Flow")
 
 ## Example of Behavioral Testing:
 
@@ -148,7 +130,7 @@ llm_app_test solves these challenges by:
 
 Here's a powerful example showing behavioral testing in action:
 
-```
+```python
 from langchain_core.messages import SystemMessage, HumanMessage
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from your_bot_module import SimpleApiCallBot  # Your LLM wrapper
@@ -219,8 +201,9 @@ The European Theater of World War II was a significant front in the global confl
 
 The European war officially ended with Germany's unconditional surrender on May 7, 1945, which was ratified on May 8, known as Victory in Europe (VE) Day. This marked the end of World War II in Europe, although the war continued in the Pacific until Japan's surrender in September 1945.
 
-Error message thrown by `assert_behavioral_match`:
 ```
+
+Error message thrown by `assert_behavioral_match`:
 
 ```
 E           llm_app_test.exceptions.test_exceptions.BehavioralAssertionError: Behavioral assertion failed: 
@@ -262,36 +245,36 @@ MIT
 If you encounter issues:
 1. Create an issue on our GitHub repository
 2. Include your Python version and environment details
-3. Describe the problem you encountered with version 0.1.0b4
+3. Describe the problem you encountered with version 0.2.0b2
 
 ## 🆘 Support
 - Discord: [Join our community](https://discord.gg/awy83bZsKf)
 - Issues: [GitHub Issues](https://github.com/Shredmetal/llmtest/issues)
 - Documentation: [Full Docs](https://shredmetal.github.io/llmtest/)
-- Email: morganj.lee01@gmail.com
+- Email: morganj.lee01@gmail.com / Elnathan.erh@gmail.com
 
 ## Due to the number of downloads I am seeing on pypistats.org, I am including these instructions in case a beta update breaks something on your end:
 
 ### Emergency Rollback Instructions
 
-If you experience issues with version 0.2.0b1, you can roll back to the previous stable version (0.1.0b4) using one of these methods:
+If you experience issues with version 0.2.0b2, you can roll back to the previous stable version (0.2.0b1) using one of these methods:
 
 #### Method 1: Direct Installation of Previous Version
 
 ```
 pip uninstall llm-app-test 
-pip install llm-app-test==0.1.0b4
+pip install llm-app-test==0.2.0b1
 ```
 #### Method 2: Force Reinstall (if Method 1 fails)
 
 ```
-pip install --force-reinstall llm-app-test==0.1.0b4
+pip install --force-reinstall llm-app-test==0.2.0b1
 ```
 #### Verification
 After rolling back, verify the installation:
 ```
 import llm_app_test 
-print(llm_app_test.version) # Should show 0.1.0b4
+print(llm_app_test.version) # Should show 0.2.0b1
 ```
 
 ## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:

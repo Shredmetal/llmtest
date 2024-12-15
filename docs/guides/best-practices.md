@@ -12,13 +12,13 @@ Behavioral testing focuses on validating that outputs exhibit expected character
 
 Expected Behavior: 
 
-```
+```python
 "A response that provides a weather forecast including temperature and conditions"
 ```
 
 These responses would PASS:
 
-```
+```python
 actual_1 = "Today will be sunny with a high of 75°F"
 actual_2 = "Expect cloudy skies and temperatures around 24°C"
 actual_3 = "The forecast shows clear weather, reaching 298K"
@@ -26,7 +26,7 @@ actual_3 = "The forecast shows clear weather, reaching 298K"
 
 These would FAIL:
 
-```
+```python
 fail_1 = "Have a nice day!" (missing forecast elements)
 fail_2 = "It's weather time!" (missing required information)
 fail_3 = "75 degrees" (incomplete behavior)
@@ -36,7 +36,7 @@ fail_3 = "75 degrees" (incomplete behavior)
 
 1. **Be Specific**:
 
-    ```
+    ```python
     # Good
     expected_behavior = """ A polite greeting that:
                         Addresses the person by name (Alice)
@@ -48,7 +48,7 @@ fail_3 = "75 degrees" (incomplete behavior)
 
 2. **Focus on Behaviors**:
 
-    ```
+    ```python
     # Good
     expected_behavior = """ An error message that:
                         Explains the API key is invalid
@@ -75,20 +75,34 @@ Not Suitable For:
 
 ## Test Structure
 
-1. **Keep Tests Focused**:
+1. **Test Scope Based on Behavioral Requirements**:
 
+    ```python
+    # Testing Single Behavior 
+    def test_greeting_format(): 
+      """Test that greeting follows required format"""
     ```
-    # Good
-    def test_greeting_behavior(): """Test greeting behavior only"""
-    def test_personalization_behavior(): """Test name usage separately"""
-    
-    # Bad - testing too much
-    def test_everything_about_greeting(): """Testing multiple aspects at once"""
+   
+    ```python
+    # Testing Multiple Related Behaviors
+    def test_patient_education_diabetes():
+   
+       expected = """Test comprehensive diabetes education document including:
+        - Overview section
+        - Numerical guidelines
+        - Structured sections
+        - Warning signs
+        - Follow-up instructions"""
     ```
+   
+2. **Choose Test Scope Based on Document Purpose**:
+    * Single behavior tests for simple, focused requirements
+    * Comprehensive behavior tests for complete documents
+    * Let document purpose drive test structure
 
-2. **Clear Test Names**:
+3. **Clear Test Names**:
 
-    ```
+    ```python
     # Good
     def test_error_message_includes_solution_steps():
     
@@ -100,7 +114,7 @@ Not Suitable For:
 
 1. **Over-Specific Expected Behaviors**:
 
-    ```
+    ```python
     # Too specific
     expected = "Must say hello and use exactly these words"
     
@@ -110,7 +124,7 @@ Not Suitable For:
 
 2. **Under-Specific Expected Behaviors**:
 
-    ```
+    ```python
     # Too vague
     expected = "Should be good"
     
@@ -126,7 +140,48 @@ Not Suitable For:
 1. Use specific, focused tests
 2. Group related behavioral tests
 3. Consider test importance vs cost
-4. Use appropriate model tiers
+
+## Model Selection
+
+We ran extensive tests on our library with GPT-4o, and limited tests with Claude 3.5 Sonnet.
+
+What we found is that Claude is a little more "lax" (for want of a better word). While GPT-4o will adopt a more strict and literal interpretation, Claude has shown a tendency to be more lenient (and seems to try to pass cases based on "intent"), and adopt a less pedantic stance on what constitutes meeting the requirements.
+
+Let's look at the example from our behavioral testing at semantic boundaries documentation:
+
+In `actual` (i.e. the simulated LLM output):
+```
+Warning Signs:
+Learn to recognize and respond to:
+- Hypoglycemia (low blood sugar): shakiness, sweating, confusion
+- Hyperglycemia (high blood sugar): increased thirst, frequent urination, fatigue
+Seek immediate medical attention if you experience severe symptoms or sustained 
+high blood sugar levels.
+```
+
+In `expected_behavior` (i.e. the specification we expect developers to write when using our library):
+
+Version that led to non-determinism (14 out of 600 runs with GPT-4o did not fail this test case for not providing emergency response steps):
+```
+4. Provide clear warning signs and emergency response steps
+```
+
+Updated version that led to determinism (1,200 out of 1,200 test runs were correctly failed):
+```
+4. Provide clear warning signs AND detailed emergency response procedures
+```
+
+However, Claude 3.5 Sonnet does not consistently fail this test case even when asked for detailed emergency response procedures (no volume testing done but significant non-determinism observed in <100 runs).
+
+Claude actually needs to specifically be told to look for multi-step emergency response procedures like so:
+
+```
+4. Provide clear warning signs AND detailed multi-step emergency response procedures
+```
+
+Needless to say, this is generally **NOT** what you want in a testing system, unless if you want to simulate a flexible developer manually testing your bot. We do not recommend this. We recommend writing test cases with the expectation that the LLM will apply a strict literal interpretation.
+
+Therefore, we recommend sticking to the library default of GPT-4o, unless if you have a specific reason for doing otherwise.
 
 ---
 ## Closing words

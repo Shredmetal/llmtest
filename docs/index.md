@@ -5,7 +5,7 @@
 ![PyPI Downloads](https://img.shields.io/pypi/dm/llm-app-test)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
+[![codecov](https://codecov.io/github/Shredmetal/llmtest/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/github/Shredmetal/llmtest)
 
 ## Quick Start
 - [Installation](getting-started/installation.md)
@@ -27,13 +27,13 @@ We made this because we were unsatisfied with existing approaches:
 
 ⚠️ Note on Reliability: While we cannot guarantee 100% reliability (due to the fundamental nature of LLMs), we validated the library with 30,000 test executions with zero format violations and non-determinism only occurring in one case containing a genuine semantic boundary. 
 
-We stress that  past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](reliability_testing/format_compliance.md), the [Behavioral Testing Reliability testing page](reliability_testing/behavioral_testing_reliability.md), and the [Behavioral Testing Non-determinism At Semantic Boundary analysis page](reliability_testing/behavior_at_semantic_boundaries.md).
+We stress that past success doesn't guarantee future determinism - this is an unsolvable problem in LLM testing, but we've implemented extensive mitigations to make it as reliable as possible. We will continue to validate reliability through brute force testing and will report if issues are detected. Please refer to the [Format Compliance Testing page](reliability_testing/format_compliance.md), the [Behavioral Testing Reliability testing page](reliability_testing/behavioral_testing_reliability.md), and the [Behavioral Testing Non-determinism At Semantic Boundary analysis page](reliability_testing/behavior_at_semantic_boundaries.md).
 
 ## The Cool Stuff:
 
 ✨ Test your LLM apps in minutes, not hours
 
-🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
+🚀 CI ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
 
 💰 Cost-effective testing solution
 
@@ -103,35 +103,25 @@ llm_app_test (Engineering Tool):
 Think of it this way: You don't test Redis itself, you test your application's use of Redis. 
 Similarly, llm_app_test helps you test your application's use of LLMs.
 
+## Testing Hierarchy
 
-## In summary:
+llm-app-test is designed to complement existing approaches. We recommend this testing hierarchy:
 
-### What llm_app_test Does
+1. **Behavioral Testing (llm-app-test)**
+    - Fast, cost-effective first line of testing
+    - Validates IF your LLM application is even working as intended
+    - Tests core functionality and behavior
+    - Must pass before proceeding to benchmarking
+    - Failure indicates fundamental problems with the application
 
-- Tests LLM applications (not the LLMs themselves)
-- Validates system message + prompt template outputs
-- Ensures expected behavioral patterns in responses
-- Tests the parts YOU control in your LLM application
+2. **Benchmarking and Performance Evaluation**
+    - Much slower and more expensive
+    - Only run AFTER behavioral tests pass
+    - Measures HOW WELL the application performs (in our view, this blurs the lines into LLM evaluation but it should still be done, just not as the first line of defence against broken apps due to the time and cost required)
+    - Tests performance metrics, response quality
+    - Used for optimization and model selection
 
-### What llm_app_test Doesn't Do
-
-- Test LLM model performance (that's the provider's responsibility)
-- Validate base model capabilities
-- Test model reliability
-- Handle model safety features
-
-## When to Use llm_app_test
-
-- Testing application-level LLM integration
-- Validating prompt engineering
-- Testing system message effectiveness
-- Ensuring consistent response patterns
-
-## When Not to Use llm_app_test
-
-- Testing base LLM performance
-- Evaluating model capabilities
-- Testing model safety features
+Please visit the [Testing Hierarchy Documentation](guides/testing-hierarchy.md) for a visual representation and a more in-depth explanation.
 
 ## Need testing ideas? Check out the tests we used to test llm_app_test [here](https://github.com/Shredmetal/llmtest/tree/main/tests)
 
@@ -154,7 +144,7 @@ If you encounter issues:
 
 1. Create an issue on our GitHub repository
 2. Include your Python version and environment details
-3. Describe the problem you encountered with version 0.1.0b4
+3. Describe the problem you encountered with version 0.2.0b2
 
 ## 🆘 Support
 
@@ -167,24 +157,24 @@ If you encounter issues:
 
 ### Emergency Rollback Instructions
 
-If you experience issues with version 0.2.0b1, you can roll back to the previous stable version (0.1.0b4) using one of these methods:
+If you experience issues with version 0.2.0b2, you can roll back to the previous stable version (0.2.0b1) using one of these methods:
 
 #### Method 1: Direct Installation of Previous Version
 
 ```
 pip uninstall llm-app-test 
-pip install llm-app-test==0.1.0b4
+pip install llm-app-test==0.2.0b1
 ```
 #### Method 2: Force Reinstall (if Method 1 fails)
 
 ```
-pip install --force-reinstall llm-app-test==0.1.0b4
+pip install --force-reinstall llm-app-test==0.2.0b1
 ```
 #### Verification
 After rolling back, verify the installation:
 ```
 import llm_app_test 
-print(llm_app_test.version) # Should show 0.1.0b4
+print(llm_app_test.version) # Should show 0.2.0b1
 ```
 
 ## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:

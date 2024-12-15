@@ -1,6 +1,7 @@
 from typing import Optional
 
 from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompts import AsserterPrompts
+from llm_app_test.exceptions.test_exceptions import InvalidPromptError
 
 
 class AsserterPromptConfigurator:
@@ -37,10 +38,12 @@ class AsserterPromptConfigurator:
             human_prompt: Optional custom human prompt. Must contain {expected_behavior} and {actual} placeholders
 
         Raises:
-            ValueError: If human_prompt doesn't contain required placeholders
+            InvalidPromptError: If human_prompt doesn't contain required placeholders
         """
         if human_prompt and ('{expected_behavior}' not in human_prompt or '{actual}' not in human_prompt):
-            raise ValueError("Human prompt must contain {expected_behavior} and {actual} placeholders")
+            raise InvalidPromptError(
+                f"Invalid human_prompt: '{human_prompt}'",
+                reason="Human prompt must contain {expected_behavior} and {actual} placeholders")
 
         self._prompts = AsserterPrompts(
             system_prompt=system_prompt or self.DEFAULT_SYSTEM_PROMPT,

@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0b2] - 2024-12-15
+
+### Added
+- Rate limiting functionality for API requests
+  - New `USE_RATE_LIMITER` environment variable to enable/disable rate limiting
+  - New `RATE_LIMITER_REQUESTS_PER_SECOND` environment variable to set requests per second
+  - New `RATE_LIMITER_CHECK_EVERY_N_SECONDS` environment variable to set check interval
+  - New `RATE_LIMITER_MAX_BUCKET_SIZE` environment variable to set max bucket size
+- `LLMInMemoryRateLimiter` class for handling rate limiting logic
+- `RateLimiterInputsValidator` for validating rate limiter inputs
+- Comprehensive test suite updates for environment variable handling
+  - Tests for default values when environment variables are not set
+  - Tests for overriding defaults with environment variables
+  - Tests for priority of direct arguments over environment variables
+
+### Changed
+- Updated `BehavioralAssertion` class to incorporate rate limiting functionality
+- Improved error handling for rate limiter configuration
+- Enhanced test coverage to include edge cases in environment variable handling
+
+### Fixed
+- None
+
+### Deprecated
+- None
+
+### Removed
+- None
+
+### Security
+- None
+
+This release focuses on introducing rate limiting capabilities to manage API request frequency and enhancing the robustness of environment variable handling. While no bugs were found in the existing environment variable logic, the new comprehensive test suite ensures the reliability of this critical functionality.
+
+
 ## [0.2.0b1] - 2024-11-29
 
 #### Breaking Changes

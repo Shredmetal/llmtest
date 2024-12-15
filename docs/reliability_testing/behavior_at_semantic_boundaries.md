@@ -16,7 +16,7 @@ This case provides valuable insights into how LLMs interpret behavioral requirem
 
 This is our healthcare test case:
 
-```
+```python
 def test_patient_education_diabetes_management(self, asserter):
         """Test semantic matching for patient education content about diabetes management. Failure is expected because
         this does not contain emergency response steps."""
@@ -112,6 +112,18 @@ Updated version that led to determinism:
 4. Provide clear warning signs AND detailed emergency response procedures
 ```
 
+⚠️ New update (30 November 2024):
+
+Claude is more conversational and does not consistently fail this test case even when asked for detailed emergency response procedures (no volume testing done but significant non-determinism observed in <100 runs).
+
+Claude actually needs to be told to look for multi-step emergency response procedures like so:
+
+```
+4. Provide clear warning signs AND detailed multi-step emergency response procedures
+```
+
+Therefore, we strongly recommend using GPT-4o for your behavioral testing needs as GPT-4o's strictness is what is required.
+
 ## Test Configuration
 
 All tests used library defaults:
@@ -126,7 +138,7 @@ LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain im
 ```
 The `semantic_assert_match` function (**Update**: Deprecated and replaced with identical `assert_behavioral_match`) also saw slight modification:
 
-```
+```python
         if result.startswith("FAIL"):
             raise SemanticAssertionError(
                 "Semantic assertion failed",
@@ -145,7 +157,7 @@ The `semantic_assert_match` function (**Update**: Deprecated and replaced with i
 
 The prompts to the asserter LLM (that sits behind `semantic_assert_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
-```
+```python
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
 
 Important: You can only respond with EXACTLY: 

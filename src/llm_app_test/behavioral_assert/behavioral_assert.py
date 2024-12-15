@@ -8,13 +8,17 @@ from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurato
 from llm_app_test.behavioral_assert.llm_config.llm_config import LLMConfig
 from llm_app_test.behavioral_assert.llm_config.llm_factory import LLMFactory
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
+from llm_app_test.behavioral_assert.validation.behavioral_assert_input_validator import AssertBehavioralMatchValidator
 from llm_app_test.exceptions.test_exceptions import (
     catch_llm_errors,
     BehavioralAssertionError
 )
-from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import ModelConstants, LLMConstants
+from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import ModelConstants, \
+    LLMConstants
 from llm_app_test.behavioral_assert.validation.config_validator import ConfigValidator
-from llm_app_test.behavioral_assert.validation.validator_config import ValidationConfig
+from llm_app_test.behavioral_assert.validation.config_validator_config import ConfigValidatorConfig
+
+from llm_app_test.rate_limiter.rate_limiter_handler import LLMInMemoryRateLimiter
 
 
 class BehavioralAssertion:
@@ -35,40 +39,113 @@ class BehavioralAssertion:
             max_tokens: Optional[int] = None,
             max_retries: Optional[int] = None,
             timeout: Optional[float] = None,
-            custom_prompts: Optional[AsserterPromptConfigurator] = None
+            custom_prompts: Optional[AsserterPromptConfigurator] = None,
+            use_rate_limiter: bool = False,
+            rate_limiter_requests_per_second: Optional[float] = None,
+            rate_limiter_check_every_n_seconds: Optional[float] = None,
+            rate_limiter_max_bucket_size: Optional[float] = None
     ):
 
-        """Initialize the behavioral assertion tester.
+        """
+            Initializes an instance of a class responsible for configuring and managing
+            language model integrations, including attributes for API keys, models,
+            temperature, and rate limiting. It supports different language model
+            providers, validates the configuration, and creates an instance of the
+            language model based on the specified or default parameters.
 
-        This class supports both direct configuration through parameters and environment
-        variables. Environment variables take precedence in the following order:
-        1. Explicitly passed parameters
-        2. Environment variables
-        3. Default values
+            Arguments:
+            ----------
+            api_key : Optional[str]
+                The API key for authenticating with the language model provider.
+                If not provided, tries to obtain it from environment variables.
 
-        Supported environment variables:
-            - OPENAI_API_KEY: API key for OpenAI
-            - ANTHROPIC_API_KEY: API key for Anthropic
-            - LLM_PROVIDER: The LLM provider to use ('openai' or 'anthropic')
-            - LLM_MODEL: Model name to use
-            - LLM_TEMPERATURE: Temperature setting (0.0 to 1.0)
-            - LLM_MAX_TOKENS: Maximum tokens for response
-            - LLM_MAX_RETRIES: Maximum number of retries for API calls
-            - LLM_TIMEOUT: Timeout for API calls in seconds
+            llm : Optional[BaseLanguageModel]
+                Pre-configured language model instance. If provided, bypasses
+                the configuration process and sets this instance as the
+                language model.
 
-        Args:
-            api_key: API key for the LLM provider (overrides environment variable)
-            llm: Optional pre-configured LLM (bypasses all other configuration)
-            provider: LLM provider (openai or anthropic)
-            model: Model name to use
-            temperature: Temperature setting (0.0 to 1.0)
-            max_tokens: Maximum tokens for response
-            max_retries: Maximum number of retries for API calls
-            timeout: Timeout for API calls in seconds
-            custom_prompts: Custom prompt configuration for testing (intentional added friction)
+            provider : Optional[Union[str, LLMProvider]]
+                The language model provider. Accepts either a string or an
+                instance of the LLMProvider enumeration. Defaults to a
+                provider from environment variables if not provided.
 
-        Raises:
-            LLMConfigurationError: If configuration is invalid or required values are missing
+            model : Optional[str]
+                The specific language model to use. If not specified, a
+                default model for the selected provider is used.
+
+            temperature : Optional[float]
+                Controls the randomness of the outputs from the language model.
+                Loaded from environment variables or defaults if not provided.
+
+            max_tokens : Optional[int]
+                The maximum number of tokens generated per response. Defaults
+                to environment values or predefined constants.
+
+            max_retries : Optional[int]
+                Number of retry attempts for failed API requests. Loaded from
+                defaults or environment variables.
+
+            timeout : Optional[float]
+                Timeout in seconds for API requests. Fetched from environment
+                variables or defaults.
+
+            custom_prompts : Optional[AsserterPromptConfigurator]
+                Configurator for customizing prompts to the language model.
+
+            use_rate_limiter : bool
+                Whether to enable a rate-limiting mechanism for API requests.
+                Defaults to False.
+
+            rate_limiter_requests_per_second : Optional[float]
+                The maximum number of allowable API requests per second,
+                applicable if rate limiting is enabled.
+
+            rate_limiter_check_every_n_seconds : Optional[float]
+                Interval in seconds between checking for rate-limiting
+                compliance, when enabled.
+
+            rate_limiter_max_bucket_size : Optional[float]
+                The maximum bucket size for rate limiting. Determines the
+                number of requests that can be queued momentarily.
+
+            Returns:
+            --------
+            None
+
+            Raises:
+            -------
+            ValidationError
+                Raised if the provided configuration is invalid.
+
+            EnvironmentError
+                Raised if required environment variables are missing and no
+                corresponding values are provided.
+
+            KeyError
+                Raised if necessary keys for provider configuration are not
+                found in the environment dictionary.
+
+            Dependencies:
+            -------------
+            - os: Used for retrieving environment variables.
+            - load_dotenv: Loads environment variable definitions from a .env
+              file.
+            - ConfigValidator and ConfigValidatorConfig: Validate the provided
+              configuration values.
+            - LLMFactory and LLMConfig: Used to create language model instances.
+            - LLMInMemoryRateLimiter: Implements rate-limiting functionality.
+
+            Notes:
+            ------
+            - This class initializes a pre-configured LLM instance if a custom
+              LLM is passed as `llm`.
+            - If a provider is not explicitly specified, `openai` is used as
+              the default.
+            - Defaults for temperature, tokens, retries, and timeout values
+              are fetched using constants or environment variables if not
+              explicitly provided.
+            - Environment variables support dynamic reconfiguration without
+              hardcoding values.
         """
 
         load_dotenv()
@@ -80,7 +157,7 @@ class BehavioralAssertion:
             return
 
         provider_value = provider.value if isinstance(provider, LLMProvider) else (
-                    provider or os.getenv('LLM_PROVIDER', 'openai'))
+                provider or os.getenv('LLM_PROVIDER', 'openai'))
 
         if provider_value.lower() == LLMProvider.OPENAI.value:
             api_key = api_key or os.getenv('OPENAI_API_KEY')
@@ -101,7 +178,7 @@ class BehavioralAssertion:
         timeout = timeout if timeout is not None else float(
             os.getenv('LLM_TIMEOUT', str(LLMConstants.DEFAULT_TIMEOUT)))
 
-        validation_config = ValidationConfig(
+        validation_config = ConfigValidatorConfig(
             api_key=api_key,
             provider=provider_value,
             model=model,
@@ -123,7 +200,18 @@ class BehavioralAssertion:
             timeout=timeout
         )
 
-        self.llm = LLMFactory.create_llm(config)
+        use_rate_limiter = use_rate_limiter or os.getenv('USE_RATE_LIMITER', 'False').lower() == 'true'
+
+        if use_rate_limiter:
+            llm_in_memory_rate_limiter = LLMInMemoryRateLimiter(
+                requests_per_second=rate_limiter_requests_per_second,
+                check_every_n_seconds=rate_limiter_check_every_n_seconds,
+                max_bucket_size=rate_limiter_max_bucket_size
+            ).get_rate_limiter
+        else:
+            llm_in_memory_rate_limiter = None
+
+        self.llm = LLMFactory.create_llm(config, llm_in_memory_rate_limiter)
 
     @catch_llm_errors
     def assert_behavioral_match(
@@ -146,8 +234,7 @@ class BehavioralAssertion:
             LLMConnectionError: If LLM service fails
             LLMConfigurationError: If LLM is not properly configured
         """
-        if actual is None or expected_behavior is None:
-            raise TypeError("Inputs cannot be None")
+        AssertBehavioralMatchValidator.validate(actual, expected_behavior)
 
         prompts = self.custom_prompts.prompts
 

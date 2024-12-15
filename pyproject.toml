@@ -1,6 +1,6 @@
 [project]
 name = "llm_app_test"
-version = "0.2.0b1"
+version = "0.2.0b2"
 description = "A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor."
 requires-python = ">=3.10"
 readme = "README.md"
@@ -23,7 +23,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Software Development :: Testing"
+    "Topic :: Software Development :: Testing",
+    "Framework :: Pytest"
 ]
 
 [project.urls]
@@ -33,13 +34,14 @@ Repository = "https://github.com/Shredmetal/llmtest.git"
 
 [project.optional-dependencies]
 dev = [
-    "pytest-cov",
+    "coverage",
     "black",
     "flake8",
     "mkdocs>=1.5.0",
     "mkdocs-material>=9.0.0",
     "build",
-    "twine"
+    "twine",
+    "codecov"
 ]
 
 [build-system]

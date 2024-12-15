@@ -20,8 +20,6 @@ def catch_llm_errors(func: Callable) -> Callable:
                 "Anthropic API error occurred",
                 reason=str(e)
             ) from e
-        except TypeError as e:
-            raise
         except Exception as e:
             if isinstance(e, LLMAppTestError):
                 raise
@@ -55,7 +53,7 @@ class LLMAppTestError(Exception):
 
 
 class BehavioralAssertionError(LLMAppTestError):
-    """Raised when semantic assertion fails."""
+    """Raised when behavioral assertion fails."""
     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
         super().__init__(
             message=f"Behavioral assertion failed: {message}",
@@ -84,15 +82,22 @@ class LLMConnectionError(LLMAppTestError):
         )
 
 
-# Need to think about what constitutes an invalid prompt and use this somewhere - WIP
-# class InvalidPromptError(LLMAppTestError):
-#     """Raised when prompt construction fails or is invalid."""
-#     def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
-#         super().__init__(
-#             message=f"Invalid prompt error: {message}",
-#             reason=reason,
-#             details=details
-#         )
+class InvalidPromptError(LLMAppTestError):
+    """Raised when prompt construction fails or is invalid."""
+    def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
+        super().__init__(
+            message=f"Invalid prompt error: {message}",
+            reason=reason,
+            details=details
+        )
 
+class RateLimiterConfigurationError(LLMAppTestError):
+    """Raised when rate limiter configuration is invalid."""
+    def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
+        super().__init__(
+            message=f"Rate limiter configuration error: {message}",
+            reason=reason,
+            details=details
+        )
 
 

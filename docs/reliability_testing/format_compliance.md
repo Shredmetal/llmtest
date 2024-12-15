@@ -80,7 +80,7 @@ LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain im
 ```
 The `assert_semantic_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`) function also saw slight modification:
 
-```
+```python
         if result.startswith("FAIL"):
             raise SemanticAssertionError(
                 "Semantic assertion failed",
@@ -99,7 +99,7 @@ The `assert_semantic_match`(**Update**: Deprecated and replaced with identical `
 
 The prompts to the asserter LLM (that sits behind `semantic_assert_match` (**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
-```
+```python
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
 
 Important: You can only respond with EXACTLY: 
@@ -147,7 +147,7 @@ and `assert_behavioral_match` method. The only change is in terminology to bette
 
 We used the following test suite for the purposes of format compliance testing:
 
-```
+```python
 import os
 import pytest
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion

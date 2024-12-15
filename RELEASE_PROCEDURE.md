@@ -12,6 +12,7 @@ All tests must pass on the release branch before proceeding
     - Use PyCharm Professional coverage tool
     - __init__.py files are excluded from coverage requirements
     - Coverage must be verified in both current and deprecated paths
+  * Run all tests using Coverage and push results to Codecov for release branch
     
 2. Version Management
 
@@ -92,7 +93,24 @@ Real-World Application Tests:
 - If all tests pass:
   - Proceed to production deployment
 
-8. Production Deployment
+8. Branch Management
+
+- Ensure readme codecov badge points to CodeCov for main
+- Create pull request to merge release branch into main
+- Ensure CI passes on the PR
+- Obtain necessary approvals
+- Complete the merge
+- Run all tests again with Coverage and upload to CodeCov
+
+```
+coverage run tests/all_tests_runner.py
+
+coverage xml
+
+codecov -f "coverage.xml"  
+```
+
+9. Production Deployment
 
 Delete egg-info and dist, switch to regular release version number, rebuild with 
 
@@ -105,7 +123,7 @@ python -m build
 twine upload dist/*
 ```
 
-9. Production Verification
+10. Production Verification
 
 ```
 # Install from production PyPI
@@ -114,7 +132,7 @@ pip install llm-app-test
 # Run full test suite again following steps in Testing Procedure
 ```
 
-10. Post-Deployment Monitoring
+1Post-Deployment Monitoring
 
 - If issues are found, **immediately** yank the release:
 
@@ -127,13 +145,9 @@ twine yank llm-app-test==<version>
 ```
 
 - Monitor for 12 hours after release
-- If no issues arise, proceed to final step
 
-11. Branch Management
+11. Monitoring
 
-- Create pull request to merge release branch into main
-- Ensure CI passes on the PR
-- Obtain necessary approvals
-- Complete the merge
-
+- If yanked, roll back to last stable version on Main
+- If not yanked, delete the release branch
 
