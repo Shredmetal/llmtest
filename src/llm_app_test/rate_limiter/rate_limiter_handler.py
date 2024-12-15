@@ -59,12 +59,12 @@ class LLMInMemoryRateLimiter:
             its constant-source if newly absent-used.
         """
         load_dotenv()
-        requests_per_second_override = requests_per_second if requests_per_second is not None else float(
-            os.getenv('RATE_LIMITER_REQUESTS_PER_SECOND', RateLimiterConstants.REQUESTS_PER_SECOND))
-        check_every_n_seconds_override = check_every_n_seconds if check_every_n_seconds is not None else float(
-            os.getenv('RATE_LIMITER_CHECK_EVERY_N_SECONDS', RateLimiterConstants.CHECK_EVERY_N_SECONDS))
-        max_bucket_size_env = max_bucket_size if max_bucket_size is not None else float(
-            os.getenv('RATE_LIMITER_MAX_BUCKET_SIZE', RateLimiterConstants.MAX_BUCKET_SIZE))
+        requests_per_second_override = requests_per_second if requests_per_second is not None else \
+            (os.getenv('RATE_LIMITER_REQUESTS_PER_SECOND', RateLimiterConstants.REQUESTS_PER_SECOND))
+        check_every_n_seconds_override = check_every_n_seconds if check_every_n_seconds is not None else \
+            (os.getenv('RATE_LIMITER_CHECK_EVERY_N_SECONDS', RateLimiterConstants.CHECK_EVERY_N_SECONDS))
+        max_bucket_size_env = max_bucket_size if max_bucket_size is not None else \
+            (os.getenv('RATE_LIMITER_MAX_BUCKET_SIZE', RateLimiterConstants.MAX_BUCKET_SIZE))
 
         self.requests_per_second = RateLimiterInputsValidator.validate_requests_per_second(requests_per_second_override)
         self.check_every_n_seconds = RateLimiterInputsValidator.validate_check_every_n_seconds(

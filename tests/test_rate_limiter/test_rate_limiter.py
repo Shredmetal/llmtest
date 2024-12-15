@@ -14,8 +14,9 @@ class TestRateLimiter:
     @pytest.fixture
     def mock_env_variables(self):
         with patch.dict(os.environ, {
+            'USE_RATE_LIMITER': 'True',
             'RATE_LIMITER_REQUESTS_PER_SECOND': '5',
-            'RATE_LIMITER_CHECK_EVERY_N_SECONDS': '2',
+            'RATE_LIMITER_CHECK_EVERY_N_SECONDS': '0.2',
             'RATE_LIMITER_MAX_BUCKET_SIZE': '10'
         }):
             yield
@@ -23,18 +24,18 @@ class TestRateLimiter:
     def test_initialization_with_env_variables(self, mock_env_variables):
         with patch.object(RateLimiterInputsValidator, 'validate_requests_per_second', return_value=5.0) as mock_rps, \
                 patch.object(RateLimiterInputsValidator, 'validate_check_every_n_seconds',
-                             return_value=2.0) as mock_check, \
+                             return_value=0.2) as mock_check, \
                 patch.object(RateLimiterInputsValidator, 'validate_max_bucket_size', return_value=10.0) as mock_max:
 
             rate_limiter = LLMInMemoryRateLimiter()
 
             assert rate_limiter.requests_per_second == 5.0
-            assert rate_limiter.check_every_n_seconds == 2.0
+            assert rate_limiter.check_every_n_seconds == 0.2
             assert rate_limiter.max_bucket_size == 10.0
 
-            mock_rps.assert_called_once_with(5.0)
-            mock_check.assert_called_once_with(2.0)
-            mock_max.assert_called_once_with(10.0)
+            mock_rps.assert_called_once_with('5')
+            mock_check.assert_called_once_with('0.2')
+            mock_max.assert_called_once_with('10')
 
     def test_default_values_when_env_variables_missing(self):
 
@@ -77,10 +78,10 @@ class TestRateLimiter:
         assert asserter.llm.rate_limiter is None
 
     def test_rate_limiter_env_override_openai(self, mock_env_variables):
-        asserter = BehavioralAssertion(use_rate_limiter=True)
+        asserter = BehavioralAssertion()
         expected_limiter = InMemoryRateLimiter(
             requests_per_second=5.0,
-            check_every_n_seconds=2.0,
+            check_every_n_seconds=0.2,
             max_bucket_size=10.0
         )
 
@@ -90,11 +91,11 @@ class TestRateLimiter:
         assert actual_limiter.max_bucket_size == expected_limiter.max_bucket_size
 
     def test_rate_limiter_env_override_anthropic(self, mock_env_variables):
-        asserter = BehavioralAssertion(provider="anthropic", use_rate_limiter=True)
+        asserter = BehavioralAssertion(provider="anthropic")
 
         expected_limiter = InMemoryRateLimiter(
             requests_per_second=5.0,
-            check_every_n_seconds=2.0,
+            check_every_n_seconds=0.2,
             max_bucket_size=10.0
         )
 
