@@ -85,12 +85,32 @@ class TestRateLimiterInputsValidator:
 
         with pytest.raises(RateLimiterConfigurationError) as exc_info:
             RateLimiterInputsValidator.validate_max_bucket_size(string)
-        assert "must be a valid non-negative float" in str(exc_info.value)
+        assert "Conversion to float failed" in str(exc_info.value)
 
         with pytest.raises(RateLimiterConfigurationError) as exc_info:
             RateLimiterInputsValidator.validate_check_every_n_seconds(string)
-        assert "must be a valid non-negative float" in str(exc_info.value)
+        assert "Conversion to float failed" in str(exc_info.value)
 
         with pytest.raises(RateLimiterConfigurationError) as exc_info:
             RateLimiterInputsValidator.validate_requests_per_second(string)
-        assert "must be a valid non-negative float" in str(exc_info.value)
+        assert "Conversion to float failed" in str(exc_info.value)
+
+    @pytest.mark.parametrize("data", [
+        [0.1, 0.2, 0.3],
+        ["zero point five"],
+        {"one": 1, "two": 2, "three": 3}
+    ])
+    def test_validate_complex_types_always_fail(self, data: float):
+        """Test that invalid data structures always raise appropriate errors."""
+
+        with pytest.raises(RateLimiterConfigurationError) as exc_info:
+            RateLimiterInputsValidator.validate_max_bucket_size(data)
+        assert "Conversion to float failed" in str(exc_info.value)
+
+        with pytest.raises(RateLimiterConfigurationError) as exc_info:
+            RateLimiterInputsValidator.validate_check_every_n_seconds(data)
+        assert "Conversion to float failed" in str(exc_info.value)
+
+        with pytest.raises(RateLimiterConfigurationError) as exc_info:
+            RateLimiterInputsValidator.validate_requests_per_second(data)
+        assert "Conversion to float failed" in str(exc_info.value)

@@ -14,16 +14,16 @@ class RateLimiterInputsValidator:
         try:
             float_value = float(value)
 
-        except Exception as e:
+        except (ValueError, TypeError) as e:
             raise RateLimiterConfigurationError(
-                message=f"Invalid value for {field_name}: {value}.",
+                message=f"Conversion to float failed for {field_name}: {value}.",
                 reason=f"{field_name} must be a valid non-negative float.") from e
-
 
         if field_name == "requests_per_second" and float_value < 1.0:
             raise RateLimiterConfigurationError(
                 message=f"Invalid value for requests_per_second: {value}.",
                 reason="Value for requests_per_second must be at least 1.0.")
+
         if float_value < 0:
             raise RateLimiterConfigurationError(
                 message=f"Negative float value passed for {field_name}: {value}. ",
