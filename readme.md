@@ -118,6 +118,8 @@ llm-app-test is designed to complement existing approaches. We recommend this te
     - Tests performance metrics, response quality
     - Used for optimization and model selection
 
+That said, we are planning on building a benchmarking system to allow you to get some metrics on how well your system is complying with behavioral specifications, planned for 0.3.0b1.
+
 ### Visual representation of testing hierarchy:
 
 ![Testing Hierarchy](https://i.imgur.com/TFPJa9M.png "LLM Application Testing Flow")
@@ -243,7 +245,7 @@ MIT
 If you encounter issues:
 1. Create an issue on our GitHub repository
 2. Include your Python version and environment details
-3. Describe the problem you encountered with version 0.1.0b4
+3. Describe the problem you encountered with version 0.2.0b2
 
 ## 🆘 Support
 - Discord: [Join our community](https://discord.gg/awy83bZsKf)
@@ -255,24 +257,24 @@ If you encounter issues:
 
 ### Emergency Rollback Instructions
 
-If you experience issues with version 0.2.0b1, you can roll back to the previous stable version (0.1.0b4) using one of these methods:
+If you experience issues with version 0.2.0b2, you can roll back to the previous stable version (0.2.0b1) using one of these methods:
 
 #### Method 1: Direct Installation of Previous Version
 
 ```
 pip uninstall llm-app-test 
-pip install llm-app-test==0.1.0b4
+pip install llm-app-test==0.2.0b1
 ```
 #### Method 2: Force Reinstall (if Method 1 fails)
 
 ```
-pip install --force-reinstall llm-app-test==0.1.0b4
+pip install --force-reinstall llm-app-test==0.2.0b1
 ```
 #### Verification
 After rolling back, verify the installation:
 ```
 import llm_app_test 
-print(llm_app_test.version) # Should show 0.1.0b4
+print(llm_app_test.version) # Should show 0.2.0b1
 ```
 
 ## ⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:

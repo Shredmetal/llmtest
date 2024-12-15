@@ -18,6 +18,8 @@ llm-app-test is designed to complement existing approaches. We recommend this te
     - Tests performance metrics, response quality
     - Used for optimization and model selection
 
+That said, we are planning on building a benchmarking system to allow you to get some metrics on how well your system is complying with behavioral specifications, planned for 0.3.0b1.
+
 > [!IMPORTANT]
 > Always ensure behavioral tests pass before running benchmarks. 
 > A failing behavioral test indicates your application is fundamentally 
