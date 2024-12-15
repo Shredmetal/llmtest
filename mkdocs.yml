@@ -31,18 +31,19 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - Installation: getting-started/installation.md
-    - Quick Start: getting-started/quickstart.md
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
   - Guides:
-    - Best Practices: guides/best-practices.md
-    - CI/CD Integration: guides/ci-cd.md
-    - Testing Patterns: guides/testing-patterns.md
-    - Testing Hierarchy: guides/testing-hierarchy.md
+      - Best Practices: guides/best-practices.md
+      - CI/CD Integration: guides/ci-cd.md
+      - Testing Patterns: guides/testing-patterns.md
+      - Testing Hierarchy: guides/testing-hierarchy.md
   - API Reference:
-    - BehavioralAssertion: api/behavioral-assertion.md
-    - Custom Prompt Configuration: api/custom-prompt-configuration.md
-    - Configuration: api/configuration.md
-    - Error Handling: api/error-handling.md
+      - BehavioralAssertion: api/behavioral-assertion.md
+      - Custom Prompt Configuration: api/custom-prompt-configuration.md
+      - Configuration: api/configuration.md
+      - Error Handling: api/error-handling.md
+      - Rate Limiter: api/rate-limiter.md
   - Reliability Testing:
       - Format Compliance: reliability_testing/format_compliance.md
       - Behavioral Matching Reliability: reliability_testing/behavioral_testing_reliability.md

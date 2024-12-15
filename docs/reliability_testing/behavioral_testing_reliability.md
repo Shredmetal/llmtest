@@ -109,7 +109,7 @@ LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain im
 ```
 The `semantic_assert_match` function (**Update**: Deprecated and replaced with identical `assert_behavioral_match`) also saw slight modification:
 
-```
+```python
         if result.startswith("FAIL"):
             raise SemanticAssertionError(
                 "Semantic assertion failed",
@@ -128,7 +128,7 @@ The `semantic_assert_match` function (**Update**: Deprecated and replaced with i
 
 The prompts to the asserter LLM (that sits behind `semantic_assert_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
-```
+```python
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
 
 Important: You can only respond with EXACTLY: 
@@ -157,7 +157,7 @@ These tests remain valid as the underlying implementation is identical in the ne
 and `assert_behavioral_match` method. The only change is in terminology to better reflect the testing approach.
 
 
-```
+```python
 import pytest
 from llm_app_test.semantic_assert.semantic_assert import SemanticAssertion
 from llm_app_test.exceptions.test_exceptions import (
