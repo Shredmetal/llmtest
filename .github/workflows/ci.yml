@@ -30,10 +30,17 @@ jobs:
           gpg --batch --yes --passphrase "$GPG_PASSPHRASE" \
               -o openai-api-key.txt -d openai-api-key.txt.gpg
 
-      - name: Set API Key Environment Variable
+      - name: Set OpenAI API Key Environment Variable
         run: |
             export OPENAI_API_KEY=$(cat openai-api-key.txt)
             echo "OPENAI_API_KEY=$OPENAI_API_KEY" >> $GITHUB_ENV
+
+      - name: Set Anthropic API Key Environment Variable
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+            export ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY"
+            echo "ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
