@@ -29,7 +29,7 @@ class RateLimiterInputsValidator:
                 message=f"Negative float value passed for {field_name}: {value}. ",
                 reason=f"{field_name} must be a valid non-negative float.")
 
-        return value
+        return float_value
 
     @classmethod
     def validate_requests_per_second(cls, value: Union[str, float]) -> float:

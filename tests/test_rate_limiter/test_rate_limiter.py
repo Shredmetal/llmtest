@@ -14,6 +14,7 @@ class TestRateLimiter:
     @pytest.fixture
     def mock_env_variables(self):
         with patch.dict(os.environ, {
+            'USE_RATE_LIMITER': 'True',
             'RATE_LIMITER_REQUESTS_PER_SECOND': '5',
             'RATE_LIMITER_CHECK_EVERY_N_SECONDS': '0.2',
             'RATE_LIMITER_MAX_BUCKET_SIZE': '10'
@@ -32,9 +33,9 @@ class TestRateLimiter:
             assert rate_limiter.check_every_n_seconds == 0.2
             assert rate_limiter.max_bucket_size == 10.0
 
-            mock_rps.assert_called_once_with(5.0)
-            mock_check.assert_called_once_with(0.2)
-            mock_max.assert_called_once_with(10.0)
+            mock_rps.assert_called_once_with('5')
+            mock_check.assert_called_once_with('0.2')
+            mock_max.assert_called_once_with('10')
 
     def test_default_values_when_env_variables_missing(self):
 
@@ -77,7 +78,7 @@ class TestRateLimiter:
         assert asserter.llm.rate_limiter is None
 
     def test_rate_limiter_env_override_openai(self, mock_env_variables):
-        asserter = BehavioralAssertion(use_rate_limiter=True)
+        asserter = BehavioralAssertion()
         expected_limiter = InMemoryRateLimiter(
             requests_per_second=5.0,
             check_every_n_seconds=0.2,
@@ -90,7 +91,7 @@ class TestRateLimiter:
         assert actual_limiter.max_bucket_size == expected_limiter.max_bucket_size
 
     def test_rate_limiter_env_override_anthropic(self, mock_env_variables):
-        asserter = BehavioralAssertion(provider="anthropic", use_rate_limiter=True)
+        asserter = BehavioralAssertion(provider="anthropic")
 
         expected_limiter = InMemoryRateLimiter(
             requests_per_second=5.0,
