@@ -21,3 +21,6 @@ coverage.xml
 # Build
 build/
 dist/
+
+# Codecov
+codecov.yml
