@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://Shredmetal.github.io/llmtest/)
-[![codecov](https://codecov.io/gh/Shredmetal/llmtest/branch/feature%2F0.2.0b2-rate-limiter/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/gh/Shredmetal/llmtest)
+[![codecov](https://codecov.io/github/Shredmetal/llmtest/graph/badge.svg?token=EVDZIPM2C0)](https://codecov.io/github/Shredmetal/llmtest)
 
 > TL;DR: A Python library that lets you test LLM applications by describing expected behavior in plain English.
 
