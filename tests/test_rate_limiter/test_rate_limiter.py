@@ -17,7 +17,9 @@ class TestRateLimiter:
             'USE_RATE_LIMITER': 'True',
             'RATE_LIMITER_REQUESTS_PER_SECOND': '5',
             'RATE_LIMITER_CHECK_EVERY_N_SECONDS': '0.2',
-            'RATE_LIMITER_MAX_BUCKET_SIZE': '10'
+            'RATE_LIMITER_MAX_BUCKET_SIZE': '10',
+            'OPENAI_API_KEY': 'test_openai_api_key',
+            'ANTHROPIC_API_KEY': 'test_anthropic_api_key'
         }):
             yield
 
@@ -73,7 +75,7 @@ class TestRateLimiter:
         assert asserter.llm.rate_limiter is None
 
     def test_rate_limiter_disabled_by_default_in_anthropic(self):
-        asserter = BehavioralAssertion(provider="anthropic")
+        asserter = BehavioralAssertion(provider="anthropic", api_key="test_anthropic_api_key")
 
         assert asserter.llm.rate_limiter is None
 

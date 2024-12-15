@@ -13,7 +13,9 @@ class TestRateLimiterBackwardsCompatibility:
         with patch.dict(os.environ, {
             'RATE_LIMITER_REQUESTS_PER_SECOND': '5',
             'RATE_LIMITER_CHECK_EVERY_N_SECONDS': '2',
-            'RATE_LIMITER_MAX_BUCKET_SIZE': '10'
+            'RATE_LIMITER_MAX_BUCKET_SIZE': '10',
+            'OPENAI_API_KEY': 'test_openai_api_key',
+            'ANTHROPIC_API_KEY': 'test_anthropic_api_key'
         }):
             yield
 

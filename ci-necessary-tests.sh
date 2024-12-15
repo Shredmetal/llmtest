@@ -8,6 +8,9 @@ test_files=(
     "tests/test_behavioral_assert/test_behavioral_assert_llm_injection.py"
     "tests/test_behavioral_assert/test_behavioral_assert_prompt_configurator.py"
     "tests/test_behavioral_assert/test_behavioral_assert_validations.py"
+    "tests/test_rate_limiter/test_rate_limiter.py"
+    "tests/test_rate_limiter/test_rate_limiter_scoped.py"
+    "tests/test_rate_limiter_validator/test_rate_limiter_input_validator.py"
 )
 
 # Array to store background process IDs
