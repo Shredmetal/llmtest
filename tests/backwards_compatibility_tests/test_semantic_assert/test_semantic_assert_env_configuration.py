@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from unittest.mock import Mock, patch
 from llm_app_test.behavioral_assert.behavioral_assert_config.behavioral_assert_constants import (
@@ -15,6 +17,15 @@ class TestSemanticAssertionEnvironmentConfiguration:
         mock_instance = Mock()
         mock_instance.invoke.return_value = Mock(content="PASS")
         return mock_instance
+
+    @pytest.fixture
+    def clean_env_with_fake_api(self):
+        original_env = dict(os.environ)
+        os.environ.clear()
+        os.environ['OPENAI_API_KEY'] = 'fake-api-key-for-testing'
+        yield
+        os.environ.clear()
+        os.environ.update(original_env)
 
     def test_env_var_precedence_openai(self, monkeypatch, mock_chat):
         """Test that environment variables are properly loaded with correct precedence"""
@@ -52,35 +63,30 @@ class TestSemanticAssertionEnvironmentConfiguration:
             assert create_args['max_retries'] == 5  # From env var
             assert create_args['request_timeout'] == 10.0  # From env var
 
-    def test_env_var_fallbacks(self, monkeypatch, mock_chat):
+    def test_env_var_fallbacks(self, clean_env_with_fake_api):
         """Test that default values are used when env vars are not set"""
 
-        monkeypatch.delenv('LLM_PROVIDER', raising=False)
-        monkeypatch.delenv('LLM_MODEL', raising=False)
-        monkeypatch.delenv('LLM_TEMPERATURE', raising=False)
-        monkeypatch.delenv('LLM_MAX_TOKENS', raising=False)
-        monkeypatch.delenv('LLM_MAX_RETRIES', raising=False)
-        monkeypatch.delenv('LLM_TIMEOUT', raising=False)
+        with patch('llm_app_test.behavioral_assert.behavioral_assert.load_dotenv'):
+            mock_instance = Mock()
+            mock_instance.invoke.return_value = Mock(content="PASS")
 
-        mock_instance = Mock()
-        mock_instance.invoke.return_value = Mock(content="PASS")
+            with patch('llm_app_test.behavioral_assert.llm_config.llm_factory.ChatOpenAI') as mock_openai:
+                mock_openai.return_value = mock_instance
 
-        with patch('llm_app_test.behavioral_assert.llm_config.llm_factory.ChatOpenAI') as mock_openai:
-            mock_openai.return_value = mock_instance
+                asserter = SemanticAssertion()
 
-            asserter = SemanticAssertion()
+                asserter.assert_behavioral_match(
+                    actual="test content",
+                    expected_behavior="test expectation"
+                )
 
-            asserter.assert_semantic_match(
-                actual="test content",
-                expected_behavior="test expectation"
-            )
-
-            create_args = mock_openai.call_args.kwargs
-            assert create_args['model_name'] == ModelConstants.DEFAULT_OPENAI_MODEL
-            assert create_args['temperature'] == LLMConstants.DEFAULT_TEMPERATURE
-            assert create_args['max_tokens'] == LLMConstants.DEFAULT_MAX_TOKENS
-            assert create_args['max_retries'] == LLMConstants.DEFAULT_MAX_RETRIES
-            assert create_args['request_timeout'] == LLMConstants.DEFAULT_TIMEOUT
+                create_args = mock_openai.call_args.kwargs
+                assert create_args['model_name'] == ModelConstants.DEFAULT_OPENAI_MODEL
+                assert create_args['temperature'] == LLMConstants.DEFAULT_TEMPERATURE
+                assert create_args['max_tokens'] == LLMConstants.DEFAULT_MAX_TOKENS
+                assert create_args['max_retries'] == LLMConstants.DEFAULT_MAX_RETRIES
+                assert create_args['request_timeout'] == LLMConstants.DEFAULT_TIMEOUT
+                assert create_args['openai_api_key'] == 'fake-api-key-for-testing'
 
     def test_anthropic_env_vars(self, monkeypatch, mock_chat):
         """Test environment variable handling for Anthropic provider"""
