@@ -8,7 +8,7 @@ This guide demonstrates common behavioral testing patterns using llm-app-test. F
 
 **Implementation:**
 
-```
+```python
 actual = "Hello Alice, how are you today?" 
  
 expected_behavior = """A polite greeting that:
@@ -30,7 +30,7 @@ behavioral_assert.assert_behavioral_match(actual, expected_behavior)
 
 Implementation:
 
-```
+```python
 actual = "The sky is blue"
 
 expected_behavior = "A statement about the color of the sky"
@@ -49,7 +49,7 @@ behavioral_assert.assert_behavioral_match(actual, expected_behavior)
 
 Implementation:
 
-```
+```python
 actual = "The sky is blue"
 
 expected_behavior = "A statement about the weather forecast"
@@ -69,7 +69,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = "Bonjour, comment allez-vous?"
 
 expected_behavior = "A polite greeting asking about wellbeing"
@@ -88,7 +88,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """The TCP handshake is a three-way process where the client 
          sends SYN, server responds with SYN-ACK, and client confirms with ACK"""
          
@@ -108,7 +108,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "The bank was steep and covered in wildflowers"
 
 expected_behavior = "A description of a riverbank or hillside, not a financial institution"
@@ -127,7 +127,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "While the presentation wasn't perfect, it showed promise"
 
 expected_behavior = "A constructive criticism with mixed but generally positive sentiment"
@@ -146,7 +146,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """Machine learning is a subset of artificial intelligence 
          that enables systems to learn and improve from experience without 
          explicit programming. It focuses on developing computer programs 
@@ -168,7 +168,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "The project was completed on time, though there were some hiccups"
 
 expected_behavior = "A statement expressing complete satisfaction with project execution"
@@ -187,7 +187,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = "The function returns a pointer to the memory address"
 
 expected_behavior = "A description of a function that returns the value stored at a memory location"
@@ -206,7 +206,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = "The bank processed the transaction after reviewing the account"
 
 expected_behavior = "A description of a riverbank's geological formation process"
@@ -225,7 +225,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = "I will have completed the task by tomorrow"
 
 expected_behavior = "A statement about a task that was completed in the past"
@@ -244,7 +244,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = "If it rains, the ground will be wet"
 
 expected_behavior = "A statement indicating that wet ground always means it has rained"
@@ -263,7 +263,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = """When water freezes, it expands by approximately 9% in volume. 
 This expansion creates less dense ice that floats according to Archimedes' principle of displacement. 
 Because Arctic sea ice is already floating in the ocean, its melting doesn't significantly affect sea levels - 
@@ -288,7 +288,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "The colorless green ideas sleep furiously"
 
 expected_behavior = "A grammatically correct but semantically nonsensical statement"
@@ -307,7 +307,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """
         The Roman Empire's rise began with modest origins in central Italy. What started as a small 
         settlement along the Tiber River would eventually become one of history's most influential 
@@ -357,7 +357,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "🤖" * 100
 
 expected_behavior = "A lot of emojis"
@@ -377,7 +377,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "🤖" * 100
 
 expected_behavior = "Only a few emojis"
@@ -398,7 +398,7 @@ Result: ❌ FAIL
 
 **Test Case 1: Strict Pattern Matching**
 
-```
+```python
 actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
 
 expected_behavior = "A mix of emojis and Japanese text"
@@ -419,7 +419,7 @@ behavioral_assert.assert_behavioral_match(actual, expected_behavior)
 
 **Test Case 2: Pattern-Agnostic Matching**
 
-```
+```python
 actual = "🤖👾" * 50 + "こんにちは" * 20 + "🌈" * 30
 
 expected = "More than one type of emoji and Japanese text regardless of order"
@@ -450,7 +450,7 @@ behavioral_assert.assert_behavioral_match(actual, expected_behavior)
 
 Implementation:
 
-```
+```python
 actual = "Hello你好Bonjour🌈" * 50
 
 expected_behavior = "A repetitive greeting in multiple languages with rainbows"
@@ -469,7 +469,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """
 (╯°□°)╯︵ ┻━┻
 """ * 20
@@ -490,7 +490,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "hello    " + " " * 1000 + "    world" + "\n" * 500
 
 expected_behavior = "A greeting with excessive spacing"
@@ -509,7 +509,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = "".join([str(i % 10) for i in range(1000)])
 
 expected_behavior = "A long sequence of repeating numbers"
@@ -528,7 +528,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """
 Understanding and Managing Type 2 Diabetes
 
@@ -608,7 +608,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = """
 Q4 2023 Portfolio Performance Summary
 
@@ -685,7 +685,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """
 Personalized Content Recommendations - User Profile #A1234
 Generated: November 22, 2024
@@ -739,7 +739,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = """
 Contract Summary Analysis
 Document Reference: MSA-2024-0892
@@ -818,7 +818,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """
 Equipment Maintenance Analysis
 Machine ID: CNC-1234
@@ -868,7 +868,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = """
 Smart Home Security Camera - Model HC2000
 
@@ -939,7 +939,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 actual = """
 Assignment Feedback
 Student ID: STU-2024-456
@@ -994,7 +994,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = """
 Stunning Modern Oasis in Prime Location
 123 Maple Avenue, Riverside Heights
@@ -1065,7 +1065,7 @@ Result: ✅ PASS
 
 Implementation:
 
-```
+```python
 def test_interview_feedback_missing_criteria(self, asserter):
 """Test semantic matching for interview feedback generation. Should fail due to
 missing evaluation criteria and specific examples."""
@@ -1125,7 +1125,7 @@ Result: ❌ FAIL
 
 Implementation:
 
-```
+```python
 actual = """
 Ticket Analysis and Response
 Ticket ID: CS-2024-1122

@@ -20,7 +20,7 @@ Important note: We noticed that Claude is not as strict as GPT-4o when it comes 
 
 ## 2. Write Your First Test
 
-```
+```python
 
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 
@@ -59,7 +59,7 @@ pytest my_first_behavioral_test.py
 
 Here's a powerful example showing behavioral testing in action:
 
-```
+```python
 from langchain_core.messages import SystemMessage, HumanMessage
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from your_bot_module import SimpleApiCallBot  # Your LLM wrapper
@@ -99,7 +99,7 @@ def test_ww2_narrative():
 
 Note: Claude is a little too helpful and will say stuff about the other theaters so when calling the generation bot with Claude, we used this:
 
-```
+```python
 "Tell me about the European Theater of World War 2, the major battles, and how the European war ended. Only mention the European theater and do not mention the other theaters."
 ```
 

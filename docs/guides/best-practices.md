@@ -12,13 +12,13 @@ Behavioral testing focuses on validating that outputs exhibit expected character
 
 Expected Behavior: 
 
-```
+```python
 "A response that provides a weather forecast including temperature and conditions"
 ```
 
 These responses would PASS:
 
-```
+```python
 actual_1 = "Today will be sunny with a high of 75°F"
 actual_2 = "Expect cloudy skies and temperatures around 24°C"
 actual_3 = "The forecast shows clear weather, reaching 298K"
@@ -26,7 +26,7 @@ actual_3 = "The forecast shows clear weather, reaching 298K"
 
 These would FAIL:
 
-```
+```python
 fail_1 = "Have a nice day!" (missing forecast elements)
 fail_2 = "It's weather time!" (missing required information)
 fail_3 = "75 degrees" (incomplete behavior)
@@ -36,7 +36,7 @@ fail_3 = "75 degrees" (incomplete behavior)
 
 1. **Be Specific**:
 
-    ```
+    ```python
     # Good
     expected_behavior = """ A polite greeting that:
                         Addresses the person by name (Alice)
@@ -48,7 +48,7 @@ fail_3 = "75 degrees" (incomplete behavior)
 
 2. **Focus on Behaviors**:
 
-    ```
+    ```python
     # Good
     expected_behavior = """ An error message that:
                         Explains the API key is invalid
@@ -77,13 +77,13 @@ Not Suitable For:
 
 1. **Test Scope Based on Behavioral Requirements**:
 
-    ```
+    ```python
     # Testing Single Behavior 
     def test_greeting_format(): 
       """Test that greeting follows required format"""
     ```
    
-    ```
+    ```python
     # Testing Multiple Related Behaviors
     def test_patient_education_diabetes():
    
@@ -102,7 +102,7 @@ Not Suitable For:
 
 3. **Clear Test Names**:
 
-    ```
+    ```python
     # Good
     def test_error_message_includes_solution_steps():
     
@@ -114,7 +114,7 @@ Not Suitable For:
 
 1. **Over-Specific Expected Behaviors**:
 
-    ```
+    ```python
     # Too specific
     expected = "Must say hello and use exactly these words"
     
@@ -124,7 +124,7 @@ Not Suitable For:
 
 2. **Under-Specific Expected Behaviors**:
 
-    ```
+    ```python
     # Too vague
     expected = "Should be good"
     

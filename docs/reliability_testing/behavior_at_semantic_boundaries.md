@@ -16,7 +16,7 @@ This case provides valuable insights into how LLMs interpret behavioral requirem
 
 This is our healthcare test case:
 
-```
+```python
 def test_patient_education_diabetes_management(self, asserter):
         """Test semantic matching for patient education content about diabetes management. Failure is expected because
         this does not contain emergency response steps."""
@@ -138,7 +138,7 @@ LLM_TIMEOUT=10.0 # Added for OpenAI in 0.1.0b5 using the underlying Langchain im
 ```
 The `semantic_assert_match` function (**Update**: Deprecated and replaced with identical `assert_behavioral_match`) also saw slight modification:
 
-```
+```python
         if result.startswith("FAIL"):
             raise SemanticAssertionError(
                 "Semantic assertion failed",
@@ -157,7 +157,7 @@ The `semantic_assert_match` function (**Update**: Deprecated and replaced with i
 
 The prompts to the asserter LLM (that sits behind `semantic_assert_match`(**Update**: Deprecated and replaced with identical `assert_behavioral_match`)) were:
 
-```
+```python
 DEFAULT_SYSTEM_PROMPT = """You are a testing system. Your job is to determine if an actual output matches the expected behavior.
 
 Important: You can only respond with EXACTLY: 

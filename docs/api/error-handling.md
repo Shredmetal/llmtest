@@ -18,7 +18,7 @@ LLMAppTestError # Base exception for all llm-app-test errors
 ### BehavioralAssertionError
 Raised when the behavioral assertion fails:
 
-```
+```python
 try:
     behavioral_assert.assert_behavioral_match(
         actual="Hello Bob", 
@@ -31,7 +31,7 @@ except BehavioralAssertionError as e:
 ### LLMConfigurationError
 Raised when configuration is invalid:
 
-```
+```python
 try:
     behavioral_assert = BehavioralAssertion(provider="invalid_provider") 
 except LLMConfigurationError as e:
@@ -41,7 +41,7 @@ except LLMConfigurationError as e:
 ### LLMConnectionError
 Raised when LLM service fails:
 
-```
+```python
 try:
     behavioral_assert.assert_behavioral_match(...) 
 except LLMConnectionError as e:
@@ -59,7 +59,7 @@ All exceptions provide:
 
 Example:
 
-```
+```python
 
 try:
     behavioral_assert.assert_behavioral_match(...) 

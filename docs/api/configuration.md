@@ -30,8 +30,12 @@ LLM_TEMPERATURE=0.0 # Response randomness (0.0-1.0), default is 0.0
 LLM_MAX_TOKENS=4096 # Maximum response length, default is 4096
 LLM_MAX_RETRIES=2 # API retry attempts, default is 2
 LLM_TIMEOUT=60.0 # API timeout in seconds, default is 60.0
+USE_RATE_LIMITER=true # Use rate limiter or not, default is false
+RATE_LIMITER_REQUESTS_PER_SECOND=4.0 # Sets maximum request per second, default is 1.0
+RATE_LIMITER_CHECK_EVERY_N_SECONDS=0.2 # Sets interval to check rate limit (seconds), default is 0.1
+RATE_LIMITER_MAX_BUCKET_SIZE=10.0 # Sets maximum bucket size for rate limiting, default is 1.0
 ```
-
+For rate limiting, please refer to the specific documentation on the [rate limiter](./rate-limiter.md)
 
 ## Direct Configuration
 
@@ -47,7 +51,11 @@ asserter = BehavioralAssertion(
     temperature=0.0, # Default: 0.0
     max_tokens=4096, # Default: 4096
     max_retries=2, # Default: 2
-    timeout=60.0 # Default: 60.0
+    timeout=60.0, # Default: 60.0
+    use_rate_limiter=False, # Enable/disable rate limiting
+    rate_limiter_requests_per_second=1.0, # Requests per second for rate limiting
+    rate_limiter_check_every_n_seconds=0.1, # Interval to check rate limit
+    rate_limiter_max_bucket_size=1.0 # Maximum bucket size for rate limiting
 )
 ```
 An optional parameter for BehavioralAssertion is `custom_prompts`, see [this page](custom-prompt-configuration.md) for details.

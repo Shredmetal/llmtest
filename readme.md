@@ -30,7 +30,7 @@ You can go straight to the [documentation](https://Shredmetal.github.io/llmtest/
 
 ✨ Test your LLM apps in minutes, not hours
 
-🚀 CI/CD ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
+🚀 CI ready out of the box (Tested in GitHub Actions CI - Please let us know if it just works(tm) in other CI systems)
 
 💰 Cost-effective testing solution
 
@@ -128,7 +128,7 @@ llm-app-test is designed to complement existing approaches. We recommend this te
 
 Here's a powerful example showing behavioral testing in action:
 
-```
+```python
 from langchain_core.messages import SystemMessage, HumanMessage
 from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
 from your_bot_module import SimpleApiCallBot  # Your LLM wrapper
