@@ -11,6 +11,7 @@ def run_semantic_tests():
         str(test_dir / "test_llm_setup" / "test_llm_provider.py"),
         str(test_dir / "test_llm_setup" / "test_llm_factory.py"),
         str(test_dir / "test_rate_limiter" / "test_rate_limiter_backwards_compatibility.py"),
+        str(test_dir / "test_rate_limiter" / "test_rate_limiter_scoped_backwards_compatibility.py"),
         str(test_dir / "test_config_validator" / "test_config_validator.py"),
         str(test_dir / "pytest_plugin_tests" / "test_fixture_isolation.py"),
         str(test_dir / "pytest_plugin_tests" / "test_pytest_configuration.py"),

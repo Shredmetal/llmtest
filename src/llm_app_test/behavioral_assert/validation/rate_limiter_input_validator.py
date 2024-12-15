@@ -20,7 +20,6 @@ class RateLimiterInputsValidator:
 
         return value
 
-
     @classmethod
     def validate_requests_per_second(cls, value: float) -> float:
         return cls.validate_non_negative_float(value, "requests_per_second")
