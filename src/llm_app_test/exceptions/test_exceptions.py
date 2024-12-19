@@ -100,4 +100,13 @@ class RateLimiterConfigurationError(LLMAppTestError):
             details=details
         )
 
+class RetryConfigurationError(LLMAppTestError):
+    """Raised when retry configuration is invalid."""
+    def __init__(self, message: str, reason: Optional[str] = None, details: Optional[Dict] = None):
+        super().__init__(
+            message=f"Retry configuration error: {message}",
+            reason=reason,
+            details=details
+        )
+
 
