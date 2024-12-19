@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0b3] - 2024-12-20
+
+### Added
+- Support for Langchain's `with_retry` functionality
+  - New `LANGCHAIN_WITH_RETRY` environment variable to enable/disable with_retry
+  - New `ASSERTER_WAIT_EXPONENTIAL_JITTER` environment variable to configure exponential backoff with jitter
+  - New `ASSERTER_STOP_AFTER_ATTEMPT` environment variable to set the number of retry attempts
+- `WithRetryConfigValidator` class for validating with_retry configuration
+- New `retry_config` attribute in `BehavioralAssertion` class to store validated retry configuration
+
+### Changed
+- Updated `BehavioralAssertion` class to incorporate `with_retry` functionality
+- Improved error handling for retry configuration
+- Enhanced test coverage to include `with_retry` functionality and its configuration
+- Changed `llm` parameter in `BehavioralAssertion` to accept `Runnable` instead of `BaseLanguageModel` to prevent IDE warnings when passing in `ChatOpenAI().with_retry()`
+
+### Fixed
+- Addressed issues with `max_retries` not functioning as expected, especially with ChatAnthropic API
+
+### Deprecated
+- None
+
+### Removed
+- None
+
+### Security
+- None
+
+This release introduces Langchain's `with_retry` functionality to improve resilience against API errors, particularly addressing issues encountered with ChatAnthropic. The new feature allows for more granular control over retry behavior and better handles transient errors like 529 responses. The `llm` parameter in `BehavioralAssertion` now explicitly accepts `Runnable` objects, which resolves IDE warnings when using methods like `with_retry()` on language models.
+
+
 ## [0.2.0b2] - 2024-12-15
 
 ### Added
