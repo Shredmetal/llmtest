@@ -132,7 +132,7 @@ pip install llm-app-test
 # Run full test suite again following steps in Testing Procedure
 ```
 
-1Post-Deployment Monitoring
+11. Post-Deployment Monitoring
 
 - If issues are found, **immediately** yank the release:
 
@@ -146,7 +146,7 @@ twine yank llm-app-test==<version>
 
 - Monitor for 12 hours after release
 
-11. Monitoring
+12. Monitoring
 
 - If yanked, roll back to last stable version on Main
 - If not yanked, delete the release branch
