@@ -223,7 +223,15 @@ class BehavioralAssertion:
 
         if langchain_with_retry:
 
-            # TODO: Figure out how to resolve configs for this in line with the config resolution hierarchy - might have a little problem with exception types
+            # TODO: Think through whether to allow env config for retry_if_exception_type
+
+            retry_if_exception_type = retry_if_exception_type if retry_if_exception_type is not None else (Exception, )
+            wait_exponential_jitter = wait_exponential_jitter if wait_exponential_jitter is not None else (
+                os.getenv('ASSERTER_WAIT_EXPONENTIAL_JITTER', 'False').lower()
+            )
+            stop_after_attempt = stop_after_attempt if stop_after_attempt is not None else (
+                os.getenv('ASSERTER_STOP_AFTER_ATTEMPT', '3')
+            )
 
             retry_config = WithRetryConfigValidator.validate(
                 WithRetryConfig(
