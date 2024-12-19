@@ -1,14 +1,15 @@
 import os
-from typing import Optional, Union
+from typing import Optional, Union, Tuple, Type
 from dotenv import load_dotenv
-from langchain_core.language_models import BaseLanguageModel
 from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.runnables import Runnable
 
 from llm_app_test.behavioral_assert.asserter_prompts.asserter_prompt_configurator import AsserterPromptConfigurator
 from llm_app_test.behavioral_assert.llm_config.llm_config import LLMConfig
 from llm_app_test.behavioral_assert.llm_config.llm_factory import LLMFactory
 from llm_app_test.behavioral_assert.llm_config.llm_provider_enum import LLMProvider
 from llm_app_test.behavioral_assert.validation.behavioral_assert_input_validator import AssertBehavioralMatchValidator
+from llm_app_test.behavioral_assert.validation.with_retry_config_validator import WithRetryConfigValidator
 from llm_app_test.exceptions.test_exceptions import (
     catch_llm_errors,
     BehavioralAssertionError
@@ -19,6 +20,7 @@ from llm_app_test.behavioral_assert.validation.config_validator import ConfigVal
 from llm_app_test.behavioral_assert.validation.config_validator_config import ConfigValidatorConfig
 
 from llm_app_test.rate_limiter.rate_limiter_handler import LLMInMemoryRateLimiter
+from llm_app_test.with_retry.with_retry_config import WithRetryConfig
 
 
 class BehavioralAssertion:
@@ -32,7 +34,7 @@ class BehavioralAssertion:
     def __init__(
             self,
             api_key: Optional[str] = None,
-            llm: Optional[BaseLanguageModel] = None,
+            llm: Optional[Runnable] = None,
             provider: Optional[Union[str, LLMProvider]] = None,
             model: Optional[str] = None,
             temperature: Optional[float] = None,
@@ -43,7 +45,11 @@ class BehavioralAssertion:
             use_rate_limiter: bool = False,
             rate_limiter_requests_per_second: Optional[float] = None,
             rate_limiter_check_every_n_seconds: Optional[float] = None,
-            rate_limiter_max_bucket_size: Optional[float] = None
+            rate_limiter_max_bucket_size: Optional[float] = None,
+            langchain_with_retry: Optional[bool] = None,
+            retry_if_exception_type: Optional[Tuple[Type[BaseException], ...]] = None,
+            wait_exponential_jitter: Optional[bool] = None,
+            stop_after_attempt: Optional[int] = None
     ):
 
         """
@@ -107,6 +113,20 @@ class BehavioralAssertion:
             rate_limiter_max_bucket_size : Optional[float]
                 The maximum bucket size for rate limiting. Determines the
                 number of requests that can be queued momentarily.
+
+            langchain_with_retry: Optional[bool] = None
+                Whether to use the Langchain Runnable object with_retry method.
+
+            retry_if_exception_type: Optional[Tuple[Type[BaseException], ...]]
+                Exception types to retry on. If not provided, retries on all
+
+            wait_exponential_jitter: Optional[bool]
+                Whether to use exponential backoff with jitter. If not provided,
+                defaults to True
+
+            stop_after_attempt: Optional[int]
+                Number of attempts after which to stop retrying. If not provided,
+                defaults to 3
 
             Returns:
             --------
@@ -212,6 +232,32 @@ class BehavioralAssertion:
             llm_in_memory_rate_limiter = None
 
         self.llm = LLMFactory.create_llm(config, llm_in_memory_rate_limiter)
+
+        langchain_with_retry = langchain_with_retry or os.getenv('LANGCHAIN_WITH_RETRY', 'False').lower() == 'true'
+
+        if langchain_with_retry:
+
+            # TODO: Think through whether to allow env config for retry_if_exception_type
+
+            retry_if_exception_type = retry_if_exception_type if retry_if_exception_type is not None else (Exception, )
+            wait_exponential_jitter = wait_exponential_jitter if wait_exponential_jitter is not None else (
+                os.getenv('ASSERTER_WAIT_EXPONENTIAL_JITTER', 'True').lower()
+            )
+            stop_after_attempt = stop_after_attempt if stop_after_attempt is not None else (
+                os.getenv('ASSERTER_STOP_AFTER_ATTEMPT', '3')
+            )
+
+            self.retry_config = WithRetryConfigValidator.validate(
+                retry_if_exception_type=retry_if_exception_type,
+                wait_exponential_jitter=wait_exponential_jitter,
+                stop_after_attempt=stop_after_attempt
+            )
+
+            self.llm = self.llm.with_retry(
+                retry_if_exception_type=self.retry_config.retry_if_exception_type,
+                wait_exponential_jitter=self.retry_config.wait_exponential_jitter,
+                stop_after_attempt=self.retry_config.stop_after_attempt
+            )
 
     @catch_llm_errors
     def assert_behavioral_match(
