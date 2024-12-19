@@ -46,7 +46,7 @@ class BehavioralAssertion:
             rate_limiter_requests_per_second: Optional[float] = None,
             rate_limiter_check_every_n_seconds: Optional[float] = None,
             rate_limiter_max_bucket_size: Optional[float] = None,
-            langchain_with_retry: Optional[bool] = False,
+            langchain_with_retry: Optional[bool] = None,
             retry_if_exception_type: Optional[Tuple[Type[BaseException], ...]] = None,
             wait_exponential_jitter: Optional[bool] = None,
             stop_after_attempt: Optional[int] = None
@@ -219,9 +219,11 @@ class BehavioralAssertion:
 
         self.llm = LLMFactory.create_llm(config, llm_in_memory_rate_limiter)
 
+        langchain_with_retry = langchain_with_retry or os.getenv('LANGCHAIN_WITH_RETRY', 'False').lower() == 'true'
+
         if langchain_with_retry:
 
-            # TODO: Figure out how to resolve configs for this in line with the config resolution hierarchy
+            # TODO: Figure out how to resolve configs for this in line with the config resolution hierarchy - might have a little problem with exception types
 
             retry_config = WithRetryConfigValidator.validate(
                 WithRetryConfig(
