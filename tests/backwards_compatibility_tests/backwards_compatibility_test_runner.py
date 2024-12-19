@@ -26,7 +26,8 @@ def run_semantic_tests():
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_basic.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_complex.py"),
         str(test_dir / "test_semantic_assert" / "test_semantic_assert_ridiculous.py"),
-        str(test_dir / "test_semantic_assert" / "test_semantic_assert_real_world.py")
+        str(test_dir / "test_semantic_assert" / "test_semantic_assert_real_world.py"),
+        str(test_dir / "test_with_retry" / "test_with_retry.py")
     ]
 
     args = [
