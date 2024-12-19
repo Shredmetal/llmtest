@@ -220,7 +220,7 @@ class BehavioralAssertion:
             timeout=timeout
         )
 
-        use_rate_limiter = use_rate_limiter or os.getenv('USE_RATE_LIMITER', 'True').lower() == 'true'
+        use_rate_limiter = use_rate_limiter or os.getenv('USE_RATE_LIMITER', 'False').lower() == 'true'
 
         if use_rate_limiter:
             llm_in_memory_rate_limiter = LLMInMemoryRateLimiter(
