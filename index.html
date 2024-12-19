@@ -1554,18 +1554,18 @@ Similarly, llm_app_test helps you test your application's use of LLMs.</p>
 </ul>
 <h2 id="due-to-the-number-of-downloads-i-am-seeing-on-pypistatsorg-i-am-including-these-instructions-in-case-a-beta-update-breaks-something-on-your-end">Due to the number of downloads I am seeing on pypistats.org, I am including these instructions in case a beta update breaks something on your end:</h2>
 <h3 id="emergency-rollback-instructions">Emergency Rollback Instructions</h3>
-<p>If you experience issues with version 0.2.0b2, you can roll back to the previous stable version (0.2.0b1) using one of these methods:</p>
+<p>If you experience issues with version 0.2.0b3, you can roll back to the previous stable version (0.2.0b2) using one of these methods:</p>
 <h4 id="method-1-direct-installation-of-previous-version">Method 1: Direct Installation of Previous Version</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip uninstall llm-app-test 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip install llm-app-test==0.2.0b1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip install llm-app-test==0.2.0b2
 </code></pre></div>
 <h4 id="method-2-force-reinstall-if-method-1-fails">Method 2: Force Reinstall (if Method 1 fails)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install --force-reinstall llm-app-test==0.2.0b1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install --force-reinstall llm-app-test==0.2.0b2
 </code></pre></div>
 <h4 id="verification">Verification</h4>
 <p>After rolling back, verify the installation:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>import llm_app_test 
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>print(llm_app_test.version) # Should show 0.2.0b1
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>print(llm_app_test.version) # Should show 0.2.0b2
 </code></pre></div></p>
 <h2 id="important-note-about-rate-limits-if-running-large-numbers-of-tests">⚠️ Important Note About Rate Limits - If Running Large Numbers of Tests:</h2>
 <h3 id="anthropic-rate-limits">Anthropic Rate limits:</h3>

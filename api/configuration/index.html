@@ -1197,27 +1197,36 @@
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>RATE_LIMITER_REQUESTS_PER_SECOND=4.0 # Sets maximum request per second, default is 1.0
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>RATE_LIMITER_CHECK_EVERY_N_SECONDS=0.2 # Sets interval to check rate limit (seconds), default is 0.1
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>RATE_LIMITER_MAX_BUCKET_SIZE=10.0 # Sets maximum bucket size for rate limiting, default is 1.0
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>LANGCHAIN_WITH_RETRY=true # Sets whether to use Langchain&#39;s with_retry method for Runnable objects, default is false
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>ASSERTER_WAIT_EXPONENTIAL_JITTER=true # Set whether to use exponential backoff with jitter for the with_retry method, default is true
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>ASSERTER_STOP_AFTER_ATTEMPT=3 # Set how many times to retry before stopping for the with_retry method, default is 3
 </code></pre></div>
 For rate limiting, please refer to the specific documentation on the <a href="../rate-limiter/">rate limiter</a></p>
 <h2 id="direct-configuration">Direct Configuration</h2>
 <p>You can also configure llm_app_test programmatically:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">llm_app_test.behavioral_assert.behavioral_assert</span> <span class="kn">import</span> <span class="n">BehavioralAssertion</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>asserter = BehavioralAssertion(
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    api_key=&quot;your-api-key&quot;, # Strongly advised against, use env vars
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    provider=&quot;openai&quot;, # or &#39;anthropic&#39;
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    model=&quot;gpt-4o&quot;, # See Supported Models
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    temperature=0.0, # Default: 0.0
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    max_tokens=4096, # Default: 4096
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    max_retries=2, # Default: 2
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    timeout=60.0, # Default: 60.0
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    use_rate_limiter=False, # Enable/disable rate limiting
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    rate_limiter_requests_per_second=1.0, # Requests per second for rate limiting
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    rate_limiter_check_every_n_seconds=0.1, # Interval to check rate limit
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    rate_limiter_max_bucket_size=1.0 # Maximum bucket size for rate limiting
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">asserter</span> <span class="o">=</span> <span class="n">BehavioralAssertion</span><span class="p">(</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="c1"># Strongly advised against, use env vars</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="c1"># or &#39;anthropic&#39;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span> <span class="c1"># See Supported Models</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="c1"># Default: 0.0</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="c1"># Default: 4096</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">max_retries</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># Default: 2</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span> <span class="c1"># Default: 60.0</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">use_rate_limiter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Enable/disable rate limiting</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">rate_limiter_requests_per_second</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="c1"># Requests per second for rate limiting</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">rate_limiter_check_every_n_seconds</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="c1"># Interval to check rate limit</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">rate_limiter_max_bucket_size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="c1"># Maximum bucket size for rate limiting</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="n">langchain_with_retry</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">retry_if_exception_type</span><span class="o">=</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,),</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">wait_exponential_jitter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">stop_after_attempt</span><span class="o">=</span><span class="mi">5</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">)</span>
 </code></pre></div>
 An optional parameter for BehavioralAssertion is <code>custom_prompts</code>, see <a href="../custom-prompt-configuration/">this page</a> for details.</p>
+<p>You will note that <code>retry_if_exception_type</code> can only be configured from the <code>BehavioralAssertion</code> constructor. Please refer to the <a href="../behavioral-assertion/">BehavioralAssertion</a> page for the rationale.</p>
+<p>You may also be wondering why we added support for this: Simply put, we found the <code>max_retries</code> does not seem to do what we thought it did, especially with ChatAnthropic which was giving us 529 errors when we threw lots of API calls at it in a short span of time.</p>
 <h2 id="supported-and-recommended-models">Supported (and recommended) Models</h2>
 <p>Model support is restricted due to the complex behavioral reasoning required for accurate testing. We've found that only the most advanced models can reliably handle behavioral comparison tasks.</p>
 <h3 id="openai">OpenAI</h3>
@@ -1232,19 +1241,19 @@ An optional parameter for BehavioralAssertion is <code>custom_prompts</code>, se
 </ul>
 <p><strong>Note</strong>: GPT-4o is our recommended model because it was what we used to validate reliability, and has demonstrated a level of pedantry and literalism that we find is best for a testing system.</p>
 <h2 id="custom-llm-configuration-advanced-users-only">Custom LLM Configuration (Advanced Users Only)</h2>
-<p>While it's possible to inject a custom LLM using Langchain's <code>BaseLanguageModel</code>, this is strongly discouraged unless you have extensively tested your model's behavioral reasoning capabilities. Smaller or less capable models will likely fail at the behavioral testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># Advanced usage - Only for thoroughly tested models
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>from llm_app_test.behavioral_assert.behavioral_assert import BehavioralAssertion
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>from langchain_core.language_models import BaseLanguageModel
+<p>While it's possible to inject a custom LLM using Langchain's <code>Runnable</code>, this is strongly discouraged unless you have extensively tested your model's behavioral reasoning capabilities. Smaller or less capable models will likely fail at the behavioral testing tasks. If you happen to have a datacenter in your back pocket however, Llama 3.1:405B might be a good bet.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Advanced usage - Only for thoroughly tested models</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">llm_app_test.behavioral_assert.behavioral_assert</span> <span class="kn">import</span> <span class="n">BehavioralAssertion</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">langchain_core.runnables</span> <span class="kn">import</span> <span class="n">Runnable</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>custom_llm: BaseLanguageModel = your_custom_llm
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>asserter = BehavioralAssertion(llm=custom_llm)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">custom_llm</span><span class="p">:</span> <span class="n">Runnable</span> <span class="o">=</span> <span class="n">your_custom_llm</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">asserter</span> <span class="o">=</span> <span class="n">BehavioralAssertion</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">custom_llm</span><span class="p">)</span>
 </code></pre></div>
 <p>If you pass in a custom llm, it will disable <strong>ALL</strong> other LLM configuration options, and you have to configure that LLM yourself.</p>
 <h2 id="configuration-priority">Configuration Priority</h2>
 <p>Configuration values are resolved in this order:</p>
 <ol>
-<li>Custom LLM (if provided, disables <strong>ALL</strong> other LLM settings and uses the settings of the Langchain BaseLanguageModel object that you have passed)</li>
+<li>Custom LLM (if provided, disables <strong>ALL</strong> other LLM settings and uses the settings of the Langchain Runnable object that you have passed)</li>
 <li>Directly passed parameters</li>
 <li>Environment variables</li>
 <li>Default values</li>
@@ -1256,7 +1265,7 @@ An optional parameter for BehavioralAssertion is <code>custom_prompts</code>, se
 <li>Keep temperature at 0.0 for consistent testing</li>
 <li>Use default max_tokens unless you have specific needs</li>
 <li>Start with default max_retries (2)</li>
-<li>Stick with frontier models for the best results. This library is completely untested with anything other than frontier models.</li>
+<li>Stick with foundation models for the best results. This library is completely untested with anything other than foundation models.</li>
 </ol>
 <hr />
 <h2 id="navigation">Navigation</h2>

@@ -1165,19 +1165,24 @@
 <h1 id="behavioralassertion">BehavioralAssertion</h1>
 <p>Core class for behavioral testing of LLM applications.</p>
 <h2 id="constructor">Constructor</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">BehavioralAssertion</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                    <span class="n">llm</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseLanguageModel</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                    <span class="n">provider</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                    <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                    <span class="n">temperature</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                    <span class="n">max_tokens</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">BehavioralAssertion</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                    <span class="n">llm</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Runnable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                    <span class="n">provider</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">LLMProvider</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                    <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                    <span class="n">temperature</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                    <span class="n">max_tokens</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                    <span class="n">max_retries</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    <span class="n">custom_prompts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AsserterPromptConfigurator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">),</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    <span class="n">use_rate_limiter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    <span class="n">rate_limiter_requests_per_second</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> 
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                    <span class="n">rate_limiter_check_every_n_seconds</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                    <span class="n">rate_limiter_max_bucket_size</span><span class="o">=</span><span class="mf">1.0</span> 
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    <span class="n">custom_prompts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AsserterPromptConfigurator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    <span class="n">use_rate_limiter</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    <span class="n">rate_limiter_requests_per_second</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                    <span class="n">rate_limiter_check_every_n_seconds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                    <span class="n">rate_limiter_max_bucket_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                    <span class="n">langchain_with_retry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                    <span class="n">retry_if_exception_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">],</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                    <span class="n">wait_exponential_jitter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                    <span class="n">stop_after_attempt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                    <span class="p">)</span>
 </code></pre></div>
 <h3 id="parameters">Parameters</h3>
 <p>All parameters are optional (except for API key) and will use environment variables or defaults if not specified:</p>
@@ -1191,7 +1196,7 @@
 </ul>
 </li>
 <li>
-<p><strong>llm</strong>: Pre-configured LLM instance (must be of type <code>langchain_core.language_models import BaseLanguageModel</code>)</p>
+<p><strong>llm</strong>: Pre-configured LLM instance (must be of type <code>from langchain_core.runnables import Runnable</code>)</p>
 <ul>
 <li>Default: None (if provided, bypasses all other configuration)</li>
 </ul>
@@ -1285,6 +1290,41 @@
 <ul>
 <li>Environment: RATE_LIMITER_MAX_BUCKET_SIZE</li>
 <li>Default: 1.0</li>
+</ul>
+</li>
+<li>
+<p><strong>langchain_with_retry</strong>: Enable or disable Langchain's with_retry functionality</p>
+<ul>
+<li>Environment: LANGCHAIN_WITH_RETRY</li>
+<li>Default: False</li>
+</ul>
+</li>
+<li>
+<p><strong>retry_if_exception_type</strong>: Exception types to retry on</p>
+<ul>
+<li>Default: (Exception,)</li>
+<li>Only used if langchain_with_retry is True</li>
+<li>Must be explicitly set in the constructor for custom exception types</li>
+<li>Example: <code>retry_if_exception_type=(ValueError, TypeError)</code></li>
+</ul>
+</li>
+</ul>
+<p>Note: Currently, exception types cannot be configured via environment variables and must be explicitly set in the BehavioralAssertion constructor when custom exception handling is required. This decision was made to prioritize clarity, reduce complexity, and avoid potential misconfigurations. Parsing exception types from strings can be error-prone and may lead to unexpected behavior. However, we recognize that environment variable configuration could provide additional flexibility in some use cases. We may consider adding this feature in the future if there is significant demand and we can implement it in a robust manner.</p>
+<ul>
+<li>
+<p><strong>wait_exponential_jitter</strong>: Whether to use exponential backoff with jitter for retries</p>
+<ul>
+<li>Environment: ASSERTER_WAIT_EXPONENTIAL_JITTER</li>
+<li>Default: True</li>
+<li>Only used if langchain_with_retry is True</li>
+</ul>
+</li>
+<li>
+<p><strong>stop_after_attempt</strong>: Number of retry attempts before stopping</p>
+<ul>
+<li>Environment: ASSERTER_STOP_AFTER_ATTEMPT</li>
+<li>Default: 3</li>
+<li>Only used if langchain_with_retry is True</li>
 </ul>
 </li>
 </ul>
