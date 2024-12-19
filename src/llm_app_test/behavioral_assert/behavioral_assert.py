@@ -241,24 +241,22 @@ class BehavioralAssertion:
 
             retry_if_exception_type = retry_if_exception_type if retry_if_exception_type is not None else (Exception, )
             wait_exponential_jitter = wait_exponential_jitter if wait_exponential_jitter is not None else (
-                os.getenv('ASSERTER_WAIT_EXPONENTIAL_JITTER', 'False').lower()
+                os.getenv('ASSERTER_WAIT_EXPONENTIAL_JITTER', 'True').lower()
             )
             stop_after_attempt = stop_after_attempt if stop_after_attempt is not None else (
                 os.getenv('ASSERTER_STOP_AFTER_ATTEMPT', '3')
             )
 
-            retry_config = WithRetryConfigValidator.validate(
-                WithRetryConfig(
-                    retry_if_exception_type=retry_if_exception_type,
-                    wait_exponential_jitter=wait_exponential_jitter,
-                    stop_after_attempt=stop_after_attempt
-                )
+            self.retry_config = WithRetryConfigValidator.validate(
+                retry_if_exception_type=retry_if_exception_type,
+                wait_exponential_jitter=wait_exponential_jitter,
+                stop_after_attempt=stop_after_attempt
             )
 
             self.llm = self.llm.with_retry(
-                retry_if_exception_type=retry_config.retry_if_exception_type,
-                wait_exponential_jitter=retry_config.wait_exponential_jitter,
-                stop_after_attempt=retry_config.stop_after_attempt
+                retry_if_exception_type=self.retry_config.retry_if_exception_type,
+                wait_exponential_jitter=self.retry_config.wait_exponential_jitter,
+                stop_after_attempt=self.retry_config.stop_after_attempt
             )
 
     @catch_llm_errors
