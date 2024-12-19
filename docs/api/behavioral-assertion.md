@@ -8,19 +8,24 @@ Core class for behavioral testing of LLM applications.
 
 ```python
 
-BehavioralAssertion(api_key: Optional[str] = None, 
-                    llm: Optional[BaseLanguageModel] = None, 
-                    provider: Optional[Union[str, LLMProvider]] = None, 
-                    model: Optional[str] = None, 
-                    temperature: Optional[float] = None, 
-                    max_tokens: Optional[int] = None, 
+BehavioralAssertion(api_key: Optional[str] = None,
+                    llm: Optional[Runnable] = None,
+                    provider: Optional[Union[str, LLMProvider]] = None,
+                    model: Optional[str] = None,
+                    temperature: Optional[float] = None,
+                    max_tokens: Optional[int] = None,
                     max_retries: Optional[int] = None,
                     timeout: Optional[float] = None,
-                    custom_prompts: Optional[AsserterPromptConfigurator] = None),
-                    use_rate_limiter=False,
-                    rate_limiter_requests_per_second=1.0, 
-                    rate_limiter_check_every_n_seconds=0.1, 
-                    rate_limiter_max_bucket_size=1.0 
+                    custom_prompts: Optional[AsserterPromptConfigurator] = None,
+                    use_rate_limiter: bool = False,
+                    rate_limiter_requests_per_second: Optional[float] = None,
+                    rate_limiter_check_every_n_seconds: Optional[float] = None,
+                    rate_limiter_max_bucket_size: Optional[float] = None,
+                    langchain_with_retry: Optional[bool] = None,
+                    retry_if_exception_type: Optional[Tuple[Type[BaseException], ...]] = None,
+                    wait_exponential_jitter: Optional[bool] = None,
+                    stop_after_attempt: Optional[int] = None
+                    )
 ```
 
 
@@ -34,7 +39,7 @@ All parameters are optional (except for API key) and will use environment variab
     - Default: None (must be provided via environment or parameter unless using custom LLM, see `llm` parameter)
     - If using default provider: use OPENAI_API_KEY since default provider is openai
 
-- **llm**: Pre-configured LLM instance (must be of type `langchain_core.language_models import BaseLanguageModel`)
+- **llm**: Pre-configured LLM instance (must be of type `from langchain_core.runnables import Runnable`)
     
     - Default: None (if provided, bypasses all other configuration)
 
@@ -95,6 +100,32 @@ All parameters are optional (except for API key) and will use environment variab
 
     - Environment: RATE_LIMITER_MAX_BUCKET_SIZE
     - Default: 1.0
+
+- **langchain_with_retry**: Enable or disable Langchain's with_retry functionality
+
+    - Environment: LANGCHAIN_WITH_RETRY
+    - Default: False
+
+- **retry_if_exception_type**: Exception types to retry on
+
+    - Default: (Exception,)
+    - Only used if langchain_with_retry is True
+    - Must be explicitly set in the constructor for custom exception types
+    - Example: `retry_if_exception_type=(ValueError, TypeError)`
+
+Note: Currently, exception types cannot be configured via environment variables and must be explicitly set in the BehavioralAssertion constructor when custom exception handling is required. This decision was made to prioritize clarity, reduce complexity, and avoid potential misconfigurations. Parsing exception types from strings can be error-prone and may lead to unexpected behavior. However, we recognize that environment variable configuration could provide additional flexibility in some use cases. We may consider adding this feature in the future if there is significant demand and we can implement it in a robust manner.
+
+- **wait_exponential_jitter**: Whether to use exponential backoff with jitter for retries
+
+    - Environment: ASSERTER_WAIT_EXPONENTIAL_JITTER
+    - Default: True
+    - Only used if langchain_with_retry is True
+
+- **stop_after_attempt**: Number of retry attempts before stopping
+
+    - Environment: ASSERTER_STOP_AFTER_ATTEMPT
+    - Default: 3
+    - Only used if langchain_with_retry is True
 
 ## Methods
 
