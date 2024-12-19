@@ -1,7 +1,7 @@
 import functools
 import sys
 import warnings
-from typing import Optional, Union
+from typing import Optional, Union, Tuple, Type
 
 from langchain_core.language_models import BaseLanguageModel
 
@@ -50,7 +50,11 @@ class SemanticAssertion(BehavioralAssertion):
             use_rate_limiter: bool = False,
             rate_limiter_requests_per_second: Optional[float] = None,
             rate_limiter_check_every_n_seconds: Optional[float] = None,
-            rate_limiter_max_bucket_size: Optional[float] = None
+            rate_limiter_max_bucket_size: Optional[float] = None,
+            langchain_with_retry: Optional[bool] = None,
+            retry_if_exception_type: Optional[Tuple[Type[BaseException], ...]] = None,
+            wait_exponential_jitter: Optional[bool] = None,
+            stop_after_attempt: Optional[int] = None
     ):
         """
             Initializes an object with configuration parameters for interacting with
@@ -103,7 +107,11 @@ class SemanticAssertion(BehavioralAssertion):
             use_rate_limiter,
             rate_limiter_requests_per_second,
             rate_limiter_check_every_n_seconds,
-            rate_limiter_max_bucket_size
+            rate_limiter_max_bucket_size,
+            langchain_with_retry,
+            retry_if_exception_type,
+            wait_exponential_jitter,
+            stop_after_attempt
         )
 
     @deprecated
