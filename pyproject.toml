@@ -1,6 +1,6 @@
 [project]
 name = "llm_app_test"
-version = "0.2.0b2"
+version = "0.2.0b3"
 description = "A behavioral testing library for LLM applications that allows developers to write natural language specifications for unit and integration tests. Validate LLM application behavior using plain English assertions in a simple assert(str, str) form factor."
 requires-python = ">=3.10"
 readme = "README.md"
