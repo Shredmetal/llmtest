@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.0b3] - 2024-12-20
+## [0.2.0b3] - 2024-12-19
 
 ### Added
 - Support for Langchain's `with_retry` functionality
@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Changed `llm` parameter in `BehavioralAssertion` to accept `Runnable` instead of `BaseLanguageModel` to prevent IDE warnings when passing in `ChatOpenAI().with_retry()`
 
 ### Fixed
-- Addressed issues with `max_retries` not functioning as expected, especially with ChatAnthropic API
+- None
 
 ### Deprecated
 - None
