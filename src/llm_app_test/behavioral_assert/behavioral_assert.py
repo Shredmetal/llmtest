@@ -221,6 +221,8 @@ class BehavioralAssertion:
 
         if langchain_with_retry:
 
+            # TODO: Figure out how to resolve configs for this in line with the config resolution hierarchy
+
             retry_config = WithRetryConfigValidator.validate(
                 WithRetryConfig(
                     retry_if_exception_type=retry_if_exception_type,
