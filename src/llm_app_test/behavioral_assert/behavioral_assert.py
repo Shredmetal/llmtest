@@ -114,6 +114,20 @@ class BehavioralAssertion:
                 The maximum bucket size for rate limiting. Determines the
                 number of requests that can be queued momentarily.
 
+            langchain_with_retry: Optional[bool] = None
+                Whether to use the Langchain Runnable object with_retry method.
+
+            retry_if_exception_type: Optional[Tuple[Type[BaseException], ...]]
+                Exception types to retry on. If not provided, retries on all
+
+            wait_exponential_jitter: Optional[bool]
+                Whether to use exponential backoff with jitter. If not provided,
+                defaults to True
+
+            stop_after_attempt: Optional[int]
+                Number of attempts after which to stop retrying. If not provided,
+                defaults to 3
+
             Returns:
             --------
             None
@@ -206,7 +220,7 @@ class BehavioralAssertion:
             timeout=timeout
         )
 
-        use_rate_limiter = use_rate_limiter or os.getenv('USE_RATE_LIMITER', 'False').lower() == 'true'
+        use_rate_limiter = use_rate_limiter or os.getenv('USE_RATE_LIMITER', 'True').lower() == 'true'
 
         if use_rate_limiter:
             llm_in_memory_rate_limiter = LLMInMemoryRateLimiter(
